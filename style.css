@@ -288,22 +288,61 @@ table.history-table .h-lunar-tag{
 .h-del:hover{ color:var(--brick); }
 .history-empty{ font-size:12px; color:var(--ink-faint); text-align:center; padding:16px 0; }
 
+/* ---------- 계산기 상세 페이지 - 다른 계산기 검색 ---------- */
+.mini-search-wrap{
+  position:relative; max-width:var(--maxw); margin:14px auto 0; padding:0 20px;
+}
+.mini-search{
+  display:flex; align-items:center; gap:8px;
+  background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px;
+}
+.mini-search-icon{ font-size:13px; opacity:0.6; }
+.mini-search input{
+  flex:1; border:none; background:transparent; font-family:inherit; font-size:13px; color:var(--ink); outline:none;
+}
+.mini-search input::placeholder{ color:var(--ink-faint); }
+.mini-search-results{
+  display:none; position:absolute; left:20px; right:20px; top:calc(100% + 6px);
+  background:#fff; border:1px solid var(--line); border-radius:12px;
+  box-shadow:0 12px 28px -12px rgba(42,33,24,0.35); max-height:280px; overflow-y:auto; z-index:30;
+}
+.mini-search-results.open{ display:block; }
+.mini-search-item{
+  display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+  border-bottom:1px solid var(--line-soft); transition:background .12s ease;
+}
+.mini-search-item:last-child{ border-bottom:none; }
+.mini-search-item:hover{ background:var(--line-soft); }
+.mini-search-item.disabled{ opacity:0.55; pointer-events:none; }
+.ms-emoji{ font-size:17px; flex-shrink:0; }
+.ms-text{ display:flex; flex-direction:column; gap:2px; }
+.ms-title{ font-size:12.5px; font-weight:700; color:var(--ink); }
+.ms-title em{ font-style:normal; font-weight:400; color:var(--ink-faint); font-size:11px; }
+.ms-desc{ font-size:11px; color:var(--ink-soft); line-height:1.4; }
+.mini-search-empty{ padding:14px; text-align:center; font-size:12px; color:var(--ink-faint); }
+
 /* ---------- 연도별 표 ---------- */
 .year-table-wrap{
-  max-height:480px; overflow:auto; border:1px solid var(--line); border-radius:12px; margin-top:14px;
+  overflow-x:auto; border:1px solid var(--line); border-radius:12px; margin-top:14px;
 }
-table.year-table{ width:100%; border-collapse:collapse; font-size:12px; white-space:nowrap; }
+table.year-table{
+  border-collapse:collapse; table-layout:fixed; min-width:460px; width:100%; font-size:12.5px;
+}
+table.year-table th, table.year-table td{
+  border:1px solid var(--line); padding:8px 6px; text-align:center; white-space:nowrap;
+}
 table.year-table thead th{
   position:sticky; top:0; background:var(--indigo); color:#F6EFDD;
-  font-size:11px; font-weight:700; padding:9px 10px; text-align:left; z-index:1;
+  font-size:11px; font-weight:700; z-index:1;
 }
-table.year-table tbody td{
-  padding:7px 10px; border-bottom:1px solid var(--line-soft); color:var(--ink);
+table.year-table tbody td:first-child{
+  font-weight:700; color:var(--indigo); background:rgba(184,146,63,0.08);
 }
 table.year-table tbody tr:nth-child(even){ background:rgba(225,212,176,0.18); }
 table.year-table tbody tr.y-highlight td{
-  background:rgba(184,146,63,0.16); font-weight:700; color:var(--brick);
+  background:rgba(184,146,63,0.2) !important; font-weight:700; color:var(--brick);
 }
+.year-table-scroll-inner{ max-height:480px; overflow-y:auto; }
 .cal-type-toggle{ display:flex; gap:6px; margin:6px 0 14px; }
 .cal-type-toggle input{ display:none; }
 .cal-type-toggle label{
