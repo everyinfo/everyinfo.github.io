@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>환갑 계산기 | 계산기서랍</title>
+<meta name="description" content="생년월일을 입력하면 환갑(세는나이 61세) 날짜와 D-Day, 진갑·고희·팔순 등 전통 나이 이정표를 한 번에 계산해드립니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
+    <div class="nav-links">
+      <a href="/index.html#일상" class="active">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#건강">건강</a>
+      <a href="/index.html#학교">학교</a>
+      <a href="/index.html#직장">직장</a>
+      <a href="/index.html#부동산">부동산</a>
+      <a href="/index.html#단위변환">단위변환</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/index.html">일상</a> › 환갑 계산기
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">일상 · 경조사</span>
+  <h1 class="page-title">🎊 환갑 계산기</h1>
+  <p class="page-desc">생년월일을 넣으면 <strong style="color:var(--ink)">환갑(세는나이 61세)</strong> 날짜와 D-Day, 그리고 진갑·고희·팔순 등 전통 나이 이정표를 한 번에 확인할 수 있어요.</p>
+</div>
+
+<div class="calc-card">
+  <div class="card">
+    <div class="field">
+      <label for="bday">생년월일 <span style="font-weight:400;color:var(--ink-soft);">· 숫자만 입력해도 자동 완성</span></label>
+      <div class="input-row">
+        <input type="text" id="bday" inputmode="numeric" placeholder="예: 19911225" maxlength="10" autocomplete="off">
+      </div>
+    </div>
+    <button class="calc" onclick="calc()">환갑 계산하기</button>
+    <p class="error" id="err">생년월일을 입력해 주세요.</p>
+
+    <div id="result" style="display:none;">
+      <div class="headline-result" style="text-align:center;margin-bottom:22px;">
+        <div class="name" style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">환갑(還甲) 날짜</div>
+        <div class="date" id="hwangapDate" style="font-family:'Song Myung',serif;font-size:26px;color:var(--indigo);">-</div>
+        <div class="dday" id="dday" style="display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--brick);background:rgba(166,61,47,0.08);padding:4px 10px;border-radius:999px;">-</div>
+      </div>
+
+      <div class="ring-wrap">
+        <svg viewBox="0 0 300 300">
+          <circle class="track" cx="150" cy="150" r="120"></circle>
+          <circle class="progress" id="progressRing" cx="150" cy="150" r="120"></circle>
+        </svg>
+        <div class="center-label">
+          <div class="age" id="curAge">-</div>
+          <div class="age-cap">현재 만 나이</div>
+        </div>
+        <div id="ticks"></div>
+      </div>
+
+      <div class="milestones">
+        <h2>전통 나이 이정표</h2>
+        <div id="mList"></div>
+      </div>
+
+      <div class="action-row">
+        <button onclick="copyResult()" id="copyBtn">결과 복사</button>
+        <button onclick="copyLink()" id="linkBtn">페이지 링크 복사</button>
+      </div>
+      <p class="foot-note">전통적으로 세는 나이(태어난 해를 1세로 계산) 기준이며,<br>가족·지역에 따라 계산 방식이 다를 수 있어요.</p>
+    </div>
+  </div>
+</div>
+
+<div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
+
+<div class="article">
+  <h2>환갑이란?</h2>
+  <p>환갑(還甲)은 태어난 해의 간지(干支)가 60년 만에 다시 돌아온다는 뜻으로, 세는나이 61세가 되는 해를 이릅니다. 육십갑자(六十甲子)가 한 바퀴를 완전히 돌아 제자리로 온다는 의미에서 "돌아올 환(還)" 자를 써요. 예로부터 육십갑자를 다 채우고 다시 새로운 갑자를 맞는다는 것 자체가 드문 장수의 증표였기 때문에, 환갑은 가족이 모여 크게 축하하는 전통 행사로 자리 잡았습니다.</p>
+
+  <h2>환갑과 진갑, 무엇이 다를까요?</h2>
+  <p>환갑 바로 다음 해, 즉 세는나이 62세가 되는 해는 <strong>진갑(進甲)</strong>이라 부릅니다. 새로운 갑자를 향해 나아간다는 뜻이에요. 과거에는 환갑잔치를 이틀에 걸쳐 치르며 첫날을 환갑, 이튿날을 진갑으로 구분해 지내기도 했습니다.</p>
+  <ul>
+    <li><strong>환갑(還甲)</strong> — 세는나이 61세, 태어난 해의 간지가 처음으로 다시 돌아오는 해</li>
+    <li><strong>진갑(進甲)</strong> — 세는나이 62세, 환갑 이듬해</li>
+    <li><strong>고희(古稀)</strong> — 세는나이 70세, 두보의 시 구절 "인생칠십고래희"에서 유래</li>
+  </ul>
+
+  <h2>이럴 때 환갑 계산기가 유용해요</h2>
+  <ul>
+    <li>부모님이나 어르신 환갑잔치 날짜 잡기</li>
+    <li>가족 모임이 가능한 주말로 잔치 일정 조율하기</li>
+    <li>초대장이나 현수막에 들어갈 정확한 날짜·D-Day 확인</li>
+    <li>진갑·고희 등 다음 이정표까지 얼마나 남았는지 미리 파악하기</li>
+  </ul>
+</div>
+
+<div class="divider"></div>
+<div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
+
+<footer>
+  <div class="f-brand">계산기서랍</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/index.html">전체 계산기</a><a href="#">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 계산기서랍. All rights reserved.</div>
+</footer>
+
+<script>
+const MILESTONES = [
+  { age:61, name:'환갑', hanja:'還甲', desc:'태어난 해의 간지가 다시 돌아오는 해' },
+  { age:62, name:'진갑', hanja:'進甲', desc:'환갑 다음 해, 새 간지로 나아감' },
+  { age:70, name:'고희', hanja:'古稀', desc:'두보의 시에서 유래, 예부터 드문 나이' },
+  { age:77, name:'희수', hanja:'喜壽', desc:'喜의 초서체가 七十七처럼 보여 유래' },
+  { age:80, name:'산수', hanja:'傘壽', desc:'傘자를 파자하면 팔(八)과 십(十)' },
+  { age:88, name:'미수', hanja:'米壽', desc:'米자를 파자하면 팔십팔(八十八)' },
+  { age:90, name:'졸수', hanja:'卒壽', desc:'卒의 속자가 九와 十으로 이루어짐' },
+  { age:99, name:'백수', hanja:'白壽', desc:'百에서 一을 빼면 白, 즉 99' },
+  { age:100, name:'상수', hanja:'上壽', desc:'가장 윗자리의 장수, 백 년' },
+];
+
+const R = 120, CX = 150, CY = 150;
+const CIRC = 2 * Math.PI * R;
+
+function angleFor(age100){ return (age100/100) * 360 - 90; }
+function pointFor(age100, radius){
+  const rad = angleFor(age100) * Math.PI/180;
+  return { x: CX + radius*Math.cos(rad), y: CY + radius*Math.sin(rad) };
+}
+
+document.getElementById('bday').addEventListener('input', function(e){
+  const digits = e.target.value.replace(/\D/g, '').slice(0, 8);
+  let formatted = digits;
+  if(digits.length > 4) formatted = digits.slice(0,4) + '-' + digits.slice(4);
+  if(digits.length > 6) formatted = digits.slice(0,4) + '-' + digits.slice(4,6) + '-' + digits.slice(6);
+  e.target.value = formatted;
+});
+document.getElementById('bday').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') calc();
+});
+
+function parseBirthInput(val){
+  const m = val.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(!m) return null;
+  const y = +m[1], mo = +m[2], d = +m[3];
+  if(mo < 1 || mo > 12) return null;
+  const date = new Date(y, mo - 1, d);
+  if(date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return null;
+  if(y < 1900 || y > new Date().getFullYear()) return null;
+  return date;
+}
+
+function calcExactAge(birth, today){
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if(m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+  return age;
+}
+function fmtDate(d){ return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`; }
+
+function calc(){
+  const val = document.getElementById('bday').value;
+  const err = document.getElementById('err');
+  const birth = parseBirthInput(val);
+  if(!birth){
+    err.textContent = '생년월일 8자리(예: 19911225)를 정확히 입력해 주세요.';
+    err.style.display = 'block';
+    return;
+  }
+  err.style.display = 'none';
+
+  const today = new Date();
+  const exactAge = calcExactAge(birth, today);
+
+  const hwangap = new Date(birth);
+  hwangap.setFullYear(birth.getFullYear() + 60);
+  document.getElementById('hwangapDate').textContent = fmtDate(hwangap);
+
+  const diffDays = Math.round((hwangap - today) / 86400000);
+  const ddayEl = document.getElementById('dday');
+  if(diffDays > 0){ ddayEl.textContent = `D-${diffDays}`; }
+  else if(diffDays === 0){ ddayEl.textContent = '오늘이 환갑입니다 🎉'; }
+  else { ddayEl.textContent = `환갑으로부터 ${Math.abs(diffDays)}일 지남`; }
+
+  document.getElementById('curAge').textContent = exactAge;
+
+  const ring = document.getElementById('progressRing');
+  ring.style.strokeDasharray = CIRC;
+  const frac = Math.min(exactAge / 100, 1);
+  requestAnimationFrame(()=>{ ring.style.strokeDashoffset = CIRC - frac * CIRC; });
+
+  const ticksWrap = document.getElementById('ticks');
+  ticksWrap.innerHTML = '';
+  const NEAR_R = R + 20, FAR_R = R + 38;
+  let prevAngle = null;
+  MILESTONES.forEach(m=>{
+    const passed = exactAge >= m.age;
+    const dotP = pointFor(m.age, R);
+    let angle = angleFor(m.age) % 360;
+    if(angle < 0) angle += 360;
+    let labelRadius = NEAR_R;
+    if(prevAngle !== null){
+      let diff = Math.abs(angle - prevAngle);
+      diff = Math.min(diff, 360 - diff);
+      if(diff < 10) labelRadius = FAR_R;
+    }
+    prevAngle = angle;
+    const labelP = pointFor(m.age, labelRadius);
+
+    const dot = document.createElement('div');
+    dot.className = 'tick-dot' + (passed ? ' hit' : '');
+    dot.style.left = (dotP.x/300*100) + '%';
+    dot.style.top = (dotP.y/300*100) + '%';
+    ticksWrap.appendChild(dot);
+
+    const label = document.createElement('div');
+    label.className = 'tick-label' + (m.age===61 ? ' hit' : '');
+    label.textContent = m.age;
+    label.style.left = (labelP.x/300*100) + '%';
+    label.style.top = (labelP.y/300*100) + '%';
+    ticksWrap.appendChild(label);
+  });
+  if(exactAge <= 100){
+    const nowP = pointFor(exactAge, R);
+    const nowDot = document.createElement('div');
+    nowDot.className = 'tick-dot now';
+    nowDot.style.left = (nowP.x/300*100) + '%';
+    nowDot.style.top = (nowP.y/300*100) + '%';
+    ticksWrap.appendChild(nowDot);
+  }
+
+  const mList = document.getElementById('mList');
+  mList.innerHTML = '';
+  MILESTONES.forEach(m=>{
+    const d = new Date(birth);
+    d.setFullYear(birth.getFullYear() + (m.age - 1));
+    const passed = exactAge >= m.age;
+    const yearsLeft = m.age - exactAge;
+    const row = document.createElement('div');
+    row.className = 'm-row';
+    row.innerHTML = `
+      <div class="m-left">
+        <div class="m-name">${m.name}<span class="hanja">${m.hanja} · ${m.age}세</span></div>
+        <div class="m-desc">${m.desc}</div>
+      </div>
+      <div class="m-right">
+        <div class="m-year">${d.getFullYear()}년</div>
+        <div class="m-status ${passed ? 'passed' : ''}">${passed ? '지남' : yearsLeft + '년 후'}</div>
+      </div>
+    `;
+    mList.appendChild(row);
+  });
+
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function copyResult(){
+  const text = `환갑(還甲) 날짜: ${document.getElementById('hwangapDate').textContent} (${document.getElementById('dday').textContent})`;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('copyBtn');
+    const orig = btn.textContent;
+    btn.textContent = '복사됐어요 ✓';
+    setTimeout(()=>{ btn.textContent = orig; }, 1500);
+  });
+}
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    const btn = document.getElementById('linkBtn');
+    const orig = btn.textContent;
+    btn.textContent = '복사됐어요 ✓';
+    setTimeout(()=>{ btn.textContent = orig; }, 1500);
+  });
+}
+</script>
+</body>
+</html>

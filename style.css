@@ -1,0 +1,210 @@
+:root{
+  --paper:#F1E9D8;
+  --card:#FBF7EC;
+  --ink:#2A2118;
+  --ink-soft:#6B6050;
+  --ink-faint:#9A917F;
+  --indigo:#1F3C63;
+  --indigo-soft:#3A5A85;
+  --brick:#A63D2F;
+  --gold:#B8923F;
+  --line:#E1D4B0;
+  --line-soft:#EEE4CB;
+  --maxw:720px;
+  --maxw-wide:960px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  font-family:'Noto Sans KR', sans-serif;
+  color:var(--ink);
+  line-height:1.65;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky; top:0; z-index:40;
+  background:rgba(251,247,236,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw-wide); margin:0 auto;
+  display:flex; align-items:center; gap:28px;
+  padding:14px 20px;
+}
+.brand{ display:flex; align-items:center; gap:8px; font-weight:900; font-size:16px; color:var(--indigo); flex-shrink:0; }
+.brand .mark{
+  width:26px; height:26px; border-radius:50%;
+  background:conic-gradient(from 0deg, var(--gold), var(--brick), var(--indigo), var(--gold));
+  flex-shrink:0;
+}
+.nav-links{
+  display:flex; gap:20px; overflow-x:auto;
+  font-size:13.5px; font-weight:600; color:var(--ink-soft);
+  scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{ display:none; }
+.nav-links a{ white-space:nowrap; padding:4px 2px; border-bottom:2px solid transparent; }
+.nav-links a.active{ color:var(--indigo); border-color:var(--gold); }
+.nav-links a:hover{ color:var(--indigo); }
+
+/* ---------- SHARED LAYOUT ---------- */
+.container{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+.breadcrumb{
+  max-width:var(--maxw); margin:22px auto 0; padding:0 20px;
+  font-size:12px; color:var(--ink-faint);
+}
+.breadcrumb a:hover{ color:var(--indigo); }
+
+.hero-text{ max-width:var(--maxw); margin:0 auto; padding:26px 20px 4px; }
+.cat-tag{
+  display:inline-block; font-size:11.5px; font-weight:700; color:var(--indigo);
+  background:rgba(31,60,99,0.08); padding:4px 10px; border-radius:999px; margin-bottom:12px;
+}
+h1.page-title{
+  font-family:'Song Myung', serif;
+  font-size:30px; margin:0 0 10px; letter-spacing:0.01em;
+}
+.page-desc{ font-size:14.5px; color:var(--ink-soft); margin:0 0 4px; max-width:56ch; }
+
+/* ---------- CALCULATOR CARD (계산기 상세 페이지용) ---------- */
+.calc-card{ max-width:var(--maxw); margin:26px auto 0; padding:20px; }
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:32px 26px 26px;
+  box-shadow:0 1px 2px rgba(42,33,24,0.04), 0 12px 32px -18px rgba(42,33,24,0.35);
+}
+.field label{ display:block; font-size:12px; font-weight:600; color:var(--ink-soft); margin-bottom:7px; }
+.input-row{ display:flex; gap:8px; }
+.input-row input{
+  flex:1; min-width:0; padding:12px 14px;
+  border:1px solid var(--line); border-radius:10px;
+  background:#fff; font-family:inherit; font-size:15px; color:var(--ink);
+  outline:none; transition:border-color .15s ease, box-shadow .15s ease;
+}
+.input-row input:focus{ border-color:var(--indigo-soft); box-shadow:0 0 0 3px rgba(31,60,99,0.10); }
+button.calc{
+  width:100%; margin-top:14px; padding:13px 16px; border:none; border-radius:10px;
+  background:var(--indigo); color:#F6EFDD; font-family:inherit; font-size:15px; font-weight:700;
+  letter-spacing:0.02em; cursor:pointer; transition:background .15s ease, transform .05s ease;
+}
+button.calc:hover{ background:#183350; }
+button.calc:active{ transform:translateY(1px); }
+.error{ display:none; margin-top:10px; font-size:12.5px; color:var(--brick); }
+
+.ring-wrap{ position:relative; width:270px; max-width:100%; margin:0 auto 8px; }
+svg{ display:block; width:100%; height:auto; overflow:visible; }
+.track{ fill:none; stroke:var(--line-soft); stroke-width:10; }
+.progress{
+  fill:none; stroke:var(--gold); stroke-width:10; stroke-linecap:round;
+  transform:rotate(-90deg); transform-origin:150px 150px;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1);
+}
+.center-label{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:none; }
+.center-label .age{ font-family:'Song Myung', serif; font-size:34px; color:var(--ink); line-height:1; }
+.center-label .age-cap{ font-size:12px; color:var(--ink-soft); margin-top:4px; }
+.tick-label{ position:absolute; font-size:10.5px; font-weight:700; color:var(--ink-soft); transform:translate(-50%,-50%); white-space:nowrap; pointer-events:none; }
+.tick-label.hit{ color:var(--brick); }
+.tick-dot{ position:absolute; width:6px; height:6px; border-radius:50%; background:var(--line-soft); transform:translate(-50%,-50%); }
+.tick-dot.hit{ background:var(--brick); }
+.tick-dot.now{ width:11px; height:11px; background:var(--indigo); box-shadow:0 0 0 4px rgba(31,60,99,0.15); }
+
+.milestones{ margin-top:26px; border-top:1px dashed var(--line); padding-top:18px; }
+.milestones h2{ font-size:11px; letter-spacing:0.1em; color:var(--ink-soft); font-weight:700; margin:0 0 12px; }
+.m-row{ display:flex; align-items:baseline; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line-soft); gap:10px; }
+.m-row:last-child{ border-bottom:none; }
+.m-left{ display:flex; flex-direction:column; }
+.m-name{ font-size:14px; font-weight:600; color:var(--ink); }
+.m-name .hanja{ font-weight:400; color:var(--ink-soft); font-size:12px; margin-left:3px; }
+.m-desc{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+.m-right{ text-align:right; flex-shrink:0; }
+.m-year{ font-size:13.5px; font-weight:700; color:var(--indigo); }
+.m-status{ font-size:11px; color:var(--ink-soft); margin-top:2px; }
+.m-status.passed{ color:#9a917f; }
+
+.action-row{ display:flex; gap:8px; margin-top:22px; }
+.action-row button{
+  flex:1; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff;
+  color:var(--ink-soft); font-family:inherit; font-size:12.5px; font-weight:600; cursor:pointer;
+  transition:border-color .15s ease, color .15s ease;
+}
+.action-row button:hover{ border-color:var(--indigo-soft); color:var(--indigo); }
+.foot-note{ text-align:center; font-size:10.5px; color:var(--ink-faint); margin-top:16px; line-height:1.6; }
+
+/* ---------- AD SLOT ---------- */
+.ad-slot{ max-width:var(--maxw); margin:22px auto; padding:0 20px; }
+.ad-slot .box{
+  border:1px dashed var(--line); border-radius:12px;
+  padding:14px; text-align:center; font-size:11.5px; color:var(--ink-faint);
+  background:rgba(255,255,255,0.4);
+}
+
+/* ---------- ARTICLE ---------- */
+.article{ max-width:var(--maxw); margin:10px auto 0; padding:24px 20px 10px; }
+.article h2{ font-family:'Song Myung', serif; font-size:20px; margin:34px 0 10px; color:var(--ink); }
+.article h2:first-child{ margin-top:0; }
+.article p{ font-size:14px; color:var(--ink-soft); margin:0 0 12px; }
+.article ul{ margin:0 0 14px; padding-left:20px; }
+.article li{ font-size:14px; color:var(--ink-soft); margin-bottom:6px; }
+.article strong{ color:var(--ink); }
+.divider{ height:1px; background:var(--line); max-width:var(--maxw); margin:8px auto; }
+
+/* ---------- HOME PAGE ---------- */
+.home-hero{ max-width:var(--maxw-wide); margin:0 auto; padding:56px 20px 30px; text-align:center; }
+.home-hero .eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; letter-spacing:0.14em; color:var(--gold); font-weight:700; margin-bottom:14px;
+}
+.home-hero h1{
+  font-family:'Song Myung', serif; font-size:36px; margin:0 0 14px; letter-spacing:0.01em;
+}
+.home-hero p{ font-size:14.5px; color:var(--ink-soft); max-width:46ch; margin:0 auto; }
+
+.search-box{ max-width:480px; margin:26px auto 0; }
+.search-box input{
+  width:100%; padding:13px 16px; border:1px solid var(--line); border-radius:12px;
+  background:var(--card); font-family:inherit; font-size:14px; color:var(--ink); outline:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.search-box input:focus{ border-color:var(--indigo-soft); box-shadow:0 0 0 3px rgba(31,60,99,0.10); }
+
+.calc-grid{
+  max-width:var(--maxw-wide); margin:20px auto 0; padding:20px;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:14px;
+}
+.calc-item{
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:20px; transition:border-color .15s ease, transform .12s ease, box-shadow .12s ease;
+  display:flex; flex-direction:column; gap:8px;
+}
+.calc-item:hover{
+  border-color:var(--indigo-soft); transform:translateY(-2px);
+  box-shadow:0 12px 24px -16px rgba(42,33,24,0.4);
+}
+.calc-item .emoji{ font-size:26px; }
+.calc-item .cat{ font-size:10.5px; font-weight:700; color:var(--gold); letter-spacing:0.06em; }
+.calc-item h3{ font-family:'Song Myung', serif; font-size:17px; margin:0; color:var(--ink); }
+.calc-item p{ font-size:12.5px; color:var(--ink-soft); margin:0; line-height:1.55; }
+.calc-item.disabled{ opacity:0.5; pointer-events:none; }
+.calc-item.disabled p::after{ content:" (준비 중)"; color:var(--ink-faint); }
+
+.section-label{
+  max-width:var(--maxw-wide); margin:34px auto 0; padding:0 20px;
+  font-size:12px; font-weight:700; color:var(--ink-soft); letter-spacing:0.08em;
+}
+
+/* ---------- FOOTER ---------- */
+footer{ margin-top:50px; border-top:1px solid var(--line); padding:26px 20px 40px; text-align:center; }
+footer .f-brand{ font-weight:800; color:var(--indigo); font-size:13.5px; margin-bottom:6px; }
+footer .f-links{ font-size:12px; color:var(--ink-faint); }
+footer .f-links a{ margin:0 8px; }
+footer .f-links a:hover{ color:var(--indigo); }
+footer .f-copy{ font-size:11px; color:var(--ink-faint); margin-top:10px; }
