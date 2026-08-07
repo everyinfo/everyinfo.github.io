@@ -255,20 +255,53 @@ svg{ display:block; width:100%; height:auto; overflow:visible; }
   max-height:0; overflow:hidden; opacity:0;
   border:1px solid transparent; border-radius:12px; background:#fff; margin-top:0;
   transition:max-height .28s cubic-bezier(.4,0,.2,1), opacity .2s ease, margin-top .28s ease, border-color .2s ease;
+  text-align:left;
 }
 .history-panel.open{
-  max-height:230px; overflow-y:auto; opacity:1; margin-top:12px; border-color:var(--line);
+  max-height:280px; overflow-y:auto; opacity:1; margin-top:12px; border-color:var(--line);
 }
-.history-item{
-  padding:9px 12px; border-bottom:1px solid var(--line-soft); cursor:pointer;
-  display:flex; justify-content:space-between; align-items:baseline; gap:10px;
-  transition:background .12s ease;
+.history-table-scroll{ overflow-x:auto; }
+table.history-table{
+  width:100%; border-collapse:collapse; font-size:11.5px; white-space:nowrap;
 }
-.history-item:hover{ background:var(--line-soft); }
-.history-item:last-child{ border-bottom:none; }
-.history-item .h-date{ font-size:12.5px; font-weight:700; color:var(--indigo); }
-.history-item .h-input{ font-size:10.5px; color:var(--ink-faint); }
+table.history-table thead th{
+  position:sticky; top:0; background:var(--paper); color:var(--ink-soft);
+  font-size:10.5px; font-weight:700; padding:8px 8px; border-bottom:1px solid var(--line); text-align:left;
+}
+table.history-table tbody td{
+  padding:7px 8px; border-bottom:1px solid var(--line-soft); color:var(--ink); cursor:pointer;
+}
+table.history-table tbody tr:hover td{ background:var(--line-soft); }
+table.history-table .h-birth{ font-weight:700; color:var(--indigo); }
+table.history-table .h-lunar-tag{
+  display:inline-block; margin-left:3px; font-size:9px; font-weight:700; color:var(--brick);
+  background:rgba(166,61,47,0.1); padding:1px 4px; border-radius:5px;
+}
+.h-note-input{
+  width:70px; border:1px solid var(--line); border-radius:6px; padding:4px 6px;
+  font-family:inherit; font-size:11px; color:var(--ink); background:#fff; outline:none;
+}
+.h-note-input:focus{ border-color:var(--indigo-soft); }
+.h-del{
+  text-align:center; color:var(--ink-faint); font-weight:700; cursor:pointer; width:20px;
+}
+.h-del:hover{ color:var(--brick); }
 .history-empty{ font-size:12px; color:var(--ink-faint); text-align:center; padding:16px 0; }
+
+/* ---------- 양력/음력 토글 ---------- */
+.cal-type-toggle{ display:flex; gap:6px; margin:6px 0 14px; }
+.cal-type-toggle input{ display:none; }
+.cal-type-toggle label{
+  flex:1; text-align:center; padding:8px 0; border:1px solid var(--line); border-radius:8px;
+  font-size:12.5px; font-weight:700; color:var(--ink-soft); cursor:pointer; transition:all .15s ease;
+}
+.cal-type-toggle input:checked + label{
+  background:var(--indigo); border-color:var(--indigo); color:#F6EFDD;
+}
+.lunar-note{
+  margin:8px 0 0; font-size:11.5px; color:var(--brick); background:rgba(166,61,47,0.07);
+  padding:6px 10px; border-radius:8px;
+}
 footer{ margin-top:50px; border-top:1px solid var(--line); padding:26px 20px 40px; text-align:center; }
 footer .f-brand{ font-weight:800; color:var(--indigo); font-size:13.5px; margin-bottom:6px; }
 footer .f-links{ font-size:12px; color:var(--ink-faint); }
