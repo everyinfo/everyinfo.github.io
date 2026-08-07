@@ -9,6 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+
+<!-- Google AdSense 사이트 연결 코드 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -49,10 +62,12 @@
     <p class="error" id="err">생년월일을 입력해 주세요.</p>
 
     <div id="result" style="display:none;">
-      <div class="headline-result" style="text-align:center;margin-bottom:22px;">
+      <div class="headline-result" style="text-align:center;margin-bottom:22px;position:relative;">
+        <button class="history-btn" id="historyBtn" onclick="toggleHistory()" title="계산 히스토리" style="position:absolute;right:0;top:0;">🕘</button>
         <div class="name" style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">환갑(還甲) 날짜</div>
         <div class="date" id="hwangapDate" style="font-family:'Song Myung',serif;font-size:26px;color:var(--indigo);">-</div>
         <div class="dday" id="dday" style="display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--brick);background:rgba(166,61,47,0.08);padding:4px 10px;border-radius:999px;">-</div>
+        <div class="history-panel" id="historyPanel"></div>
       </div>
 
       <div class="ring-wrap">
@@ -110,7 +125,7 @@
 <footer>
   <div class="f-brand">계산기서랍</div>
   <div class="f-links">
-    <a href="/index.html">홈</a><a href="/index.html">전체 계산기</a><a href="#">개인정보처리방침</a>
+    <a href="/index.html">홈</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
   </div>
   <div class="f-copy">© 2026 계산기서랍. All rights reserved.</div>
 </footer>
@@ -130,6 +145,45 @@ const MILESTONES = [
 
 const R = 120, CX = 150, CY = 150;
 const CIRC = 2 * Math.PI * R;
+
+// 이 페이지에 머무는 동안의 계산 기록 (새로고침하면 초기화됨)
+let calcHistory = [];
+let historyOpen = false;
+
+function toggleHistory(){
+  historyOpen = !historyOpen;
+  document.getElementById('historyPanel').classList.toggle('open', historyOpen);
+  if(historyOpen) renderHistory();
+}
+
+function renderHistory(){
+  const panel = document.getElementById('historyPanel');
+  if(calcHistory.length === 0){
+    panel.innerHTML = '<div class="history-empty">아직 계산 기록이 없어요</div>';
+    return;
+  }
+  panel.innerHTML = '';
+  // 최신 기록이 위로 오도록 역순 표시
+  [...calcHistory].reverse().forEach((h, revIdx)=>{
+    const idx = calcHistory.length - 1 - revIdx;
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    item.innerHTML = `
+      <div>
+        <div class="h-date">${h.hwangapDate}</div>
+        <div class="h-input">생년월일 ${h.birthLabel}</div>
+      </div>
+      <div class="h-input">${h.dday}</div>
+    `;
+    item.addEventListener('click', ()=>{
+      document.getElementById('bday').value = h.birthInput;
+      calc();
+      historyOpen = true;
+      document.getElementById('historyPanel').classList.add('open');
+    });
+    panel.appendChild(item);
+  });
+}
 
 function angleFor(age100){ return (age100/100) * 360 - 90; }
 function pointFor(age100, radius){
@@ -196,6 +250,19 @@ function calc(){
   else { ddayEl.textContent = `환갑으로부터 ${Math.abs(diffDays)}일 지남`; }
 
   document.getElementById('curAge').textContent = exactAge;
+
+  // 히스토리에 기록 (같은 생년월일 연속 재계산은 새로 추가하지 않고 맨 위로만 갱신)
+  const birthLabel = fmtDate(birth);
+  const entry = {
+    birthInput: val,
+    birthLabel: birthLabel,
+    hwangapDate: document.getElementById('hwangapDate').textContent,
+    dday: ddayEl.textContent
+  };
+  calcHistory = calcHistory.filter(h => h.birthInput !== val);
+  calcHistory.push(entry);
+  document.getElementById('historyBtn').classList.toggle('has-items', calcHistory.length > 0);
+  if(historyOpen) renderHistory();
 
   const ring = document.getElementById('progressRing');
   ring.style.strokeDasharray = CIRC;
@@ -266,6 +333,11 @@ function calc(){
 
   document.getElementById('result').style.display = 'block';
   document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
+
+  // GA4로 "이 계산기를 사용했다"는 이벤트만 조용히 전송 (사이트에는 표시 안 됨)
+  if(typeof gtag === 'function'){
+    gtag('event', 'calculate', { calculator_name: 'hwangap' });
+  }
 }
 
 function copyResult(){
