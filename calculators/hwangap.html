@@ -326,6 +326,8 @@ function fmtDate(d){ return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getD
   }
   tbody.innerHTML = rows;
 })();
+
+function calc(){
   const val = document.getElementById('bday').value;
   const err = document.getElementById('err');
   const calType = document.querySelector('input[name="calType"]:checked').value;
