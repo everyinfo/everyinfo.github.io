@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>환갑 계산기 | 계산기서랍</title>
-<meta name="description" content="생년월일을 입력하면 환갑(세는나이 61세) 날짜와 D-Day, 진갑·고희·팔순 등 전통 나이 이정표를 한 번에 계산해드립니다.">
+<title>환갑 고희 계산기 | 계산기서랍</title>
+<meta name="description" content="생년월일을 입력하면 환갑(세는나이 61세)과 고희(70세) 날짜, D-Day, 진갑·팔순 등 전통 나이 이정표를 한 번에 계산해드립니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
 <!-- Google AdSense 사이트 연결 코드 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
      crossorigin="anonymous"></script>
+<script src="https://unpkg.com/solarlunar/dist/solarlunar.min.js"></script>
 </head>
 <body>
 
@@ -41,22 +42,28 @@
 </nav>
 
 <div class="breadcrumb">
-  <a href="/index.html">홈</a> › <a href="/index.html">일상</a> › 환갑 계산기
+  <a href="/index.html">홈</a> › <a href="/index.html">일상</a> › 환갑 고희 계산기
 </div>
 
 <div class="hero-text">
   <span class="cat-tag">일상 · 경조사</span>
-  <h1 class="page-title">🎊 환갑 계산기</h1>
-  <p class="page-desc">생년월일을 넣으면 <strong style="color:var(--ink)">환갑(세는나이 61세)</strong> 날짜와 D-Day, 그리고 진갑·고희·팔순 등 전통 나이 이정표를 한 번에 확인할 수 있어요.</p>
+  <h1 class="page-title">🎊 환갑 고희 계산기</h1>
+  <p class="page-desc">생년월일을 넣으면 <strong style="color:var(--ink)">환갑(세는나이 61세)</strong>과 <strong style="color:var(--ink)">고희(70세)</strong> 날짜, D-Day, 그리고 진갑·팔순 등 전통 나이 이정표를 한 번에 확인할 수 있어요.</p>
 </div>
 
 <div class="calc-card">
   <div class="card">
     <div class="field">
+      <label>달력 종류</label>
+      <div class="cal-type-toggle">
+        <input type="radio" id="calSolar" name="calType" value="solar" checked><label for="calSolar">양력</label>
+        <input type="radio" id="calLunar" name="calType" value="lunar"><label for="calLunar">음력</label>
+      </div>
       <label for="bday">생년월일 <span style="font-weight:400;color:var(--ink-soft);">· 숫자만 입력해도 자동 완성</span></label>
       <div class="input-row">
         <input type="text" id="bday" inputmode="numeric" placeholder="예: 19911225" maxlength="10" autocomplete="off">
       </div>
+      <p class="lunar-note" id="lunarNote" style="display:none;"></p>
     </div>
     <button class="calc" onclick="calc()">환갑 계산하기</button>
     <p class="error" id="err">생년월일을 입력해 주세요.</p>
@@ -102,20 +109,21 @@
   <h2>환갑이란?</h2>
   <p>환갑(還甲)은 태어난 해의 간지(干支)가 60년 만에 다시 돌아온다는 뜻으로, 세는나이 61세가 되는 해를 이릅니다. 육십갑자(六十甲子)가 한 바퀴를 완전히 돌아 제자리로 온다는 의미에서 "돌아올 환(還)" 자를 써요. 예로부터 육십갑자를 다 채우고 다시 새로운 갑자를 맞는다는 것 자체가 드문 장수의 증표였기 때문에, 환갑은 가족이 모여 크게 축하하는 전통 행사로 자리 잡았습니다.</p>
 
-  <h2>환갑과 진갑, 무엇이 다를까요?</h2>
+  <h2>환갑·진갑·고희, 무엇이 다를까요?</h2>
   <p>환갑 바로 다음 해, 즉 세는나이 62세가 되는 해는 <strong>진갑(進甲)</strong>이라 부릅니다. 새로운 갑자를 향해 나아간다는 뜻이에요. 과거에는 환갑잔치를 이틀에 걸쳐 치르며 첫날을 환갑, 이튿날을 진갑으로 구분해 지내기도 했습니다.</p>
+  <p><strong>고희(古稀)</strong>는 세는나이 70세를 가리키는 말로, 당나라 시인 두보(杜甫)의 시 구절 "인생칠십고래희(人生七十古來稀, 사람이 70세까지 사는 것은 예로부터 드문 일이다)"에서 유래했습니다. 흔히 "칠순(七旬)"이라고도 부르며, 환갑을 넘어 또 한 번의 큰 고비를 넘겼다는 의미로 자녀들이 크게 잔치를 열어드리는 경우가 많습니다.</p>
   <ul>
     <li><strong>환갑(還甲)</strong> — 세는나이 61세, 태어난 해의 간지가 처음으로 다시 돌아오는 해</li>
     <li><strong>진갑(進甲)</strong> — 세는나이 62세, 환갑 이듬해</li>
-    <li><strong>고희(古稀)</strong> — 세는나이 70세, 두보의 시 구절 "인생칠십고래희"에서 유래</li>
+    <li><strong>고희(古稀) · 칠순(七旬)</strong> — 세는나이 70세, 두보의 시 구절 "인생칠십고래희"에서 유래</li>
   </ul>
 
-  <h2>이럴 때 환갑 계산기가 유용해요</h2>
+  <h2>이럴 때 환갑·고희 계산기가 유용해요</h2>
   <ul>
-    <li>부모님이나 어르신 환갑잔치 날짜 잡기</li>
+    <li>부모님이나 어르신 환갑·고희잔치 날짜 잡기</li>
     <li>가족 모임이 가능한 주말로 잔치 일정 조율하기</li>
     <li>초대장이나 현수막에 들어갈 정확한 날짜·D-Day 확인</li>
-    <li>진갑·고희 등 다음 이정표까지 얼마나 남았는지 미리 파악하기</li>
+    <li>진갑·고희·팔순 등 다음 이정표까지 얼마나 남았는지 미리 파악하기</li>
   </ul>
 </div>
 
@@ -162,27 +170,73 @@ function renderHistory(){
     panel.innerHTML = '<div class="history-empty">아직 계산 기록이 없어요</div>';
     return;
   }
-  panel.innerHTML = '';
-  // 최신 기록이 위로 오도록 역순 표시
-  [...calcHistory].reverse().forEach((h, revIdx)=>{
-    const idx = calcHistory.length - 1 - revIdx;
-    const item = document.createElement('div');
-    item.className = 'history-item';
-    item.innerHTML = `
-      <div>
-        <div class="h-date">${h.hwangapDate}</div>
-        <div class="h-input">생년월일 ${h.birthLabel}</div>
-      </div>
-      <div class="h-input">${h.dday}</div>
+
+  const table = document.createElement('table');
+  table.className = 'history-table';
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th>생년월일</th><th>환갑</th><th>칠순</th><th>팔순</th><th>구순</th><th>백수</th><th>비고</th><th></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  `;
+  const tbody = table.querySelector('tbody');
+
+  [...calcHistory].reverse().forEach(h=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="h-birth">${h.birthShort}${h.calType==='lunar' ? '<span class="h-lunar-tag">음</span>' : ''}</td>
+      <td>${h.hwangap}</td>
+      <td>${h.chilsun}</td>
+      <td>${h.palsun}</td>
+      <td>${h.gusun}</td>
+      <td>${h.baeksu}</td>
+      <td></td>
+      <td class="h-del">✕</td>
     `;
-    item.addEventListener('click', ()=>{
-      document.getElementById('bday').value = h.birthInput;
-      calc();
-      historyOpen = true;
-      document.getElementById('historyPanel').classList.add('open');
+    // 비고 입력칸 (한글 기준 10자 내외)
+    const noteTd = tr.children[6];
+    const noteInput = document.createElement('input');
+    noteInput.type = 'text';
+    noteInput.className = 'h-note-input';
+    noteInput.maxLength = 10;
+    noteInput.placeholder = '메모';
+    noteInput.value = h.note || '';
+    noteInput.addEventListener('click', e => e.stopPropagation());
+    noteInput.addEventListener('input', ()=>{
+      const target = calcHistory.find(x => x.id === h.id);
+      if(target) target.note = noteInput.value;
     });
-    panel.appendChild(item);
+    noteTd.appendChild(noteInput);
+
+    // 행 클릭 시 해당 기록으로 재계산
+    tr.querySelectorAll('td:not(.h-del)').forEach(td=>{
+      td.addEventListener('click', ()=>{
+        document.querySelector(`input[name="calType"][value="${h.calType}"]`).checked = true;
+        document.getElementById('bday').value = h.birthInput;
+        calc();
+        historyOpen = true;
+        document.getElementById('historyPanel').classList.add('open');
+      });
+    });
+
+    // 삭제 버튼
+    tr.querySelector('.h-del').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      calcHistory = calcHistory.filter(x => x.id !== h.id);
+      document.getElementById('historyBtn').classList.toggle('has-items', calcHistory.length > 0);
+      renderHistory();
+    });
+
+    tbody.appendChild(tr);
   });
+
+  panel.innerHTML = '';
+  const scrollWrap = document.createElement('div');
+  scrollWrap.className = 'history-table-scroll';
+  scrollWrap.appendChild(table);
+  panel.appendChild(scrollWrap);
 }
 
 function angleFor(age100){ return (age100/100) * 360 - 90; }
@@ -202,18 +256,36 @@ document.getElementById('bday').addEventListener('input', function(e){
 document.getElementById('bday').addEventListener('focus', function(e){
   if(e.target.value.length > 0) e.target.value = '';
 });
+document.querySelectorAll('input[name="calType"]').forEach(r=>{
+  r.addEventListener('change', function(){
+    const digits = document.getElementById('bday').value.replace(/\D/g, '');
+    if(digits.length === 8) calc();
+  });
+});
 document.getElementById('bday').addEventListener('keydown', function(e){
   if(e.key === 'Enter') calc();
 });
 
-function parseBirthInput(val){
+function parseBirthInput(val, calType){
   const m = val.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if(!m) return null;
   const y = +m[1], mo = +m[2], d = +m[3];
   if(mo < 1 || mo > 12) return null;
+  if(y < 1900 || y > new Date().getFullYear()) return null;
+
+  if(calType === 'lunar'){
+    if(typeof solarLunar === 'undefined') return null;
+    try{
+      const r = solarLunar.lunar2solar(y, mo, d);
+      if(!r || !r.cYear) return null;
+      const date = new Date(r.cYear, r.cMonth - 1, r.cDay);
+      date.__lunarInput = `${y}년 ${mo}월 ${d}일`;
+      return date;
+    }catch(e){ return null; }
+  }
+
   const date = new Date(y, mo - 1, d);
   if(date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return null;
-  if(y < 1900 || y > new Date().getFullYear()) return null;
   return date;
 }
 
@@ -228,13 +300,25 @@ function fmtDate(d){ return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getD
 function calc(){
   const val = document.getElementById('bday').value;
   const err = document.getElementById('err');
-  const birth = parseBirthInput(val);
+  const calType = document.querySelector('input[name="calType"]:checked').value;
+  const birth = parseBirthInput(val, calType);
+  const lunarNote = document.getElementById('lunarNote');
   if(!birth){
-    err.textContent = '생년월일 8자리(예: 19911225)를 정확히 입력해 주세요.';
+    err.textContent = calType === 'lunar'
+      ? '음력 생년월일 8자리를 정확히 입력해 주세요 (1900년 이후).'
+      : '생년월일 8자리(예: 19911225)를 정확히 입력해 주세요.';
     err.style.display = 'block';
+    lunarNote.style.display = 'none';
     return;
   }
   err.style.display = 'none';
+
+  if(calType === 'lunar' && birth.__lunarInput){
+    lunarNote.textContent = `음력 ${birth.__lunarInput} → 양력 ${fmtDate(birth)}로 계산했어요`;
+    lunarNote.style.display = 'block';
+  } else {
+    lunarNote.style.display = 'none';
+  }
 
   const today = new Date();
   const exactAge = calcExactAge(birth, today);
@@ -251,15 +335,26 @@ function calc(){
 
   document.getElementById('curAge').textContent = exactAge;
 
-  // 히스토리에 기록 (같은 생년월일 연속 재계산은 새로 추가하지 않고 맨 위로만 갱신)
-  const birthLabel = fmtDate(birth);
+  // 히스토리에 기록 (같은 생년월일 연속 재계산은 새로 추가하지 않고 기존 메모만 유지)
+  const yearAt = (koreanAge) => birth.getFullYear() + (koreanAge - 1);
+  const yy = String(birth.getFullYear()).slice(-2).padStart(2,'0');
+  const mm = String(birth.getMonth()+1).padStart(2,'0');
+  const dd = String(birth.getDate()).padStart(2,'0');
+
+  const existing = calcHistory.find(h => h.birthInput === val && h.calType === calType);
   const entry = {
+    id: existing ? existing.id : Date.now() + Math.random(),
     birthInput: val,
-    birthLabel: birthLabel,
-    hwangapDate: document.getElementById('hwangapDate').textContent,
-    dday: ddayEl.textContent
+    calType: calType,
+    birthShort: `${yy}/${mm}/${dd}`,
+    hwangap: yearAt(61),
+    chilsun: yearAt(70),
+    palsun: yearAt(80),
+    gusun: yearAt(90),
+    baeksu: yearAt(99),
+    note: existing ? existing.note : ''
   };
-  calcHistory = calcHistory.filter(h => h.birthInput !== val);
+  calcHistory = calcHistory.filter(h => h.id !== entry.id);
   calcHistory.push(entry);
   document.getElementById('historyBtn').classList.toggle('has-items', calcHistory.length > 0);
   if(historyOpen) renderHistory();
@@ -271,21 +366,11 @@ function calc(){
 
   const ticksWrap = document.getElementById('ticks');
   ticksWrap.innerHTML = '';
-  const NEAR_R = R + 20, FAR_R = R + 38;
-  let prevAngle = null;
-  MILESTONES.forEach(m=>{
-    const passed = exactAge >= m.age;
-    const dotP = pointFor(m.age, R);
-    let angle = angleFor(m.age) % 360;
-    if(angle < 0) angle += 360;
-    let labelRadius = NEAR_R;
-    if(prevAngle !== null){
-      let diff = Math.abs(angle - prevAngle);
-      diff = Math.min(diff, 360 - diff);
-      if(diff < 10) labelRadius = FAR_R;
-    }
-    prevAngle = angle;
-    const labelP = pointFor(m.age, labelRadius);
+  const RING_TICKS = [60, 70, 80, 90, 100];
+  RING_TICKS.forEach(age=>{
+    const passed = exactAge >= age;
+    const dotP = pointFor(age, R);
+    const labelP = pointFor(age, R + 20);
 
     const dot = document.createElement('div');
     dot.className = 'tick-dot' + (passed ? ' hit' : '');
@@ -294,8 +379,8 @@ function calc(){
     ticksWrap.appendChild(dot);
 
     const label = document.createElement('div');
-    label.className = 'tick-label' + (m.age===61 ? ' hit' : '');
-    label.textContent = m.age;
+    label.className = 'tick-label' + (age===60 ? ' hit' : '');
+    label.textContent = age;
     label.style.left = (labelP.x/300*100) + '%';
     label.style.top = (labelP.y/300*100) + '%';
     ticksWrap.appendChild(label);
