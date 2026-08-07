@@ -1,48 +1,6 @@
-// 계산기 페이지 하단 - 연관 계산기 / 인기 계산기 가로 스크롤 섹션
-// 사용법: <div id="relatedSections"></div> 를 두고, renderRelatedSections('현재 계산기 URL') 호출
-(function(){
-
-  function cardHtml(c){
-    return `
-      <a class="rel-card${c.active ? '' : ' disabled'}" href="${c.active ? c.url : '#'}">
-        <span class="rel-emoji">${c.emoji}</span>
-        <span class="rel-cat">${c.cat}</span>
-        <span class="rel-title">${c.title}</span>
-      </a>
-    `;
-  }
-
-  function sectionHtml(title, items){
-    if(items.length === 0) return '';
-    return `
-      <div class="rel-section">
-        <h2 class="rel-heading">${title}</h2>
-        <div class="rel-scroll">${items.map(cardHtml).join('')}</div>
-      </div>
-    `;
-  }
-
-  window.renderRelatedSections = function(currentUrl){
-    const wrap = document.getElementById('relatedSections');
-    if(!wrap || !window.CALCULATORS) return;
-
-    const all = window.CALCULATORS;
-    const current = all.find(c => c.url === currentUrl);
-    const currentCat = current ? current.cat : null;
-
-    // 연관 계산기: 같은 카테고리 우선, 부족하면 다른 카테고리에서 채움 (최대 10개)
-    const sameCat = all.filter(c => c.url !== currentUrl && c.cat === currentCat);
-    const otherCat = all.filter(c => c.url !== currentUrl && c.cat !== currentCat);
-    const related = sameCat.concat(otherCat).slice(0, 10);
-
-    // 인기 계산기: 방문수 기준 상위 10개 (방문 데이터 없으면 섹션 자체를 생략)
-    const popular = all
-      .filter(c => c.url !== currentUrl && c.active && c.visits > 0)
-      .sort((a, b) => b.visits - a.visits)
-      .slice(0, 10);
-
-    wrap.innerHTML =
-      sectionHtml('🔗 연관 계산기', related) +
-      sectionHtml('🔥 인기 계산기', popular);
-  };
-})();
+/*!
+ * 계산기서랍 (everyinfo.github.io)
+ * Copyright (c) 2026 계산기서랍. All rights reserved.
+ * 본 저작물의 무단 복제·배포·전송을 금합니다.
+ */
+!function(){function n(n){return`\n      <a class="rel-card${n.active?"":" disabled"}" href="${n.active?n.url:"#"}">\n        <span class="rel-emoji">${n.emoji}</span>\n        <span class="rel-cat">${n.cat}</span>\n        <span class="rel-title">${n.title}</span>\n      </a>\n    `}function e(e,i){return 0===i.length?"":`\n      <div class="rel-section">\n        <h2 class="rel-heading">${e}</h2>\n        <div class="rel-scroll">${i.map(n).join("")}</div>\n      </div>\n    `}window.renderRelatedSections=function(n){const i=document.getElementById("relatedSections");if(!i||!window.CALCULATORS)return;const t=window.CALCULATORS,s=t.find(e=>e.url===n),l=s?s.cat:null,c=t.filter(e=>e.url!==n&&e.cat===l),a=t.filter(e=>e.url!==n&&e.cat!==l),r=c.concat(a).slice(0,10),o=t.filter(e=>e.url!==n&&e.active&&e.visits>0).sort((n,e)=>e.visits-n.visits).slice(0,10);i.innerHTML=e("🔗 연관 계산기",r)+e("🔥 인기 계산기",o)}}();

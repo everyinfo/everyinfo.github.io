@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  계산기서랍 (everyinfo.github.io)
+  Copyright (c) 2026 계산기서랍. All rights reserved.
+  본 저작물의 무단 복제·배포·전송을 금합니다.
+-->
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -41,16 +47,21 @@
   </div>
 </nav>
 
-<div class="home-hero">
+<div class="home-hero" id="homeHero">
   <h1>꺼내 쓰는 계산기서랍</h1>
   <p>복잡하게 검색할 필요 없이, 자주 찾는 계산기를 모아뒀어요. 필요한 걸 눌러서 바로 계산해보세요.</p>
+</div>
+
+<div class="home-search-wrap">
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="계산기 이름으로 검색 (예: 환갑, 연봉)">
   </div>
 </div>
 
-<div class="popular-section">
-  <div class="section-label" style="margin:0 0 12px;padding:0;">🔥 최근 3개월 인기 계산기</div>
+<div class="popular-section" id="recentSection"></div>
+
+<div class="popular-section" id="popularSection">
+  <div class="section-label" style="margin:0 0 12px;padding:0;">🔥 인기 계산기</div>
   <div class="popular-scroll" id="popularScroll"></div>
 </div>
 
@@ -68,6 +79,7 @@
 </footer>
 
 <script src="/calculators-data.js"></script>
+<script src="/recent-calculators.js"></script>
 <script>
 // CALCULATORS 배열은 /calculators-data.js 에서 공용으로 관리됩니다.
 const CALCULATORS = window.CALCULATORS;
@@ -104,29 +116,56 @@ let currentCat = 'all';
 let currentQuery = '';
 
 function render(){
+  const isAll = currentCat === 'all';
+
+  // "전체" 탭에서만 타이틀·인기·최근 섹션을 보여줌
+  document.getElementById('homeHero').style.display = isAll ? '' : 'none';
+  document.getElementById('popularSection').style.display = isAll ? '' : 'none';
+  document.getElementById('recentSection').style.display = isAll ? '' : 'none';
+
   const filtered = CALCULATORS.filter(c=>{
-    const catMatch = currentCat === 'all' || c.cat === currentCat;
+    const catMatch = isAll || c.cat === currentCat;
     const qMatch = c.title.toLowerCase().includes(currentQuery) || c.desc.toLowerCase().includes(currentQuery);
     return catMatch && qMatch;
   });
 
   grid.innerHTML = '';
+  resultLabel.textContent = isAll ? '전체 계산기' : currentCat + ' 계산기';
+
   if(filtered.length === 0){
-    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint);font-size:13px;padding:30px 0;">일치하는 계산기가 없어요.</p>';
+    grid.className = '';
+    grid.innerHTML = '<p style="text-align:center;color:var(--ink-faint);font-size:13px;padding:30px 0;">일치하는 계산기가 없어요.</p>';
     return;
   }
-  filtered.forEach(c=>{
-    const el = document.createElement('a');
-    el.href = c.url;
-    el.className = 'calc-item' + (c.active ? '' : ' disabled');
-    el.innerHTML = `
-      <div class="cat">${c.cat}</div>
-      <h3><span class="ci-emoji">${c.emoji}</span>${c.title}</h3>
-      <p>${c.desc}</p>
+
+  function cardHtml(c){
+    return `
+      <a class="calc-item${c.active ? '' : ' disabled'}" href="${c.url}">
+        <h3><span class="ci-emoji">${c.emoji}</span>${c.title}</h3>
+        <p>${c.desc}</p>
+      </a>
     `;
-    grid.appendChild(el);
-  });
-  resultLabel.textContent = currentCat === 'all' ? '전체 계산기' : currentCat + ' 계산기';
+  }
+
+  if(isAll){
+    // 전체 탭: 카테고리별로 묶어서 표시 (카드 안 카테고리 라벨은 생략)
+    grid.className = 'cat-groups';
+    const order = [];
+    filtered.forEach(c=>{ if(!order.includes(c.cat)) order.push(c.cat); });
+    grid.innerHTML = order.map(cat=>{
+      const items = filtered.filter(c=>c.cat === cat);
+      return `
+        <div class="cat-block">
+          <h2 class="cat-heading">${cat}<span class="cat-count">${items.length}</span></h2>
+          <div class="calc-grid">${items.map(cardHtml).join('')}</div>
+        </div>
+      `;
+    }).join('');
+  } else {
+    // 특정 카테고리 탭: 이미 그 카테고리이므로 제목 줄 없이 목록만
+    grid.className = 'calc-grid';
+    grid.innerHTML = filtered.map(cardHtml).join('');
+  }
 }
 
 document.getElementById('navLinks').addEventListener('click', function(e){
@@ -146,6 +185,7 @@ document.getElementById('searchInput').addEventListener('input', function(e){
 
 render();
 renderPopular();
+renderRecentCalculators();
 </script>
 </body>
 </html>
