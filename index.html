@@ -9,6 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+
+<!-- Google AdSense 사이트 연결 코드 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -36,6 +49,11 @@
   </div>
 </div>
 
+<div class="popular-section">
+  <div class="section-label" style="margin:0 0 12px;padding:0;">🔥 최근 3개월 인기 계산기</div>
+  <div class="popular-scroll" id="popularScroll"></div>
+</div>
+
 <div class="section-label" id="resultLabel">전체 계산기</div>
 <div class="calc-grid" id="calcGrid">
   <!-- JS로 렌더링됨 -->
@@ -44,13 +62,15 @@
 <footer>
   <div class="f-brand">계산기서랍</div>
   <div class="f-links">
-    <a href="/index.html">홈</a><a href="#">전체 계산기</a><a href="#">개인정보처리방침</a>
+    <a href="/index.html">홈</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
   </div>
   <div class="f-copy">© 2026 계산기서랍. All rights reserved.</div>
 </footer>
 
 <script>
 // 계산기가 늘어날 때마다 이 배열에 한 줄씩 추가하면 홈 화면 카드가 자동으로 생깁니다.
+// visits: 최근 3개월 방문수. 지금은 예시값이고, 실제 애널리틱스(GA4/Plausible 등) 연동 후 이 숫자를 그 데이터로 바꿔주면
+// 아래 "인기 계산기" 가로 스크롤이 자동으로 방문수 기준 정렬됩니다.
 const CALCULATORS = [
   {
     emoji: '🎊',
@@ -58,7 +78,8 @@ const CALCULATORS = [
     title: '환갑 계산기',
     desc: '생년월일로 환갑·진갑·고희 등 전통 나이 이정표와 D-Day를 계산해요.',
     url: '/calculators/hwangap.html',
-    active: true
+    active: true,
+    visits: 0 // TODO: 실제 방문수로 교체
   },
   {
     emoji: '💰',
@@ -66,7 +87,8 @@ const CALCULATORS = [
     title: '연봉 실수령액 계산기',
     desc: '세금·4대보험 공제 후 실제로 받는 월급을 계산해요.',
     url: '#',
-    active: false
+    active: false,
+    visits: 0
   },
   {
     emoji: '🏦',
@@ -74,9 +96,36 @@ const CALCULATORS = [
     title: '대출이자 계산기',
     desc: '원리금균등/원금균등 방식별 월 상환액을 계산해요.',
     url: '#',
-    active: false
+    active: false,
+    visits: 0
   },
 ];
+
+function renderPopular(){
+  const wrap = document.getElementById('popularScroll');
+  const ranked = CALCULATORS
+    .filter(c => c.active && c.visits > 0)
+    .sort((a,b) => b.visits - a.visits)
+    .slice(0, 10);
+
+  if(ranked.length === 0){
+    wrap.innerHTML = '<p style="font-size:12.5px;color:var(--ink-faint);padding:6px 2px;">아직 방문 데이터가 쌓이지 않았어요. 애널리틱스 연동 후 이 자리에 순위가 표시돼요.</p>';
+    return;
+  }
+  wrap.innerHTML = '';
+  ranked.forEach((c, i) => {
+    const el = document.createElement('a');
+    el.href = c.url;
+    el.className = 'popular-card';
+    el.innerHTML = `
+      <div class="rank">${i+1}</div>
+      <div class="emoji">${c.emoji}</div>
+      <h4>${c.title}</h4>
+      <div class="visits">방문 ${c.visits.toLocaleString()}</div>
+    `;
+    wrap.appendChild(el);
+  });
+}
 
 const grid = document.getElementById('calcGrid');
 const resultLabel = document.getElementById('resultLabel');
@@ -126,6 +175,7 @@ document.getElementById('searchInput').addEventListener('input', function(e){
 });
 
 render();
+renderPopular();
 </script>
 </body>
 </html>
