@@ -23,6 +23,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
      crossorigin="anonymous"></script>
 <script src="https://unpkg.com/solarlunar/dist/solarlunar.min.js"></script>
+<script src="/calculators-data.js"></script>
 </head>
 <body>
 
@@ -43,6 +44,14 @@
 
 <div class="breadcrumb">
   <a href="/index.html">홈</a> › <a href="/index.html">일상</a> › 환갑 고희 계산기
+</div>
+
+<div class="mini-search-wrap">
+  <div class="mini-search">
+    <span class="mini-search-icon">🔍</span>
+    <input type="text" id="siteSearch" placeholder="다른 계산기 검색 (예: 연봉, 대출, 단위변환)" autocomplete="off">
+  </div>
+  <div class="mini-search-results" id="siteSearchResults"></div>
 </div>
 
 <div class="hero-text">
@@ -89,6 +98,18 @@
         <div id="ticks"></div>
       </div>
 
+      <div class="milestones" id="currentResultWrap" style="display:none; border-top:none; padding-top:0;">
+        <h2>표로 보기</h2>
+        <div class="history-table-scroll">
+          <table class="history-table">
+            <thead>
+              <tr><th>생년월일</th><th>환갑</th><th>칠순</th><th>팔순</th><th>구순</th><th>백수</th></tr>
+            </thead>
+            <tbody><tr id="currentResultRow"></tr></tbody>
+          </table>
+        </div>
+      </div>
+
       <div class="milestones">
         <h2>전통 나이 이정표</h2>
         <div id="mList"></div>
@@ -133,6 +154,7 @@
   <h2>연도별 환갑·칠순·팔순·구순·백수 나이표</h2>
   <p>출생년도를 찾아보시면 환갑(61세)·칠순(70세)·팔순(80세)·구순(90세)·백수연(99세)이 되는 해를 바로 확인할 수 있어요. (1920년생 ~ 2030년생, 세는나이 기준)</p>
   <div class="year-table-wrap">
+    <div class="year-table-scroll-inner">
     <table class="year-table" id="yearTable">
       <thead>
         <tr>
@@ -141,6 +163,7 @@
       </thead>
       <tbody id="yearTableBody"></tbody>
     </table>
+    </div>
   </div>
 </div>
 
@@ -260,6 +283,41 @@ function pointFor(age100, radius){
   const rad = angleFor(age100) * Math.PI/180;
   return { x: CX + radius*Math.cos(rad), y: CY + radius*Math.sin(rad) };
 }
+
+// 다른 계산기 검색 (홈페이지와 동일한 CALCULATORS 데이터를 사용)
+(function(){
+  const input = document.getElementById('siteSearch');
+  const results = document.getElementById('siteSearchResults');
+  if(!input) return;
+
+  input.addEventListener('input', function(){
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.classList.remove('open'); results.innerHTML = ''; return; }
+
+    const list = (window.CALCULATORS || []).filter(c =>
+      c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q)
+    );
+
+    if(list.length === 0){
+      results.innerHTML = '<div class="mini-search-empty">일치하는 계산기가 없어요</div>';
+    } else {
+      results.innerHTML = list.map(c => `
+        <a class="mini-search-item ${c.active ? '' : 'disabled'}" href="${c.active ? c.url : '#'}">
+          <span class="ms-emoji">${c.emoji}</span>
+          <span class="ms-text">
+            <span class="ms-title">${c.title}${c.active ? '' : ' <em>(준비 중)</em>'}</span>
+            <span class="ms-desc">${c.desc}</span>
+          </span>
+        </a>
+      `).join('');
+    }
+    results.classList.add('open');
+  });
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.mini-search-wrap')) results.classList.remove('open');
+  });
+})();
 
 document.getElementById('bday').addEventListener('input', function(e){
   const digits = e.target.value.replace(/\D/g, '').slice(0, 8);
@@ -388,6 +446,13 @@ function calc(){
   calcHistory.push(entry);
   document.getElementById('historyBtn').classList.toggle('has-items', calcHistory.length > 0);
   if(historyOpen) renderHistory();
+
+  // 원형 그래프 아래에 이번 계산 결과를 표로 바로 보여주기
+  document.getElementById('currentResultRow').innerHTML = `
+    <td class="h-birth">${entry.birthShort}${entry.calType==='lunar' ? '<span class="h-lunar-tag">음</span>' : ''}</td>
+    <td>${entry.hwangap}</td><td>${entry.chilsun}</td><td>${entry.palsun}</td><td>${entry.gusun}</td><td>${entry.baeksu}</td>
+  `;
+  document.getElementById('currentResultWrap').style.display = 'block';
 
   const ring = document.getElementById('progressRing');
   ring.style.strokeDasharray = CIRC;
