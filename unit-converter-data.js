@@ -3,7 +3,7 @@
 window.UNIT_CATEGORIES = {
 
   currency: {
-    name: '환율', emoji: '💱', type: 'currency', order: 1,
+    name: '환율', emoji: '💱', type: 'currency', order: 5,
     note: '시장 기준환율(참고용)이며, 은행 고시환율(현찰 사매도)과는 스프레드만큼 차이가 있을 수 있어요.',
     units: {
       krw:{label:'원 (KRW)'}, usd:{label:'달러 (USD)'}, jpy:{label:'엔 (JPY)'},
@@ -12,7 +12,7 @@ window.UNIT_CATEGORIES = {
   },
 
   length: {
-    name: '길이', emoji: '📏', type: 'linear', order: 2, base: 'm',
+    name: '길이', emoji: '📏', type: 'linear', order: 1, base: 'm',
     units: {
       mm:{label:'밀리미터(mm)',factor:0.001}, cm:{label:'센티미터(cm)',factor:0.01},
       m:{label:'미터(m)',factor:1}, km:{label:'킬로미터(km)',factor:1000},
@@ -22,7 +22,7 @@ window.UNIT_CATEGORIES = {
   },
 
   weight: {
-    name: '무게', emoji: '⚖️', type: 'linear', order: 3, base: 'g',
+    name: '무게', emoji: '⚖️', type: 'linear', order: 2, base: 'g',
     units: {
       mg:{label:'밀리그램(mg)',factor:0.001}, g:{label:'그램(g)',factor:1},
       kg:{label:'킬로그램(kg)',factor:1000}, t:{label:'톤(t)',factor:1000000},
@@ -41,7 +41,7 @@ window.UNIT_CATEGORIES = {
   },
 
   cooking: {
-    name: '요리계량', emoji: '🥄', type: 'linear', order: 5, base: 'mL',
+    name: '요리계량', emoji: '🥄', type: 'linear', order: 18, base: 'mL',
     note: '한국 계량컵/종이컵 기준입니다. 브랜드나 제품에 따라 실제 용량은 조금씩 다를 수 있어요.',
     units: {
       tsp:{label:'작은술(티스푼, 5mL)',factor:5}, tbsp:{label:'큰술(테이블스푼, 15mL)',factor:15},
@@ -56,7 +56,7 @@ window.UNIT_CATEGORIES = {
   },
 
   speed: {
-    name: '속도', emoji: '🚗', type: 'linear', order: 7, base: 'mps',
+    name: '속도', emoji: '🚗', type: 'linear', order: 8, base: 'mps',
     units: {
       mps:{label:'미터/초(m/s)',factor:1}, kmh:{label:'킬로미터/시(km/h)',factor:0.277778},
       mph:{label:'마일/시(mph)',factor:0.44704}, knot:{label:'노트(kn)',factor:0.514444}
@@ -64,7 +64,7 @@ window.UNIT_CATEGORIES = {
   },
 
   pressure: {
-    name: '압력', emoji: '🌪️', type: 'linear', order: 8, base: 'Pa',
+    name: '압력', emoji: '🌪️', type: 'linear', order: 7, base: 'Pa',
     units: {
       Pa:{label:'파스칼(Pa)',factor:1}, kPa:{label:'킬로파스칼(kPa)',factor:1000},
       bar:{label:'바(bar)',factor:100000}, atm:{label:'기압(atm)',factor:101325},
@@ -73,7 +73,7 @@ window.UNIT_CATEGORIES = {
   },
 
   area: {
-    name: '넓이·평수', emoji: '📐', type: 'linear', order: 9, base: 'm2',
+    name: '넓이·평수', emoji: '📐', type: 'linear', order: 3, base: 'm2',
     units: {
       m2:{label:'제곱미터(㎡)',factor:1}, cm2:{label:'제곱센티미터(㎠)',factor:0.0001},
       km2:{label:'제곱킬로미터(㎢)',factor:1000000}, py:{label:'평',factor:3.3058},
@@ -83,7 +83,7 @@ window.UNIT_CATEGORIES = {
   },
 
   data: {
-    name: '데이터 용량', emoji: '💾', type: 'linear', order: 10, base: 'byte',
+    name: '데이터 용량', emoji: '💾', type: 'linear', order: 14, base: 'byte',
     units: {
       bit:{label:'비트(bit)',factor:0.125}, byte:{label:'바이트(B)',factor:1},
       KB:{label:'킬로바이트(KB)',factor:1024}, MB:{label:'메가바이트(MB)',factor:1048576},
@@ -92,7 +92,7 @@ window.UNIT_CATEGORIES = {
   },
 
   time: {
-    name: '시간', emoji: '⏱️', type: 'linear', order: 11, base: 'sec',
+    name: '시간', emoji: '⏱️', type: 'linear', order: 15, base: 'sec',
     units: {
       sec:{label:'초',factor:1}, min:{label:'분',factor:60}, hour:{label:'시간',factor:3600},
       day:{label:'일',factor:86400}, week:{label:'주',factor:604800},
@@ -101,7 +101,7 @@ window.UNIT_CATEGORIES = {
   },
 
   fuel: {
-    name: '연비', emoji: '⛽', type: 'fuel', order: 12,
+    name: '연비', emoji: '⛽', type: 'fuel', order: 16,
     note: '갤런은 미국(US)·영국(UK) 갤런 크기가 달라 mpg 값이 차이 나요.',
     units: {
       kml:{label:'km/L'}, l100km:{label:'L/100km'}, mpgUs:{label:'mpg(US)'}, mpgUk:{label:'mpg(UK)'}
@@ -109,7 +109,7 @@ window.UNIT_CATEGORIES = {
   },
 
   ev: {
-    name: '전기차 전비', emoji: '🔌', type: 'ev', order: 13,
+    name: '전기차 전비', emoji: '🔌', type: 'ev', order: 17,
     note: 'km/kWh는 숫자가 클수록, Wh/km는 작을수록 효율이 좋아요. 국내 표기는 주로 km/kWh를 씁니다.',
     units: {
       kmkwh:{label:'km/kWh (국내 표기)'}, whkm:{label:'Wh/km'},
@@ -119,7 +119,7 @@ window.UNIT_CATEGORIES = {
   },
 
   energy: {
-    name: '에너지', emoji: '🔋', type: 'linear', order: 14, base: 'J',
+    name: '에너지', emoji: '🔋', type: 'linear', order: 10, base: 'J',
     units: {
       J:{label:'줄(J)',factor:1}, kJ:{label:'킬로줄(kJ)',factor:1000},
       cal:{label:'칼로리(cal)',factor:4.184}, kcal:{label:'킬로칼로리(kcal)',factor:4184},
@@ -129,7 +129,7 @@ window.UNIT_CATEGORIES = {
   },
 
   angle: {
-    name: '각도', emoji: '🧭', type: 'linear', order: 15, base: 'deg',
+    name: '각도', emoji: '🧭', type: 'linear', order: 13, base: 'deg',
     units: {
       deg:{label:'도(°)',factor:1}, rad:{label:'라디안(rad)',factor:57.29578},
       grad:{label:'그라디안(gon)',factor:0.9}
@@ -137,7 +137,7 @@ window.UNIT_CATEGORIES = {
   },
 
   force: {
-    name: '힘', emoji: '💪', type: 'linear', order: 16, base: 'N',
+    name: '힘', emoji: '💪', type: 'linear', order: 11, base: 'N',
     units: {
       N:{label:'뉴턴(N)',factor:1}, kgf:{label:'킬로그램힘(kgf)',factor:9.80665},
       lbf:{label:'파운드힘(lbf)',factor:4.44822}, dyne:{label:'다인(dyn)',factor:0.00001}
@@ -145,7 +145,7 @@ window.UNIT_CATEGORIES = {
   },
 
   power: {
-    name: '일률(마력)', emoji: '🏎️', type: 'linear', order: 17, base: 'W',
+    name: '일률(마력)', emoji: '🏎️', type: 'linear', order: 9, base: 'W',
     units: {
       W:{label:'와트(W)',factor:1}, kW:{label:'킬로와트(kW)',factor:1000},
       hp:{label:'마력(HP, 영마력)',factor:745.7}, ps:{label:'PS(불마력)',factor:735.499}
@@ -153,7 +153,7 @@ window.UNIT_CATEGORIES = {
   },
 
   density: {
-    name: '밀도', emoji: '🧪', type: 'linear', order: 18, base: 'kgm3',
+    name: '밀도', emoji: '🧪', type: 'linear', order: 12, base: 'kgm3',
     units: {
       kgm3:{label:'kg/㎥',factor:1}, gcm3:{label:'g/㎤',factor:1000},
       gml:{label:'g/mL',factor:1000}, lbft3:{label:'lb/ft³',factor:16.0185}

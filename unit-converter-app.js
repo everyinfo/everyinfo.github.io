@@ -128,9 +128,9 @@
             ${unitKeys.map(k=>`<option value="${k}"${k===fromDefault?' selected':''}>${cat.units[k].label}</option>`).join('')}
           </select>
         </div>
-        <button type="button" class="uc-swap" id="ucSwap" title="바꾸기">⇄</button>
+        <button type="button" class="uc-swap" id="ucSwap" title="단위 바꾸기">⇄</button>
         <div class="uc-field">
-          <input type="text" class="uc-input uc-output" id="ucToVal" readonly>
+          <input type="text" inputmode="decimal" class="uc-input" id="ucToVal">
           <select class="uc-select" id="ucToUnit">
             ${unitKeys.map(k=>`<option value="${k}"${k===toDefault?' selected':''}>${cat.units[k].label}</option>`).join('')}
           </select>
@@ -145,35 +145,62 @@
     const toVal = document.getElementById('ucToVal');
     const toUnit = document.getElementById('ucToUnit');
 
-    function doConvert(){
-      const v = parseFloat(fromVal.value);
-      if(isNaN(v)){ toVal.value = ''; return; }
-      let r;
-      if(cat.type === 'linear') r = convertLinear(cat, v, fromUnit.value, toUnit.value);
-      else if(cat.type === 'temperature') r = convertTemperature(v, fromUnit.value, toUnit.value);
-      else if(cat.type === 'fuel') r = convertFuel(v, fromUnit.value, toUnit.value);
-      else if(cat.type === 'ev') r = convertEv(v, fromUnit.value, toUnit.value);
-      else if(cat.type === 'currency') r = convertCurrency(v, fromUnit.value, toUnit.value);
-      toVal.value = (r === null) ? '환율 로딩 중…' : fmtNum(r);
+    // 어느 쪽을 마지막에 입력했는지 기억 (단위를 바꿨을 때 어느 방향으로 재계산할지 결정)
+    let lastEdited = 'from';
+
+    function runConvert(v, fromKey, toKey){
+      if(cat.type === 'linear') return convertLinear(cat, v, fromKey, toKey);
+      if(cat.type === 'temperature') return convertTemperature(v, fromKey, toKey);
+      if(cat.type === 'fuel') return convertFuel(v, fromKey, toKey);
+      if(cat.type === 'ev') return convertEv(v, fromKey, toKey);
+      if(cat.type === 'currency') return convertCurrency(v, fromKey, toKey);
+      return null;
     }
 
-    fromVal.addEventListener('input', doConvert);
-    fromUnit.addEventListener('change', doConvert);
-    toUnit.addEventListener('change', doConvert);
+    // 왼쪽 값을 기준으로 오른쪽을 채움
+    function updateRight(){
+      const v = parseFloat(fromVal.value);
+      if(fromVal.value.trim() === '' || isNaN(v)){ toVal.value = ''; return; }
+      const r = runConvert(v, fromUnit.value, toUnit.value);
+      toVal.value = (r === null) ? '' : fmtNum(r);
+    }
+    // 오른쪽 값을 기준으로 왼쪽을 채움
+    function updateLeft(){
+      const v = parseFloat(toVal.value);
+      if(toVal.value.trim() === '' || isNaN(v)){ fromVal.value = ''; return; }
+      const r = runConvert(v, toUnit.value, fromUnit.value);
+      fromVal.value = (r === null) ? '' : fmtNum(r);
+    }
+    // 단위 변경 시에는 마지막에 편집한 쪽을 기준으로 재계산
+    function refresh(){
+      if(lastEdited === 'from') updateRight();
+      else updateLeft();
+    }
+
+    fromVal.addEventListener('input', ()=>{ lastEdited = 'from'; updateRight(); });
+    toVal.addEventListener('input', ()=>{ lastEdited = 'to'; updateLeft(); });
+    fromUnit.addEventListener('change', refresh);
+    toUnit.addEventListener('change', refresh);
+
     document.getElementById('ucSwap').addEventListener('click', ()=>{
       const fu = fromUnit.value, tu = toUnit.value;
       fromUnit.value = tu; toUnit.value = fu;
-      doConvert();
+      // 값도 함께 맞바꿔서 화면에 보이던 결과가 그대로 이어지도록
+      const fv = fromVal.value;
+      fromVal.value = toVal.value;
+      toVal.value = fv;
+      lastEdited = 'from';
+      updateRight();
     });
 
     if(cat.type === 'currency'){
       loadCurrencyRates().then(()=>{
         const dateEl = document.getElementById('ucCurrencyDate');
         if(dateEl) dateEl.textContent = currencyRates ? `환율 기준일: ${currencyDate}` : '환율 정보를 불러오지 못했어요. 새로고침 해보세요.';
-        doConvert();
+        refresh();
       });
     } else {
-      doConvert();
+      refresh();
     }
   }
 

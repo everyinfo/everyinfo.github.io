@@ -120,9 +120,8 @@ function render(){
     el.href = c.url;
     el.className = 'calc-item' + (c.active ? '' : ' disabled');
     el.innerHTML = `
-      <div class="emoji">${c.emoji}</div>
       <div class="cat">${c.cat}</div>
-      <h3>${c.title}</h3>
+      <h3><span class="ci-emoji">${c.emoji}</span>${c.title}</h3>
       <p>${c.desc}</p>
     `;
     grid.appendChild(el);
