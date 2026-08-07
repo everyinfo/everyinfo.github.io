@@ -252,10 +252,13 @@ svg{ display:block; width:100%; height:auto; overflow:visible; }
 .history-btn:hover{ border-color:var(--indigo-soft); color:var(--indigo); }
 .history-btn.has-items{ color:var(--indigo); border-color:var(--indigo-soft); }
 .history-panel{
-  display:none; margin-top:12px; border:1px solid var(--line); border-radius:12px;
-  background:#fff; max-height:230px; overflow-y:auto;
+  max-height:0; overflow:hidden; opacity:0;
+  border:1px solid transparent; border-radius:12px; background:#fff; margin-top:0;
+  transition:max-height .28s cubic-bezier(.4,0,.2,1), opacity .2s ease, margin-top .28s ease, border-color .2s ease;
 }
-.history-panel.open{ display:block; }
+.history-panel.open{
+  max-height:230px; overflow-y:auto; opacity:1; margin-top:12px; border-color:var(--line);
+}
 .history-item{
   padding:9px 12px; border-bottom:1px solid var(--line-soft); cursor:pointer;
   display:flex; justify-content:space-between; align-items:baseline; gap:10px;
