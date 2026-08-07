@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  계산기서랍 (everyinfo.github.io)
+  Copyright (c) 2026 계산기서랍. All rights reserved.
+  본 저작물의 무단 복제·배포·전송을 금합니다.
+-->
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -24,6 +30,7 @@
      crossorigin="anonymous"></script>
 <script src="/calculators-data.js"></script>
 <script src="/related-sections.js"></script>
+<script src="/recent-calculators.js"></script>
 <script src="/unit-converter-data.js"></script>
 </head>
 <body>
@@ -44,7 +51,7 @@
 </nav>
 
 <div class="breadcrumb">
-  <a href="/index.html">홈</a> › <a href="/index.html#단위변환">단위변환</a> › 각도 단위 변환
+  <a href="/index.html">홈</a> › <a href="/index.html#단위변환">단위변환</a> › <span id="ucCrumb">각도 단위 변환</span>
 </div>
 
 <div class="mini-search-wrap">
@@ -57,8 +64,8 @@
 
 <div class="hero-text">
   <span class="cat-tag">단위변환</span>
-  <h1 class="page-title">🧭 각도 단위 변환</h1>
-  <p class="page-desc">도(degree), 라디안, 그라디안 각도 단위를 바로 변환해요.</p>
+  <h1 class="page-title" id="ucPageTitle">🧭 각도 단위 변환</h1>
+  <p class="page-desc" id="ucPageDesc">도(degree), 라디안, 그라디안 각도 단위를 바로 변환해요.</p>
 </div>
 
 <div class="calc-card">
@@ -73,6 +80,8 @@
     <div id="ucBody"></div>
   </div>
 </div>
+
+<div class="article" id="ucChart"></div>
 
 <div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
 
@@ -120,6 +129,7 @@
   })();
 
   renderRelatedSections('/calculators/unit-angle.html');
+  recordRecentCalculator('/calculators/unit-angle.html');
 </script>
 </body>
 </html>
