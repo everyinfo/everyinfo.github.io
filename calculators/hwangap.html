@@ -16,13 +16,13 @@
   <div class="nav-inner">
     <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
     <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
       <a href="/index.html#일상" class="active">일상</a>
       <a href="/index.html#금융">금융</a>
       <a href="/index.html#건강">건강</a>
       <a href="/index.html#학교">학교</a>
       <a href="/index.html#직장">직장</a>
       <a href="/index.html#부동산">부동산</a>
-      <a href="/index.html#단위변환">단위변환</a>
     </div>
   </div>
 </nav>
@@ -143,6 +143,10 @@ document.getElementById('bday').addEventListener('input', function(e){
   if(digits.length > 4) formatted = digits.slice(0,4) + '-' + digits.slice(4);
   if(digits.length > 6) formatted = digits.slice(0,4) + '-' + digits.slice(4,6) + '-' + digits.slice(6);
   e.target.value = formatted;
+  if(digits.length === 8) calc();
+});
+document.getElementById('bday').addEventListener('focus', function(e){
+  if(e.target.value.length > 0) e.target.value = '';
 });
 document.getElementById('bday').addEventListener('keydown', function(e){
   if(e.key === 'Enter') calc();
