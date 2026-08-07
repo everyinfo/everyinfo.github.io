@@ -128,6 +128,22 @@
 </div>
 
 <div class="divider"></div>
+
+<div class="article">
+  <h2>연도별 환갑·칠순·팔순·구순·백수 나이표</h2>
+  <p>출생년도를 찾아보시면 환갑(61세)·칠순(70세)·팔순(80세)·구순(90세)·백수연(99세)이 되는 해를 바로 확인할 수 있어요. (1920년생 ~ 2030년생, 세는나이 기준)</p>
+  <div class="year-table-wrap">
+    <table class="year-table" id="yearTable">
+      <thead>
+        <tr>
+          <th>출생년도</th><th>환갑(61세)</th><th>칠순(70세)</th><th>팔순(80세)</th><th>구순(90세)</th><th>백수연(99세)</th>
+        </tr>
+      </thead>
+      <tbody id="yearTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
 <div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
 
 <footer>
@@ -297,7 +313,19 @@ function calcExactAge(birth, today){
 }
 function fmtDate(d){ return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`; }
 
-function calc(){
+// 연도별 환갑·칠순·팔순·구순·백수 표 생성 (1920 ~ 2030년생)
+(function renderYearTable(){
+  const tbody = document.getElementById('yearTableBody');
+  const thisYear = new Date().getFullYear();
+  let rows = '';
+  for(let y = 1920; y <= 2030; y++){
+    const isThisYear = (y + 60 === thisYear); // 올해 환갑인 출생년도 강조
+    rows += `<tr${isThisYear ? ' class="y-highlight"' : ''}>
+      <td>${y}년생</td><td>${y+60}년</td><td>${y+69}년</td><td>${y+79}년</td><td>${y+89}년</td><td>${y+98}년</td>
+    </tr>`;
+  }
+  tbody.innerHTML = rows;
+})();
   const val = document.getElementById('bday').value;
   const err = document.getElementById('err');
   const calType = document.querySelector('input[name="calType"]:checked').value;
