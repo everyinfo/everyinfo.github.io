@@ -29,10 +29,22 @@
 <!-- Google AdSense 사이트 연결 코드 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
      crossorigin="anonymous"></script>
-<script src="https://unpkg.com/solarlunar/dist/solarlunar.min.js"></script>
+<script src="/lunar.js"></script>
 <script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
 <script src="/related-sections.js"></script>
 <script src="/recent-calculators.js"></script>
+<meta property="og:site_name" content="계산기서랍">
+<meta property="og:type" content="website">
+<meta property="og:title" content="환갑 고희 계산기 | 계산기서랍">
+<meta property="og:description" content="생년월일을 입력하면 환갑(세는나이 61세)과 고희(70세) 날짜, D-Day, 진갑·팔순 등 전통 나이 이정표를 한 번에 계산해드립니다.">
+<meta property="og:url" content="https://everyinfo.github.io/calculators/hwangap.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="환갑 고희 계산기 | 계산기서랍">
+<meta name="twitter:description" content="생년월일을 입력하면 환갑(세는나이 61세)과 고희(70세) 날짜, D-Day, 진갑·팔순 등 전통 나이 이정표를 한 번에 계산해드립니다.">
+<link rel="canonical" href="https://everyinfo.github.io/calculators/hwangap.html">
+
 </head>
 <body class="hw-serif">
 
@@ -41,12 +53,12 @@
     <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
     <div class="nav-links">
       <a href="/index.html#단위변환">단위변환</a>
-      <a href="/index.html#일상" class="active">일상</a>
+      <a href="/index.html#일상">일상</a>
       <a href="/index.html#금융">금융</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/index.html#계산">계산</a>
       <a href="/index.html#건강">건강</a>
-      <a href="/index.html#학교">학교</a>
-      <a href="/index.html#직장">직장</a>
-      <a href="/index.html#부동산">부동산</a>
     </div>
   </div>
 </nav>
@@ -355,18 +367,16 @@ function parseBirthInput(val, calType){
   const m = val.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if(!m) return null;
   const y = +m[1], mo = +m[2], d = +m[3];
-  if(mo < 1 || mo > 12) return null;
+  if(mo < 1 || mo > 12 || d < 1 || d > 31) return null;
   if(y < 1900 || y > new Date().getFullYear()) return null;
 
   if(calType === 'lunar'){
-    if(typeof solarLunar === 'undefined') return null;
-    try{
-      const r = solarLunar.lunar2solar(y, mo, d);
-      if(!r || !r.cYear) return null;
-      const date = new Date(r.cYear, r.cMonth - 1, r.cDay);
-      date.__lunarInput = `${y}년 ${mo}월 ${d}일`;
-      return date;
-    }catch(e){ return null; }
+    if(typeof KLunar === 'undefined') return null;
+    const r = KLunar.lunar2solar(y, mo, d, false);
+    if(!r) return null;
+    const date = new Date(r.year, r.month - 1, r.day);
+    date.__lunarInput = `${y}년 ${mo}월 ${d}일`;
+    return date;
   }
 
   const date = new Date(y, mo - 1, d);
@@ -404,7 +414,7 @@ function calc(){
   const lunarNote = document.getElementById('lunarNote');
   if(!birth){
     err.textContent = calType === 'lunar'
-      ? '음력 생년월일 8자리를 정확히 입력해 주세요 (1900년 이후).'
+      ? '음력 생년월일 8자리를 확인해 주세요. 없는 날짜(예: 없는 달의 30일)일 수 있어요.'
       : '생년월일 8자리(예: 19911225)를 정확히 입력해 주세요.';
     err.style.display = 'block';
     lunarNote.style.display = 'none';
@@ -552,5 +562,6 @@ function copyLink(){
   renderRelatedSections('/calculators/hwangap.html');
   recordRecentCalculator('/calculators/hwangap.html');
 </script>
+<script src="/fab.js"></script>
 </body>
 </html>
