@@ -1,0 +1,5 @@
+/*!
+ * 계산기서랍 (everyinfo.github.io)
+ * Copyright (c) 2026 계산기서랍. All rights reserved.
+ */
+!function(){const t="cdMetrics";function a(a){try{const n=JSON.parse(localStorage.getItem(t)||"{}");n[a]=(n[a]||0)+1,localStorage.setItem(t,JSON.stringify(n))}catch(t){}}window.trackCalc=function(t){a("calc:"+t),"function"==typeof gtag&&gtag("event","calculate",{calculator:t,page_path:location.pathname,lang:document.documentElement.lang||"ko"})},window.trackShare=function(t,n){a("share:"+t),"function"==typeof gtag&&gtag("event","share",{method:n||"link",content_type:"calculator_result",calculator:t,page_path:location.pathname,lang:document.documentElement.lang||"ko"})},window.trackSharedVisit=function(t){location.search&&(a("inbound:"+t),"function"==typeof gtag&&gtag("event","shared_result_view",{calculator:t,page_path:location.pathname,lang:document.documentElement.lang||"ko"}))},window.cdMetrics=function(){try{return JSON.parse(localStorage.getItem(t)||"{}")}catch(t){return{}}}}();

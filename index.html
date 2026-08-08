@@ -13,7 +13,8 @@
 <meta name="description" content="환갑, 연봉 실수령액, 대출이자 등 생활에 필요한 계산기를 한 곳에 모아둔 사이트입니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 
 <!-- Google tag (gtag.js) -->
@@ -28,6 +29,17 @@
 <!-- Google AdSense 사이트 연결 코드 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
      crossorigin="anonymous"></script>
+<meta property="og:site_name" content="계산기서랍">
+<meta property="og:type" content="website">
+<meta property="og:title" content="계산기서랍 | 생활에 필요한 계산기 모음">
+<meta property="og:description" content="환갑, 연봉 실수령액, 단위변환 등 생활에 필요한 계산기를 한 곳에 모아둔 사이트입니다.">
+<meta property="og:url" content="https://everyinfo.github.io/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://everyinfo.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"계산기서랍","alternateName":["계산기 서랍"],"url":"https://everyinfo.github.io/","publisher":{"@type":"Organization","name":"계산기서랍","url":"https://everyinfo.github.io/"}}
+</script>
 </head>
 <body>
 
@@ -39,10 +51,10 @@
       <a href="#" data-cat="단위변환">단위변환</a>
       <a href="#" data-cat="일상">일상</a>
       <a href="#" data-cat="금융">금융</a>
+      <a href="#" data-cat="공학">공학</a>
+      <a href="#" data-cat="물류">물류</a>
+      <a href="#" data-cat="계산">계산</a>
       <a href="#" data-cat="건강">건강</a>
-      <a href="#" data-cat="학교">학교</a>
-      <a href="#" data-cat="직장">직장</a>
-      <a href="#" data-cat="부동산">부동산</a>
     </div>
   </div>
 </nav>
@@ -80,6 +92,7 @@
 </footer>
 
 <script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
 <script src="/recent-calculators.js"></script>
 <script>
 // CALCULATORS 배열은 /calculators-data.js 에서 공용으로 관리됩니다.
@@ -215,5 +228,6 @@ render();
 renderPopular();
 renderRecentCalculators();
 </script>
+<script src="/fab.js"></script>
 </body>
 </html>

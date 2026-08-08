@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://everyinfo.github.io/index.html</loc>
+    <loc>https://everyinfo.github.io/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/age.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/airweight.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -17,6 +22,21 @@
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/baby.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/cbm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/container.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/customs.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,6 +71,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/pallet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/percent.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -62,6 +87,11 @@
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/salary.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/scicalc.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -193,6 +223,6 @@
   <url>
     <loc>https://everyinfo.github.io/privacy.html</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.3</priority>
   </url>
 </urlset>
