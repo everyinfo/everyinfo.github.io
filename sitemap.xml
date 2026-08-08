@@ -56,6 +56,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/electric.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/gas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/heat.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/hwangap.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -81,6 +96,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/pipe.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/pump.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/ratio.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -92,6 +117,21 @@
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/scicalc.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/solution.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/stress.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/torque.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -206,7 +246,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/uvalue.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/vat.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/wage.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
