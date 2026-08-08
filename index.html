@@ -48,14 +48,15 @@
 </nav>
 
 <div class="home-hero" id="homeHero">
-  <h1>꺼내 쓰는 계산기서랍</h1>
+  <h1>꺼내써요, 계산기서랍</h1>
   <p>복잡하게 검색할 필요 없이, 자주 찾는 계산기를 모아뒀어요. 필요한 걸 눌러서 바로 계산해보세요.</p>
 </div>
 
 <div class="home-search-wrap">
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="계산기 이름으로 검색 (예: 환갑, 연봉)">
+    <input type="text" id="searchInput" placeholder="계산기 이름으로 검색 (예: 환갑, 연봉)" autocomplete="off">
   </div>
+  <div class="mini-search-results" id="homeSearchResults"></div>
 </div>
 
 <div class="popular-section" id="recentSection"></div>
@@ -119,9 +120,11 @@ function render(){
   const isAll = currentCat === 'all';
 
   // "전체" 탭에서만 타이틀·인기·최근 섹션을 보여줌
-  document.getElementById('homeHero').style.display = isAll ? '' : 'none';
-  document.getElementById('popularSection').style.display = isAll ? '' : 'none';
-  document.getElementById('recentSection').style.display = isAll ? '' : 'none';
+  const searching = currentQuery !== '';
+  // 검색 중이면 결과가 위로 오도록 히어로·인기·최근 섹션을 숨김
+  document.getElementById('homeHero').style.display = (isAll && !searching) ? '' : 'none';
+  document.getElementById('popularSection').style.display = (isAll && !searching) ? '' : 'none';
+  document.getElementById('recentSection').style.display = (isAll && !searching) ? '' : 'none';
 
   const filtered = CALCULATORS.filter(c=>{
     const catMatch = isAll || c.cat === currentCat;
@@ -178,9 +181,34 @@ document.getElementById('navLinks').addEventListener('click', function(e){
   render();
 });
 
+const homeResults = document.getElementById('homeSearchResults');
+
+function renderHomeSuggest(q){
+  if(!q){ homeResults.classList.remove('open'); homeResults.innerHTML=''; return; }
+  const list = CALCULATORS.filter(c =>
+    c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q)
+  );
+  homeResults.innerHTML = list.length === 0
+    ? '<div class="mini-search-empty">일치하는 계산기가 없어요</div>'
+    : list.map(c => `
+      <a class="mini-search-item ${c.active ? '' : 'disabled'}" href="${c.active ? c.url : '#'}">
+        <span class="ms-emoji">${c.emoji}</span>
+        <span class="ms-text">
+          <span class="ms-title">${c.title}${c.active ? '' : ' <em>(준비 중)</em>'}</span>
+          <span class="ms-desc">${c.desc}</span>
+        </span>
+      </a>
+    `).join('');
+  homeResults.classList.add('open');
+}
+
 document.getElementById('searchInput').addEventListener('input', function(e){
   currentQuery = e.target.value.trim().toLowerCase();
+  renderHomeSuggest(currentQuery);
   render();
+});
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.home-search-wrap')) homeResults.classList.remove('open');
 });
 
 render();
