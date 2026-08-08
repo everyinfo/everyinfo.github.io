@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+  계산기서랍 (everyinfo.github.io)
+  Copyright (c) 2026 계산기서랍. All rights reserved.
+  본 저작물의 무단 복제·배포·전송을 금합니다.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>더치페이 계산기 | 계산기서랍</title>
+<meta name="description" content="총 금액을 인원수로 나눠 1인당 낼 금액을 계산해요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/policy-data.js"></script>
+<script src="/related-sections.js"></script>
+<script src="/recent-calculators.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#계산">계산</a>
+      <a href="/index.html#생활">생활</a>
+      <a href="/index.html#건강">건강</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/index.html#계산">계산</a> › 더치페이 계산기
+</div>
+
+<div class="mini-search-wrap">
+  <div class="mini-search">
+    <span class="mini-search-icon">🔍</span>
+    <input type="text" id="siteSearch" placeholder="다른 계산기 검색 (예: 환갑, 연봉, 길이)" autocomplete="off">
+  </div>
+  <div class="mini-search-results" id="siteSearchResults"></div>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">계산</span>
+  <h1 class="page-title">🍽️ 더치페이 계산기</h1>
+  <p class="page-desc">총 금액을 인원수로 나눠 1인당 낼 금액을 계산해요.</p>
+</div>
+
+<div class="calc-card">
+  <div class="card">
+    <div id="calcBody"></div>
+    <div id="calcResult"></div>
+  </div>
+</div>
+
+<div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
+
+<div id="relatedSections"></div>
+
+<footer>
+  <div class="f-brand">계산기서랍</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 계산기서랍. All rights reserved.</div>
+</footer>
+
+<script src="/calc-engine.js"></script>
+<script>
+  initCalculator('dutch');
+  renderRelatedSections('/calculators/dutch.html');
+  recordRecentCalculator('/calculators/dutch.html');
+  (function(){
+    const input=document.getElementById('siteSearch'), results=document.getElementById('siteSearchResults');
+    if(!input) return;
+    input.addEventListener('input',function(){
+      const q=input.value.trim().toLowerCase();
+      if(!q){results.classList.remove('open');results.innerHTML='';return;}
+      const list=(window.CALCULATORS||[]).filter(c=>c.title.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.cat.toLowerCase().includes(q));
+      results.innerHTML=list.length===0?'<div class="mini-search-empty">일치하는 계산기가 없어요</div>'
+        :list.map(c=>`<a class="mini-search-item ${c.active?'':'disabled'}" href="${c.active?c.url:'#'}"><span class="ms-emoji">${c.emoji}</span><span class="ms-text"><span class="ms-title">${c.title}${c.active?'':' <em>(준비 중)</em>'}</span><span class="ms-desc">${c.desc}</span></span></a>`).join('');
+      results.classList.add('open');
+    });
+    document.addEventListener('click',function(e){if(!e.target.closest('.mini-search-wrap'))results.classList.remove('open');});
+  })();
+</script>
+</body>
+</html>
