@@ -21,12 +21,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/avgkid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/baby.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/cbm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/circlearea.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,6 +61,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/divisor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/dutch.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -61,7 +76,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/fraction.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/gas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/gcdlcm.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -81,6 +106,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/loan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/lotto.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -92,6 +122,16 @@
   </url>
   <url>
     <loc>https://everyinfo.github.io/calculators/percent.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/percentkid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/petage.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,7 +151,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/ratiokid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/salary.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/salt.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -121,7 +171,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://everyinfo.github.io/calculators/shape.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://everyinfo.github.io/calculators/solution.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://everyinfo.github.io/calculators/speed.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

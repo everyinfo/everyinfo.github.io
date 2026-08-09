@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="계산기서랍">
 <meta property="og:type" content="website">
 <meta property="og:title" content="계산기서랍 | 생활에 필요한 계산기 모음">
-<meta property="og:description" content="환갑, 연봉 실수령액, 단위변환 등 생활에 필요한 계산기를 한 곳에 모아둔 사이트입니다.">
+<meta property="og:description" content="단위변환, 공학, 물류, 금융까지 63가지 계산기를 한 곳에 모았어요.">
 <meta property="og:url" content="https://everyinfo.github.io/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
@@ -51,10 +51,10 @@
       <a href="#" data-cat="단위변환">단위변환</a>
       <a href="#" data-cat="일상">일상</a>
       <a href="#" data-cat="금융">금융</a>
-      <a href="#" data-cat="공학">공학</a>
-      <a href="#" data-cat="물류">물류</a>
-      <a href="#" data-cat="계산">계산</a>
       <a href="#" data-cat="건강">건강</a>
+      <a href="#" data-cat="학교">학교</a>
+      <a href="#" data-cat="직장">직장</a>
+      <a href="#" data-cat="부동산">부동산</a>
     </div>
   </div>
 </nav>
@@ -78,7 +78,10 @@
   <div class="popular-scroll" id="popularScroll"></div>
 </div>
 
-<div class="section-label" id="resultLabel">전체 계산기</div>
+<div class="section-toolbar">
+  <span class="section-label" id="resultLabel">전체 계산기</span>
+  <button type="button" class="toggle-all" id="toggleAll">전체 접기</button>
+</div>
 <div class="calc-grid" id="calcGrid">
   <!-- JS로 렌더링됨 -->
 </div>
@@ -124,6 +127,39 @@ function renderPopular(){
   });
 }
 
+// 접힌 카테고리 목록 (브라우저에 저장)
+let COLLAPSED = (function(){
+  try{ return JSON.parse(localStorage.getItem('collapsedCats')||'[]'); }catch(e){ return []; }
+})();
+function saveCollapsed(){
+  try{ localStorage.setItem('collapsedCats', JSON.stringify(COLLAPSED)); }catch(e){}
+}
+function bindToggles(){
+  document.querySelectorAll('#calcGrid [data-toggle]').forEach(h=>{
+    h.addEventListener('click', ()=>{
+      const block = h.closest('.cat-block');
+      const cat = block.dataset.cat;
+      block.classList.toggle('collapsed');
+      if(block.classList.contains('collapsed')){
+        if(!COLLAPSED.includes(cat)) COLLAPSED.push(cat);
+      } else {
+        COLLAPSED = COLLAPSED.filter(x=>x!==cat);
+      }
+      saveCollapsed();
+      syncToggleAll();
+    });
+  });
+  syncToggleAll();
+}
+function syncToggleAll(){
+  const btn = document.getElementById('toggleAll');
+  if(!btn) return;
+  const blocks = document.querySelectorAll('#calcGrid .cat-block');
+  const allDone = blocks.length>0 && [...blocks].every(b=>b.classList.contains('collapsed'));
+  btn.textContent = allDone ? '전체 펼치기' : '전체 접기';
+  btn.style.display = blocks.length>0 ? '' : 'none';
+}
+
 const grid = document.getElementById('calcGrid');
 const resultLabel = document.getElementById('resultLabel');
 let currentCat = 'all';
@@ -164,19 +200,27 @@ function render(){
   }
 
   if(isAll){
-    // 전체 탭: 카테고리별로 묶어서 표시 (카드 안 카테고리 라벨은 생략)
+    // 전체 탭: 카테고리별로 묶어서 표시 (접기/펼치기 가능)
     grid.className = 'cat-groups';
     const order = [];
     filtered.forEach(c=>{ if(!order.includes(c.cat)) order.push(c.cat); });
     grid.innerHTML = order.map(cat=>{
       const items = filtered.filter(c=>c.cat === cat);
+      const collapsed = COLLAPSED.includes(cat) ? ' collapsed' : '';
       return `
-        <div class="cat-block">
-          <h2 class="cat-heading">${cat}<span class="cat-count">${items.length}</span></h2>
+        <div class="cat-block${collapsed}" data-cat="${cat}">
+          <div class="cat-heading" data-toggle>
+            <div class="chev-btn">▾</div>
+            <span class="cat-name">${cat}</span>
+            <span class="collapsed-tag">접힘</span>
+            <span class="cat-line"></span>
+            <span class="cat-count">${items.length}</span>
+          </div>
           <div class="calc-grid">${items.map(cardHtml).join('')}</div>
         </div>
       `;
     }).join('');
+    bindToggles();
   } else {
     // 특정 카테고리 탭: 이미 그 카테고리이므로 제목 줄 없이 목록만
     grid.className = 'calc-grid';
@@ -222,6 +266,26 @@ document.getElementById('searchInput').addEventListener('input', function(e){
 });
 document.addEventListener('click', function(e){
   if(!e.target.closest('.home-search-wrap')) homeResults.classList.remove('open');
+});
+
+document.getElementById('toggleAll').addEventListener('click', function(){
+  const blocks = document.querySelectorAll('#calcGrid .cat-block');
+  const allDone = [...blocks].every(b=>b.classList.contains('collapsed'));
+  COLLAPSED = [];
+  blocks.forEach(b=>{
+    b.classList.toggle('collapsed', !allDone);
+    if(!allDone) COLLAPSED.push(b.dataset.cat);
+  });
+  saveCollapsed();
+  syncToggleAll();
+});
+
+// 계산기가 하나도 없는 카테고리 탭은 숨김
+document.querySelectorAll('#navLinks a[data-cat]').forEach(a=>{
+  const cat = a.dataset.cat;
+  if(cat === 'all') return;
+  const has = CALCULATORS.some(c=>c.cat === cat);
+  if(!has) a.style.display = 'none';
 });
 
 render();
