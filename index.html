@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="계산기서랍">
 <meta property="og:type" content="website">
 <meta property="og:title" content="계산기서랍 | 생활에 필요한 계산기 모음">
-<meta property="og:description" content="단위변환, 공학, 물류, 금융까지 63가지 계산기를 한 곳에 모았어요.">
+<meta property="og:description" content="단위변환, 공학, 물류, 금융, 초등수학까지 62가지 계산기를 한 곳에 모았어요.">
 <meta property="og:url" content="https://everyinfo.github.io/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
@@ -47,14 +47,7 @@
   <div class="nav-inner">
     <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
     <div class="nav-links" id="navLinks">
-      <a href="#" class="active" data-cat="all">전체</a>
-      <a href="#" data-cat="단위변환">단위변환</a>
-      <a href="#" data-cat="일상">일상</a>
-      <a href="#" data-cat="금융">금융</a>
-      <a href="#" data-cat="건강">건강</a>
-      <a href="#" data-cat="학교">학교</a>
-      <a href="#" data-cat="직장">직장</a>
-      <a href="#" data-cat="부동산">부동산</a>
+      <!-- calculators-data.js 기준으로 자동 생성됩니다 -->
     </div>
   </div>
 </nav>
@@ -280,13 +273,31 @@ document.getElementById('toggleAll').addEventListener('click', function(){
   syncToggleAll();
 });
 
-// 계산기가 하나도 없는 카테고리 탭은 숨김
-document.querySelectorAll('#navLinks a[data-cat]').forEach(a=>{
-  const cat = a.dataset.cat;
-  if(cat === 'all') return;
-  const has = CALCULATORS.some(c=>c.cat === cat);
-  if(!has) a.style.display = 'none';
-});
+// 카테고리 탭을 계산기 목록에서 자동 생성 (누락·불일치 방지)
+(function buildTabs(){
+  const order = window.CATEGORY_ORDER || [];
+  const present = [];
+  CALCULATORS.forEach(c=>{ if(!present.includes(c.cat)) present.push(c.cat); });
+  present.sort((a,b)=>{
+    const ia=order.indexOf(a), ib=order.indexOf(b);
+    return (ia<0?99:ia)-(ib<0?99:ib);
+  });
+  const nav = document.getElementById('navLinks');
+  nav.innerHTML = '<a href="#" class="active" data-cat="all">전체</a>'
+    + present.map(cat=>`<a href="#" data-cat="${cat}">${cat}</a>`).join('');
+})();
+
+// 다른 페이지에서 #카테고리 로 들어온 경우 해당 탭을 자동 선택
+(function applyHash(){
+  const h = decodeURIComponent(location.hash.replace('#',''));
+  if(!h) return;
+  const tab = document.querySelector(`#navLinks a[data-cat="${h}"]`);
+  if(tab){
+    document.querySelectorAll('#navLinks a').forEach(x=>x.classList.remove('active'));
+    tab.classList.add('active');
+    currentCat = h;
+  }
+})();
 
 render();
 renderPopular();
