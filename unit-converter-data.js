@@ -1,5 +1,5 @@
 /*!
- * 계산기서랍 (calclex.com)
+ * 계산기서랍 (everyinfo.github.io)
  * Copyright (c) 2026 계산기서랍. All rights reserved.
  * 본 저작물의 무단 복제·배포·전송을 금합니다.
  */
