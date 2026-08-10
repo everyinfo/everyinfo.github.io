@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>로고 표기 비교</title>
+<style>
+  :root{
+    --paper:#FAFAF8; --card:#FFFFFF; --ink:#1F1F1E; --ink-soft:#5C5B58; --ink-faint:#9B9A96;
+    --indigo:#2E5C8A; --indigo-soft:#4A7CB0; --line:#E6E5E1; --line-soft:#F2F1ED;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:#fff; padding:20px 16px 60px;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);
+  }
+  .wrap{max-width:420px;margin:0 auto;}
+  .opt-label{
+    font-size:12px; font-weight:700; color:var(--ink-soft); margin:26px 0 8px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .opt-label .badge{
+    font-size:10px; font-weight:800; color:#fff; background:var(--indigo);
+    padding:2px 8px; border-radius:999px;
+  }
+  .frame{
+    border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+
+  /* nav */
+  .nav{
+    background:rgba(250,250,248,.95); border-bottom:1px solid var(--line);
+    padding:14px 18px; display:flex; align-items:center; gap:10px;
+  }
+  .mark{
+    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg, var(--indigo), var(--indigo-soft));
+  }
+  .nav-links{ margin-left:auto; display:flex; gap:16px; font-size:12px; color:var(--ink-soft); font-weight:600; }
+
+  /* hero */
+  .hero{ background:var(--paper); padding:34px 20px 30px; text-align:center; }
+  .hero-sub{ font-size:12.5px; color:var(--ink-soft); margin-top:7px; }
+
+  /* footer */
+  .footer{ background:#fff; border-top:1px solid var(--line); padding:20px; text-align:center; }
+  .foot-copy{ font-size:10.5px; color:var(--ink-faint); margin-top:4px; }
+
+  /* wordmark styles */
+  .wm-caps{
+    font-weight:800; letter-spacing:.14em; color:var(--indigo);
+  }
+  .wm-title{
+    font-weight:800; letter-spacing:-.01em; color:var(--indigo);
+  }
+  .nav .wm-caps{ font-size:14px; }
+  .nav .wm-title{ font-size:16px; }
+  .hero .wm-caps{ font-size:30px; }
+  .hero .wm-title{ font-size:38px; }
+  .footer .wm-caps{ font-size:14px; }
+  .footer .wm-title{ font-size:15px; }
+
+  .verdict{
+    margin-top:14px; padding:12px 14px; background:#FFF8E8; border:1px dashed #D4B26A;
+    border-radius:10px; font-size:11.5px; color:#7A5E1F; line-height:1.7;
+  }
+  .verdict b{ color:#8A5A1F; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="opt-label"><span class="badge">A</span> 전체 대문자 · CALCLEX</div>
+  <div class="frame">
+    <div class="nav">
+      <span class="mark"></span><span class="wm-caps">CALCLEX</span>
+      <div class="nav-links"><span>단위변환</span><span>일상</span><span>금융</span></div>
+    </div>
+    <div class="hero">
+      <div class="wm-caps">CALCLEX</div>
+      <div class="hero-sub">계산기서랍 · 꺼내써요, 필요한 계산</div>
+    </div>
+    <div class="footer">
+      <div class="wm-caps">CALCLEX</div>
+      <div class="foot-copy">© 2026 CALCLEX. All rights reserved.</div>
+    </div>
+  </div>
+
+  <div class="opt-label" style="margin-top:34px;"><span class="badge">B</span> 첫 글자만 대문자 · Calclex</div>
+  <div class="frame">
+    <div class="nav">
+      <span class="mark"></span><span class="wm-title">Calclex</span>
+      <div class="nav-links"><span>단위변환</span><span>일상</span><span>금융</span></div>
+    </div>
+    <div class="hero">
+      <div class="wm-title">Calclex</div>
+      <div class="hero-sub">계산기서랍 · 꺼내써요, 필요한 계산</div>
+    </div>
+    <div class="footer">
+      <div class="wm-title">Calclex</div>
+      <div class="foot-copy">© 2026 Calclex. All rights reserved.</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>참고</b> — 내비게이션처럼 작은 크기(14px)에서는 <b>A(전체대문자)</b>가 자간 때문에 살짝 넓게 차지하고,
+    <b>B(Calclex)</b>가 상대적으로 더 자연스럽게 읽혀요. 반대로 히어로처럼 큰 크기(30px+)에서는
+    A가 명품 로고 느낌의 각 잡힌 인상을 주고, B는 좀 더 부드럽고 친근한 인상을 줘요.
+  </div>
+
+</div>
+</body>
+</html>
