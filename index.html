@@ -9,8 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>계산기서랍 | 생활에 필요한 계산기 모음</title>
-<meta name="description" content="환갑, 연봉 실수령액, 대출이자 등 생활에 필요한 계산기를 한 곳에 모아둔 사이트입니다.">
+<title>복잡한 수식부터 일상의 편의까지, 계산의 모든 것 | CALCLEX</title>
+<meta name="description" content="공학, 물류, 일상 편의 계산을 아우르는 무료 온라인 계산 사전. 회원가입 없이 즉시 정확한 값을 계산하세요.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
@@ -31,8 +31,8 @@
      crossorigin="anonymous"></script>
 <meta property="og:site_name" content="CalcLex">
 <meta property="og:type" content="website">
-<meta property="og:title" content="계산기서랍 | 생활에 필요한 계산기 모음">
-<meta property="og:description" content="단위변환, 공학, 물류, 금융, 초등수학까지 62가지 계산기를 한 곳에 모았어요.">
+<meta property="og:title" content="복잡한 수식부터 일상의 편의까지, 계산의 모든 것 | CALCLEX">
+<meta property="og:description" content="공학, 물류, 일상 편의 계산을 아우르는 무료 온라인 계산 사전. 회원가입 없이 즉시 정확한 값을 계산하세요.">
 <meta property="og:url" content="https://calclex.com/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
@@ -155,7 +155,8 @@ function bindToggles(){
 function syncToggleAll(){
   const btn = document.getElementById('toggleAll');
   if(!btn) return;
-  const blocks = document.querySelectorAll('#calcGrid .cat-block');
+  // 최상위 카테고리 블록만 카운트 (중첩된 sub-block은 전체접기 토글 판단에서 제외)
+  const blocks = document.querySelectorAll('#calcGrid > .cat-block');
   const allDone = blocks.length>0 && [...blocks].every(b=>b.classList.contains('collapsed'));
   btn.textContent = allDone ? '전체 펼치기' : '전체 접기';
   btn.style.display = blocks.length>0 ? '' : 'none';
@@ -175,6 +176,18 @@ function render(){
   document.getElementById('homeHero').style.display = (isAll && !searching) ? '' : 'none';
   document.getElementById('popularSection').style.display = (isAll && !searching) ? '' : 'none';
   document.getElementById('recentSection').style.display = (isAll && !searching) ? '' : 'none';
+
+  // 특정 카테고리 선택 시 소개 문구 표시
+  const descLine = document.getElementById('catDescLine');
+  if(descLine){
+    const desc = (window.CATEGORY_DESC || {})[currentCat];
+    if(!isAll && desc){
+      descLine.textContent = desc;
+      descLine.style.display = 'block';
+    } else {
+      descLine.style.display = 'none';
+    }
+  }
 
   const filtered = CALCULATORS.filter(c=>{
     const catMatch = isAll || c.cat === currentCat;
@@ -200,6 +213,33 @@ function render(){
     `;
   }
 
+  // 카테고리 안에서 subcat(초등/학생 등)으로 다시 묶어서, 구분선+접기 가능한 소제목으로 렌더링
+  function renderWithSubgroups(items, catKey){
+    const plain = items.filter(c => !c.subcat);
+    const subOrder = (window.SUBCAT_ORDER || []).filter(s => items.some(c => c.subcat === s));
+    let html = plain.length ? `<div class="calc-grid">${plain.map(cardHtml).join('')}</div>` : '';
+    subOrder.forEach(sub=>{
+      const subItems = items.filter(c => c.subcat === sub);
+      if(!subItems.length) return;
+      const subKey = catKey + ':' + sub;
+      const collapsed = COLLAPSED.includes(subKey) ? ' collapsed' : '';
+      html += `
+        <div class="sub-divider"></div>
+        <div class="cat-block sub-block${collapsed}" data-cat="${subKey}">
+          <div class="cat-heading sub-heading" data-toggle>
+            <div class="chev-btn">▾</div>
+            <span class="cat-name sub-name">${sub}</span>
+            <span class="collapsed-tag">접힘</span>
+            <span class="cat-line"></span>
+            <span class="cat-count">${subItems.length}</span>
+          </div>
+          <div class="calc-grid">${subItems.map(cardHtml).join('')}</div>
+        </div>
+      `;
+    });
+    return html;
+  }
+
   if(isAll){
     // 전체 탭: 카테고리별로 묶어서 표시 (접기/펼치기 가능)
     grid.className = 'cat-groups';
@@ -217,15 +257,22 @@ function render(){
             <span class="cat-line"></span>
             <span class="cat-count">${items.length}</span>
           </div>
-          <div class="calc-grid">${items.map(cardHtml).join('')}</div>
+          ${renderWithSubgroups(items, cat)}
         </div>
       `;
     }).join('');
     bindToggles();
   } else {
-    // 특정 카테고리 탭: 이미 그 카테고리이므로 제목 줄 없이 목록만
-    grid.className = 'calc-grid';
-    grid.innerHTML = filtered.map(cardHtml).join('');
+    // 특정 카테고리 탭: 제목 줄 없이 목록만 (subcat 있으면 구분선+소제목으로 묶음)
+    const hasSub = filtered.some(c => c.subcat);
+    if(hasSub){
+      grid.className = 'cat-groups';
+      grid.innerHTML = renderWithSubgroups(filtered, currentCat);
+      bindToggles();
+    } else {
+      grid.className = 'calc-grid';
+      grid.innerHTML = filtered.map(cardHtml).join('');
+    }
   }
 }
 
