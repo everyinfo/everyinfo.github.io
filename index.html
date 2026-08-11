@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-  계산기서랍 (calclex.com)
-  Copyright (c) 2026 계산기서랍. All rights reserved.
+  CalcLex (calclex.com)
+  Copyright (c) 2026 CalcLex. All rights reserved.
   본 저작물의 무단 복제·배포·전송을 금합니다.
 -->
 
@@ -213,6 +213,8 @@ function render(){
   // 검색 중이면 결과가 위로 오도록 히어로·인기·최근 섹션을 숨김
   document.getElementById('homeHero').style.display = (isAll && !searching) ? '' : 'none';
   document.getElementById('popularSection').style.display = (isAll && !searching) ? '' : 'none';
+  const hcw = document.getElementById('homeCalcWidget');
+  if(hcw) hcw.style.display = (isAll && !searching) ? '' : 'none';
   document.getElementById('recentSection').style.display = (isAll && !searching) ? '' : 'none';
 
   // 특정 카테고리 선택 시 소개 문구 표시
