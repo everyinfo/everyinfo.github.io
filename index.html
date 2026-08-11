@@ -70,6 +70,14 @@
   <div class="mini-search-results" id="homeSearchResults"></div>
 </div>
 
+<div class="home-calc-widget" id="homeCalcWidget">
+  <div class="hcw-tabs">
+    <button type="button" class="hcw-tab" id="hcwBasicTab" data-mode="basic">기본</button>
+    <button type="button" class="hcw-tab" id="hcwEngTab" data-mode="eng">공학</button>
+  </div>
+  <div id="calcBody"></div>
+</div>
+
 <div class="popular-section" id="recentSection"></div>
 
 <div class="popular-section" id="popularSection">
@@ -98,6 +106,8 @@
 <script src="/calculators-data.js"></script>
 <script src="/metrics.js"></script>
 <script src="/recent-calculators.js"></script>
+<script src="/basiccalc.js"></script>
+<script src="/sci-calc.js"></script>
 <script>
 // CALCULATORS 배열은 /calculators-data.js 에서 공용으로 관리됩니다.
 const CALCULATORS = window.CALCULATORS;
@@ -392,6 +402,29 @@ document.getElementById('toggleAll').addEventListener('click', function(){
     tab.classList.add('active');
     currentCat = h;
   }
+})();
+
+// 홈 상단 계산기 위젯: 기본/공학 탭, 마지막 선택을 기억함 (처음 방문자는 '기본'이 기본값)
+(function(){
+  const KEY = 'homeCalcMode';
+  let mode = 'basic';
+  try{ mode = localStorage.getItem(KEY) || 'basic'; }catch(e){}
+
+  function paint(m){
+    document.getElementById('hcwBasicTab').classList.toggle('on', m==='basic');
+    document.getElementById('hcwEngTab').classList.toggle('on', m==='eng');
+    const body = document.getElementById('calcBody');
+    body.innerHTML = '';
+    if(m === 'basic' && typeof initBasicCalc === 'function') initBasicCalc('calcBody');
+    else if(m === 'eng' && typeof initSciCalc === 'function') initSciCalc();
+  }
+  document.getElementById('hcwBasicTab').addEventListener('click', ()=>{
+    mode='basic'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  document.getElementById('hcwEngTab').addEventListener('click', ()=>{
+    mode='eng'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  paint(mode);
 })();
 
 render();
