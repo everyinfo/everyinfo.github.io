@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>지수·로그 계산기 | 계산기서랍</title>
-<meta name="description" content="거듭제곱과 로그를 계산해요.">
+<title>일반 계산기 | 계산기서랍</title>
+<meta name="description" content="사칙연산, 메모리, 제곱·제곱근까지 — 윈도우 계산기처럼 익숙하게 쓸 수 있는 기본 계산기예요.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
@@ -28,14 +28,14 @@
 <script src="/metrics.js"></script>
 <script src="/related-sections.js"></script>
 <script src="/recent-calculators.js"></script>
-<meta property="og:site_name" content="CalcLex">
+<meta property="og:site_name" content="CALCLEX">
 <meta property="og:type" content="website">
-<meta property="og:title" content="지수·로그 계산기 | CALCLEX">
-<meta property="og:description" content="거듭제곱과 로그를 계산해요.">
-<meta property="og:url" content="https://calclex.com/calculators/explog.html">
+<meta property="og:title" content="일반 계산기 | CALCLEX">
+<meta property="og:description" content="사칙연산, 메모리, 제곱·제곱근까지 — 윈도우 계산기처럼 익숙하게 쓸 수 있는 기본 계산기예요.">
+<meta property="og:url" content="https://calclex.com/calculators/basiccalc.html">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
-<link rel="canonical" href="https://calclex.com/calculators/explog.html">
+<link rel="canonical" href="https://calclex.com/calculators/basiccalc.html">
 </head>
 <body>
 
@@ -44,17 +44,18 @@
     <a href="/index.html" class="brand"><span class="mark"></span>계산기서랍</a>
     <div class="nav-links">
       <a href="/index.html#단위변환">단위변환</a>
-      <a href="/index.html#공학">공학</a>
-      <a href="/index.html#일반">일반</a>
       <a href="/index.html#일상">일상</a>
       <a href="/index.html#금융">금융</a>
+      <a href="/index.html#공학">공학</a>
       <a href="/index.html#물류">물류</a>
+      <a href="/index.html#계산">계산</a>
+      <a href="/index.html#건강">건강</a>
     </div>
   </div>
 </nav>
 
 <div class="breadcrumb">
-  <a href="/index.html">홈</a> › <a href="/index.html#일반">일반</a> › 지수·로그 계산기
+  <a href="/index.html">홈</a> › <a href="/index.html#일반">일반</a> › 일반 계산기
 </div>
 
 <div class="mini-search-wrap">
@@ -66,9 +67,9 @@
 </div>
 
 <div class="hero-text">
-  <span class="cat-tag">학생</span>
-  <h1 class="page-title">🔢 지수·로그 계산기</h1>
-  <p class="page-desc">거듭제곱과 로그를 계산해요.</p>
+  <span class="cat-tag">일반</span>
+  <h1 class="page-title">🖩 일반 계산기</h1>
+  <p class="page-desc">사칙연산, 메모리, 제곱·제곱근까지 — 윈도우 계산기처럼 익숙하게 쓸 수 있는 기본 계산기예요.</p>
 </div>
 
 <div class="calc-card">
@@ -78,11 +79,9 @@
   </div>
 </div>
 
-<div class="ad-slot"><!-- 광고 영역: 애드센스 승인 후 이 자리에 광고 코드를 삽입하세요 --></div>
+<div class="ad-slot"><div class="box">광고 영역 · 애드센스 코드를 여기에 삽입하세요</div></div>
 
 <div id="relatedSections"></div>
-
-<div id="fullCategoryList"></div>
 
 <footer>
   <div class="f-brand">계산기서랍</div>
@@ -92,11 +91,11 @@
   <div class="f-copy">© 2026 계산기서랍. All rights reserved.</div>
 </footer>
 
-<script src="/student.js"></script>
+<script src="/basiccalc.js"></script>
 <script>
-  initStudent('explog');
-  renderRelatedSections('/calculators/explog.html');
-  recordRecentCalculator('/calculators/explog.html');
+  initBasicCalc('calcBody');
+  renderRelatedSections('/calculators/basiccalc.html');
+  recordRecentCalculator('/calculators/basiccalc.html');
   (function(){
     const input=document.getElementById('siteSearch'), results=document.getElementById('siteSearchResults');
     if(!input) return;
@@ -114,6 +113,5 @@
 <script src="/fab.js"></script>
 <script src="/input-enhance.js"></script>
 <script src="/topreset.js"></script>
-<script src="/full-category-list.js"></script>
 </body>
 </html>
