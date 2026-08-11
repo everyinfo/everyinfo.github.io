@@ -272,10 +272,15 @@ function render(){
   }
 
   if(isAll){
-    // 전체 탭: 카테고리별로 묶어서 표시 (접기/펼치기 가능)
+    // 전체 탭: 카테고리별로 묶어서 표시 (상단 탭과 동일한 CATEGORY_ORDER 순서를 따름)
     grid.className = 'cat-groups';
     const order = [];
     filtered.forEach(c=>{ if(!order.includes(c.cat)) order.push(c.cat); });
+    const catOrder = window.CATEGORY_ORDER || [];
+    order.sort((a,b)=>{
+      const ia = catOrder.indexOf(a), ib = catOrder.indexOf(b);
+      return (ia<0?99:ia) - (ib<0?99:ib);
+    });
     grid.innerHTML = order.map(cat=>{
       const items = filtered.filter(c=>c.cat === cat);
       const collapsed = COLLAPSED.includes(cat) ? ' collapsed' : '';
