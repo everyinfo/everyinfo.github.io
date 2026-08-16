@@ -1,0 +1,40 @@
+name: Update Exchange Rate
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 매일 UTC 00:00 (한국시간 오전 9시)에 실행
+  workflow_dispatch:        # 수동 실행 버튼도 사용 가능
+
+permissions:
+  contents: write
+
+jobs:
+  update-rate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch USD/KRW rate
+        run: |
+          set -e
+          curl -sf "https://open.er-api.com/v6/latest/USD" -o /tmp/rate_raw.json || {
+            echo "환율 API 호출 실패 — 기존 exchange-rate.json 유지"
+            exit 0
+          }
+          RATE=$(node -e "const d=require('/tmp/rate_raw.json'); const r=d.rates && d.rates.KRW; if(!r) throw new Error('no KRW rate'); console.log(r)")
+          DATE=$(date -u +%Y-%m-%d)
+          node -e "
+            const fs=require('fs');
+            const data={ usd_krw: Number(process.argv[1]), updated: process.argv[2] };
+            fs.writeFileSync('exchange-rate.json', JSON.stringify(data, null, 2)+'\n');
+          " "$RATE" "$DATE"
+          echo "환율 갱신: 1 USD = $RATE KRW ($DATE)"
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add exchange-rate.json
+          git diff --staged --quiet || git commit -m "Update exchange rate ($(date -u +%Y-%m-%d))"
+          git diff --staged --quiet || git push
