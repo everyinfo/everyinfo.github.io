@@ -55,6 +55,14 @@
   <p class="brand-sub">A complete calculator reference for engineers, students, and everyone else. No sign-up — just calculate.</p>
 </div>
 
+<div class="home-calc-widget" id="homeCalcWidget">
+  <div class="hcw-tabs">
+    <button type="button" class="hcw-tab" id="hcwBasicTab" data-mode="basic">Basic</button>
+    <button type="button" class="hcw-tab" id="hcwEngTab" data-mode="eng">Scientific</button>
+  </div>
+  <div id="calcBody"></div>
+</div>
+
 <div class="home-search-wrap">
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Search by calculator name (e.g. pump, stress)" autocomplete="off">
@@ -191,6 +199,32 @@
   });
 
   render();
+})();
+</script>
+<script src="/basiccalc-en.js"></script>
+<script src="/sci-calc-en.js"></script>
+<script>
+// Home calculator widget: Basic/Scientific tabs, remembers last choice
+(function(){
+  const KEY = 'homeCalcMode';
+  let mode = 'basic';
+  try{ mode = localStorage.getItem(KEY) || 'basic'; }catch(e){}
+
+  function paint(m){
+    document.getElementById('hcwBasicTab').classList.toggle('on', m==='basic');
+    document.getElementById('hcwEngTab').classList.toggle('on', m==='eng');
+    const body = document.getElementById('calcBody');
+    body.innerHTML = '';
+    if(m === 'basic' && typeof initBasicCalc === 'function') initBasicCalc('calcBody');
+    else if(m === 'eng' && typeof initSciCalc === 'function') initSciCalc();
+  }
+  document.getElementById('hcwBasicTab').addEventListener('click', ()=>{
+    mode='basic'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  document.getElementById('hcwEngTab').addEventListener('click', ()=>{
+    mode='eng'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  paint(mode);
 })();
 </script>
 <script src="/en/fab-en.js"></script>
