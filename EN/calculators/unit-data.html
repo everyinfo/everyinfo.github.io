@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com)
+  Copyright (c) 2026 CalcLex. All rights reserved.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Size Converter | CALCLEX</title>
+<meta name="description" content="Convert bit, byte, KB, MB, GB, and TB instantly.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Data Size Converter | CALCLEX">
+<meta property="og:description" content="Convert bit, byte, KB, MB, GB, and TB instantly.">
+<meta property="og:url" content="https://calclex.com/en/calculators/unit-data.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/en/calculators/unit-data.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/en/calculators-data-en.js"></script>
+<script src="/metrics.js"></script>
+<script src="/unit-converter-data-en.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="brand brand-caps">CalcLex</a>
+    <div class="nav-links">
+      <a href="/en/index.html#Unit Converter">Unit Converter</a>
+      <a href="/en/index.html#Engineering">Engineering</a>
+      <a href="/en/index.html#Logistics">Logistics</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/en/index.html">Home</a> &rsaquo; <a href="/en/index.html#Unit Converter">Unit Converter</a> &rsaquo; <span id="ucCrumb">Data Size Converter</span>
+</div>
+
+<div class="mini-search-wrap">
+  <div class="mini-search">
+    <span class="mini-search-icon">🔍</span>
+    <input type="text" id="siteSearch" placeholder="Search other calculators" autocomplete="off">
+  </div>
+  <div class="mini-search-results" id="siteSearchResults"></div>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">Unit Converter</span>
+  <h1 class="page-title" id="ucPageTitle">💾 Data Size Converter</h1>
+  <p class="page-desc" id="ucPageDesc">Convert bit, byte, KB, MB, GB, and TB instantly.</p>
+</div>
+
+<div class="calc-card">
+  <div class="card">
+    <div class="uc-cat-wrap">
+      <button type="button" class="uc-cat-btn" id="ucCatBtn">
+        <span id="ucCatLabel"></span>
+        <span class="chev">&#9662;</span>
+      </button>
+      <div class="uc-cat-panel" id="ucCatPanel"></div>
+    </div>
+    <div id="ucBody"></div>
+  </div>
+</div>
+
+<div class="article" id="ucChart"></div>
+
+<div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
+  <div class="f-links">
+    <a href="/en/index.html">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="f-copy">&copy; 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/unit-converter-app-en.js"></script>
+<script>
+  initUnitConverter('data');
+  (function(){
+    const input=document.getElementById('siteSearch'), results=document.getElementById('siteSearchResults');
+    if(!input) return;
+    input.addEventListener('input',function(){
+      const q=input.value.trim().toLowerCase();
+      if(!q){results.classList.remove('open');results.innerHTML='';return;}
+      const list=(window.CALCULATORS||[]).filter(c=>c.title.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.cat.toLowerCase().includes(q));
+      results.innerHTML=list.length===0?'<div class="mini-search-empty">No matching calculators</div>'
+        :list.map(c=>`<a class="mini-search-item ${c.active?'':'disabled'}" href="${c.active?c.url:'#'}"><span class="ms-emoji">${c.emoji}</span><span class="ms-text"><span class="ms-title">${c.title}${c.active?'':' <em>(coming soon)</em>'}</span><span class="ms-desc">${c.desc}</span></span></a>`).join('');
+      results.classList.add('open');
+    });
+    document.addEventListener('click',function(e){if(!e.target.closest('.mini-search-wrap'))results.classList.remove('open');});
+  })();
+</script>
+<script src="/en/fab-en.js"></script>
+<script src="/input-enhance.js"></script>
+<script src="/topreset.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>
