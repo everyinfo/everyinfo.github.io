@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<style>
+:root{--indigo:#2E5C8A;--indigo-soft:#4A7CB0;--ink:#1F1F1E;--ink-soft:#5C5B58;--ink-faint:#9B9A96;--line:#E6E5E1;--line-soft:#F2F1ED;--gold:#B8923F;--brick:#C0503F;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Pretendard',sans-serif;}
+body{padding:20px 14px 40px;background:#fff;color:var(--ink);max-width:400px;margin:0 auto;}
+h2{font-size:13px;font-weight:800;color:var(--indigo);margin:24px 0 8px;}
+h2:first-child{margin-top:0;}
+.hint{font-size:11.5px;color:var(--ink-soft);background:#FFF8E8;border:1px dashed #D4B26A;border-radius:10px;padding:10px 12px;margin-bottom:12px;line-height:1.7;}
+
+/* 나브바 목업 */
+.nav-mock{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;padding:10px 12px;}
+.brand-mock{font-weight:900;color:var(--indigo);font-size:15px;letter-spacing:.05em;}
+.lang-switch{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 6px;cursor:pointer;}
+.lang-switch .globe{font-size:13px;}
+.lang-switch .cur{font-size:11.5px;font-weight:800;color:var(--indigo);}
+.lang-switch .arrow{font-size:8px;color:var(--ink-faint);}
+
+.lang-menu{margin-top:8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.lang-menu div{display:flex;align-items:center;gap:0;padding:11px 14px;font-size:13px;font-weight:700;color:var(--ink-soft);}
+.lang-menu div.on{background:var(--indigo);color:#fff;}
+.lang-menu div:not(:last-child){border-bottom:1px solid var(--line-soft);}
+
+/* 플로우 */
+.flow{display:flex;flex-direction:column;gap:10px;}
+.flow-step{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;}
+.flow-num{width:24px;height:24px;border-radius:50%;background:var(--indigo);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.flow-text{font-size:12.5px;color:var(--ink);line-height:1.6;}
+.flow-text b{color:var(--indigo);}
+.flow-arrow{text-align:center;color:var(--ink-faint);font-size:14px;}
+</style></head>
+<body>
+
+<h2>1. 내비게이션에 언어 스위처 추가</h2>
+<div class="nav-mock">
+  <span class="brand-mock">CALCLEX</span>
+  <div class="lang-switch">
+    <span class="globe">🌐</span><span class="cur">EN</span><span class="arrow">▾</span>
+  </div>
+</div>
+<div class="lang-menu">
+  <div class="on">English</div>
+  <div>한국어</div>
+</div>
+
+<h2>2. 실제 동작 흐름</h2>
+<div class="flow">
+  <div class="flow-step">
+    <div class="flow-num">1</div>
+    <div class="flow-text"><b>처음 방문</b> — 브라우저 언어가 English면, 자동으로 영어 버전 페이지로 보여줘요 (선택 없이 바로)</div>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step">
+    <div class="flow-num">2</div>
+    <div class="flow-text">마음에 안 들면 <b>우측 상단 🌐 버튼</b>으로 언제든 한국어 ↔ English 전환 가능</div>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step">
+    <div class="flow-num">3</div>
+    <div class="flow-text">한 번 선택하면 <b>기억해뒀다가</b>, 다음 방문 때도 그 언어로 자동으로 보여줘요 (자동감지보다 항상 우선)</div>
+  </div>
+</div>
+
+<div class="hint" style="margin-top:16px;">
+  💡 즉, <b>"자동으로 보이되, 언제든 내가 바꿀 수 있다"</b>는 원칙이에요.
+  단위(mm/inch) 시작값 만들 때와 완전히 같은 방식이라 사용자 입장에서 일관돼요.
+</div>
+
+</body></html>
