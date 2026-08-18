@@ -451,6 +451,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/avgkid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/baby.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -462,6 +467,11 @@
   </url>
   <url>
     <loc>https://calclex.com/en/calculators/cbm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/circlearea.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -486,6 +496,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/derivative.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/divisor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/dutch.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -496,7 +516,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/explog.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/factor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/fraction.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/gas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/gcdlcm.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -506,7 +546,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/integral.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/linearfn.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/loan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/matrix.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -521,12 +576,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/normaldist.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/pallet.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calclex.com/en/calculators/percent.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/percentkid.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -541,7 +606,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/probability.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/pump.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/pythagoras.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/quadeq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -556,12 +636,57 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/ratiokid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/salt.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/scicalc.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calclex.com/en/calculators/sector.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/sequence.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/shape.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/solidshape.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calclex.com/en/calculators/solution.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/speed.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/sqrtcalc.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/statskid.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -572,6 +697,11 @@
   </url>
   <url>
     <loc>https://calclex.com/en/calculators/torque.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/trigratio.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -687,6 +817,11 @@
   </url>
   <url>
     <loc>https://calclex.com/en/calculators/uvalue.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calclex.com/en/calculators/vector.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
