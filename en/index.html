@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com)
+  Copyright (c) 2026 CalcLex. All rights reserved.
+-->
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Complex Formulas to Everyday Convenience | CALCLEX</title>
+<meta name="description" content="A free online calculator reference covering engineering, logistics, and everyday calculations. No sign-up required — get accurate results instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548"
+     crossorigin="anonymous"></script>
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="From Complex Formulas to Everyday Convenience | CALCLEX">
+<meta property="og:description" content="A free online calculator reference covering engineering, logistics, and everyday calculations. No sign-up required — get accurate results instantly.">
+<meta property="og:url" content="https://calclex.com/en/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/en/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"CalcLex","url":"https://calclex.com/en/","publisher":{"@type":"Organization","name":"CalcLex","url":"https://calclex.com/"}}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#" class="active" data-cat="all">All</a>
+      <a href="#" data-cat="Engineering">Engineering</a>
+      <a href="#" data-cat="Logistics">Logistics</a>
+    </div>
+  </div>
+</nav>
+
+<div class="home-hero" id="homeHero">
+  <h1 class="brand-h1" id="heroWordmark">Calculator Dictionary | <span class="brand-caps">CALCLEX</span></h1>
+  <p class="brand-sub">A complete calculator reference for engineers, students, and everyone else. No sign-up — just calculate.</p>
+</div>
+
+<div class="home-calc-widget" id="homeCalcWidget">
+  <div class="hcw-tabs">
+    <button type="button" class="hcw-tab" id="hcwBasicTab" data-mode="basic">Basic</button>
+    <button type="button" class="hcw-tab" id="hcwEngTab" data-mode="eng">Scientific</button>
+  </div>
+  <div id="calcBody"></div>
+</div>
+
+<div class="home-search-wrap">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search by calculator name (e.g. pump, stress)" autocomplete="off">
+  </div>
+  <div class="mini-search-results" id="homeSearchResults"></div>
+</div>
+
+<div class="popular-section" id="recentSection"></div>
+
+<div class="section-toolbar">
+  <span class="section-label" id="resultLabel">All Calculators</span>
+  <button type="button" class="toggle-all" id="toggleAll">Collapse All</button>
+</div>
+<p class="cat-desc-line" id="catDescLine" style="display:none;"></p>
+<div class="calc-grid" id="calcGrid"></div>
+
+<footer>
+  <div class="f-brand">CalcLex</div>
+  <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
+  <div class="f-links">
+    <a href="/en/index.html">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/en/calculators-data-en.js"></script>
+<script src="/recent-calculators-en.js"></script>
+<script>
+(function(){
+  'use strict';
+  const CALCULATORS = window.CALCULATORS || [];
+  const grid = document.getElementById('calcGrid');
+  const navLinks = document.getElementById('navLinks');
+  const resultLabel = document.getElementById('resultLabel');
+  const toggleAllBtn = document.getElementById('toggleAll');
+  const catDescLine = document.getElementById('catDescLine');
+  let currentCat = 'all';
+  let currentQuery = '';
+  let COLLAPSED = [];
+  try{ COLLAPSED = JSON.parse(localStorage.getItem('collapsedCats_en') || '[]'); }catch(e){}
+  function saveCollapsed(){ try{ localStorage.setItem('collapsedCats_en', JSON.stringify(COLLAPSED)); }catch(e){} }
+
+  function cardHtml(c){
+    return `<a class="calc-item${c.active ? '' : ' disabled'}" href="${c.url}">
+        <h3><span class="ci-emoji">${c.emoji}</span>${c.title}</h3>
+        <p>${c.desc}</p>
+      </a>`;
+  }
+  function bindToggles(){
+    document.querySelectorAll('#calcGrid [data-toggle]').forEach(h=>{
+      h.addEventListener('click', ()=>{
+        const block = h.closest('.cat-block');
+        const cat = block.dataset.cat;
+        block.classList.toggle('collapsed');
+        if(block.classList.contains('collapsed')){ if(!COLLAPSED.includes(cat)) COLLAPSED.push(cat); }
+        else { COLLAPSED = COLLAPSED.filter(x=>x!==cat); }
+        saveCollapsed();
+        syncToggleAll();
+      });
+    });
+    syncToggleAll();
+  }
+  function syncToggleAll(){
+    const blocks = document.querySelectorAll('#calcGrid > .cat-block');
+    const allDone = blocks.length>0 && [...blocks].every(b=>b.classList.contains('collapsed'));
+    toggleAllBtn.textContent = allDone ? 'Expand All' : 'Collapse All';
+    toggleAllBtn.style.display = blocks.length>0 ? '' : 'none';
+  }
+  function render(){
+    const isAll = currentCat === 'all';
+    const searching = currentQuery.length > 0;
+    resultLabel.textContent = searching ? `Search: "${currentQuery}"` : (isAll ? 'All Calculators' : currentCat);
+    catDescLine.style.display = (!isAll && !searching && window.CATEGORY_DESC && window.CATEGORY_DESC[currentCat]) ? 'block' : 'none';
+    if(catDescLine.style.display==='block') catDescLine.textContent = window.CATEGORY_DESC[currentCat];
+
+    const filtered = CALCULATORS.filter(c=>{
+      const catMatch = isAll || c.cat === currentCat;
+      const qMatch = c.title.toLowerCase().includes(currentQuery) || c.desc.toLowerCase().includes(currentQuery);
+      return catMatch && qMatch;
+    });
+
+    if(isAll && !searching){
+      const order = [];
+      filtered.forEach(c=>{ if(!order.includes(c.cat)) order.push(c.cat); });
+      const catOrder = window.CATEGORY_ORDER || [];
+      order.sort((a,b)=>{ const ia=catOrder.indexOf(a), ib=catOrder.indexOf(b); return (ia<0?99:ia)-(ib<0?99:ib); });
+      grid.className = 'cat-groups';
+      grid.innerHTML = order.map(cat=>{
+        const items = filtered.filter(c=>c.cat===cat);
+        const collapsed = COLLAPSED.includes(cat) ? ' collapsed' : '';
+        return `<div class="cat-block${collapsed}" data-cat="${cat}">
+            <div class="cat-heading" data-toggle>
+              <div class="chev-btn">▾</div>
+              <span class="cat-name">${cat}</span>
+              <span class="collapsed-tag">Collapsed</span>
+              <span class="cat-line"></span>
+              <span class="cat-count">${items.length}</span>
+            </div>
+            <div class="calc-grid">${items.map(cardHtml).join('')}</div>
+          </div>`;
+      }).join('');
+      bindToggles();
+    } else {
+      grid.className = 'calc-grid';
+      grid.innerHTML = filtered.length ? filtered.map(cardHtml).join('') : '<p style="padding:20px;color:var(--ink-faint);">No calculators found.</p>';
+      toggleAllBtn.style.display = 'none';
+    }
+  }
+  toggleAllBtn.addEventListener('click', ()=>{
+    const blocks = document.querySelectorAll('#calcGrid > .cat-block');
+    const allDone = [...blocks].every(b=>b.classList.contains('collapsed'));
+    COLLAPSED = [];
+    blocks.forEach(b=>{ b.classList.toggle('collapsed', !allDone); if(!allDone) COLLAPSED.push(b.dataset.cat); });
+    saveCollapsed();
+    syncToggleAll();
+  });
+  (function(){
+    const catOrder = window.CATEGORY_ORDER || [];
+    navLinks.innerHTML = '<a href="#" class="active" data-cat="all">All</a>' +
+      catOrder.map(c=>`<a href="#" data-cat="${c}">${c}</a>`).join('');
+    navLinks.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        navLinks.querySelectorAll('a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+        currentCat = a.dataset.cat;
+        render();
+      });
+    });
+  })();
+
+  const searchInput = document.getElementById('searchInput');
+  const homeResults = document.getElementById('homeSearchResults');
+  searchInput.addEventListener('input', ()=>{
+    currentQuery = searchInput.value.trim().toLowerCase();
+    document.getElementById('recentSection').style.display = currentQuery ? 'none' : '';
+    render();
+  });
+
+  render();
+  if(typeof renderRecentCalculators === 'function') renderRecentCalculators();
+})();
+</script>
+<script src="/basiccalc-en.js"></script>
+<script src="/sci-calc-en.js"></script>
+<script>
+// Home calculator widget: Basic/Scientific tabs, remembers last choice
+(function(){
+  const KEY = 'homeCalcMode';
+  let mode = 'basic';
+  try{ mode = localStorage.getItem(KEY) || 'basic'; }catch(e){}
+
+  function paint(m){
+    document.getElementById('hcwBasicTab').classList.toggle('on', m==='basic');
+    document.getElementById('hcwEngTab').classList.toggle('on', m==='eng');
+    const body = document.getElementById('calcBody');
+    body.innerHTML = '';
+    if(m === 'basic' && typeof initBasicCalc === 'function') initBasicCalc('calcBody');
+    else if(m === 'eng' && typeof initSciCalc === 'function') initSciCalc();
+  }
+  document.getElementById('hcwBasicTab').addEventListener('click', ()=>{
+    mode='basic'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  document.getElementById('hcwEngTab').addEventListener('click', ()=>{
+    mode='eng'; try{ localStorage.setItem(KEY, mode); }catch(e){} paint(mode);
+  });
+  paint(mode);
+})();
+</script>
+<script src="/en/fab-en.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>
