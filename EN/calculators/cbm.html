@@ -31,6 +31,8 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
 <script src="/en/calculators-data-en.js"></script>
 <script src="/metrics.js"></script>
+<script src="/related-sections-en.js"></script>
+<script src="/recent-calculators-en.js"></script>
 </head>
 <body>
 
@@ -71,6 +73,10 @@
 
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
+<div id="relatedSections"></div>
+
+<div id="fullCategoryList"></div>
+
 <footer>
   <div class="f-brand">CalcLex</div>
   <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
@@ -83,6 +89,8 @@
 <script src="/logistics-en.js"></script>
 <script>
   initLogistics('cbm');
+  renderRelatedSections('/en/calculators/cbm.html');
+  recordRecentCalculator('/en/calculators/cbm.html');
   (function(){
     const input=document.getElementById('siteSearch'), results=document.getElementById('siteSearchResults');
     if(!input) return;
@@ -100,6 +108,7 @@
 <script src="/input-enhance.js"></script>
 <script src="/topreset.js"></script>
 <script src="/en/fab-en.js"></script>
+<script src="/full-category-list-en.js"></script>
 <script src="/lang-switch.js"></script>
 </body>
 </html>
