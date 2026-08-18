@@ -70,6 +70,8 @@
   <div class="mini-search-results" id="homeSearchResults"></div>
 </div>
 
+<div class="popular-section" id="recentSection"></div>
+
 <div class="section-toolbar">
   <span class="section-label" id="resultLabel">All Calculators</span>
   <button type="button" class="toggle-all" id="toggleAll">Collapse All</button>
@@ -87,6 +89,7 @@
 </footer>
 
 <script src="/en/calculators-data-en.js"></script>
+<script src="/recent-calculators-en.js"></script>
 <script>
 (function(){
   'use strict';
@@ -195,10 +198,12 @@
   const homeResults = document.getElementById('homeSearchResults');
   searchInput.addEventListener('input', ()=>{
     currentQuery = searchInput.value.trim().toLowerCase();
+    document.getElementById('recentSection').style.display = currentQuery ? 'none' : '';
     render();
   });
 
   render();
+  if(typeof renderRecentCalculators === 'function') renderRecentCalculators();
 })();
 </script>
 <script src="/basiccalc-en.js"></script>
