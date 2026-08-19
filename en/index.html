@@ -51,9 +51,35 @@
 </nav>
 
 <div class="home-hero" id="homeHero">
-  <h1 class="brand-h1" id="heroWordmark">Calculator Dictionary | <span class="brand-caps">CALCLEX</span></h1>
+  <h1 class="brand-lockup" id="heroWordmark">
+    <span class="brand-logo" id="heroLogo">CALCLEX</span>
+    <span class="brand-tagline" id="heroTagline">Calculator Dictionary</span>
+  </h1>
   <p class="brand-sub">A complete calculator reference for engineers, students, and everyone else. No sign-up — just calculate.</p>
 </div>
+<script>
+// CALCLEX 로고의 실제 렌더링 폭에 맞춰, 태그라인 폰트 크기를 역산해서 정확히 그 폭에 맞춤
+(function(){
+  function fitTagline(){
+    const logo = document.getElementById('heroLogo');
+    const tag = document.getElementById('heroTagline');
+    if(!logo || !tag) return;
+    const targetWidth = logo.getBoundingClientRect().width;
+    if(!targetWidth) return;
+    // 기준 크기(14px)로 한 번 측정한 뒤, 목표 폭에 비례하도록 폰트 크기 역산
+    tag.style.fontSize = '14px';
+    const baseWidth = tag.getBoundingClientRect().width;
+    if(!baseWidth) return;
+    const fitSize = 14 * (targetWidth / baseWidth);
+    tag.style.fontSize = fitSize.toFixed(2) + 'px';
+  }
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(fitTagline);
+  }
+  fitTagline();
+  window.addEventListener('resize', fitTagline);
+})();
+</script>
 
 <div class="home-calc-widget" id="homeCalcWidget">
   <div class="hcw-tabs">
