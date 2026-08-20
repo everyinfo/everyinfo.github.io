@@ -63,6 +63,30 @@
   <h1 class="brand-h1" id="heroWordmark">계산기 사전 | <span class="brand-caps">CALCLEX</span><span class="pron">[캘크:렉스]</span></h1>
   <p class="brand-sub">엔지니어, 학생, 일반 모두를 위한 완벽한 계산기 사전. 회원가입 없이 바로 계산해보세요.</p>
 </div>
+<script>
+// 타이틀이 화면 폭에 상관없이 항상 한 줄에 딱 맞도록 폰트 크기를 실측해서 자동 조정
+(function(){
+  function fitOneLine(el){
+    if(!el) return;
+    const container = el.parentElement;
+    const cs = getComputedStyle(container);
+    const padL = parseFloat(cs.paddingLeft) || 0;
+    const padR = parseFloat(cs.paddingRight) || 0;
+    const availWidth = container.clientWidth - padL - padR - 2;
+    if(availWidth <= 0) return;
+    el.style.fontSize = '36px';
+    let size = 36;
+    while(el.scrollWidth > availWidth && size > 12){
+      size -= 0.5;
+      el.style.fontSize = size + 'px';
+    }
+  }
+  function run(){ fitOneLine(document.getElementById('heroWordmark')); }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(run); }
+  run();
+  window.addEventListener('resize', run);
+})();
+</script>
 
 <div class="home-search-wrap">
   <div class="search-box">
