@@ -131,7 +131,10 @@ function ensurePWAMeta() {
   head.appendChild(theme);
 }
 
-/* ---- 앱 설치 트리거 (Android/PC는 자동 설치 팝업, iOS는 안내 시트) ---- */
+/* ---- 앱 설치 트리거 ----
+   - Chrome/Edge: 자동 설치 팝업
+   - 이미 설치된 경우: 정확한 안내(예전엔 "지원 안 됨"으로 잘못 떴음)
+   - iOS / 삼성인터넷: 수동 "홈 화면에 추가" 안내 시트 (자동 설치가 불안정해서 아예 우회) */
 (function () {
   let deferredPrompt = null;
   window.addEventListener("beforeinstallprompt", function (e) {
@@ -144,26 +147,45 @@ function ensurePWAMeta() {
   function isIOS() {
     return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
   }
-  window.triggerPWAInstall = function () {
-    if (isStandalone()) { alert("이미 CalcLex 앱으로 설치되어 있어요."); return; }
+  function isSamsungInternet() {
+    return /SamsungBrowser/i.test(navigator.userAgent);
+  }
+  async function isAlreadyInstalled() {
+    if (isStandalone()) return true;
+    try {
+      if (navigator.getInstalledRelatedApps) {
+        const apps = await navigator.getInstalledRelatedApps();
+        return !!(apps && apps.length);
+      }
+    } catch (e) { /* 지원 안 하는 브라우저는 무시하고 계속 진행 */ }
+    return false;
+  }
+  window.triggerPWAInstall = async function () {
+    if (await isAlreadyInstalled()) {
+      alert("이미 CalcLex 앱으로 설치되어 있어요.\n홈 화면이나 앱 목록에서 찾아보세요.");
+      return;
+    }
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.finally(() => { deferredPrompt = null; });
       return;
     }
-    if (isIOS()) { showIOSInstallSheet(); return; }
-    alert("이 브라우저에서는 자동 설치가 지원되지 않아요.\nChrome, Edge 등 최신 브라우저에서 다시 시도해주세요.");
+    if (isIOS() || isSamsungInternet()) { showManualInstallSheet(); return; }
+    alert("자동 설치 팝업을 찾을 수 없어요.\n브라우저 메뉴에서 '홈 화면에 추가' 또는 '앱 설치'를 직접 선택해주세요.\n(크롬이라면 새로고침 후 다시 시도해보세요.)");
   };
-  function showIOSInstallSheet() {
+  function showManualInstallSheet() {
+    const samsung = isSamsungInternet();
+    const steps = samsung
+      ? '<li>오른쪽 아래 <b>≡ 메뉴</b> 버튼을 눌러주세요</li><li><b>홈 화면에 추가</b>를 선택해주세요</li><li><b>추가</b>를 누르면 완료돼요</li>'
+      : '<li>하단 <b>공유 ⬆️</b> 버튼을 눌러주세요</li><li><b>홈 화면에 추가</b>를 선택해주세요</li><li>오른쪽 위 <b>추가</b>를 누르면 완료돼요</li>';
+    const intro = samsung
+      ? '삼성인터넷은 자동 설치가 불안정해서, 아래 방법으로 추가해주세요.'
+      : 'iOS는 브라우저에서 바로 설치가 안 돼서, 아래 순서대로 해주세요.';
     const el = document.createElement("div");
     el.className = "fs-overlay";
     el.innerHTML =
       '<div class="fs-card"><div class="fs-head"><b>홈 화면에 추가하기</b><button type="button" class="fs-close" aria-label="닫기">✕</button></div>' +
-      '<div class="mo-ios-steps"><p>iOS는 브라우저에서 바로 설치가 안 돼서, 아래 순서대로 해주세요.</p><ol>' +
-      '<li>하단 <b>공유 ⬆️</b> 버튼을 눌러주세요</li>' +
-      '<li><b>홈 화면에 추가</b>를 선택해주세요</li>' +
-      '<li>오른쪽 위 <b>추가</b>를 누르면 완료돼요</li>' +
-      '</ol></div></div>';
+      '<div class="mo-ios-steps"><p>' + intro + '</p><ol>' + steps + '</ol></div></div>';
     document.body.appendChild(el);
     document.body.style.overflow = "hidden";
     function close() { el.remove(); document.body.style.overflow = ""; }
