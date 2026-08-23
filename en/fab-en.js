@@ -130,7 +130,10 @@ function ensurePWAMeta() {
   head.appendChild(theme);
 }
 
-/* ---- Install trigger (auto prompt on Android/PC, guide sheet on iOS) ---- */
+/* ---- Install trigger ----
+   - Chrome/Edge: automatic install prompt
+   - Already installed: accurate message (previously wrongly said "not supported")
+   - iOS / Samsung Internet: manual "Add to Home Screen" guide sheet (auto-install is unreliable there) */
 (function () {
   let deferredPrompt = null;
   window.addEventListener("beforeinstallprompt", function (e) {
@@ -143,26 +146,45 @@ function ensurePWAMeta() {
   function isIOS() {
     return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
   }
-  window.triggerPWAInstall = function () {
-    if (isStandalone()) { alert("CalcLex is already installed as an app."); return; }
+  function isSamsungInternet() {
+    return /SamsungBrowser/i.test(navigator.userAgent);
+  }
+  async function isAlreadyInstalled() {
+    if (isStandalone()) return true;
+    try {
+      if (navigator.getInstalledRelatedApps) {
+        const apps = await navigator.getInstalledRelatedApps();
+        return !!(apps && apps.length);
+      }
+    } catch (e) { /* unsupported browsers just fall through */ }
+    return false;
+  }
+  window.triggerPWAInstall = async function () {
+    if (await isAlreadyInstalled()) {
+      alert("CalcLex is already installed as an app.\nCheck your home screen or app list.");
+      return;
+    }
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.finally(() => { deferredPrompt = null; });
       return;
     }
-    if (isIOS()) { showIOSInstallSheet(); return; }
-    alert("Automatic install isn't supported in this browser.\nPlease try again in Chrome, Edge, or another modern browser.");
+    if (isIOS() || isSamsungInternet()) { showManualInstallSheet(); return; }
+    alert("Couldn't find an automatic install prompt.\nTry 'Add to Home Screen' or 'Install app' from your browser menu.\n(On Chrome, try refreshing the page first.)");
   };
-  function showIOSInstallSheet() {
+  function showManualInstallSheet() {
+    const samsung = isSamsungInternet();
+    const steps = samsung
+      ? '<li>Tap the <b>≡ Menu</b> button in the bottom right</li><li>Select <b>Add to Home Screen</b></li><li>Tap <b>Add</b> to finish</li>'
+      : '<li>Tap the <b>Share ⬆️</b> button</li><li>Select <b>Add to Home Screen</b></li><li>Tap <b>Add</b> in the top right to finish</li>';
+    const intro = samsung
+      ? "Samsung Internet's automatic install isn't reliable, so please add it this way instead."
+      : "iOS doesn't support installing directly from the browser, so please follow these steps.";
     const el = document.createElement("div");
     el.className = "fs-overlay";
     el.innerHTML =
       '<div class="fs-card"><div class="fs-head"><b>Add to Home Screen</b><button type="button" class="fs-close" aria-label="Close">✕</button></div>' +
-      '<div class="mo-ios-steps"><p>iOS doesn\'t support installing directly from the browser, so please follow these steps.</p><ol>' +
-      '<li>Tap the <b>Share ⬆️</b> button</li>' +
-      '<li>Select <b>Add to Home Screen</b></li>' +
-      '<li>Tap <b>Add</b> in the top right to finish</li>' +
-      '</ol></div></div>';
+      '<div class="mo-ios-steps"><p>' + intro + '</p><ol>' + steps + '</ol></div></div>';
     document.body.appendChild(el);
     document.body.style.overflow = "hidden";
     function close() { el.remove(); document.body.style.overflow = ""; }
