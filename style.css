@@ -16,3 +16,21 @@
 .calc-explain .faq-item{margin-bottom:16px}
 .calc-explain .faq-item .q{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:5px}
 .calc-explain .faq-item .a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;margin:0}
+
+/* ---- 더보기(More) 메뉴 - 복원 (파렛트 레이아웃 작업 중 유실됐던 부분) ---- */
+.fab.more{font-size:19px;font-weight:900;line-height:1}
+.mo-body{display:flex;flex-direction:column;gap:2px;overflow-y:auto;flex:1}
+.mo-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:13px 10px;border:none;background:0 0;border-radius:12px;cursor:pointer;font-family:inherit}
+.mo-item:hover{background:var(--line-soft)}
+.mo-ic{font-size:20px;flex-shrink:0;width:28px;text-align:center}
+.mo-text{display:flex;flex-direction:column;gap:2px}
+.mo-text b{font-size:13.5px;color:var(--ink);font-weight:700}
+.mo-text small{font-size:11px;color:var(--ink-soft)}
+.mo-divider{height:1px;background:var(--line-soft);margin:4px 6px}
+.mo-back{align-self:flex-start;border:none;background:0 0;color:var(--indigo);font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;padding:6px 4px 10px}
+.mo-empty-hint{padding:20px 10px;text-align:center;font-size:12px;color:var(--ink-faint)}
+.mo-body .rel-section{padding:0}
+.mo-ios-steps{font-size:13px;color:var(--ink);line-height:1.9;padding:2px 4px 6px}
+.mo-ios-steps ol{margin:10px 0 0;padding-left:20px}
+.mo-ios-steps li{margin-bottom:6px}
+.mo-ios-steps b{color:var(--indigo)}
