@@ -71,6 +71,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Pump Power Calculator?</h2>
+<p>The pump power calculator computes shaft power and motor sizing from flow rate and head, and checks specific speed.</p>
+<h2>How it's calculated</h2>
+<p><b>Water power Pw(kW) = ρ × g × Q × H ÷ 1000</b><br><b>Shaft power = water power ÷ pump efficiency</b><br><b>Motor size = shaft power × (1 + safety margin)</b></p>
+<h2>What is 'head'?</h2>
+<div class="why-box"><p>Head expresses how high a pump can push water, measured in meters — essentially pressure converted into an equivalent water column height. <b>10m of head ≈ about 1 bar.</b></p><p>Total head is the sum of three things: <b>static head</b> (the actual height to lift), <b>friction loss</b> (pressure lost through pipes, elbows, and valves), and <b>discharge pressure</b> (pressure needed at the destination). A common mistake is <b>forgetting friction loss</b> — in long, winding piping, friction loss can exceed the static head, and a pump sized only for height will fail to deliver.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>Pumps push water, they do not suck it up.</b> Suction relies on atmospheric pressure, so the theoretical maximum suction lift is about 10.3m — in practice, losses limit it to roughly 6–7m.</li>
+<li><b>Cavitation</b> is the most common cause of pump failure. If suction-side pressure drops below the water's vapor pressure, bubbles form and then collapse violently against the impeller, eroding the metal — a rattling, gravel-like sound is a classic warning sign.</li>
+<li><b>NPSH (Net Positive Suction Head)</b> quantifies the margin against cavitation — available NPSH must exceed required NPSH.</li>
+<li>By the <b>affinity laws</b>, reducing rotational speed reduces flow proportionally, head by the square, and <b>power by the cube</b> — which is why a variable-frequency drive cutting speed by just 20% can nearly halve energy consumption.</li>
+<li>Motors are typically sized with a <b>10–20% safety margin</b>, since actual operating conditions can vary from design assumptions.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. What pressure does 10m of head represent?</p><p class="a">About 0.98 bar (≈1 kgf/cm²). A 10m water column corresponds to roughly 1 atmosphere.</p></div>
+<div class="faq-item"><p class="q">Q. What pump efficiency should I assume?</p><p class="a">It varies by type and size, but small centrifugal pumps are often 50–70% efficient, and larger ones can exceed 80%. Check the manufacturer's performance curve.</p></div>
+<div class="faq-item"><p class="q">Q. How do I prevent cavitation?</p><p class="a">Keep suction piping short and wide, minimize suction-side losses, and ensure adequate margin above the required NPSH.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What pressure does 10m of head represent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 0.98 bar (≈1 kgf/cm²). A 10m water column corresponds to roughly 1 atmosphere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What pump efficiency should I assume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies by type and size, but small centrifugal pumps are often 50–70% efficient, and larger ones can exceed 80%. Check the manufacturer's performance curve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prevent cavitation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep suction piping short and wide, minimize suction-side losses, and ensure adequate margin above the required NPSH."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

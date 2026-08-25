@@ -71,6 +71,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Section Moment Calculator?</h2>
+<p>This calculator computes the moment of inertia (I) and section modulus (Z) for rectangular, circular, pipe, and I-beam cross-sections, used for bending stress and deflection calculations.</p>
+<h2>How it's calculated</h2>
+<p><b>Rectangle I = b × h³ ÷ 12</b><br><b>Section modulus Z = I ÷ c</b><br><b>Bending stress σ = M ÷ Z</b></p>
+<h2>Why a ruler doesn't bend when standing on edge</h2>
+<div class="why-box"><p>Hold a ruler flat and it sags easily; stand it on edge and it barely bends — <b>same material, same cross-sectional area.</b> The secret is that height is <b>cubed</b> in the formula (I = b×h³/12). Standing a 30×5mm bar on edge instead of flat gives it <b>36 times the stiffness</b>, using the same amount of material. That's why structural beams and joists are always oriented on edge — you get more performance from the same material, just by changing orientation.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>This is exactly why I-beams (H-beams) are shaped the way they are.</b> Since bending stress increases with distance from the neutral axis, material is concentrated at the top and bottom flanges where it does the most good, letting the web in between stay thin.</li>
+<li>Pipes are hollow for the same reason — the <b>center contributes very little to bending resistance</b>, so removing it barely reduces stiffness while dramatically cutting weight. This is why bicycle frames and scaffolding are tubular.</li>
+<li>Nature discovered this optimization independently: <b>hollow reeds and bamboo, and the spongy internal structure of bone</b>, follow the same principle.</li>
+<li><b>Deflection is inversely proportional to I and proportional to the fourth power of length</b> — doubling the span increases deflection 16-fold, which is why extending column spacing even slightly requires a much larger beam.</li>
+<li>Section moment of inertia is sometimes confused with <b>mass moment of inertia (rotational inertia)</b>, but they're entirely different physical quantities despite the similar name.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Why does the same bar get weaker when laid flat?</p><p class="a">Section moment of inertia is proportional to the cube of height, so laying it flat reduces the effective height and drastically lowers stiffness.</p></div>
+<div class="faq-item"><p class="q">Q. What is the section modulus (Z) used for?</p><p class="a">It's used directly in bending stress calculations: σ = M/Z, so a larger Z means lower stress for the same bending moment.</p></div>
+<div class="faq-item"><p class="q">Q. Why are hollow pipes still strong?</p><p class="a">The center of a cross-section contributes very little to bending resistance, so removing it barely affects stiffness while significantly reducing weight.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does the same bar get weaker when laid flat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section moment of inertia is proportional to the cube of height, so laying it flat reduces the effective height and drastically lowers stiffness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the section modulus (Z) used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's used directly in bending stress calculations: σ = M/Z, so a larger Z means lower stress for the same bending moment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are hollow pipes still strong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The center of a cross-section contributes very little to bending resistance, so removing it barely affects stiffness while significantly reducing weight."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

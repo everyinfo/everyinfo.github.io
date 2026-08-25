@@ -72,6 +72,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Variance & Standard Deviation Calculator?</h2>
+<p>This calculator computes the variance and standard deviation of a data set to measure how spread out the values are.</p>
+<h2>How it's calculated</h2>
+<p><b>Variance = Σ(value − mean)² ÷ n</b><br><b>Standard deviation = √variance</b><br>For a sample, divide by n−1 instead of n.</p>
+<h2>Why square the deviations?</h2>
+<div class="why-box"><p>Simply adding up deviations from the mean always gives 0, since positive and negative differences cancel out. Squaring removes the sign problem, and it also <b>weights larger deviations more heavily</b>, making outliers more noticeable. Since squaring changes the units (cm becomes cm²), taking the <b>square root at the end</b> converts back to the original units, giving standard deviation.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>Two groups with the same average can be completely different</b> if their standard deviations differ — which is why the average alone never tells the full story.</li>
+<li>In a <b>normal distribution, the 68-95-99.7 rule</b> holds: about 68% of values fall within 1 standard deviation of the mean.</li>
+<li>This is where <b>Six Sigma</b> comes from — a quality target of defects occurring beyond 6 standard deviations from the mean, corresponding to roughly 3.4 defects per million.</li>
+<li><b>Dividing by n−1 instead of n</b> for sample data corrects a known bias: using n alone tends to systematically underestimate the true population variance.</li>
+<li>In finance, <b>volatility</b> is literally the standard deviation of returns — for the same expected return, lower standard deviation is considered a more stable investment.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Should I look at variance or standard deviation?</p><p class="a">Standard deviation — it's in the same units as the original data, making it easier to interpret.</p></div>
+<div class="faq-item"><p class="q">Q. When do I divide by n vs. n−1?</p><p class="a">Use n for a complete population (population variance); use n−1 for a sample drawn from a larger population (sample variance).</p></div>
+<div class="faq-item"><p class="q">Q. What does a standard deviation of 0 mean?</p><p class="a">All values are identical to the mean — there's no spread in the data at all.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I look at variance or standard deviation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard deviation — it's in the same units as the original data, making it easier to interpret."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do I divide by n vs. n−1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use n for a complete population (population variance); use n−1 for a sample drawn from a larger population (sample variance)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a standard deviation of 0 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All values are identical to the mean — there's no spread in the data at all."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

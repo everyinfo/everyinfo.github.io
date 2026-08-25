@@ -71,6 +71,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Mold Shrinkage Calculator?</h2>
+<p>The mold shrinkage calculator applies material-specific shrinkage rates to back-calculate the mold dimensions needed to produce a target part size.</p>
+<h2>How it's calculated</h2>
+<p><b>Mold dimension = part dimension × (1 + shrinkage rate)</b><br>Shrinkage varies by material: PP/PE are typically 1.5–2.5%, ABS is typically 0.4–0.7%.</p>
+<h2>Why does plastic shrink?</h2>
+<div class="why-box"><p>Injection molding forces molten resin into a mold and then cools it. Material that was expanded while hot <b>contracts as it cools</b>, so a finished part is always smaller than the mold cavity that made it — which is why molds are deliberately made <b>larger</b> than the target part.</p><p><b>Crystalline resins</b> (PP, PE, nylon, POM) form ordered molecular structures as they cool and <b>shrink more</b> (1.5–3%), while <b>amorphous resins</b> (ABS, PC, PS, acrylic) cool into a disordered structure and <b>shrink less</b> (0.4–0.8%).</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>Shrinkage direction matters</b> — it differs along versus across the flow direction of the resin, which is why thin, long parts are prone to warping.</li>
+<li>Thicker sections cool more slowly and shrink more, creating a <b>sink mark</b> on the surface — which is why designers aim for uniform wall thickness.</li>
+<li>Shrinkage rate is <b>not a fixed number</b> — mold temperature, packing pressure, and injection speed all affect it, so datasheet values are only a starting point refined by test shots.</li>
+<li>Molds are typically <b>cut slightly undersized and enlarged later</b>, since machining metal away is easy but adding it back is not.</li>
+<li>Adding glass fiber (GF) reinforcement <b>significantly reduces shrinkage</b> — 30% GF-reinforced nylon can shrink to less than half the rate of the unreinforced material.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Which shrinkage value should I use?</p><p class="a">Start with the material manufacturer's datasheet value, then refine based on actual test-shot results, since real conditions affect the final rate.</p></div>
+<div class="faq-item"><p class="q">Q. Why does PP shrink so much more than ABS?</p><p class="a">PP is a crystalline resin, meaning its molecules arrange into an ordered structure as it cools, causing significant volume reduction. ABS is amorphous and shrinks much less.</p></div>
+<div class="faq-item"><p class="q">Q. How do I reduce warping?</p><p class="a">Design for uniform wall thickness, and adjust gate location and cooling channel layout so shrinkage occurs evenly.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which shrinkage value should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with the material manufacturer's datasheet value, then refine based on actual test-shot results, since real conditions affect the final rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does PP shrink so much more than ABS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PP is a crystalline resin, meaning its molecules arrange into an ordered structure as it cools, causing significant volume reduction. ABS is amorphous and shrinks much less."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I reduce warping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Design for uniform wall thickness, and adjust gate location and cooling channel layout so shrinkage occurs evenly."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

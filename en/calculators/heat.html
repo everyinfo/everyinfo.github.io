@@ -71,6 +71,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Heat Transfer Calculator?</h2>
+<p>This calculator computes the heat required for sensible and latent heat processes, and calculates the log mean temperature difference (LMTD) used in heat exchanger design.</p>
+<h2>How it's calculated</h2>
+<p><b>Sensible heat Q = m × c × ΔT</b> (when temperature changes)<br><b>Latent heat Q = m × L</b> (when phase changes)<br><b>LMTD = (ΔT₁ − ΔT₂) ÷ ln(ΔT₁/ΔT₂)</b></p>
+<h2>Why does boiling water stay at 100°C?</h2>
+<div class="why-box"><p><b>Sensible heat</b> raises temperature; <b>latent heat</b> changes state without changing temperature. Once water reaches 100°C, all additional heat goes into converting liquid to gas, so the temperature stops rising.</p><p>Heating 1kg of water from 0°C to 100°C takes about 420 kJ, but turning that same 100°C water into steam takes <b>2,260 kJ — more than 5 times as much energy.</b></p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li>This is exactly <b>how air conditioners and refrigerators work</b> — refrigerant absorbs latent heat as it evaporates, cooling the space, then releases that heat outside as it condenses.</li>
+<li><b>Sweat cools you through latent heat</b> too, absorbing heat from your skin as it evaporates — which is why humid heat feels so much worse than dry heat, since evaporation slows down.</li>
+<li><b>Water's specific heat is unusually high</b> (4.18 kJ/kg·K), meaning it resists both heating and cooling — the reason coastal climates are milder and inland areas see bigger daily temperature swings, and why water is used as engine coolant.</li>
+<li>LMTD uses a logarithmic rather than simple average <b>because temperature difference changes exponentially</b> along the length of a heat exchanger.</li>
+<li><b>Counter-flow heat exchangers outperform parallel-flow</b> because they maintain a more uniform temperature difference along the entire exchanger length.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. How do I tell sensible heat from latent heat?</p><p class="a">If temperature changes, it is sensible heat. If temperature stays constant while the state (solid/liquid/gas) changes, it is latent heat.</p></div>
+<div class="faq-item"><p class="q">Q. Why does LMTD use a logarithm?</p><p class="a">Because the temperature difference inside a heat exchanger changes exponentially along its length, a simple average would introduce significant error.</p></div>
+<div class="faq-item"><p class="q">Q. Is counter-flow or parallel-flow better?</p><p class="a">Counter-flow is generally more efficient, since it maintains a more even temperature difference across the entire exchanger.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I tell sensible heat from latent heat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If temperature changes, it is sensible heat. If temperature stays constant while the state (solid/liquid/gas) changes, it is latent heat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does LMTD use a logarithm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the temperature difference inside a heat exchanger changes exponentially along its length, a simple average would introduce significant error."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is counter-flow or parallel-flow better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Counter-flow is generally more efficient, since it maintains a more even temperature difference across the entire exchanger."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

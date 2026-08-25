@@ -72,6 +72,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Probability & Combinatorics Calculator?</h2>
+<p>This calculator computes permutations, combinations, and probabilities with formulas shown.</p>
+<h2>How it's calculated</h2>
+<p><b>Permutation nPr = n! ÷ (n−r)!</b> (order matters)<br><b>Combination nCr = n! ÷ (r!(n−r)!)</b> (order doesn't matter)</p>
+<h2>Permutations vs. combinations — what's the difference?</h2>
+<div class="why-box"><p>The only question is whether <b>order matters.</b> Electing a president and vice president is a <b>permutation</b> (President A/VP B is different from President B/VP A); selecting two committee representatives is a <b>combination</b> (A,B is the same group as B,A). Combinations are smaller than permutations because they <b>divide out the r! ways</b> of ordering the same selected group.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>The odds of winning a typical 6-of-49 lottery are about 1 in 14 million</b> — a straightforward combination calculation (49 choose 6), often compared to the odds of being struck by lightning.</li>
+<li><b>The birthday paradox</b> is famous: with just 23 people in a room, there's over a 50% chance two share a birthday — counterintuitive because it's not 'my birthday matching yours,' but any pair among 253 possible pairs matching.</li>
+<li><b>The Monty Hall problem</b> also defies intuition: after picking one of three doors and having a losing door revealed, switching doubles your odds of winning (from 1/3 to 2/3) — a result that famously stumped many mathematicians when first published.</li>
+<li><b>0! = 1</b> by definition — it makes sense once you realize 'arranging nothing' has exactly one way to do it (doing nothing), and it keeps the combinatorial formulas consistent.</li>
+<li>Probability theory has roots in <b>gambling</b> — the correspondence between Pascal and Fermat in the 17th century, prompted by a gambler's question about dividing stakes in an interrupted game, is considered the field's founding moment.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Should I use permutations or combinations?</p><p class="a">If order affects the outcome, use permutations. If it doesn't, use combinations. 'Select then arrange' is permutation; 'just select' is combination.</p></div>
+<div class="faq-item"><p class="q">Q. What if repetition is allowed?</p><p class="a">Permutations with repetition use n^r; combinations with repetition use (n+r−1)C(r).</p></div>
+<div class="faq-item"><p class="q">Q. If probability is 0.5, does trying twice guarantee success?</p><p class="a">No. Both attempts failing has a 25% chance — each trial is independent.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I use permutations or combinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If order affects the outcome, use permutations. If it doesn't, use combinations. 'Select then arrange' is permutation; 'just select' is combination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if repetition is allowed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Permutations with repetition use n^r; combinations with repetition use (n+r−1)C(r)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If probability is 0.5, does trying twice guarantee success?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Both attempts failing has a 25% chance — each trial is independent."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

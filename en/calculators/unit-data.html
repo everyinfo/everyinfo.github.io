@@ -81,6 +81,60 @@
 
 <div class="article" id="ucChart"></div>
 
+<div class="article calc-explain">
+<h2>What is a Data Storage Converter?</h2>
+<p>The data storage converter switches between bits, bytes, KB, MB, GB, and TB.</p>
+<h2>How it's calculated</h2>
+<p><b>1 byte = 8 bits</b><br>Decimal: 1 KB = 1,000 bytes / Binary: 1 KiB = 1,024 bytes</p>
+<h2>Why does a 1TB drive show up as 931GB?</h2>
+<div class="why-box"><p>It's not a scam — it's a difference in counting convention. <b>Manufacturers use decimal (1TB = 1,000,000,000,000 bytes)</b>, while <b>operating systems use binary (based on 1,024).</b> The gap is about 7–9%, which is exactly why a 1TB drive shows as 931GB in your file explorer. The <b>KiB/MiB/GiB</b> notation was created by the IEC specifically to resolve this ambiguity, though it never became widely adopted in everyday use.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>Internet speed is measured in bits, file size in bytes.</b> A '100 Mbps' connection downloads at roughly 12.5 MB/s — divide by 8 to convert.</li>
+<li><b>Lowercase 'b' means bits, uppercase 'B' means bytes</b> — a single letter case difference that changes the value by 8x.</li>
+<li><b>8 bits per byte isn't a law of nature</b> — early computers used 6-bit and 7-bit bytes. 8 bits (256 possible values) became standard partly because it comfortably covers the English alphabet and is a convenient power of 2.</li>
+<li>Text encoding matters too — <b>many non-Latin scripts require multiple bytes per character</b> in UTF-8, while English letters need only 1, which is why documents in some languages are larger for the same character count.</li>
+<li>Global annual data generation has already entered the <b>zettabyte</b> range.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Why does a 1TB drive show as 931GB?</p><p class="a">Manufacturers count in units of 1,000, operating systems count in units of 1,024. Storage capacity isn't actually missing.</p></div>
+<div class="faq-item"><p class="q">Q. How many MB per second at 100 Mbps?</p><p class="a">Theoretically about 12.5 MB/s. Divide bits by 8 to get bytes.</p></div>
+<div class="faq-item"><p class="q">Q. What's the difference between MB and MiB?</p><p class="a">MB is 1,000,000 bytes (decimal); MiB is 1,048,576 bytes (binary).</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does a 1TB drive show as 931GB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Manufacturers count in units of 1,000, operating systems count in units of 1,024. Storage capacity isn't actually missing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many MB per second at 100 Mbps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Theoretically about 12.5 MB/s. Divide bits by 8 to get bytes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between MB and MiB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MB is 1,000,000 bytes (decimal); MiB is 1,048,576 bytes (binary)."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

@@ -72,6 +72,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a GCD & LCM Calculator?</h2>
+<p>This calculator finds the greatest common divisor (GCD) and least common multiple (LCM) of numbers — used for simplifying fractions and finding when repeating cycles align.</p>
+<h2>How it's calculated</h2>
+<p>The <b>Euclidean algorithm</b> finds GCD, and then <b>GCD × LCM = the product of the two numbers</b> gives the LCM.</p>
+<h2>A 2,300-year-old algorithm</h2>
+<div class="why-box"><p>The Euclidean algorithm, described in Euclid's <i>Elements</i> around 300 BCE, is still exactly the algorithm computers use today. It works by <b>repeatedly replacing the larger number with the remainder</b> of dividing it by the smaller, until the remainder is 0.</p><p>48 and 18 → remainder 12 → remainder 6 → remainder 0 → <b>answer: 6</b></p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li>Since <b>GCD × LCM = the product of two numbers</b>, once you know one you can find the other with a single division.</li>
+<li>Gears returning to their starting alignment, or two buses on different schedules arriving together — these are all <b>LCM</b> problems.</li>
+<li>The famous <b>13-year and 17-year cicada cycles</b> are widely explained by the 'prime number hypothesis': a prime-numbered cycle minimizes the LCM overlap with predator cycles, reducing the chance of encountering them.</li>
+<li>When two numbers' GCD is 1, they're called <b>coprime</b> — a foundational concept in cryptography.</li>
+<li>The Euclidean algorithm's core idea — repeated mutual division — is essentially self-descriptive in its name.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. What is GCD used for?</p><p class="a">Simplifying fractions, dividing items evenly with nothing left over, and tiling a rectangle with the largest possible squares.</p></div>
+<div class="faq-item"><p class="q">Q. What is LCM used for?</p><p class="a">Finding a common denominator for fractions, and calculating when different-length cycles (bus schedules, gears, signal timing) realign.</p></div>
+<div class="faq-item"><p class="q">Q. Can this work for three or more numbers?</p><p class="a">Yes. Compute pairwise: GCD(a,b,c) = GCD(GCD(a,b), c).</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is GCD used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simplifying fractions, dividing items evenly with nothing left over, and tiling a rectangle with the largest possible squares."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is LCM used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finding a common denominator for fractions, and calculating when different-length cycles (bus schedules, gears, signal timing) realign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this work for three or more numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Compute pairwise: GCD(a,b,c) = GCD(GCD(a,b), c)."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>

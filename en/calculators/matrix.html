@@ -72,6 +72,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>What is a Matrix Calculator?</h2>
+<p>This calculator computes matrix addition, multiplication, determinants, and inverses.</p>
+<h2>How it's calculated</h2>
+<p>Matrix multiplication requires the number of columns in the first matrix to match the number of rows in the second: (m×n)(n×p) = (m×p).</p>
+<h2>Why is matrix multiplication so strange?</h2>
+<div class="why-box"><p>It's strange because <b>a matrix isn't just a grid of numbers — it represents a transformation.</b> One matrix might mean 'rotate,' and multiplying matrices means <b>applying transformations in sequence.</b> That's exactly why <b>AB ≠ BA</b> — 'rotate, then scale' produces a different result than 'scale, then rotate,' just like the order of physical actions matters.</p></div>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>A determinant of zero means no inverse exists</b> — geometrically, it means the transformation has collapsed space down to zero volume, like folding paper flat along a line, and there's no way to reverse that.</li>
+<li>Every movement, rotation, and scaling in computer graphics is a matrix operation — rotating a camera in a 3D game triggers <b>millions of matrix multiplications per second.</b></li>
+<li><b>Most of what AI does is matrix multiplication</b> — each layer of a neural network is essentially one giant matrix multiply, which is exactly why GPUs (originally built for graphics matrix math) turned out to be so well-suited for AI training.</li>
+<li>Google's early <b>PageRank search algorithm</b> was also fundamentally a matrix eigenvalue problem — modeling the entire web's link structure as one enormous matrix to compute page importance.</li>
+<li>Matrices were originally developed <b>to organize systems of linear equations</b> — elimination methods resembling matrix operations already appear in the ancient Chinese text <i>The Nine Chapters on the Mathematical Art.</i></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Why is AB different from BA?</p><p class="a">Because a matrix represents a transformation, and applying transformations in different orders produces different results.</p></div>
+<div class="faq-item"><p class="q">Q. What happens if the determinant is zero?</p><p class="a">No inverse exists, and the corresponding system of equations has either no solution or infinitely many.</p></div>
+<div class="faq-item"><p class="q">Q. Which matrices can be multiplied together?</p><p class="a">The number of columns in the first must equal the number of rows in the second.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is AB different from BA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a matrix represents a transformation, and applying transformations in different orders produces different results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the determinant is zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No inverse exists, and the corresponding system of equations has either no solution or infinitely many."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which matrices can be multiplied together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The number of columns in the first must equal the number of rows in the second."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
 <div id="relatedSections"></div>
