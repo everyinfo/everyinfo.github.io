@@ -78,6 +78,60 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>행렬 계산기란</h2>
+<p>행렬 계산기는 행렬의 덧셈·곱셈, 행렬식, 역행렬을 계산하는 도구입니다.</p>
+<h2>계산 기준</h2>
+<p>행렬 곱셈은 앞 행렬의 열 수와 뒤 행렬의 행 수가 같아야 하며, (m×n)(n×p) = (m×p) 크기가 됩니다.</p>
+<h2>행렬 곱셈은 왜 이렇게 이상한가요</h2>
+<div class="why-box"><p><b>행렬은 숫자 표가 아니라 변환</b>이기 때문입니다. 행렬 하나가 "회전시켜라" 같은 동작을 뜻하고, 곱셈은 동작을 연달아 적용하는 것입니다. 그래서 <b>AB ≠ BA</b>입니다. "회전 후 늘리기"와 "늘린 후 회전"의 결과가 다른 것과 같습니다.</p></div>
+<h2>알아두면 좋은 이야기</h2>
+<ul class="trivia-list">
+<li><b>행렬식이 0이면 역행렬이 없습니다.</b> 기하적으로는 부피가 0으로 찌그러졌다는 뜻입니다.</li>
+<li>컴퓨터 그래픽의 모든 이동·회전·확대가 행렬이며, 3D 게임 카메라를 돌릴 때마다 <b>초당 수백만 번의 행렬 곱셈</b>이 일어납니다.</li>
+<li><b>AI가 하는 계산의 대부분이 행렬 곱</b>입니다. GPU가 AI 학습에 쓰이는 이유가 원래 그래픽용 행렬 연산기였기 때문입니다.</li>
+<li><b>구글 초기 검색 알고리즘(PageRank)</b>도 거대한 행렬의 고윳값 문제였습니다.</li>
+<li>행렬은 <b>연립방정식을 정리하려고</b> 만들어졌습니다. 중국 『구장산술』에 이미 소거법이 나옵니다.</li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><p class="q">Q. AB와 BA가 왜 다른가요?</p><p class="a">행렬은 변환을 뜻하고, 변환은 적용 순서에 따라 결과가 달라지기 때문입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 행렬식이 0이면 어떻게 되나요?</p><p class="a">역행렬이 존재하지 않으며, 연립방정식의 해가 없거나 무수히 많습니다.</p></div>
+<div class="faq-item"><p class="q">Q. 어떤 행렬끼리 곱할 수 있나요?</p><p class="a">앞 행렬의 열 수와 뒤 행렬의 행 수가 같아야 합니다.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "AB와 BA가 왜 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "행렬은 변환을 뜻하고, 변환은 적용 순서에 따라 결과가 달라지기 때문입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "행렬식이 0이면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "역행렬이 존재하지 않으며, 연립방정식의 해가 없거나 무수히 많습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "어떤 행렬끼리 곱할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "앞 행렬의 열 수와 뒤 행렬의 행 수가 같아야 합니다."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- 광고 영역: 애드센스 승인 후 이 자리에 광고 코드를 삽입하세요 --></div>
 
 <div id="relatedSections"></div>

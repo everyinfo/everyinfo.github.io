@@ -78,6 +78,61 @@
   </div>
 </div>
 
+<div class="article calc-explain">
+<h2>최대공약수·최소공배수 계산기란</h2>
+<p>최대공약수(GCD)와 최소공배수(LCM)를 계산하는 도구입니다. 분수 약분, 주기가 겹치는 시점 계산 등에 사용합니다.</p>
+<h2>계산 기준</h2>
+<p><b>유클리드 호제법</b>으로 최대공약수를 구한 뒤, <b>GCD × LCM = 두 수의 곱</b>으로 최소공배수를 계산합니다.</p>
+<h2>2,300년 된 알고리즘</h2>
+<div class="why-box"><p>유클리드 호제법은 기원전 300년경 『원론』에 실린 방법으로, 지금도 컴퓨터가 그대로 쓰는 알고리즘입니다. <b>큰 수를 작은 수로 나눈 나머지로 바꿔가며 반복</b>하다가 나머지가 0이 되는 순간의 수가 최대공약수입니다.</p>
+<p>48과 18 → 나머지 12 → 나머지 6 → 나머지 0 → <b>답 6</b></p></div>
+<h2>알아두면 좋은 이야기</h2>
+<ul class="trivia-list">
+<li><b>GCD × LCM = 두 수의 곱</b> 관계 덕분에, 하나만 구하면 나머지는 나눗셈 한 번으로 나옵니다.</li>
+<li>톱니바퀴가 다시 처음 위치로 돌아오는 시점, 버스 배차가 동시에 오는 시각 — 전부 <b>최소공배수</b> 문제입니다.</li>
+<li><b>매미의 주기가 13년·17년인 이유</b>로 소수(prime) 가설이 유명합니다. 주기가 소수면 천적과 마주칠 확률이 낮아진다는 설명입니다.</li>
+<li>두 수의 최대공약수가 1이면 <b>서로소</b>라고 하며, 암호학의 핵심 개념입니다.</li>
+<li>유클리드 호제법의 '호제(互除)'는 <b>서로 나눈다</b>는 뜻입니다.</li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><p class="q">Q. 최대공약수는 어디에 쓰나요?</p><p class="a">분수 약분, 물건을 남김없이 똑같이 나눠 담기, 직사각형을 정사각형으로 빈틈없이 자르기 등에 쓰입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 최소공배수는 어디에 쓰나요?</p><p class="a">분수 통분, 주기가 다른 두 사건이 다시 겹치는 시점 계산에 쓰입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 세 개 이상의 수도 구할 수 있나요?</p><p class="a">가능합니다. GCD(a,b,c) = GCD(GCD(a,b), c)입니다.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "최대공약수는 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "분수 약분, 물건을 남김없이 똑같이 나눠 담기, 직사각형을 정사각형으로 빈틈없이 자르기 등에 쓰입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "최소공배수는 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "분수 통분, 주기가 다른 두 사건이 다시 겹치는 시점 계산에 쓰입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "세 개 이상의 수도 구할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "가능합니다. GCD(a,b,c) = GCD(GCD(a,b), c)입니다."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- 광고 영역: 애드센스 승인 후 이 자리에 광고 코드를 삽입하세요 --></div>
 
 <div id="relatedSections"></div>

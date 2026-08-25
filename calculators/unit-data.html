@@ -95,6 +95,60 @@
 
 <div class="article" id="ucChart"></div>
 
+<div class="article calc-explain">
+<h2>데이터 용량 변환 계산기란</h2>
+<p>데이터 용량 변환 계산기는 bit·byte·KB·MB·GB·TB를 서로 변환하는 도구입니다.</p>
+<h2>계산 기준</h2>
+<p><b>1byte = 8bit</b><br>10진 기준: 1KB = 1,000byte / 2진 기준: 1KiB = 1,024byte</p>
+<h2>하드디스크 1TB를 샀는데 왜 931GB인가요</h2>
+<div class="why-box"><p>사기가 아니라 기준이 다르기 때문입니다. <b>제조사는 10진(1TB=1,000,000,000,000byte), 운영체제는 2진(1,024 기반)</b>을 씁니다. 그 차이가 약 7~9%라 1TB가 931GB로 보입니다. IEC가 <b>KiB·MiB·GiB</b>라는 2진 전용 단위를 만들었지만 널리 정착하진 못했습니다.</p></div>
+<h2>알아두면 좋은 이야기</h2>
+<ul class="trivia-list">
+<li><b>인터넷 속도는 bit, 파일 크기는 byte</b>로 씁니다. 100Mbps 회선의 실제 다운로드는 8로 나눈 약 12.5MB/s입니다.</li>
+<li><b>Mb(소문자)는 비트, MB(대문자)는 바이트</b>입니다. 한 글자 차이로 8배가 갈립니다.</li>
+<li><b>1바이트가 8비트인 건 필연이 아닙니다.</b> 영문자 하나(256가지)를 표현하기에 적당하고 2의 거듭제곱이라 편해서 표준이 됐습니다.</li>
+<li><b>한글 한 글자는 UTF-8에서 3바이트</b>입니다. 영문자는 1바이트라, 같은 글자 수여도 한글 문서가 파일이 더 큽니다.</li>
+<li>전 세계 연간 데이터 생성량이 이미 <b>제타바이트</b> 단위에 들어섰습니다.</li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><p class="q">Q. 1TB 하드가 왜 931GB로 보이나요?</p><p class="a">제조사는 1,000 단위, 운영체제는 1,024 단위로 계산하기 때문입니다. 실제 용량이 부족한 게 아닙니다.</p></div>
+<div class="faq-item"><p class="q">Q. 100Mbps면 초당 몇 MB를 받나요?</p><p class="a">이론상 약 12.5MB/s입니다. bit를 byte로 바꾸려면 8로 나눕니다.</p></div>
+<div class="faq-item"><p class="q">Q. MB와 MiB는 뭐가 다른가요?</p><p class="a">MB는 1,000,000byte(10진), MiB는 1,048,576byte(2진)입니다.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "1TB 하드가 왜 931GB로 보이나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "제조사는 1,000 단위, 운영체제는 1,024 단위로 계산하기 때문입니다. 실제 용량이 부족한 게 아닙니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "100Mbps면 초당 몇 MB를 받나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이론상 약 12.5MB/s입니다. bit를 byte로 바꾸려면 8로 나눕니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MB와 MiB는 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MB는 1,000,000byte(10진), MiB는 1,048,576byte(2진)입니다."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="ad-slot"><!-- 광고 영역: 애드센스 승인 후 이 자리에 광고 코드를 삽입하세요 --></div>
 
 <div id="relatedSections"></div>
