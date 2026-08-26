@@ -89,7 +89,7 @@ const $={block:{name:"블록 적재",fn:m,desc:"모든 박스를 같은 방향�
       <div class="row3">
         <div class="cf"><label>파렛트 높이</label><input type="text" id="plPH" inputmode="decimal" placeholder="예: 150"></div>
         <div class="cf"><label>최대 높이</label><input type="text" id="plMax" inputmode="decimal" placeholder="예: 2000"></div>
-        <div class="cf"><label>오버행<span class="sub" style="display:block;font-weight:400;font-size:10px;">mm, 0=불허</span></label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0" value="${overhang||""}"></div>
+        <div class="cf"><label>오버행(mm)</label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0=불허" value="${overhang||""}"></div>
       </div>
       <div class="cf">
         <label>적재 방식</label>

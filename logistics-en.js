@@ -91,7 +91,7 @@ const y={block:{name:"Block stacking",fn:g,desc:"All boxes aligned the same way 
       <div class="row3">
         <div class="cf"><label>Pallet height</label><input type="text" id="plPH" inputmode="decimal" placeholder="e.g. 150"></div>
         <div class="cf"><label>Max height</label><input type="text" id="plMax" inputmode="decimal" placeholder="e.g. 2000"></div>
-        <div class="cf"><label>Overhang<span class="sub" style="display:block;font-weight:400;font-size:10px;">mm, 0=none</span></label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0" value="${overhang||""}"></div>
+        <div class="cf"><label>Overhang (mm)</label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0 = none" value="${overhang||""}"></div>
       </div>
       <div class="cf">
         <label>Stacking method</label>
