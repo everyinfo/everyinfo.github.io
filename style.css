@@ -37,3 +37,17 @@
 .calc-explain .faq-item{margin-bottom:16px}
 .calc-explain .faq-item .q{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:5px}
 .calc-explain .faq-item .a{font-size:13.5px;color:var(--ink-soft);line-height:1.75;margin:0}
+.calc-explain .unit-confuse-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:12.5px;}
+.calc-explain .unit-confuse-table th{background:var(--line-soft);color:var(--ink);font-weight:800;padding:9px 10px;text-align:left;border-bottom:2px solid var(--line);}
+.calc-explain .unit-confuse-table td{padding:9px 10px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);line-height:1.5;}
+.calc-explain .unit-confuse-table tr:last-child td{border-bottom:none;}
+
+.calc-explain .asof-badge{background:#FFF8E6;border:1px solid #F0E0AD;color:#7A5B00;font-size:12.5px;padding:9px 13px;border-radius:9px;margin-bottom:16px;line-height:1.6;}
+.calc-explain .example-box{background:var(--line-soft);border-radius:12px;padding:14px 18px;margin:8px 0 18px;}
+.calc-explain .example-box p{margin:0 0 6px;font-weight:700;font-size:13.5px;}
+.calc-explain .example-box ul{margin:0 0 14px;padding-left:20px;}
+.calc-explain .example-box ul:last-child{margin-bottom:0;}
+.calc-explain .example-box li{font-size:13.5px;color:var(--ink-soft);margin-bottom:4px;line-height:1.6;}
+.calc-explain .source-box{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
+.calc-explain .source-box a{font-size:13px;color:var(--indigo);text-decoration:none;font-weight:600;}
+.calc-explain .source-box a:hover{text-decoration:underline;}

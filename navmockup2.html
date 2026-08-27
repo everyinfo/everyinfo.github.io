@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>nav-검색창 폭 맞춤 목업</title>
+<style>
+  :root{
+    --paper:#FAFAF8; --indigo:#2E5C8A; --line:#E6E5E1; --ink:#1F1F1E; --ink-soft:#5C5B58;
+    --maxw:720px; --maxw-wide:960px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#EDEBE3;font-family:-apple-system,'Pretendard',sans-serif;padding-bottom:40px;}
+  .label{font-size:12px;color:#888;text-align:center;padding:16px 0 8px;background:#EDEBE3;}
+  .guide{width:2px;background:red;position:absolute;top:0;bottom:0;}
+
+  .nav{background:rgba(251,247,236,.95);border-bottom:1px solid var(--line);position:relative;}
+  .nav-inner{margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 20px;}
+  .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;color:var(--indigo);letter-spacing:.06em;white-space:nowrap;}
+  .brand .mark{width:22px;height:29px;background:var(--indigo);border-radius:4px;}
+  .nav-mid{display:flex;align-items:center;gap:16px;}
+  .nav-links{display:flex;gap:14px;font-size:13px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
+  .nav-links .on{color:var(--indigo);}
+  .lang{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;flex-shrink:0;}
+
+  .searchsec{max-width:var(--maxw);margin:16px auto 0;padding:0 20px;position:relative;}
+  .search{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13px;color:#999;}
+
+  /* Before: nav는 960px, 본문은 720px 라서 어긋남 */
+  .before .nav-inner{max-width:var(--maxw-wide);}
+  /* After: nav도 720px로 통일 */
+  .after .nav-inner{max-width:var(--maxw);}
+</style>
+</head>
+<body>
+
+<div class="label">지금(Before) — nav는 960px, 검색창은 720px (서로 다른 기준)</div>
+<div class="before">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="mark"></span>CALCLEX</div>
+      <div class="nav-mid">
+        <div class="nav-links"><span class="on">단위변환</span><span>공학</span><span>일반</span><span>일상</span><span>금융</span><span>물류</span></div>
+        <div class="lang">🌐 KO ▾</div>
+      </div>
+    </div>
+  </div>
+  <div class="searchsec">
+    <div class="search">🔍 다른 계산기 검색</div>
+  </div>
+</div>
+
+<div class="label" style="margin-top:44px;">변경 후(After) — nav도 720px로 통일, 로고·언어전환이 검색창 양끝과 정확히 일치</div>
+<div class="after">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="mark"></span>CALCLEX</div>
+      <div class="nav-mid">
+        <div class="nav-links"><span class="on">단위변환</span><span>공학</span><span>일반</span><span>일상</span><span>금융</span><span>물류</span></div>
+        <div class="lang">🌐 KO ▾</div>
+      </div>
+    </div>
+  </div>
+  <div class="searchsec">
+    <div class="search">🔍 다른 계산기 검색</div>
+  </div>
+</div>
+
+</body>
+</html>
