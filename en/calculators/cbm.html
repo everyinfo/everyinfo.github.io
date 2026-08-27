@@ -76,6 +76,21 @@
 <p>The CBM calculator computes total volume in cubic meters from box dimensions and quantity. It is the standard basis for ocean freight LCL pricing.</p>
 <h2>How it's calculated</h2>
 <p><b>CBM = length(m) × width(m) × height(m) × quantity</b>. In ocean freight, <b>1 CBM is conventionally treated as 1,000 kg</b> when comparing volume against weight.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>Example: 100 boxes, each 50×40×30cm</b></p>
+<ul>
+<li>Volume per box: 0.5×0.4×0.3 = 0.06 m³</li>
+<li>Total CBM: 0.06 × 100 = <b>6 CBM</b></li>
+<li>Weight-ton equivalent: 6 CBM × 1,000kg = 6,000kg — if actual weight exceeds this, freight is priced by weight instead</li>
+</ul>
+</div>
+<h2>Real-world sources of error</h2>
+<ul class="trivia-list">
+<li><b>Box measurement error</b>: If boxes aren't perfectly rectangular or are slightly overpacked, measured CBM can exceed the calculated value.</li>
+<li><b>Palletizing gaps</b>: Once boxes are stacked on pallets, unavoidable gaps often push actual shipped CBM 5-10% above the calculated figure.</li>
+<li><b>Carrier minimum billing units</b>: A calculated 5.3 CBM may still be rounded up to the nearest 0.1 CBM depending on the carrier's billing policy.</li>
+</ul>
 <h2>Why is freight priced by volume?</h2>
 <div class="why-box"><p>A ship has two real constraints: it can run out of space, or it can run out of weight capacity. So freight is priced on <b>whichever is greater — volume or weight</b>. This is called <b>Revenue Ton (R/T)</b>: R/T = max(CBM, weight in tons). Light, bulky cargo like pillows gets priced by volume; small, heavy cargo like steel gets priced by weight.</p></div>
 <h2>Good to know</h2>

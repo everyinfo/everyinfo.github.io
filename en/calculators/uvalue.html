@@ -76,6 +76,25 @@
 <p>The U-value calculator computes the thermal transmittance (U-value) of a wall or window assembly from the thickness and thermal conductivity of each material layer, and checks for condensation risk under given indoor/outdoor conditions.</p>
 <h2>How it's calculated</h2>
 <p><b>U = 1 / (Rsi + Σ(d/λ) + Rse)</b>, where d is material thickness (m) and λ is thermal conductivity (W/m·K). Units are W/m²·K — <b>lower values mean better insulation</b>.</p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>U</td><td>Thermal transmittance</td><td>W/m²·K</td></tr>
+<tr><td>d</td><td>Material thickness</td><td>m</td></tr>
+<tr><td>λ (lambda)</td><td>Thermal conductivity</td><td>W/m·K</td></tr>
+<tr><td>Rsi, Rse</td><td>Interior/exterior surface resistance</td><td>m²·K/W</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the wall is made of <b>flat, fully-contacting material layers with no air gaps</b> between them. In real construction, a small gap between insulation boards creates a localized thermal bridge, making the actual U-value worse than calculated at that specific point.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A wall built from 200mm concrete (λ=1.6) plus 100mm insulation (λ=0.035)</b></p>
+<ul>
+<li>Concrete resistance: 0.2÷1.6 = 0.125</li>
+<li>Insulation resistance: 0.1÷0.035 ≈ 2.857</li>
+<li>Assuming Rsi+Rse ≈ 0.17, U = 1÷(0.125+2.857+0.17) ≈ <b>0.31 W/m²·K</b></li>
+</ul>
+</div>
 <h2>Why does condensation happen?</h2>
 <div class="why-box"><p>Air can only hold a certain amount of moisture at a given temperature. When warm air touches a cold surface and cools down, it can no longer hold onto that moisture, and water condenses out. So condensation is fundamentally <b>a temperature problem, not a humidity problem</b> — it happens whenever a wall's surface temperature drops below the indoor air's dew point.</p></div>
 <h2>Good to know</h2>

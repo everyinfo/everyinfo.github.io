@@ -76,6 +76,25 @@
 <p>This calculator applies PV = nRT and the Boyle's and Charles's laws to compute the pressure, volume, temperature, or moles of a gas.</p>
 <h2>How it's calculated</h2>
 <p><b>PV = nRT</b> (R = 8.314 J/mol·K)<br><b>Boyle's Law</b>: P₁V₁ = P₂V₂ (constant temperature)<br><b>Charles's Law</b>: V₁/T₁ = V₂/T₂ (constant pressure)<br>Temperature must always be entered in <b>Kelvin (K).</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>P</td><td>Pressure</td><td>Pa</td></tr>
+<tr><td>V</td><td>Volume</td><td>m³</td></tr>
+<tr><td>n</td><td>Moles</td><td>mol</td></tr>
+<tr><td>R</td><td>Gas constant</td><td>8.314 J/mol·K</td></tr>
+<tr><td>T</td><td>Absolute temperature</td><td>K</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the gas is <b>ideal</b> (negligible molecular volume, no intermolecular forces). Error stays small at normal temperature and pressure, but grows significantly at high pressure or low temperature, where real-gas corrections like the van der Waals equation become necessary.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>What volume does 2 moles of gas occupy at 25°C (298K), 1 atm (101,325 Pa)?</b></p>
+<ul>
+<li>V = nRT÷P = (2×8.314×298)÷101,325</li>
+<li>V ≈ <b>0.0489 m³ (48.9 L)</b></li>
+</ul>
+</div>
 <h2>Why using Celsius gives wrong answers</h2>
 <div class="why-box"><p>Going from 20°C to 40°C looks like a doubling, but it is actually only a <b>7% increase</b> — 293K to 313K. Gas laws describe the kinetic energy of molecules, and that energy scale starts at true zero (absolute zero), which only Kelvin represents correctly. That is why the proportional relationships in gas laws only hold when using Kelvin.</p></div>
 <h2>Good to know</h2>

@@ -77,6 +77,16 @@
 <p>This calculator finds the greatest common divisor (GCD) and least common multiple (LCM) of numbers — used for simplifying fractions and finding when repeating cycles align.</p>
 <h2>How it's calculated</h2>
 <p>The <b>Euclidean algorithm</b> finds GCD, and then <b>GCD × LCM = the product of the two numbers</b> gives the LCM.</p>
+<h2>Step-by-step example</h2>
+<div class="example-box">
+<p><b>Finding the GCD of 48 and 18</b></p>
+<ul>
+<li><b>Step 1</b> 48÷18 = 2 remainder 12</li>
+<li><b>Step 2</b> 18÷12 = 1 remainder 6</li>
+<li><b>Step 3</b> 12÷6 = 2 remainder 0 → GCD = <b>6</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">Interpretation: The LCM follows directly as (48×18)÷6 = 144, once you know the GCD.</p>
+</div>
 <h2>A 2,300-year-old algorithm</h2>
 <div class="why-box"><p>The Euclidean algorithm, described in Euclid's <i>Elements</i> around 300 BCE, is still exactly the algorithm computers use today. It works by <b>repeatedly replacing the larger number with the remainder</b> of dividing it by the smaller, until the remainder is 0.</p><p>48 and 18 → remainder 12 → remainder 6 → remainder 0 → <b>answer: 6</b></p></div>
 <h2>Good to know</h2>

@@ -76,6 +76,24 @@
 <p>This calculator computes the moment of inertia (I) and section modulus (Z) for rectangular, circular, pipe, and I-beam cross-sections, used for bending stress and deflection calculations.</p>
 <h2>How it's calculated</h2>
 <p><b>Rectangle I = b × h³ ÷ 12</b><br><b>Section modulus Z = I ÷ c</b><br><b>Bending stress σ = M ÷ Z</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>I</td><td>Moment of inertia</td><td>mm⁴</td></tr>
+<tr><td>b, h</td><td>Section width, height</td><td>mm</td></tr>
+<tr><td>Z</td><td>Section modulus</td><td>mm³</td></tr>
+<tr><td>c</td><td>Distance from neutral axis to surface</td><td>mm</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the material is <b>homogeneous and isotropic</b> (same properties in every direction). Wood, whose strength varies by grain direction, needs direction-specific correction beyond this simple formula.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A rectangular cross-section 50mm wide, 100mm tall</b></p>
+<ul>
+<li>I = 50×100³÷12 ≈ <b>4,166,667 mm⁴</b></li>
+<li>Lay it flat (swap to 100 wide, 50 tall): I = 100×50³÷12 ≈ 1,041,667 mm⁴ — <b>4x weaker</b> than standing on edge</li>
+</ul>
+</div>
 <h2>Why a ruler doesn't bend when standing on edge</h2>
 <div class="why-box"><p>Hold a ruler flat and it sags easily; stand it on edge and it barely bends — <b>same material, same cross-sectional area.</b> The secret is that height is <b>cubed</b> in the formula (I = b×h³/12). Standing a 30×5mm bar on edge instead of flat gives it <b>36 times the stiffness</b>, using the same amount of material. That's why structural beams and joists are always oriented on edge — you get more performance from the same material, just by changing orientation.</p></div>
 <h2>Good to know</h2>

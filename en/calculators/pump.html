@@ -76,6 +76,25 @@
 <p>The pump power calculator computes shaft power and motor sizing from flow rate and head, and checks specific speed.</p>
 <h2>How it's calculated</h2>
 <p><b>Water power Pw(kW) = ρ × g × Q × H ÷ 1000</b><br><b>Shaft power = water power ÷ pump efficiency</b><br><b>Motor size = shaft power × (1 + safety margin)</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>ρ (rho)</td><td>Fluid density (water = 1,000)</td><td>kg/m³</td></tr>
+<tr><td>g</td><td>Gravitational acceleration</td><td>9.8 m/s²</td></tr>
+<tr><td>Q</td><td>Flow rate</td><td>m³/s</td></tr>
+<tr><td>H</td><td>Total head</td><td>m</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>The base formula assumes the fluid is <b>water (density 1,000 kg/m³)</b>. For more viscous fluids like oil, pipe friction losses increase significantly, so the actual required shaft power can exceed the calculated value.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>Flow rate 0.05 m³/s, total head 20m, pump efficiency 70%</b></p>
+<ul>
+<li>Water power = 1,000×9.8×0.05×20÷1000 = <b>9.8 kW</b></li>
+<li>Shaft power = 9.8÷0.7 ≈ <b>14 kW</b></li>
+<li>With a 15% safety margin, motor size ≈ <b>16.1 kW</b> → select the next standard size (e.g., 18.5 kW)</li>
+</ul>
+</div>
 <h2>What is 'head'?</h2>
 <div class="why-box"><p>Head expresses how high a pump can push water, measured in meters — essentially pressure converted into an equivalent water column height. <b>10m of head ≈ about 1 bar.</b></p><p>Total head is the sum of three things: <b>static head</b> (the actual height to lift), <b>friction loss</b> (pressure lost through pipes, elbows, and valves), and <b>discharge pressure</b> (pressure needed at the destination). A common mistake is <b>forgetting friction loss</b> — in long, winding piping, friction loss can exceed the static head, and a pump sized only for height will fail to deliver.</p></div>
 <h2>Good to know</h2>

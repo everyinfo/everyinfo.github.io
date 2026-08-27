@@ -76,6 +76,24 @@
 <p>The stress calculator computes stress (σ) from an applied load and cross-sectional area, and checks safety against allowable stress and safety factor.</p>
 <h2>How it's calculated</h2>
 <p><b>Stress σ = load P ÷ area A</b> (units: N/mm² = MPa)<br><b>Safety factor = material strength ÷ actual stress</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>σ (sigma)</td><td>Stress</td><td>N/mm² (MPa)</td></tr>
+<tr><td>P</td><td>Applied load (force)</td><td>N</td></tr>
+<tr><td>A</td><td>Cross-sectional area</td><td>mm²</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the load is <b>evenly distributed across the cross-section</b>. In reality, load position and part geometry can cause localized stress concentration, which requires a separate stress concentration factor for precise design.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A 20mm-diameter steel rod under a 10,000N tensile load</b></p>
+<ul>
+<li>Area A = π×(10mm)² ≈ 314 mm²</li>
+<li>Stress σ = 10,000N ÷ 314mm² ≈ <b>31.8 N/mm² (MPa)</b></li>
+<li>With mild steel (SS400) yield strength ≈ 245 MPa, safety factor ≈ 245÷31.8 ≈ <b>7.7</b> — a comfortably safe design</li>
+</ul>
+</div>
 <h2>Why do we need a safety factor?</h2>
 <div class="why-box"><p>Real-world uncertainty — microscopic material defects, loads exceeding predictions, manufacturing tolerances, corrosion, and fatigue — means calculations alone are never a complete picture. Engineers design with <b>margin, not the theoretical limit.</b> General structures often use a safety factor of 3–4, while critical systems like elevator cables may use 10 or more.</p></div>
 <h2>Good to know</h2>

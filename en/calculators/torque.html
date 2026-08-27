@@ -76,6 +76,23 @@
 <p>The torque calculator computes torque (rotational force) from force and distance from the pivot, and converts between units like N·m and kgf·m. It is used for bolt tightening and motor specs.</p>
 <h2>How it's calculated</h2>
 <p><b>Torque T = force F × distance r</b> (units: N·m)<br><b>1 kgf·m ≈ 9.807 N·m</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>T</td><td>Torque</td><td>N·m</td></tr>
+<tr><td>F</td><td>Applied force</td><td>N</td></tr>
+<tr><td>r</td><td>Distance from pivot</td><td>m</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the force is applied <b>perpendicular to the lever arm</b>. If the force is angled relative to the arm, actual torque becomes T=F×r×sinθ — smaller than the simple formula, which is exactly why turning a wrench at an angle feels weaker.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A 0.3m wrench with 200N of force applied perpendicular to it</b></p>
+<ul>
+<li>T = 200 × 0.3 = <b>60 N·m</b></li>
+<li>In kgf·m: 60÷9.807 ≈ <b>6.1 kgf·m</b></li>
+</ul>
+</div>
 <h2>Torque vs. horsepower — what's the difference?</h2>
 <div class="why-box"><p>Torque measures <b>how hard</b> something rotates; horsepower (power output) measures <b>how fast</b> that force can do work.</p><p><b>Power = torque × rotational speed</b></p><p>Torque is closely tied to acceleration and towing power, while horsepower relates more to top speed. Electric motors deliver <b>maximum torque at 0 RPM</b>, which is why electric vehicles feel so quick off the line.</p></div>
 <h2>Good to know</h2>

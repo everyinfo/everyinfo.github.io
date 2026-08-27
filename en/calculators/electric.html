@@ -76,6 +76,24 @@
 <p>This calculator applies Ohm's Law, and computes three-phase power, power factor, and voltage drop for electrical wiring.</p>
 <h2>How it's calculated</h2>
 <p><b>V = I × R</b> (Ohm's Law)<br><b>Single-phase power P = V × I × cosθ</b><br><b>Three-phase power P = √3 × V × I × cosθ</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>V</td><td>Voltage</td><td>V</td></tr>
+<tr><td>I</td><td>Current</td><td>A</td></tr>
+<tr><td>R</td><td>Resistance</td><td>Ω</td></tr>
+<tr><td>cosθ</td><td>Power factor</td><td>0–1 (unitless)</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the load is <b>linear and operating in steady state</b>. Transient conditions, like a motor's inrush current at startup, draw far more current momentarily and aren't captured by this formula — breaker and wiring sizing must account for that separately.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A 380V three-phase motor drawing 20A at 0.85 power factor</b></p>
+<ul>
+<li>P = √3 × 380 × 20 × 0.85</li>
+<li>P ≈ <b>11,186 W (about 11.2 kW)</b></li>
+</ul>
+</div>
 <h2>What is power factor?</h2>
 <div class="why-box"><p>Motors and transformers use part of their current to build a magnetic field, and that current flows back and forth without doing useful work — but it still flows through the wires. <b>Real power (kW)</b> is the power that actually does work; <b>apparent power (kVA)</b> is what the wiring actually has to handle; and <b>power factor = real power ÷ apparent power.</b> A low power factor means thicker wiring and larger equipment are needed to deliver the same useful work, which is exactly why many utility companies charge a penalty for power factor below about 90% and offer a discount above it — the reason factories install correction capacitors.</p></div>
 <h2>Good to know</h2>

@@ -76,6 +76,23 @@
 <p>The mold shrinkage calculator applies material-specific shrinkage rates to back-calculate the mold dimensions needed to produce a target part size.</p>
 <h2>How it's calculated</h2>
 <p><b>Mold dimension = part dimension × (1 + shrinkage rate)</b><br>Shrinkage varies by material: PP/PE are typically 1.5–2.5%, ABS is typically 0.4–0.7%.</p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>Shrinkage rate</td><td>Volume reduction after cooling</td><td>%</td></tr>
+<tr><td>Part dimension</td><td>Target finished part size</td><td>mm</td></tr>
+<tr><td>Mold dimension</td><td>Actual cavity size to machine</td><td>mm</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This simplification assumes shrinkage happens <b>uniformly in every direction</b>. In reality, shrinkage differs along versus across the resin's flow direction (anisotropy), so precision parts need direction-specific shrinkage values.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>Target part length 100mm, using PP resin (2% shrinkage)</b></p>
+<ul>
+<li>Mold dimension = 100 × (1+0.02) = <b>102mm</b></li>
+<li>Machining the mold cavity to 102mm yields a finished part of exactly 100mm after cooling.</li>
+</ul>
+</div>
 <h2>Why does plastic shrink?</h2>
 <div class="why-box"><p>Injection molding forces molten resin into a mold and then cools it. Material that was expanded while hot <b>contracts as it cools</b>, so a finished part is always smaller than the mold cavity that made it — which is why molds are deliberately made <b>larger</b> than the target part.</p><p><b>Crystalline resins</b> (PP, PE, nylon, POM) form ordered molecular structures as they cool and <b>shrink more</b> (1.5–3%), while <b>amorphous resins</b> (ABS, PC, PS, acrylic) cool into a disordered structure and <b>shrink less</b> (0.4–0.8%).</p></div>
 <h2>Good to know</h2>

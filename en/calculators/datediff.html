@@ -87,6 +87,14 @@
 <li>Interest calculations use different <b>day-count conventions</b> — actual calendar days versus a simplified 30-day month — which can meaningfully change the interest owed, an important detail in bond markets.</li>
 <li>The same weekday falls exactly 7 days later, but the same calendar date one year later <b>shifts by one weekday</b> (two in a leap year), since 365 divided by 7 leaves a remainder of 1.</li>
 </ul>
+<h2>Common date-counting scenarios</h2>
+<table class="unit-confuse-table">
+<tr><th>Situation</th><th>How it's counted</th></tr>
+<tr><td>Trip length ("2 nights, 3 days")</td><td>Both start and end dates included (date difference + 1)</td></tr>
+<tr><td>Contract deadlines ("within 7 days of signing")</td><td>Often excludes the start date, counting begins the next day</td></tr>
+<tr><td>Days worked</td><td>Counts each actual attendance date directly</td></tr>
+<tr><td>Interest accrual period</td><td>Either actual elapsed days or a flat 30-day month, depending on the agreement</td></tr>
+</table>
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><p class="q">Q. Should I include the start date?</p><p class="a">It depends on the context. Many legal date calculations exclude the start date, while trip lengths or work days typically include it.</p></div>
 <div class="faq-item"><p class="q">Q. How are months calculated?</p><p class="a">Since months vary in length, exact division does not work cleanly. Typically, one month is counted as the interval until the same date recurs.</p></div>

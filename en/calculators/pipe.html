@@ -76,6 +76,25 @@
 <p>The pipe flow rate calculator computes flow rate from pipe diameter and flow velocity, and can work backward to find the required pipe diameter for a target flow rate.</p>
 <h2>How it's calculated</h2>
 <p><b>Flow rate Q = cross-sectional area A × velocity v</b>, where A = π × (D/2)². Units are typically m³/h or L/min.</p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>Q</td><td>Flow rate</td><td>m³/h, L/min</td></tr>
+<tr><td>A</td><td>Pipe cross-sectional area</td><td>m²</td></tr>
+<tr><td>v</td><td>Flow velocity</td><td>m/s</td></tr>
+<tr><td>D</td><td>Pipe inner diameter</td><td>m</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes the pipe is <b>flowing completely full</b> (no air gaps). In practice, scale buildup or debris inside older pipes reduces the effective cross-section, so real flow often falls below the calculated value.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>A 50mm (0.05m) inner-diameter pipe carrying water at 1.5 m/s</b></p>
+<ul>
+<li>Area A = π×(0.025)² ≈ 0.00196 m²</li>
+<li>Flow rate Q = 0.00196 × 1.5 = 0.00294 m³/s</li>
+<li>Converted to hourly rate: 0.00294 × 3,600 ≈ <b>10.6 m³/h</b></li>
+</ul>
+</div>
 <h2>Doubling pipe diameter quadruples flow</h2>
 <div class="why-box"><p>Flow rate is proportional to cross-sectional area, and area is proportional to the <b>square</b> of the diameter.</p><p>Double the diameter → 4x the cross-sectional area → 4x the flow.</p><p>That is why upsizing a single pipe segment can dramatically change system performance — and conversely, why a small buildup of scale inside a pipe (reducing effective diameter slightly) causes flow to drop off sharply.</p></div>
 <h2>Good to know</h2>

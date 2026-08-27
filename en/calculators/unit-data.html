@@ -86,6 +86,11 @@
 <p>The data storage converter switches between bits, bytes, KB, MB, GB, and TB.</p>
 <h2>How it's calculated</h2>
 <p><b>1 byte = 8 bits</b><br>Decimal: 1 KB = 1,000 bytes / Binary: 1 KiB = 1,024 bytes</p>
+<h2>Units that are easy to mix up</h2>
+<table class="unit-confuse-table">
+<tr><th>Units</th><th>Why it's confusing</th><th>How to tell them apart</th></tr>
+<tr><td>Mb vs MB</td><td>One letter case makes 8x difference</td><td>Lowercase b = bits, uppercase B = bytes</td></tr><tr><td>KB (1,000) vs KiB (1,024)</td><td>Manufacturers vs OS use different bases</td><td>Storage devices count in 1,000s, operating systems count in 1,024s</td></tr>
+</table>
 <h2>Why does a 1TB drive show up as 931GB?</h2>
 <div class="why-box"><p>It's not a scam — it's a difference in counting convention. <b>Manufacturers use decimal (1TB = 1,000,000,000,000 bytes)</b>, while <b>operating systems use binary (based on 1,024).</b> The gap is about 7–9%, which is exactly why a 1TB drive shows as 931GB in your file explorer. The <b>KiB/MiB/GiB</b> notation was created by the IEC specifically to resolve this ambiguity, though it never became widely adopted in everyday use.</p></div>
 <h2>Good to know</h2>

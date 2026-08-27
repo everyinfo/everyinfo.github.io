@@ -77,6 +77,16 @@
 <p>This calculator computes the variance and standard deviation of a data set to measure how spread out the values are.</p>
 <h2>How it's calculated</h2>
 <p><b>Variance = Σ(value − mean)² ÷ n</b><br><b>Standard deviation = √variance</b><br>For a sample, divide by n−1 instead of n.</p>
+<h2>Step-by-step example</h2>
+<div class="example-box">
+<p><b>Standard deviation of 2, 4, 6, 8</b></p>
+<ul>
+<li><b>Step 1</b> Find the mean: (2+4+6+8)÷4 = <b>5</b></li>
+<li><b>Step 2</b> Sum of squared deviations: (−3)²+(−1)²+1²+3² = 9+1+1+9 = 20</li>
+<li><b>Step 3</b> Variance = 20÷4 = 5, standard deviation = √5 ≈ <b>2.24</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">Interpretation: On average, values sit about 2.24 units away from the mean of 5.</p>
+</div>
 <h2>Why square the deviations?</h2>
 <div class="why-box"><p>Simply adding up deviations from the mean always gives 0, since positive and negative differences cancel out. Squaring removes the sign problem, and it also <b>weights larger deviations more heavily</b>, making outliers more noticeable. Since squaring changes the units (cm becomes cm²), taking the <b>square root at the end</b> converts back to the original units, giving standard deviation.</p></div>
 <h2>Good to know</h2>

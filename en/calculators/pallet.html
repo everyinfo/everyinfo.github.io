@@ -76,6 +76,21 @@
 <p>The pallet loading calculator computes how many boxes fit on a pallet per layer and how many layers can be stacked, based on pallet size and box dimensions. The count varies significantly depending on the stacking pattern used.</p>
 <h2>How it's calculated</h2>
 <p>Standard pallet footprints are defined internationally by <b>ISO 6780</b> and related standards. The most common are <b>1200×1000mm</b>, the <b>1200×800mm Euro-pallet (EUR1)</b>, and the <b>1219×1016mm (48″×40″) US GMA standard</b>.</p>
+<h2>Loading example</h2>
+<div class="example-box">
+<p><b>Example: 400×300×250mm boxes, block-stacked on a 1200×1000mm pallet</b></p>
+<ul>
+<li>Boxes per layer: 3 × 3 = <b>9 boxes</b></li>
+<li>Total height with 5 layers + 150mm pallet: 150+250×5 = <b>1,400mm</b></li>
+<li>Total boxes: 9×5 = <b>45</b>, about 1.35 m³ of cargo</li>
+</ul>
+</div>
+<h2>Real-world sources of error</h2>
+<ul class="trivia-list">
+<li><b>Wrap thickness</b>: Stretch-wrapping adds a few millimeters to each box's effective size, which can throw off a tightly optimized layout in practice.</li>
+<li><b>Pallet deck deformation</b>: Wood pallets can warp with use, slightly reducing the usable flat area versus the calculated footprint.</li>
+<li><b>Crushing under load</b>: Lower boxes compress slightly under the weight above them, so stacks of 5+ layers need a margin of safety.</li>
+</ul>
 <h2>Good to know</h2>
 <ul class="trivia-list">
 <li>The <b>Euro-pallet (1200×800mm)</b> and the <b>US GMA pallet (48″×40″)</b> are the two most widely used standards worldwide, but they are not interchangeable — a container optimized for one wastes space with the other.</li>

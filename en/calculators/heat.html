@@ -76,6 +76,25 @@
 <p>This calculator computes the heat required for sensible and latent heat processes, and calculates the log mean temperature difference (LMTD) used in heat exchanger design.</p>
 <h2>How it's calculated</h2>
 <p><b>Sensible heat Q = m × c × ΔT</b> (when temperature changes)<br><b>Latent heat Q = m × L</b> (when phase changes)<br><b>LMTD = (ΔT₁ − ΔT₂) ÷ ln(ΔT₁/ΔT₂)</b></p>
+<h2>Variable definitions</h2>
+<table class="unit-confuse-table">
+<tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
+<tr><td>Q</td><td>Heat energy</td><td>kJ, J</td></tr>
+<tr><td>m</td><td>Mass</td><td>kg</td></tr>
+<tr><td>c</td><td>Specific heat</td><td>kJ/kg·K</td></tr>
+<tr><td>L</td><td>Latent heat (fusion/vaporization)</td><td>kJ/kg</td></tr>
+</table>
+<h2>Assumptions</h2>
+<p>This assumes specific heat and latent heat stay <b>constant across the temperature range</b> involved. In reality specific heat shifts slightly with temperature, but the effect is negligible for typical engineering calculations.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>Heating 2kg of water from 20°C to 100°C, then converting it all to steam</b></p>
+<ul>
+<li>Sensible heat: 2 × 4.18 × (100-20) = <b>668.8 kJ</b></li>
+<li>Latent heat: 2 × 2,260 = <b>4,520 kJ</b></li>
+<li>Total heat required: <b>5,188.8 kJ</b> (latent heat is about 6.8x the sensible heat)</li>
+</ul>
+</div>
 <h2>Why does boiling water stay at 100°C?</h2>
 <div class="why-box"><p><b>Sensible heat</b> raises temperature; <b>latent heat</b> changes state without changing temperature. Once water reaches 100°C, all additional heat goes into converting liquid to gas, so the temperature stops rising.</p><p>Heating 1kg of water from 0°C to 100°C takes about 420 kJ, but turning that same 100°C water into steam takes <b>2,260 kJ — more than 5 times as much energy.</b></p></div>
 <h2>Good to know</h2>
