@@ -71,3 +71,6 @@
 .wd-row-del:hover{background:#FDEEEC;border-color:#E3A69B;color:#C0503F;}
 
 .calc-toolbar .wd-hist-add{border-color:var(--indigo);color:var(--indigo);}
+
+.calc-btn{width:100%;padding:13px;background:var(--indigo);color:#fff;border:none;border-radius:10px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;margin-top:10px;}
+.hist-add-btn{width:100%;padding:11px;background:#fff;color:var(--indigo);border:1.5px solid var(--indigo);border-radius:10px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;margin-top:8px;}
