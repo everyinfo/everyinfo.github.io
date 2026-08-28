@@ -69,3 +69,5 @@
 .wd-hist-table th:last-child, .wd-hist-table td:last-child{padding:7px 4px;}
 .wd-row-del{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink-faint);font-size:11px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0;}
 .wd-row-del:hover{background:#FDEEEC;border-color:#E3A69B;color:#C0503F;}
+
+.calc-toolbar .wd-hist-add{border-color:var(--indigo);color:var(--indigo);}
