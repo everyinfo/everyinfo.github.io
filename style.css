@@ -74,3 +74,20 @@
 
 .calc-btn{width:100%;padding:13px;background:var(--indigo);color:#fff;border:none;border-radius:10px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;margin-top:10px;}
 .hist-add-btn{width:100%;padding:11px;background:#fff;color:var(--indigo);border:1.5px solid var(--indigo);border-radius:10px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;margin-top:8px;}
+
+/* ---- 목재 계산기: 2단 입력 레이아웃 ---- */
+.calc-card .card{padding-top:52px;}
+.dim-labels{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:5px;}
+.dim-labels span{font-size:12px;font-weight:700;color:var(--ink-soft);}
+.dim-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:6px;}
+.dim-inputs input{width:100%;min-width:0;padding:11px 4px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;font-weight:700;text-align:center;}
+.dim-units{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px;}
+.dim-units .unit-chip{width:100%;flex:1 1 auto;height:auto;padding:8px 2px;font-size:12px;}
+.field-block{margin-bottom:16px;}
+.field-block label{display:block;font-size:12.5px;font-weight:700;margin-bottom:8px;}
+.field-block label .sub{font-weight:400;color:var(--ink-faint);font-size:11px;}
+.field-block>input[type=text]{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;font-weight:700;}
+.field-block .price-input-wrap{margin-bottom:6px;}
+.cur-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.cur-toggle button{padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-soft);cursor:pointer;transition:.13s;}
+.cur-toggle button.on{background:var(--indigo);color:#fff;border-color:var(--indigo);}
