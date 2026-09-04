@@ -91,3 +91,22 @@
 .cur-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .cur-toggle button{padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-soft);cursor:pointer;transition:.13s;}
 .cur-toggle button.on{background:var(--indigo);color:#fff;border-color:var(--indigo);}
+
+/* ---- 파렛트 적재: ISO 뷰 / 안정성 표시 ---- */
+.iso-note{font-size:11.5px;padding:9px 12px;border-radius:8px;margin:12px 0 6px;line-height:1.6}
+.iso-note.warn{background:#FDEEEC;color:#8A3A2C}
+.iso-note.ok{background:#EDF7F1;color:#2E6A4C}
+.pk-totals{display:flex;gap:8px;margin-top:12px}
+.pk-tbox{flex:1;background:var(--line-soft);border:1.5px solid transparent;border-radius:10px;padding:11px 8px;text-align:center;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:2px;transition:.13s}
+.pk-tbox .k{font-size:10.5px;color:var(--ink-soft)}
+.pk-tbox .v{font-size:18px;font-weight:900;color:var(--indigo)}
+.pk-tbox .hint{font-size:9px;color:var(--ink-faint)}
+.pk-tbox.main{background:#E8F1FA;border-color:var(--indigo)}
+.pk-tbox.muted{opacity:.6}
+.pk-tbox.warnsel{background:#FDEEEC;border-color:#C0503F}
+.pk-tbox.warnsel .v{color:#C0503F}
+.pk-tierlist{margin-top:10px;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.pk-tierrow{display:flex;justify-content:space-between;padding:7px 12px;font-size:11.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)}
+.pk-tierrow:last-child{border-bottom:none}
+.pk-tierrow.cut{background:#FDF3F1;color:#8A3A2C;font-weight:700}
+.pk-tierrow.cut b{color:#C0503F}
