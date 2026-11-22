@@ -135,7 +135,7 @@ const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방�
         <div class="cf"><label>세로 W</label><input type="text" id="plBW" inputmode="decimal" placeholder="예: 300"></div>
         <div class="cf"><label>높이 H</label><input type="text" id="plBH" inputmode="decimal" placeholder="예: 250"></div>
       </div>
-      <div class="cf"><label>높이 기준 <span class="sub">· 비워두면 예시값으로 자동 계산</span></label></div>
+      <div class="cf" style="margin-top:10px;"><label>높이 기준 <span class="sub">· 비워두면 예시값(150·2,000·0)으로 자동 계산</span></label></div>
       <div class="row3">
         <div class="cf"><label>파렛트 높이</label><input type="text" id="plPH" inputmode="decimal" placeholder="150"></div>
         <div class="cf"><label>최대 높이</label><input type="text" id="plMax" inputmode="decimal" placeholder="2000"></div>

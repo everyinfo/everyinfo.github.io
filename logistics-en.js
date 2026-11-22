@@ -137,7 +137,7 @@ const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the sa
         <div class="cf"><label>Width W</label><input type="text" id="plBW" inputmode="decimal" placeholder="e.g. 300"></div>
         <div class="cf"><label>Height H</label><input type="text" id="plBH" inputmode="decimal" placeholder="e.g. 250"></div>
       </div>
-      <div class="cf"><label>Height settings <span class="sub">· blank = example values</span></label></div>
+      <div class="cf" style="margin-top:10px;"><label>Height settings <span class="sub">· blank = example values (150 / 2,000 / 0)</span></label></div>
       <div class="row3">
         <div class="cf"><label>Pallet height</label><input type="text" id="plPH" inputmode="decimal" placeholder="150"></div>
         <div class="cf"><label>Max height</label><input type="text" id="plMax" inputmode="decimal" placeholder="2000"></div>
