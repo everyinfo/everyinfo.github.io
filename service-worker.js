@@ -1,20 +1,6 @@
 /*!
- * 계산기서랍 (CalcLex) - 최소 서비스워커
- * PWA 설치 조건 충족용. 오프라인 캐싱 전략은 추후 확장 가능.
+ * 계산기서랍 (CalcLex) — 레거시 서비스워커 진입점
+ * 과거 fab.js가 이 경로로 등록했던 설치 사용자를 위해 /sw.js 구현을 그대로 위임한다.
+ * (새 등록은 전부 /sw.js 사용)
  */
-const CACHE_NAME = "calclex-shell-v1";
-
-self.addEventListener("install", () => {
-  self.skipWaiting();
-});
-
-self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener("fetch", (event) => {
-  // 네트워크 우선, 실패 시(오프라인 등)에만 캐시 확인
-  event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
-  );
-});
+importScripts("/sw.js");

@@ -191,9 +191,4 @@ function ensurePWAMeta() {
     el.querySelector(".fs-close").addEventListener("click", close);
     el.addEventListener("click", e => { if (e.target === el) close(); });
   }
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-      navigator.serviceWorker.register("/service-worker.js").catch(function () {});
-    });
-  }
 })();
