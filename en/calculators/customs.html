@@ -17,6 +17,9 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://calclex.com/en/calculators/customs.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/calculators/customs.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/calculators/customs.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/calculators/customs.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
@@ -70,6 +73,87 @@
     <div id="calcResult"></div>
   </div>
 </div>
+
+<div class="article calc-explain">
+<h2>What this calculator estimates</h2>
+<p>The price you paid abroad is not the price the parcel costs you in Korea. When a shipment clears customs, Korea adds <b>customs duty</b> on the item's value and <b>VAT</b> on top of that value plus the duty. This calculator takes the item price, the international freight and insurance, converts them to won at the customs exchange rate, and shows each part of the bill separately so you can see what the shipping actually adds.</p>
+<h2>How the estimate is built</h2>
+<p>The base is the <b>dutiable value</b>, which follows the CIF price: item price + international freight + insurance, converted to KRW. Korea Customs uses the exchange rate it publishes for that week, not the rate your card was charged at.</p>
+<p>Customs duty is the dutiable value multiplied by the duty rate of the item's HS code. VAT is then <b>10% of (dutiable value + duty)</b> — the duty itself is taxed, so the real burden is a little higher than the duty percentage alone suggests.</p>
+<h2>Worked example</h2>
+<div class="example-box">
+<p><b>Example: US$300 item with US$30 shipping, 8% duty, rate 1,380 KRW/USD</b></p>
+<ul>
+<li>Dutiable value: (300 + 30) × 1,380 = <b>455,400 KRW</b></li>
+<li>Duty at 8%: <b>36,432 KRW</b></li>
+<li>VAT at 10% of (455,400 + 36,432): <b>49,183 KRW</b></li>
+<li>Total tax: <b>85,615 KRW</b>, so the parcel costs about <b>541,000 KRW</b> including the item</li>
+</ul>
+</div>
+<h2>Where the real bill drifts from the estimate</h2>
+<ul class="trivia-list">
+<li><b>The rate follows the HS code.</b> Duty is set per 10-digit HS code, not per broad category. The category default in the calculator is a planning figure; the same "clothing" or "machine part" can sit at a different rate once classified.</li>
+<li><b>Origin can change everything.</b> With a valid certificate of origin under an FTA (Korea–US, Korea–EU, Korea–China and others), the preferential rate can fall to 0%.</li>
+<li><b>Freight is whatever was actually billed.</b> Couriers often fold fuel surcharges and domestic delivery into one shipping line, and only the international leg belongs in the CIF value.</li>
+<li><b>Exchange rate timing.</b> The customs rate is fixed weekly, so a shipment that clears a week later can be assessed a few percent differently from your estimate.</li>
+<li><b>Clearance fees sit outside this number.</b> Couriers usually charge a small handling fee on top of the tax, and that is not duty or VAT.</li>
+</ul>
+<h2>Good to know</h2>
+<ul class="trivia-list">
+<li><b>Simplified clearance (목록통관)</b> lets low-value personal parcels through without tax. This calculator applies <b>US$150</b> as the standard limit and <b>US$200</b> for goods shipped from the United States.</li>
+<li><b>Health supplements, pharmaceuticals, cosmetics and alcohol are excluded</b> from simplified clearance at any price. Those need a formal import declaration and a personal customs clearance code (개인통관고유부호) before the shipment arrives.</li>
+<li>Thresholds and excluded categories are set by the <b>Korea Customs Service</b> and are amended from time to time, so check the current notice for anything ordered close to the limit.</li>
+<li>Only the international shipping cost belongs in the dutiable value. Domestic delivery inside Korea, and any gift wrapping, does not.</li>
+<li>If you are a VAT-registered business importing for business use, import VAT may be claimed back as input tax. Private purchases cannot.</li>
+<li>For a figure you can declare, look up the 10-digit HS code on <b>UNI-PASS (unipass.customs.go.kr)</b> or ask a customs broker. This calculator is for planning, not for filing.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><p class="q">Q. Is shipping really taxed?</p><p class="a">Yes. Korea's dutiable value is a CIF value, so international freight and insurance are part of the base, and VAT is charged on the duty as well as on the goods.</p></div>
+<div class="faq-item"><p class="q">Q. Why is my duty different from the category shown?</p><p class="a">Because the rate follows the item's 10-digit HS code rather than a broad category, and a certificate of origin under an FTA can bring the rate down to 0%. Use the custom-rate field when you already know the rate.</p></div>
+<div class="faq-item"><p class="q">Q. Do I pay tax on a gift?</p><p class="a">Gifts are assessed on the same basis as purchases. Where no price is documented, Korea Customs may value the item at a reference price instead.</p></div>
+<div class="faq-item"><p class="q">Q. When do I actually pay it?</p><p class="a">Usually to the courier at delivery, after the shipment clears customs, together with a small clearance fee.</p></div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is shipping really taxed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Korea's dutiable value is a CIF value, so international freight and insurance are part of the base, and VAT is charged on the duty as well as on the goods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my duty different from the category shown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the rate follows the item's 10-digit HS code rather than a broad category, and a certificate of origin under an FTA can bring the rate down to 0%. Use the custom-rate field when you already know the rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I pay tax on a gift?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gifts are assessed on the same basis as purchases. Where no price is documented, Korea Customs may value the item at a reference price instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do I actually pay it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually to the courier at delivery, after the shipment clears customs, together with a small clearance fee."
+      }
+    }
+  ]
+}
+</script>
 
 <div class="ad-slot"><!-- Ad slot: insert AdSense code here once approved --></div>
 
