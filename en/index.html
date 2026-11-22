@@ -101,6 +101,11 @@
 
 <div class="popular-section" id="recentSection"></div>
 
+<div class="popular-section" id="popularSection">
+  <div class="section-label" style="margin:0 0 12px;padding:0;">🔥 Popular Calculators</div>
+  <div class="popular-scroll" id="popularScroll"></div>
+</div>
+
 <div class="section-toolbar">
   <span class="section-label" id="resultLabel">All Calculators</span>
   <button type="button" class="toggle-all" id="toggleAll">Collapse All</button>
@@ -212,7 +217,7 @@
       <a class="calc-item" href="/en/calculators/container.html"><span class="ci-emoji">🚛</span><span class="ci-body"><span class="ci-title">Container Loading Calculator</span><span class="ci-desc">Calculate how many pallets or boxes fit in a shipping container, with a floor layout diagram.</span></span></a>
       <a class="calc-item" href="/en/calculators/airweight.html"><span class="ci-emoji">✈️</span><span class="ci-body"><span class="ci-title">Volumetric Weight Calculator</span><span class="ci-desc">Calculate volumetric weight and chargeable weight for air freight, courier, and sea LCL shipments.</span></span></a>
       <a class="calc-item" href="/en/calculators/customs.html"><span class="ci-emoji">🛃</span><span class="ci-body"><span class="ci-title">Korea Import Duty &amp; VAT Calculator</span><span class="ci-desc">Estimates Korea's import customs duty, VAT, and total clearance cost for overseas direct purchases.</span></span></a>
-      <a class="calc-item" href="/en/calculators/wood.html"><span class="ci-emoji">🪵</span><span class="ci-body"><span class="ci-title">Lumber Volume Calculator</span><span class="ci-desc">Calculate lumber volume in board-feet (or m³/jae) and total cost, in USD or KRW.</span></span></a>
+      <a class="calc-item" href="/en/calculators/wood.html"><span class="ci-emoji"><svg class="ci-svg" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false" role="presentation"><rect x="2" y="6.4" width="16.4" height="11.2" rx="3.4" fill="#B5804F"/><path d="M5 9.3h10.2M5 12h10.2M5 14.7h10.2" stroke="#96613A" stroke-width="1.1" stroke-linecap="round" opacity=".42"/><ellipse cx="18.4" cy="12" rx="4" ry="5.6" fill="#E3B587"/><ellipse cx="18.4" cy="12" rx="2.7" ry="3.8" fill="none" stroke="#B5804F" stroke-width="1.1"/><ellipse cx="18.4" cy="12" rx="1.2" ry="1.8" fill="none" stroke="#C08A5C" stroke-width="1"/></svg></span><span class="ci-body"><span class="ci-title">Lumber Volume Calculator</span><span class="ci-desc">Calculate lumber volume in board-feet (or m³/jae) and total cost, in USD or KRW.</span></span></a>
     </div>
   </div>
 </div>
@@ -227,6 +232,8 @@
 </footer>
 
 <script src="/en/calculators-data-en.js"></script>
+<script src="/calc-intent-data.js"></script>
+<script src="/calc-intent.js"></script>
 <script src="/recent-calculators-en.js"></script>
 <script>
 (function(){
@@ -276,11 +283,16 @@
     catDescLine.style.display = (!isAll && !searching && window.CATEGORY_DESC && window.CATEGORY_DESC[currentCat]) ? 'block' : 'none';
     if(catDescLine.style.display==='block') catDescLine.textContent = window.CATEGORY_DESC[currentCat];
 
-    const filtered = CALCULATORS.filter(c=>{
+    let filtered = CALCULATORS.filter(c=>{
       const catMatch = isAll || c.cat === currentCat;
       const qMatch = c.title.toLowerCase().includes(currentQuery) || c.desc.toLowerCase().includes(currentQuery);
       return catMatch && qMatch;
     });
+    let intentUsed = false;
+    if(searching && filtered.length === 0 && typeof window.calcIntentSearch === 'function'){
+      const hits = window.calcIntentSearch(currentQuery, CALCULATORS);
+      if(hits.length){ filtered = hits.map(h => h.calc); intentUsed = true; resultLabel.textContent = 'Best matches'; }
+    }
 
     if(isAll && !searching){
       const order = [];
@@ -334,13 +346,73 @@
 
   const searchInput = document.getElementById('searchInput');
   const homeResults = document.getElementById('homeSearchResults');
+
+  function renderHomeSuggest(q){
+    if(!q || !homeResults){ if(homeResults){ homeResults.classList.remove('open'); homeResults.innerHTML=''; } return; }
+    const intent = (typeof window.calcIntentSearch === 'function') ? window.calcIntentSearch(q, CALCULATORS) : [];
+    const used = {};
+    let html = '';
+    if(intent.length){
+      html += '<div class="mini-search-group">BEST MATCHES</div>';
+      intent.forEach(r => {
+        used[r.calc.url] = 1;
+        html += `<a class="mini-search-item" href="${r.calc.url}"><span class="ms-emoji">${r.calc.emoji}</span><span class="ms-text"><span class="ms-title">${r.calc.title}</span><span class="ms-desc">${r.calc.desc}</span><span class="ms-why">${r.reason}</span></span></a>`;
+      });
+    }
+    const list = CALCULATORS.filter(c => !used[c.url] && (c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q))).slice(0, 5);
+    if(list.length){
+      html += '<div class="mini-search-group">' + (intent.length ? 'OTHER MATCHES' : 'CALCULATORS') + '</div>';
+      html += list.map(c => `<a class="mini-search-item" href="${c.url}"><span class="ms-emoji">${c.emoji}</span><span class="ms-text"><span class="ms-title">${c.title}</span><span class="ms-desc">${c.desc}</span></span></a>`).join('');
+    }
+    if(!html){ html = '<div class="mini-search-empty">No calculator matched that. Try “how many boxes fit on a pallet” or “salary after tax”.</div>'; homeResults.innerHTML = html; homeResults.classList.add('open'); return; }
+    homeResults.innerHTML = html;
+    homeResults.classList.add('open');
+  }
+
   searchInput.addEventListener('input', ()=>{
     currentQuery = searchInput.value.trim().toLowerCase();
     document.getElementById('recentSection').style.display = currentQuery ? 'none' : '';
+    const ps = document.getElementById('popularSection');
+    if(ps) ps.style.display = currentQuery ? 'none' : '';
+    renderHomeSuggest(searchInput.value.trim());
     render();
   });
+  document.addEventListener('click', e=>{ if(!e.target.closest('.home-search-wrap') && homeResults) homeResults.classList.remove('open'); });
+
+  // Popular: real local usage first, then a default shortlist so it is never empty.
+  const DEFAULT_POPULAR = [
+    '/en/calculators/loan.html',
+    '/en/calculators/unit-currency.html',
+    '/en/calculators/pallet.html',
+    '/en/calculators/cbm.html',
+    '/en/calculators/unit-length.html',
+    '/en/calculators/dday.html',
+    '/en/calculators/percent.html',
+    '/en/calculators/unit-weight.html'
+  ];
+  function localCalcVisits(){ try{ return JSON.parse(localStorage.getItem('cdMetrics') || '{}'); }catch(e){ return {}; } }
+  function renderPopular(){
+    const wrap = document.getElementById('popularScroll');
+    if(!wrap) return;
+    const local = localCalcVisits();
+    const byUrl = {};
+    CALCULATORS.forEach(c => { byUrl[c.url] = c; });
+    const counted = CALCULATORS.filter(c => c.active).map(c => {
+      const slug = (c.url.split('/').pop() || '').replace('.html', '');
+      return { c: c, n: (c.visits || 0) + (local['calc:' + slug] || 0) };
+    }).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
+    const cards = [];
+    counted.forEach(x => { if(cards.length < 8) cards.push({ c: x.c, visits: x.n }); });
+    DEFAULT_POPULAR.forEach(url => {
+      if(cards.length >= 8) return;
+      const c = byUrl[url];
+      if(c && c.active && !cards.some(x => x.c.url === url)) cards.push({ c: c, visits: 0 });
+    });
+    wrap.innerHTML = cards.map((item, i) => `<a class="popular-card" href="${item.c.url}">${item.visits ? `<div class="rank">${i+1}</div>` : ''}<div class="emoji">${item.c.emoji}</div><h4>${item.c.title}</h4><div class="visits">${item.visits ? 'Views ' + item.visits.toLocaleString() : 'Editor\u2019s pick'}</div></a>`).join('');
+  }
 
   render();
+  renderPopular();
   if(typeof renderRecentCalculators === 'function') renderRecentCalculators();
 })();
 </script>

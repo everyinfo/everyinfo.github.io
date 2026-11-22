@@ -110,3 +110,11 @@
 .pk-tierrow:last-child{border-bottom:none}
 .pk-tierrow.cut{background:#FDF3F1;color:#8A3A2C;font-weight:700}
 .pk-tierrow.cut b{color:#C0503F}
+
+/* wood icon + intent search */
+.ci-svg{width:1em;height:1em;display:inline-block;vertical-align:-.12em;overflow:visible}
+.calc-item h3 .ci-emoji,.ms-emoji,.rel-emoji,.popular-card .emoji,.fs-emoji{display:inline-flex;align-items:center}
+.page-title .pt-icon{display:inline-flex;vertical-align:-.06em;margin-right:.1em}
+.page-title .pt-icon .ci-svg{width:.95em;height:.95em}
+.mini-search-item .ms-why{font-size:11px;font-weight:700;color:var(--gold);line-height:1.45}
+.mini-search-group{padding:8px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-faint);background:var(--line-soft)}

@@ -93,7 +93,7 @@
 
 <div class="home-search-wrap">
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="계산기 이름으로 검색 (예: 환갑, 연봉)" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="하고 싶은 계산을 그대로 적어보세요 (예: 이삿짐 박스 몇 개, 삼각형 빗변)" autocomplete="off" aria-label="계산기 검색">
   </div>
   <div class="mini-search-results" id="homeSearchResults"></div>
 </div>
@@ -232,7 +232,7 @@
       <a class="calc-item" href="/calculators/airweight.html"><span class="ci-emoji">✈️</span><span class="ci-body"><span class="ci-title">부피중량 계산기</span><span class="ci-desc">항공·특송 부피중량과 운임적용중량, 피벗 초과분을 계산해요.</span></span></a>
       <a class="calc-item" href="/calculators/container.html"><span class="ci-emoji">🚢</span><span class="ci-body"><span class="ci-title">컨테이너 적입 계산기</span><span class="ci-desc">컨테이너에 파렛트나 박스를 몇 개 실을 수 있는지 계산해요.</span></span></a>
       <a class="calc-item" href="/calculators/pallet.html"><span class="ci-emoji">🏗️</span><span class="ci-body"><span class="ci-title">파렛트 적재 계산기</span><span class="ci-desc">파렛트에 박스를 몇 개 쌓을 수 있는지 적재 방식별로 계산하고 도면으로 보여줘요.</span></span></a>
-      <a class="calc-item" href="/calculators/wood.html"><span class="ci-emoji">🪵</span><span class="ci-body"><span class="ci-title">목재 체적 계산기</span><span class="ci-desc">가로·세로·길이로 목재 부피를 구하고, 재(才)당 단가로 총 금액까지 계산해요.</span></span></a>
+      <a class="calc-item" href="/calculators/wood.html"><span class="ci-emoji"><svg class="ci-svg" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false" role="presentation"><rect x="2" y="6.4" width="16.4" height="11.2" rx="3.4" fill="#B5804F"/><path d="M5 9.3h10.2M5 12h10.2M5 14.7h10.2" stroke="#96613A" stroke-width="1.1" stroke-linecap="round" opacity=".42"/><ellipse cx="18.4" cy="12" rx="4" ry="5.6" fill="#E3B587"/><ellipse cx="18.4" cy="12" rx="2.7" ry="3.8" fill="none" stroke="#B5804F" stroke-width="1.1"/><ellipse cx="18.4" cy="12" rx="1.2" ry="1.8" fill="none" stroke="#C08A5C" stroke-width="1"/></svg></span><span class="ci-body"><span class="ci-title">목재 체적 계산기</span><span class="ci-desc">가로·세로·길이로 목재 부피를 구하고, 재(才)당 단가로 총 금액까지 계산해요.</span></span></a>
     </div>
   </div>
 </div>
@@ -247,6 +247,8 @@
 </footer>
 
 <script src="/calculators-data.js"></script>
+<script src="/calc-intent-data.js"></script>
+<script src="/calc-intent.js"></script>
 <script src="/metrics.js"></script>
 <script src="/recent-calculators.js"></script>
 <script src="/basiccalc.js"></script>
@@ -255,27 +257,56 @@
 // CALCULATORS 배열은 /calculators-data.js 에서 공용으로 관리됩니다.
 const CALCULATORS = window.CALCULATORS;
 
+// 방문 기록이 아직 없어도 비어 보이지 않도록, 대표 계산기를 기본 추천으로 보여줍니다.
+const DEFAULT_POPULAR = [
+  '/calculators/salary.html',
+  '/calculators/unit-currency.html',
+  '/calculators/pallet.html',
+  '/calculators/cbm.html',
+  '/calculators/unit-length.html',
+  '/calculators/dday.html',
+  '/calculators/loan.html',
+  '/calculators/percent.html'
+];
+
+function localCalcVisits(){
+  try{ return JSON.parse(localStorage.getItem('cdMetrics') || '{}'); }catch(e){ return {}; }
+}
+
 function renderPopular(){
   const wrap = document.getElementById('popularScroll');
-  const ranked = CALCULATORS
-    .filter(c => c.active && c.visits > 0)
-    .sort((a,b) => b.visits - a.visits)
-    .slice(0, 10);
+  if(!wrap) return;
+  const local = localCalcVisits();
+  const byUrl = {};
+  CALCULATORS.forEach(c => { byUrl[c.url] = c; });
 
-  if(ranked.length === 0){
-    wrap.innerHTML = '<p style="font-size:12.5px;color:var(--ink-faint);padding:6px 2px;">아직 방문 데이터가 쌓이지 않았어요. 애널리틱스 연동 후 이 자리에 순위가 표시돼요.</p>';
-    return;
-  }
+  const counted = CALCULATORS
+    .filter(c => c.active)
+    .map(c => {
+      const slug = (c.url.split('/').pop() || '').replace('.html', '');
+      return { c: c, n: (c.visits || 0) + (local['calc:' + slug] || 0) };
+    })
+    .filter(x => x.n > 0)
+    .sort((a, b) => b.n - a.n);
+
+  const cards = [];
+  counted.forEach(x => { if(cards.length < 8) cards.push({ c: x.c, visits: x.n }); });
+  DEFAULT_POPULAR.forEach(url => {
+    if(cards.length >= 8) return;
+    const c = byUrl[url];
+    if(c && c.active && !cards.some(x => x.c.url === url)) cards.push({ c: c, visits: 0 });
+  });
+
   wrap.innerHTML = '';
-  ranked.forEach((c, i) => {
+  cards.forEach((item, i) => {
     const el = document.createElement('a');
-    el.href = c.url;
+    el.href = item.c.url;
     el.className = 'popular-card';
     el.innerHTML = `
-      <div class="rank">${i+1}</div>
-      <div class="emoji">${c.emoji}</div>
-      <h4>${c.title}</h4>
-      <div class="visits">방문 ${c.visits.toLocaleString()}</div>
+      ${item.visits ? `<div class="rank">${i+1}</div>` : ''}
+      <div class="emoji">${item.c.emoji}</div>
+      <h4>${item.c.title}</h4>
+      <div class="visits">${item.visits ? '방문 ' + item.visits.toLocaleString() + '회' : '기본 추천'}</div>
     `;
     wrap.appendChild(el);
   });
@@ -372,14 +403,19 @@ function render(){
     }
   }
 
-  const filtered = CALCULATORS.filter(c=>{
+  let filtered = CALCULATORS.filter(c=>{
     const catMatch = isAll || c.cat === currentCat;
     const qMatch = c.title.toLowerCase().includes(currentQuery) || c.desc.toLowerCase().includes(currentQuery);
     return catMatch && qMatch;
   });
+  let intentUsed = false;
+  if(searching && filtered.length === 0 && typeof window.calcIntentSearch === 'function'){
+    const hits = window.calcIntentSearch(currentQuery, CALCULATORS);
+    if(hits.length){ filtered = hits.map(h => h.calc); intentUsed = true; }
+  }
 
   grid.innerHTML = '';
-  resultLabel.textContent = isAll ? '전체 계산기' : currentCat + ' 계산기';
+  resultLabel.textContent = intentUsed ? '질문에 맞는 계산기' : (isAll ? '전체 계산기' : currentCat + ' 계산기');
 
   if(filtered.length === 0){
     grid.className = '';
@@ -485,12 +521,30 @@ const homeResults = document.getElementById('homeSearchResults');
 
 function renderHomeSuggest(q){
   if(!q){ homeResults.classList.remove('open'); homeResults.innerHTML=''; return; }
-  const list = CALCULATORS.filter(c =>
+  const intent = (typeof window.calcIntentSearch === 'function') ? window.calcIntentSearch(q, CALCULATORS) : [];
+  const used = {};
+  let html = '';
+  if(intent.length){
+    html += '<div class="mini-search-group">질문에 맞는 계산기</div>';
+    intent.forEach(r => {
+      used[r.calc.url] = 1;
+      html += `
+        <a class="mini-search-item" href="${r.calc.url}">
+          <span class="ms-emoji">${r.calc.emoji}</span>
+          <span class="ms-text">
+            <span class="ms-title">${r.calc.title}</span>
+            <span class="ms-desc">${r.calc.desc}</span>
+            <span class="ms-why">${r.reason}</span>
+          </span>
+        </a>`;
+    });
+  }
+  const list = CALCULATORS.filter(c => !used[c.url] && (
     c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q)
-  );
-  homeResults.innerHTML = list.length === 0
-    ? '<div class="mini-search-empty">일치하는 계산기가 없어요</div>'
-    : list.map(c => `
+  )).slice(0, 6);
+  if(list.length){
+    html += '<div class="mini-search-group">' + (intent.length ? '함께 보면 좋은 계산기' : '계산기') + '</div>';
+    html += list.map(c => `
       <a class="mini-search-item ${c.active ? '' : 'disabled'}" href="${c.active ? c.url : '#'}">
         <span class="ms-emoji">${c.emoji}</span>
         <span class="ms-text">
@@ -499,6 +553,8 @@ function renderHomeSuggest(q){
         </span>
       </a>
     `).join('');
+  }
+  homeResults.innerHTML = html || '<div class="mini-search-empty">일치하는 계산기가 없어요. “이삿짐 박스 몇 개”처럼 하고 싶은 계산을 문장으로 적어보세요.</div>';
   homeResults.classList.add('open');
 }
 
