@@ -22,15 +22,27 @@ function isoViewP(layers,PW,PH,palH,boxH,safeLayers,title){const S=Math.min(.108
 const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방향으로 반복해 쌓아요. 작업이 빠르지만 층 간 결속력이 약해 랩핑·고박이 필요해요."},alternate:{name:"교호열 적재",fn:palAlternate,desc:"우수단(짝수 단)을 90도 돌려 쌓아요. 한 단 개수는 같지만 층끼리 맞물려 결속력이 좋아져요."},pinwheel:{name:"핀휠 적재",fn:palPinwheel,desc:"박스 4개가 90도씩 맞물려 풍차 모양을 이뤄요. 치수 궁합에 따라 개수가 늘 수도, 줄 수도 있어요."}};function y(t,a,s,e,n,c,l){if(s<=0||e<=0)return"";const i=Math.min(s*n,e*n)<=8,o=`<rect x="${(t*n).toFixed(1)}" y="${(a*n).toFixed(1)}" width="${(s*n).toFixed(1)}" height="${(e*n).toFixed(1)}"\n        fill="#FDEEEC" stroke="#C0503F" stroke-width="${i?1.5:1.2}" ${i?"":'stroke-dasharray="3,2"'}/>`;if(!i){const l=(a+e/2)*n;return o+`<text x="${((t+s/2)*n).toFixed(1)}" y="${(l+3).toFixed(1)}" font-size="8" text-anchor="middle" fill="#C0503F" font-weight="800">${c}</text>`}const d=(t+s/2)*n,r=(a+e/2)*n;let p,v,u,b,h;return"down"===l?(p=d,v=r+22,u=d,b=r+34,h="middle"):(p=d+26,v=r,u=d+30,b=r+3,h="start"),o+`<circle cx="${d.toFixed(1)}" cy="${r.toFixed(1)}" r="1.8" fill="#C0503F"/>`+`<line x1="${d.toFixed(1)}" y1="${r.toFixed(1)}" x2="${p.toFixed(1)}" y2="${v.toFixed(1)}" stroke="#C0503F" stroke-width="1" stroke-dasharray="2,2"/>`+`<text x="${u.toFixed(1)}" y="${b.toFixed(1)}" font-size="8" text-anchor="${h}" fill="#C0503F" font-weight="800">${c}</text>`}function w(t,a,s,n,c){const l=320/Math.max(t,a),i=t*l,o=a*l,d=s.map((t,a)=>`<rect x="${(t.x*l).toFixed(1)}" y="${(t.y*l).toFixed(1)}"\n             width="${(t.w*l).toFixed(1)}" height="${(t.h*l).toFixed(1)}"\n             class="pk-box ${t.rot?"rot":""}"/>`).join("");let r="",p=8,v=8;if(c){const{remL:s,remW:n,filledW:i}=c;let o="",d="";s>0&&(o=y(t-s,0,s,i,l,`${e(s)}mm`,"right")),n>0&&(d=y(0,a-n,t,n,l,`${e(n)}mm`,"down")),r=o+d,s>0&&Math.min(s*l,i*l)<=8&&(v=46),n>0&&Math.min(t*l,n*l)<=8&&(p=46)}return`<div class="pk-view">\n      <div class="pk-view-title">${n}</div>\n      <svg viewBox="-4 -4 ${i+8+v} ${o+8+p}" class="pk-svg">\n        <rect x="0" y="0" width="${i.toFixed(1)}" height="${o.toFixed(1)}" class="pk-pallet"/>\n        ${d}\n        ${r}\n      </svg>\n      <div class="pk-dim">${e(t)} × ${e(a)} mm</div>\n    </div>`}const g=[["의류·섬유제품",13],["신발",13],["가방·핸드백",8],["화장품",6.5],["건강기능식품",8],["완구·게임",8],["가구",8],["시계",8],["안경·선글라스",8],["주방용품",8],["스포츠용품",8],["전자제품(일반)",8],["컴퓨터·주변기기",0],["휴대폰",0],["도서",0],["커피(생두)",2],["직접 입력",-1]];const k={show(a,e){const n=s("calcResult");n.innerHTML=a+'<div class="calc-toolbar">\n        <button type="button" class="ctool" id="lgReset">↻ 새로 입력</button>\n        <button type="button" class="ctool primary" id="lgShare">🔗 결과 공유하기</button>\n      </div>',n.style.display="block",requestAnimationFrame(()=>{n.getBoundingClientRect().top>window.innerHeight-80&&n.scrollIntoView({behavior:"smooth",block:"nearest"})}),s("lgReset").addEventListener("click",()=>{history.replaceState(null,"",location.pathname),e?e():location.reload(),e&&location.reload()}),s("lgShare").addEventListener("click",function(){const a=location.href,s=this,e=()=>{const t=s.textContent;s.textContent="복사됐어요 ✓",setTimeout(()=>s.textContent=t,1500)};"function"==typeof trackShare&&trackShare(k.kind,navigator.share?"native":"clipboard"),navigator.share?navigator.share({title:document.title,url:a}).catch(()=>t(a).then(e).catch(()=>{"function"==typeof fail&&fail()})):t(a).then(e).catch(()=>{"function"==typeof fail&&fail()})}),"function"==typeof trackCalc&&trackCalc(k.kind)},save(t){const a=new URLSearchParams;Object.keys(t).forEach(s=>{""!==t[s]&&null!=t[s]&&a.set(s,t[s])}),history.replaceState(null,"",location.pathname+(a.toString()?"?"+a:""))},kind:""},L={mm:1,cm:10,m:1e3,inch:25.4,"치":1e3/33,"자":1e4/33};function U(t){return o(t,Object.keys(L),"mm")}function x(t,a,s){return`<div class="cf"><label>${a}</label>\n      <div class="dim-row">\n        <input type="text" id="${t}" inputmode="decimal" placeholder="${s||""}">\n        ${o(t,Object.keys(L),"mm")}\n      </div></div>`}function C(t){const a=c(t),s=d(t)||"mm";return a*(L[s]||1)}const W=1/300,M=120/35937,E={jae:W,m3:1,bf:144*Math.pow(.0254,3)};const H={cbm:function(){const t={m3:1,L:.001,ft3:.0283168};let a="m3";s("calcBody").innerHTML=`\n      <div class="cf"><label>박스 규격</label></div>\n      ${v("cbL","가로 L","예: 600")}\n      ${v("cbW","세로 W","예: 400")}\n      ${v("cbH","높이 H","예: 300")}\n      <div class="lg-row2">\n        <div class="cf"><label for="cbQty">수량 (박스) <span class="sub">· 비우면 1개</span></label>\n          <input type="text" id="cbQty" inputmode="numeric" placeholder="예: 1"></div>\n        <div class="cf"><label for="cbKg">박스당 중량 (kg) <span class="sub">· 선택</span></label>\n          <input type="text" id="cbKg" inputmode="decimal" placeholder="선택"></div>\n      </div>\n    `;const i=["cbL","cbW","cbH","cbQty","cbKg"];function o(){const d=u("cbL"),r=u("cbW"),p=u("cbH"),v=s("cbQty").value.trim(),h=""===v?1:parseFloat(v.replace(/,/g,""))||1,m=c("cbKg");if(!d||!r||!p)return void(s("calcResult").style.display="none");const f=d*r*p/1e9,$=f*h,y=f/t[a],w=$/t[a],g="m3"===a?"㎥":"L"===a?"L":"ft³",L=m?m*h/1e3:0,x=Math.max($,L),C=`<div class="vol-sel" id="cbmVolSel">\n          <button type="button" class="${"m3"===a?"on":""}" data-v="m3">㎥</button>\n          <button type="button" class="${"L"===a?"on":""}" data-v="L">L</button>\n          <button type="button" class="${"ft3"===a?"on":""}" data-v="ft3">ft³</button>\n        </div>`;let W;W=h<=1?`<div class="rs-hero">\n            <div class="cap">박스 1개</div>\n            <div class="big">${n(y,4)} ${g}</div>\n          </div>${C}`:`<div class="rs-hero">\n            <div class="cap">${e(h)}박스 합계</div>\n            <div class="big">${n(w,4)} ${g} <span class="per-note">(개당 ${n(y,4)}${g})</span></div>\n          </div>${C}`,W+=`<div class="rs-row"><span class="k">박스 규격</span><span class="v">${n(d,1)}×${n(r,1)}×${n(p,1)} mm</span></div><div class="rs-row"><span class="k">총 부피</span><span class="v">${n($,4)} ㎥</span></div>`,m&&(W+=`<div class="rs-row"><span class="k">총 중량</span><span class="v">${n(m*h,1)} kg</span></div><div class="rs-row"><span class="k">중량톤 (W/T)</span><span class="v">${n(L,3)} ton</span></div><div class="rs-row"><span class="k">운임톤 (R/T)</span><span class="v">${n(x,3)} ${x===$?"(용적 기준)":"(중량 기준)"}</span></div>`),W+='<div class="mile-head">컨테이너 적재 추정 (용적 기준)</div>',Object.keys(b).slice(0,4).forEach(t=>{const a=b[t],s=.85*a.cbm;W+=`<div class="rs-row"><span class="k">${a.name}</span><span class="v">약 ${Math.floor(s/f).toLocaleString("ko-KR")}박스</span></div>`}),W+='<p class="cnote">컨테이너 적재량은 실무 적재 효율 <b>85%</b>를 적용한 <b>개략 추정치</b>예요. 정확한 수량은 파렛트 적재 계산기를 이용해 주세요.</p>'+l("박스 규격과 수량으로 총 CBM(용적)을 구하고, 컨테이너별 적재 가능 수량을 함께 추정해요.",["박스의 가로·세로·높이를 원하는 단위로 입력해요.","수량을 입력해요 (비우면 1개 기준).","박스당 중량을 입력하면 R/T(운임톤)까지 계산돼요."],"CBM(Cubic Meter)은 해상 LCL 운임의 기준이 되는 부피 단위예요. 운임은 보통 CBM과 중량톤(1,000kg) 중 큰 값인 R/T로 청구돼요."),k.show(W,()=>{i.forEach(t=>{s(t)&&(s(t).value="")})}),k.save({cbL:s("cbL").value,cbW:s("cbW").value,cbH:s("cbH").value,cbQty:s("cbQty").value,cbKg:s("cbKg").value});const M=document.getElementById("cbmVolSel");M&&M.querySelectorAll("button").forEach(t=>{t.addEventListener("click",()=>{a=t.dataset.v,o()})})}i.forEach(t=>s(t).addEventListener("input",o)),["cbL_u","cbW_u","cbH_u"].forEach(t=>s(t)&&s(t).addEventListener("change",o)),o()},pallet:function(){
   const urlParams=new URLSearchParams(location.search);
   let pattern=Object.keys($).includes(urlParams.get("plPat"))?urlParams.get("plPat"):"block";
-  let overhang=urlParams.get("plOver")?(parseFloat(urlParams.get("plOver"))||0):0;
+  const overhangParam=urlParams.get("plOver")?(parseFloat(urlParams.get("plOver"))||0):"";
   let calcDeb;
+  /* 입력칸이 비어 있으면 placeholder(예시값)를 기본값으로 쓴다 — value는 채우지 않고 계산할 때만 대체 */
+  function fieldNum(id){
+    const el=s(id);if(!el)return 0;
+    const raw=String(el.value).trim();
+    const src=raw!==""?raw:String(el.getAttribute("placeholder")||"");
+    const m=src.replace(/,/g,"").match(/-?\d+(?:\.\d+)?/);
+    return m?parseFloat(m[0]):0;
+  }
+  function fieldIsDefault(id){
+    const el=s(id);return !!el&&String(el.value).trim()==="";
+  }
   function calc(){
     const palletType=h[s("plType").value];
     const boxUnit=d("plBUnit")||"mm";
     const boxFac=p[boxUnit]||1;
     const boxL=c("plBL")*boxFac,boxW=c("plBW")*boxFac,boxH=c("plBH")*boxFac;
-    const palH=u("plPH"),maxH=u("plMax");
-    if(!(boxL&&boxW&&boxH&&maxH))return void(s("calcResult").style.display="none");
+    const palH=fieldNum("plPH"),maxH=fieldNum("plMax"),overhang=fieldNum("plOverIn");
+    if(!(boxL&&boxW&&boxH))return void(s("calcResult").style.display="none");
+    if(!(maxH>0))return void k.show('<p class="cnote warn">최대 높이를 0보다 크게 입력해 주세요.</p>');
     const innerL=palletType.L+2*overhang,innerW=palletType.W+2*overhang;
     if(boxL>innerL&&boxW>innerL)return void k.show('<p class="cnote warn">박스가 파렛트보다 커서 적재할 수 없어요.</p>');
     const usableH=maxH-palH,layers=Math.floor(usableH/boxH);
@@ -59,11 +71,17 @@ const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방�
     const isoLayers=viewMax?maxLayers:cur.tiers;
     const avail=patternResults.filter(t=>t.available);
     const best=avail.reduce((a,b)=>b.safeTotal>a.safeTotal?b:a,avail[0]);
+    const defaulted=[];
+    if(fieldIsDefault("plPH"))defaulted.push("파렛트 높이");
+    if(fieldIsDefault("plMax"))defaulted.push("최대 높이");
+    if(fieldIsDefault("plOverIn"))defaulted.push("오버행");
+    const basisNote=defaulted.length?`<p class="cnote">${defaulted.join("·")} 칸이 비어 있어 예시값을 기본값으로 계산했어요. 값을 직접 입력하면 바로 다시 계산돼요.</p>`:"";
     let html=`<div class="rs-hero">
           <div class="cap">${palletType.name} · ${cur.name}</div>
           <div class="big">${e(shownTotal)}박스</div>
           <div class="sub">1단 ${cur.perLayer}박스 × ${layers}단</div>
-        </div><div class="rs-row"><span class="k">1단당 적재 수량</span><span class="v">${cur.perLayer}박스</span></div><div class="rs-row"><span class="k">적재 단수</span><span class="v">${layers}단</span></div><div class="rs-row"><span class="k">총 높이</span><span class="v">${e(totalH)} mm (파렛트 ${e(palH)} 포함)</span></div><div class="rs-row"><span class="k">면적 활용률</span><span class="v">${n(util,1)}%</span></div><div class="rs-row"><span class="k">적재 부피</span><span class="v">${n(shownTotal*boxL*boxW*boxH/1e9,3)} CBM</span></div>`
+        </div><div class="rs-row"><span class="k">1단당 적재 수량</span><span class="v">${cur.perLayer}박스</span></div><div class="rs-row"><span class="k">적재 단수</span><span class="v">${layers}단</span></div><div class="rs-row"><span class="k">총 높이</span><span class="v">${e(totalH)} mm (파렛트 ${e(palH)} 포함)</span></div><div class="rs-row"><span class="k">면적 활용률</span><span class="v">${n(util,1)}%</span></div><div class="rs-row"><span class="k">적재 부피</span><span class="v">${n(shownTotal*boxL*boxW*boxH/1e9,3)} CBM</span></div><div class="rs-row"><span class="k">적용 기준</span><span class="v">파렛트 ${e(palH)}mm · 최대높이 ${e(maxH)}mm · 오버행 ${e(overhang)}mm</span></div>`
+      +basisNote
       +`<div class="pk-views">
              ${w(innerL,innerW,cur.odd.length>RENDER_CAP?cur.odd.slice(0,RENDER_CAP):cur.odd,"기수단 (1·3·5단) 평면도")}
              ${w(innerL,innerW,cur.even.length>RENDER_CAP?cur.even.slice(0,RENDER_CAP):cur.even,"우수단 (2·4·6단) 평면도")}
@@ -84,7 +102,7 @@ const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방�
       +l("파렛트 규격과 박스 규격으로 몇 개까지 실을 수 있는지 적재 방식별로 비교하고, 평면도·입체도까지 보여줘요.",["파렛트 규격과 박스 규격을 입력해요.","적재 방식(블록/교호열/핀휠)을 선택해요.","파렛트 높이와 최대 높이를 입력하면 적재 단수까지 계산돼요."],"적재 후에는 랩핑·고박(쇼링) 작업으로 마무리해야 운송 중 붕괴를 막을 수 있어요. 도면은 참고용 개략도이며, 박스 강도·하중 분포는 별도 검토가 필요해요. 불안정 판정은 아래 단에 걸치는 면적이 50% 미만인 박스를 기준으로 해요.");
     k.show(html,()=>{["plBL","plBW","plBH"].forEach(id=>{s(id)&&(s(id).value="")})});
     document.querySelectorAll(".pk-tbox[data-plview]").forEach(function(btn){btn.addEventListener("click",function(){const u=new URL(location.href);u.searchParams.set("plView",btn.dataset.plview);history.replaceState(null,"",u.pathname+u.search);urlParams.set("plView",btn.dataset.plview);calc()})});
-    k.save({plType:s("plType").value,plBL:s("plBL").value,plBW:s("plBW").value,plBH:s("plBH").value,plBUnit:boxUnit,plPH:s("plPH").value,plMax:s("plMax").value,plPat:pattern,plOver:String(overhang)});
+    k.save({plType:s("plType").value,plBL:s("plBL").value,plBW:s("plBW").value,plBH:s("plBH").value,plBUnit:boxUnit,plPH:s("plPH").value,plMax:s("plMax").value,plPat:pattern,plOver:overhang?String(overhang):""});
   }
   function sideView(innerL,totalH,boxL,boxH,cols,layers,palH,title){
     const scale=150/Math.max(innerL,totalH),widthPx=innerL*scale;
@@ -117,10 +135,11 @@ const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방�
         <div class="cf"><label>세로 W</label><input type="text" id="plBW" inputmode="decimal" placeholder="예: 300"></div>
         <div class="cf"><label>높이 H</label><input type="text" id="plBH" inputmode="decimal" placeholder="예: 250"></div>
       </div>
+      <div class="cf"><label>높이 기준 <span class="sub">· 비워두면 예시값으로 자동 계산</span></label></div>
       <div class="row3">
-        <div class="cf"><label>파렛트 높이</label><input type="text" id="plPH" inputmode="decimal" placeholder="예: 150"></div>
-        <div class="cf"><label>최대 높이</label><input type="text" id="plMax" inputmode="decimal" placeholder="예: 2000"></div>
-        <div class="cf"><label>오버행(mm)</label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0=불허" value="${overhang||""}"></div>
+        <div class="cf"><label>파렛트 높이</label><input type="text" id="plPH" inputmode="decimal" placeholder="150"></div>
+        <div class="cf"><label>최대 높이</label><input type="text" id="plMax" inputmode="decimal" placeholder="2000"></div>
+        <div class="cf"><label>오버행(mm) <span class="sub">· 0=불허</span></label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0" value="${overhangParam}"></div>
       </div>
       <div class="cf">
         <label>적재 방식</label>
@@ -133,10 +152,8 @@ const $={block:{name:"블록 적재",fn:palBlock,desc:"모든 단을 같은 방�
     s("plPat").querySelectorAll("button").forEach(b=>b.classList.remove("on"));
     btn.classList.add("on");pattern=btn.dataset.v;calc();
   }));
-  s("plOverIn").addEventListener("input",()=>{overhang=c("plOverIn")||0;calcDeb();});
-  s("plOverIn").addEventListener("change",()=>{overhang=c("plOverIn")||0;calc();});
   calcDeb=debounce(calc,350);
-  ["plType","plBL","plBW","plBH","plPH","plMax"].forEach(id=>{
+  ["plType","plBL","plBW","plBH","plPH","plMax","plOverIn"].forEach(id=>{
     s(id).addEventListener("input",calcDeb);
     s(id).addEventListener("change",calc);
   });

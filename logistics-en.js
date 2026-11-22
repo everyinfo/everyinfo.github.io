@@ -24,15 +24,27 @@ function isoViewP(layers,PW,PH,palH,boxH,safeLayers,title){const S=Math.min(.108
 const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the same arrangement. Fast to load, but weaker inter-layer bonding, so wrapping/strapping is needed."},alternate:{name:"Cross-stack (alternating)",fn:palAlternate,desc:"Even layers are rotated 90°. Same count per layer, but layers interlock for much better stability."},pinwheel:{name:"Pinwheel stacking",fn:palPinwheel,desc:"Four boxes interlock at 90° in a pinwheel pattern. Count may increase or decrease depending on how the dimensions fit."}};function w(e,t,a,s,n,i,l){if(a<=0||s<=0)return"";const c=Math.min(a*n,s*n)<=8,o=`<rect x="${(e*n).toFixed(1)}" y="${(t*n).toFixed(1)}" width="${(a*n).toFixed(1)}" height="${(s*n).toFixed(1)}"\n        fill="#FDEEEC" stroke="#C0503F" stroke-width="${c?1.5:1.2}" ${c?"":'stroke-dasharray="3,2"'}/>`;if(!c){const l=(t+s/2)*n;return o+`<text x="${((e+a/2)*n).toFixed(1)}" y="${(l+3).toFixed(1)}" font-size="8" text-anchor="middle" fill="#C0503F" font-weight="800">${i}</text>`}const r=(e+a/2)*n,d=(t+s/2)*n;let p,u,v,h,m;return"down"===l?(p=r,u=d+22,v=r,h=d+34,m="middle"):(p=r+26,u=d,v=r+30,h=d+3,m="start"),o+`<circle cx="${r.toFixed(1)}" cy="${d.toFixed(1)}" r="1.8" fill="#C0503F"/>`+`<line x1="${r.toFixed(1)}" y1="${d.toFixed(1)}" x2="${p.toFixed(1)}" y2="${u.toFixed(1)}" stroke="#C0503F" stroke-width="1" stroke-dasharray="2,2"/>`+`<text x="${v.toFixed(1)}" y="${h.toFixed(1)}" font-size="8" text-anchor="${m}" fill="#C0503F" font-weight="800">${i}</text>`}function $(e,t,a,n,i){const l=320/Math.max(e,t),c=e*l,o=t*l,r=a.map((e,t)=>`<rect x="${(e.x*l).toFixed(1)}" y="${(e.y*l).toFixed(1)}"\n             width="${(e.w*l).toFixed(1)}" height="${(e.h*l).toFixed(1)}"\n             class="pk-box ${e.rot?"rot":""}"/>`).join("");let d="",p=8,u=8;if(i){const{remL:a,remW:n,filledW:c}=i;let o="",r="";a>0&&(o=w(e-a,0,a,c,l,`${s(a)}mm`,"right")),n>0&&(r=w(0,t-n,e,n,l,`${s(n)}mm`,"down")),d=o+r,a>0&&Math.min(a*l,c*l)<=8&&(u=46),n>0&&Math.min(e*l,n*l)<=8&&(p=46)}return`<div class="pk-view">\n      <div class="pk-view-title">${n}</div>\n      <svg viewBox="-4 -4 ${c+8+u} ${o+8+p}" class="pk-svg">\n        <rect x="0" y="0" width="${c.toFixed(1)}" height="${o.toFixed(1)}" class="pk-pallet"/>\n        ${r}\n        ${d}\n      </svg>\n      <div class="pk-dim">${s(e)} × ${s(t)} mm</div>\n    </div>`}const x=[["Apparel/textiles",13],["Footwear",13],["Bags/handbags",8],["Cosmetics",6.5],["Health supplements",8],["Toys/games",8],["Furniture",8],["Watches",8],["Eyewear/sunglasses",8],["Kitchenware",8],["Sporting goods",8],["Electronics (general)",8],["Computers/peripherals",0],["Mobile phones",0],["Books",0],["Coffee (green beans)",2],["Custom input",-1]];const k={show(t,s){const n=a("calcResult");n.innerHTML=t+'<div class="calc-toolbar">\n        <button type="button" class="ctool" id="lgReset">↻ Reset</button>\n        <button type="button" class="ctool primary" id="lgShare">🔗 Share result</button>\n      </div>',n.style.display="block",requestAnimationFrame(()=>{n.getBoundingClientRect().top>window.innerHeight-80&&n.scrollIntoView({behavior:"smooth",block:"nearest"})}),a("lgReset").addEventListener("click",()=>{history.replaceState(null,"",location.pathname),s?s():location.reload(),s&&location.reload()}),a("lgShare").addEventListener("click",function(){const t=location.href,a=this,s=()=>{const e=a.textContent;a.textContent="Copied ✓",setTimeout(()=>a.textContent=e,1500)};"function"==typeof trackShare&&trackShare(k.kind,navigator.share?"native":"clipboard"),navigator.share?navigator.share({title:document.title,url:t}).catch(()=>e(t).then(s).catch(()=>{"function"==typeof fail&&fail()})):e(t).then(s).catch(()=>{"function"==typeof fail&&fail()})}),"function"==typeof trackCalc&&trackCalc(k.kind)},save(e){const t=new URLSearchParams;Object.keys(e).forEach(a=>{""!==e[a]&&null!=e[a]&&t.set(a,e[a])}),history.replaceState(null,"",location.pathname+(t.toString()?"?"+t:""))},kind:""},L={mm:1,cm:10,m:1e3,inch:25.4};function U(e){return r(e,Object.keys(L),"mm")}function C(e,t,a){return`<div class="cf"><label>${t}</label>\n      <div class="dim-row">\n        <input type="text" id="${e}" inputmode="decimal" placeholder="${a||""}">\n        ${r(e,Object.keys(L),"mm")}\n      </div></div>`}function W(e){const t=l(e),a=d(e)||"mm";return t*(L[a]||1)}const S=1/300,E=120/35937,M={jae:S,m3:1,bf:144*Math.pow(.0254,3)};const H={cbm:function(){const e={m3:1,L:.001,ft3:.0283168};let t="m3";a("calcBody").innerHTML=`\n      <div class="cf"><label>Box dimensions</label></div>\n      ${v("cbL","Length L","e.g. 600")}\n      ${v("cbW","Width W","e.g. 400")}\n      ${v("cbH","Height H","e.g. 300")}\n      <div class="lg-row2">\n        <div class="cf"><label for="cbQty">Quantity (boxes) <span class="sub">· leave blank for 1</span></label>\n          <input type="text" id="cbQty" inputmode="numeric" placeholder="e.g. 1"></div>\n        <div class="cf"><label for="cbKg">Weight per box (kg) <span class="sub">· optional</span></label>\n          <input type="text" id="cbKg" inputmode="decimal" placeholder="optional"></div>\n      </div>\n    `;const o=["cbL","cbW","cbH","cbQty","cbKg"];function r(){const d=h("cbL"),p=h("cbW"),u=h("cbH"),v=a("cbQty").value.trim(),b=""===v?1:parseFloat(v.replace(/,/g,""))||1,g=l("cbKg");if(!d||!p||!u)return void(a("calcResult").style.display="none");const f=d*p*u/1e9,y=f*b,w=f/e[t],$=y/e[t],x="m3"===t?"㎥":"L"===t?"L":"ft³",L=g?g*b/1e3:0,C=Math.max(y,L),W=`<div class="vol-sel" id="cbmVolSel">\n          <button type="button" class="${"m3"===t?"on":""}" data-v="m3">㎥</button>\n          <button type="button" class="${"L"===t?"on":""}" data-v="L">L</button>\n          <button type="button" class="${"ft3"===t?"on":""}" data-v="ft3">ft³</button>\n        </div>`;let S;S=b<=1?`<div class="rs-hero">\n            <div class="cap">1 box</div>\n            <div class="big">${i(w,4)} ${x}</div>\n          </div>${W}`:`<div class="rs-hero">\n            <div class="cap">${s(b)} boxes total</div>\n            <div class="big">${i($,4)} ${x} <span class="per-note">(${i(w,4)}${x} each)</span></div>\n          </div>${W}`,S+=`<div class="rs-row"><span class="k">Box dimensions</span><span class="v">${n(d,1)}×${n(p,1)}×${n(u,1)} mm</span></div><div class="rs-row"><span class="k">Total volume</span><span class="v">${n(y,4)} m³</span></div>`,g&&(S+=`<div class="rs-row"><span class="k">Total weight</span><span class="v">${n(g*b,1)} kg</span></div><div class="rs-row"><span class="k">Weight ton (W/T)</span><span class="v">${n(L,3)} ton</span></div><div class="rs-row"><span class="k">Revenue ton (R/T)</span><span class="v">${n(C,3)} ${C===y?"(volume basis)":"(weight basis)"}</span></div>`),S+='<div class="mile-head">Estimated container loading (by volume)</div>',Object.keys(m).slice(0,4).forEach(e=>{const t=m[e],a=.85*t.cbm;S+=`<div class="rs-row"><span class="k">${t.name}</span><span class="v">~${Math.floor(a/f).toLocaleString("en-US")} boxes</span></div>`}),S+='<p class="cnote">Container capacity is a <b>rough estimate</b> assuming <b>85%</b> practical loading efficiency. For exact counts, use the Pallet Loading calculator.</p>'+c("Calculates total CBM (volume) from box dimensions and quantity, and estimates how many fit in each standard container.",["Enter the box's length, width, and height in your preferred unit.","Enter the quantity (leave blank for 1 box).","Enter weight per box to also get the R/T (revenue ton)."],"CBM (Cubic Meter) is the volume unit that sea freight LCL rates are based on. Freight is usually charged on whichever is greater: CBM or weight ton (1,000kg) — the R/T."),k.show(S,()=>{o.forEach(e=>{a(e)&&(a(e).value="")})}),k.save({cbL:a("cbL").value,cbW:a("cbW").value,cbH:a("cbH").value,cbQty:a("cbQty").value,cbKg:a("cbKg").value});const E=document.getElementById("cbmVolSel");E&&E.querySelectorAll("button").forEach(e=>{e.addEventListener("click",()=>{t=e.dataset.v,r()})})}o.forEach(e=>a(e).addEventListener("input",r)),["cbL_u","cbW_u","cbH_u"].forEach(e=>a(e)&&a(e).addEventListener("change",r)),r()},pallet:function(){
   const urlParams=new URLSearchParams(location.search);
   let pattern=Object.keys(y).includes(urlParams.get("plPat"))?urlParams.get("plPat"):"block";
-  let overhang=urlParams.get("plOver")?(parseFloat(urlParams.get("plOver"))||0):0;
+  const overhangParam=urlParams.get("plOver")?(parseFloat(urlParams.get("plOver"))||0):"";
   let calcDeb;
+  /* Blank fields fall back to the placeholder example value; the input itself stays empty */
+  function fieldNum(id){
+    const el=a(id);if(!el)return 0;
+    const raw=String(el.value).trim();
+    const src=raw!==""?raw:String(el.getAttribute("placeholder")||"");
+    const m=src.replace(/,/g,"").match(/-?\d+(?:\.\d+)?/);
+    return m?parseFloat(m[0]):0;
+  }
+  function fieldIsDefault(id){
+    const el=a(id);return !!el&&String(el.value).trim()==="";
+  }
   function calc(){
     const palletType=b[a("plType").value];
     const boxUnit=d("plBUnit")||"mm";
     const boxFac=u[boxUnit]||1;
     const boxL=l("plBL")*boxFac,boxW=l("plBW")*boxFac,boxH=l("plBH")*boxFac;
-    const palH=h("plPH"),maxH=h("plMax");
-    if(!(boxL&&boxW&&boxH&&maxH))return void(a("calcResult").style.display="none");
+    const palH=fieldNum("plPH"),maxH=fieldNum("plMax"),overhang=fieldNum("plOverIn");
+    if(!(boxL&&boxW&&boxH))return void(a("calcResult").style.display="none");
+    if(!(maxH>0))return void k.show('<p class="cnote warn">Max height must be greater than 0.</p>');
     const innerL=palletType.L+2*overhang,innerW=palletType.W+2*overhang;
     if(boxL>innerL&&boxW>innerL)return void k.show('<p class="cnote warn">The box is larger than the pallet — it cannot be loaded.</p>');
     const usableH=maxH-palH,layers=Math.floor(usableH/boxH);
@@ -61,11 +73,17 @@ const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the sa
     const isoLayers=viewMax?maxLayers:cur.tiers;
     const avail=patternResults.filter(t=>t.available);
     const best=avail.reduce((a,b)=>b.safeTotal>a.safeTotal?b:a,avail[0]);
+    const defaulted=[];
+    if(fieldIsDefault("plPH"))defaulted.push("Pallet height");
+    if(fieldIsDefault("plMax"))defaulted.push("Max height");
+    if(fieldIsDefault("plOverIn"))defaulted.push("Overhang");
+    const basisNote=defaulted.length?`<p class="cnote">${defaulted.join(", ")} ${defaulted.length===1?"is":"are"} blank — the example ${defaulted.length===1?"value is":"values are"} used as the default. Enter your own value to recalculate right away.</p>`:"";
     let html=`<div class="rs-hero">
           <div class="cap">${palletType.name} · ${cur.name}</div>
           <div class="big">${s(shownTotal)} boxes</div>
           <div class="sub">${cur.perLayer} boxes/layer × ${layers} layers</div>
-        </div><div class="rs-row"><span class="k">Boxes per layer</span><span class="v">${cur.perLayer} boxes</span></div><div class="rs-row"><span class="k">Number of layers</span><span class="v">${layers}</span></div><div class="rs-row"><span class="k">Total height</span><span class="v">${s(totalH)} mm (incl. pallet ${s(palH)})</span></div><div class="rs-row"><span class="k">Area utilization</span><span class="v">${n(util,1)}%</span></div><div class="rs-row"><span class="k">Loaded volume</span><span class="v">${n(shownTotal*boxL*boxW*boxH/1e9,3)} CBM</span></div>`
+        </div><div class="rs-row"><span class="k">Boxes per layer</span><span class="v">${cur.perLayer} boxes</span></div><div class="rs-row"><span class="k">Number of layers</span><span class="v">${layers}</span></div><div class="rs-row"><span class="k">Total height</span><span class="v">${s(totalH)} mm (incl. pallet ${s(palH)})</span></div><div class="rs-row"><span class="k">Area utilization</span><span class="v">${n(util,1)}%</span></div><div class="rs-row"><span class="k">Loaded volume</span><span class="v">${n(shownTotal*boxL*boxW*boxH/1e9,3)} CBM</span></div><div class="rs-row"><span class="k">Applied basis</span><span class="v">Pallet ${s(palH)}mm · Max ${s(maxH)}mm · Overhang ${s(overhang)}mm</span></div>`
+      +basisNote
       +`<div class="pk-views">
              ${$(innerL,innerW,cur.odd.length>RENDER_CAP?cur.odd.slice(0,RENDER_CAP):cur.odd,"Odd layers (1,3,5) — Top View")}
              ${$(innerL,innerW,cur.even.length>RENDER_CAP?cur.even.slice(0,RENDER_CAP):cur.even,"Even layers (2,4,6) — Top View")}
@@ -86,7 +104,7 @@ const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the sa
       +c("Enter pallet and box dimensions to compare how many boxes fit with each stacking method, with top and isometric view diagrams.",["Enter the pallet and box dimensions.","Choose a stacking method (Block/Cross-stack/Pinwheel).","Enter pallet height and max stack height to get the number of layers."],"After loading, wrap and strap the load to prevent it from collapsing in transit. Diagrams are approximate references only — box strength and load distribution need separate review. Stability is judged by whether a box rests on at least 50% supported area from the layer below.");
     k.show(html,()=>{["plBL","plBW","plBH"].forEach(id=>{a(id)&&(a(id).value="")})});
     document.querySelectorAll(".pk-tbox[data-plview]").forEach(function(btn){btn.addEventListener("click",function(){const u=new URL(location.href);u.searchParams.set("plView",btn.dataset.plview);history.replaceState(null,"",u.pathname+u.search);urlParams.set("plView",btn.dataset.plview);calc()})});
-    k.save({plType:a("plType").value,plBL:a("plBL").value,plBW:a("plBW").value,plBH:a("plBH").value,plBUnit:boxUnit,plPH:a("plPH").value,plMax:a("plMax").value,plPat:pattern,plOver:String(overhang)});
+    k.save({plType:a("plType").value,plBL:a("plBL").value,plBW:a("plBW").value,plBH:a("plBH").value,plBUnit:boxUnit,plPH:a("plPH").value,plMax:a("plMax").value,plPat:pattern,plOver:overhang?String(overhang):""});
   }
   function sideView(innerL,totalH,boxL,boxH,cols,layers,palH,title){
     const scale=150/Math.max(innerL,totalH),widthPx=innerL*scale;
@@ -119,10 +137,11 @@ const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the sa
         <div class="cf"><label>Width W</label><input type="text" id="plBW" inputmode="decimal" placeholder="e.g. 300"></div>
         <div class="cf"><label>Height H</label><input type="text" id="plBH" inputmode="decimal" placeholder="e.g. 250"></div>
       </div>
+      <div class="cf"><label>Height settings <span class="sub">· blank = example values</span></label></div>
       <div class="row3">
-        <div class="cf"><label>Pallet height</label><input type="text" id="plPH" inputmode="decimal" placeholder="e.g. 150"></div>
-        <div class="cf"><label>Max height</label><input type="text" id="plMax" inputmode="decimal" placeholder="e.g. 2000"></div>
-        <div class="cf"><label>Overhang (mm)</label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0 = none" value="${overhang||""}"></div>
+        <div class="cf"><label>Pallet height</label><input type="text" id="plPH" inputmode="decimal" placeholder="150"></div>
+        <div class="cf"><label>Max height</label><input type="text" id="plMax" inputmode="decimal" placeholder="2000"></div>
+        <div class="cf"><label>Overhang (mm) <span class="sub">· 0 = none</span></label><input type="text" id="plOverIn" inputmode="decimal" placeholder="0" value="${overhangParam}"></div>
       </div>
       <div class="cf">
         <label>Stacking method</label>
@@ -135,10 +154,8 @@ const y={block:{name:"Block stacking",fn:palBlock,desc:"All layers repeat the sa
     a("plPat").querySelectorAll("button").forEach(b=>b.classList.remove("on"));
     btn.classList.add("on");pattern=btn.dataset.v;calc();
   }));
-  a("plOverIn").addEventListener("input",()=>{overhang=l("plOverIn")||0;calcDeb();});
-  a("plOverIn").addEventListener("change",()=>{overhang=l("plOverIn")||0;calc();});
   calcDeb=debounce(calc,350);
-  ["plType","plBL","plBW","plBH","plPH","plMax"].forEach(id=>{
+  ["plType","plBL","plBW","plBH","plPH","plMax","plOverIn"].forEach(id=>{
     a(id).addEventListener("input",calcDeb);
     a(id).addEventListener("change",calc);
   });
