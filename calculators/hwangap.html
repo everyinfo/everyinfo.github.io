@@ -114,6 +114,7 @@
         <div class="center-label">
           <div class="age" id="curAge">-</div>
           <div class="age-cap">현재 만 나이</div>
+          <div id="curKoreanAge" style="font-size:12px;color:var(--ink-faint);margin-top:4px;line-height:1.2;">-</div>
         </div>
         <div id="ticks"></div>
       </div>
@@ -517,6 +518,8 @@ function calc(){
   else { ddayEl.textContent = `환갑으로부터 ${Math.abs(diffDays)}일 지남`; }
 
   document.getElementById('curAge').textContent = exactAge;
+  const koreanAge = today.getFullYear() - birth.getFullYear() + 1;
+  document.getElementById('curKoreanAge').textContent = `(세는나이 ${koreanAge}세)`;
 
   // 히스토리에 기록 (같은 생년월일 연속 재계산은 새로 추가하지 않고 기존 메모만 유지)
   const yearAt = (koreanAge) => birth.getFullYear() + (koreanAge - 1);
