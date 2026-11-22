@@ -94,7 +94,7 @@
 
 <div class="home-search-wrap">
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search by calculator name (e.g. pump, stress)" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Type what you want to calculate (e.g. how many boxes fit on a pallet)" autocomplete="off">
   </div>
   <div class="mini-search-results" id="homeSearchResults"></div>
 </div>
@@ -217,7 +217,7 @@
       <a class="calc-item" href="/en/calculators/container.html"><span class="ci-emoji">🚛</span><span class="ci-body"><span class="ci-title">Container Loading Calculator</span><span class="ci-desc">Calculate how many pallets or boxes fit in a shipping container, with a floor layout diagram.</span></span></a>
       <a class="calc-item" href="/en/calculators/airweight.html"><span class="ci-emoji">✈️</span><span class="ci-body"><span class="ci-title">Volumetric Weight Calculator</span><span class="ci-desc">Calculate volumetric weight and chargeable weight for air freight, courier, and sea LCL shipments.</span></span></a>
       <a class="calc-item" href="/en/calculators/customs.html"><span class="ci-emoji">🛃</span><span class="ci-body"><span class="ci-title">Korea Import Duty &amp; VAT Calculator</span><span class="ci-desc">Estimates Korea's import customs duty, VAT, and total clearance cost for overseas direct purchases.</span></span></a>
-      <a class="calc-item" href="/en/calculators/wood.html"><span class="ci-emoji"><svg class="ci-svg" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false" role="presentation"><rect x="2" y="6.4" width="16.4" height="11.2" rx="3.4" fill="#B5804F"/><path d="M5 9.3h10.2M5 12h10.2M5 14.7h10.2" stroke="#96613A" stroke-width="1.1" stroke-linecap="round" opacity=".42"/><ellipse cx="18.4" cy="12" rx="4" ry="5.6" fill="#E3B587"/><ellipse cx="18.4" cy="12" rx="2.7" ry="3.8" fill="none" stroke="#B5804F" stroke-width="1.1"/><ellipse cx="18.4" cy="12" rx="1.2" ry="1.8" fill="none" stroke="#C08A5C" stroke-width="1"/></svg></span><span class="ci-body"><span class="ci-title">Lumber Volume Calculator</span><span class="ci-desc">Calculate lumber volume in board-feet (or m³/jae) and total cost, in USD or KRW.</span></span></a>
+      <a class="calc-item" href="/en/calculators/wood.html"><span class="ci-emoji" aria-hidden="true"><svg class="ci-svg" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false" role="presentation"><rect x="2" y="6.4" width="16.4" height="11.2" rx="3.4" fill="#B5804F"/><path d="M5 9.3h10.2M5 12h10.2M5 14.7h10.2" stroke="#96613A" stroke-width="1.1" stroke-linecap="round" opacity=".42"/><ellipse cx="18.4" cy="12" rx="4" ry="5.6" fill="#E3B587"/><ellipse cx="18.4" cy="12" rx="2.7" ry="3.8" fill="none" stroke="#B5804F" stroke-width="1.1"/><ellipse cx="18.4" cy="12" rx="1.2" ry="1.8" fill="none" stroke="#C08A5C" stroke-width="1"/></svg></span><span class="ci-body"><span class="ci-title">Lumber Volume Calculator</span><span class="ci-desc">Calculate lumber volume in board-feet (or m³/jae) and total cost, in USD or KRW.</span></span></a>
     </div>
   </div>
 </div>
@@ -252,7 +252,7 @@
 
   function cardHtml(c){
     return `<a class="calc-item${c.active ? '' : ' disabled'}" href="${c.url}">
-        <h3><span class="ci-emoji">${c.emoji}</span>${c.title}</h3>
+        <h3><span class="ci-emoji" aria-hidden="true">${c.emoji}</span>${c.title}</h3>
         <p>${c.desc}</p>
       </a>`;
   }
