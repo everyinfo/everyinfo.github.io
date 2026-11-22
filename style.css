@@ -118,3 +118,17 @@
 .page-title .pt-icon .ci-svg{width:.95em;height:.95em}
 .mini-search-item .ms-why{font-size:11px;font-weight:700;color:var(--gold);line-height:1.45}
 .mini-search-group{padding:8px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-faint);background:var(--line-soft)}
+
+/* ===== PWA: 네트워크 상태 아이콘 (pwa.js) ===== */
+.net-status{display:none;position:relative;align-items:center;justify-content:center;width:24px;height:24px;padding:0;margin:0 -13px 0 0;flex:0 0 auto;border:1px solid #E2E8F0;border-radius:999px;background:#F1F5F9;color:#111827;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.net-status:hover{background:#E9EEF4;border-color:#CBD5E1}
+.net-status:focus-visible{outline:2px solid #2E5C8A;outline-offset:2px}
+.net-status .net-svg{display:block;width:13px;height:13px;pointer-events:none}
+.net-status .net-svg-off{display:none}
+.net-status[data-state="offline"]{display:inline-flex}
+.net-status[data-state="offline"] .net-svg-on{display:none}
+.net-status[data-state="offline"] .net-svg-off{display:block}
+.net-tip{position:absolute;top:calc(100% + 8px);right:0;z-index:60;width:max-content;max-width:min(220px,70vw);padding:7px 10px;border:1px solid #E2E8F0;border-radius:9px;background:#fff;color:#111827;box-shadow:0 10px 24px -14px rgba(16,24,40,.45);font-size:11.5px;font-weight:600;line-height:1.45;text-align:left;white-space:normal;opacity:0;visibility:hidden;transform:translateY(-3px);transition:opacity .15s,visibility .15s,transform .15s;pointer-events:none}
+.net-status.is-open .net-tip{opacity:1;visibility:visible;transform:translateY(0)}
+@media (min-width:769px){.net-status{display:inline-flex}}
+@media (max-width:400px){.net-tip{max-width:64vw;font-size:11px}}
