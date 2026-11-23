@@ -426,9 +426,9 @@ function offlinePage() {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1e3a5f">
 <title>오프라인 · CalcLex</title>
-<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#FAFAF8;font-family:-apple-system,'Pretendard','Noto Sans KR',sans-serif;color:#1F1F1E;text-align:center;padding:24px;line-height:1.6}
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F8F8F8;font-family:-apple-system,'Pretendard','Noto Sans KR',sans-serif;color:#1F1F1E;text-align:center;padding:24px;line-height:1.6}
 .card{max-width:360px}h1{font-size:19px;margin:0 0 10px;color:#2E5C8A}p{font-size:13.5px;color:#5C5B58;margin:0 0 18px}
-a{display:inline-block;padding:11px 18px;border-radius:10px;background:#2E5C8A;color:#f6efdd;text-decoration:none;font-size:13.5px;font-weight:700}</style>
+a{display:inline-block;padding:11px 18px;border-radius:10px;background:#2E5C8A;color:#F5F7FA;text-decoration:none;font-size:13.5px;font-weight:700}</style>
 </head><body><div class="card"><h1>인터넷에 연결되어 있지 않아요</h1>
 <p>이 페이지는 아직 저장되지 않았습니다. 연결된 상태에서 한 번 열어두면 오프라인에서도 계산기를 쓸 수 있어요.</p>
 <a href="/">계산기 홈으로</a></div></body></html>`;
