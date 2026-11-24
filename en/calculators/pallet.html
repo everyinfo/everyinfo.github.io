@@ -84,11 +84,12 @@
 <p>Standard pallet footprints are defined internationally by <b>ISO 6780</b> and related standards. The most common are <b>1200×1000mm</b>, the <b>1200×800mm Euro-pallet (EUR1)</b>, and the <b>1219×1016mm (48″×40″) US GMA standard</b>.</p>
 <h2>Loading example</h2>
 <div class="example-box">
-<p><b>Example: 400×300×250mm boxes, block-stacked on a 1200×1000mm pallet</b></p>
+<p><b>Example: 400×300×250mm boxes, block-stacked on a 1200×1000mm pallet, max height 2,000mm</b></p>
 <ul>
-<li>Boxes per layer: 3 × 3 = <b>9 boxes</b></li>
-<li>Total height with 5 layers + 150mm pallet: 150+250×5 = <b>1,400mm</b></li>
-<li>Total boxes: 9×5 = <b>45</b>, about 1.35 m³ of cargo</li>
+<li>Boxes per layer: 1200÷400 = 3 across × 1000÷300 = 3 deep = <b>9 boxes</b> (a 100mm strip is left over)</li>
+<li>Layers: (2,000 − 150) ÷ 250 = 7.4 → <b>7 layers</b></li>
+<li>Total boxes: 9 × 7 = <b>63</b>, total height 150 + 250×7 = <b>1,900mm</b>, about <b>1.89 m³</b> of cargo (90% area use)</li>
+<li>Under the same conditions the calculator gives 45 for cross-stacking (unstable boxes excluded) and 56 for pinwheel.</li>
 </ul>
 </div>
 <h2>Real-world sources of error</h2>

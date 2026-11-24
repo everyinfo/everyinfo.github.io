@@ -146,3 +146,16 @@ button.ct-rot-btn svg{width:40px;height:40px;display:block;overflow:visible}
 .ct-ovf-hint{margin-top:2px;font-weight:600;font-size:10.5px;color:#9A6A5E}
 .ct-ovf-w{margin-top:10px}
 .ct-ovf-w .ct-ovf-t{font-weight:700;letter-spacing:.01em}
+/* 소금물 농도 비커 — 소금 알갱이·물 높이·농도 게이지 애니메이션 */
+.el-figs>.sa-fig{flex:1 1 150px;min-width:0;max-width:250px}
+.sa-svg{width:100%;max-width:230px;height:auto;display:block;margin:0 auto}
+.sa-fig .sa-water{transition:transform .95s cubic-bezier(.4,0,.2,1)}
+.sa-fig .sa-gauge{transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)}
+.sa-fig .sa-grain{opacity:0;transform:translateY(-10px);transform-box:fill-box;transform-origin:50% 50%;transition:opacity .4s ease,transform .55s cubic-bezier(.34,1.3,.5,1);transition-delay:calc(var(--i) * 26ms)}
+.sa-fig .sa-grain.on{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){.sa-fig .sa-water,.sa-fig .sa-gauge,.sa-fig .sa-grain{transition:none!important}}
+/* 금형 수축률 — ‰/% 환산 안내 */
+.shrink-hint{margin:6px 0 0;font-size:11px;color:var(--ink-soft);line-height:1.6}
+.shrink-hint b{color:var(--indigo)}
+.shrink-hint.warn{color:var(--brick);background:rgba(166,61,47,.08);border-radius:8px;padding:8px 10px}
+.shrink-hint.warn b{color:var(--brick)}
