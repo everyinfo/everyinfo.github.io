@@ -130,7 +130,7 @@
     <button type="button" data-cat="Design & Build">Design & Build</button>
     <button type="button" data-cat="Elementary Math">Elementary Math</button>
 </div>
-<p class="gcount" id="gCount" data-all="All 5 guides" data-unit=" guides">All 5 guides</p>
+<p class="gcount" id="gCount" data-all="All 5 guides" data-unit=" guides" data-unit1=" guide">All 5 guides</p>
 
 <p class="gempty" id="gEmpty" data-tpl="No guides match “{q}”. Try another word, or pick a category above." hidden><span id="gEmptyText"></span></p>
 
@@ -250,7 +250,8 @@
     empty.hidden = (n > 0);
     emptyText.textContent = empty.getAttribute('data-tpl').replace('{q}', input.value.trim());
     clear.classList.toggle('on', input.value.length > 0);
-    count.textContent = (cat === 'all' && q.length === 0) ? count.getAttribute('data-all') : n + count.getAttribute('data-unit');
+    var unit = (n === 1 ? count.getAttribute('data-unit1') : null) || count.getAttribute('data-unit');
+    count.textContent = (cat === 'all' && q.length === 0) ? count.getAttribute('data-all') : n + unit;
   }
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function(){
