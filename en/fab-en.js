@@ -1,6 +1,6 @@
 /*!
- * CalcLex (calclex.com)
- * Copyright (c) 2026 CalcLex. All rights reserved.
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
  */
 document.addEventListener("DOMContentLoaded", function () {
   const wrap = document.createElement("div");

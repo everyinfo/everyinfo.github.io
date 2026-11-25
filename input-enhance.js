@@ -1,5 +1,5 @@
 /*!
- * 계산기서랍 (calclex.com)
- * Copyright (c) 2026 계산기서랍. All rights reserved.
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
  */
 !function(){const t=/^(aBirth|aBase|dTarget|dBase|ddFrom|ddTo|bBirth|bday|ptB|ptYr|avNums|rA|rB|rC|rD|sciExpr|uvRh|stSf|puEta|puK|ppEps|elPf|soM1|soM2)$/,e=/^(sciExpr)$/;function n(e){if(t.test(e.id)||"1"===e.dataset.nocomma)return;const c=e.value,r=e.selectionStart,i=c.startsWith("-"),s=i?c.slice(1):c,a=s.replace(/[^\d.]/g,""),u=a.indexOf("."),d=-1===u?a:a.slice(0,u+1)+a.slice(u+1).replace(/\./g,""),l=(i?"-":"")+d;if(l===c)return;const p=c.length-l.length;e.value=l;const m=Math.max(0,r-p);try{e.setSelectionRange(m,m)}catch(t){}}function c(t){"1"!==t.dataset.enh&&(t.dataset.enh="1",e.test(t.id)||t.addEventListener("focus",function(){setTimeout(()=>{try{t.select()}catch(t){}},0)}),"decimal"!==t.inputMode&&"numeric"!==t.inputMode||(t.addEventListener("input",function(){n(t)}),n(t)))}function o(){document.querySelectorAll('#calcBody input[type="text"], #calcResult input[type="text"], .cf input[type="text"], .lg-row3 input, .ratio-row input, .uc-input').forEach(c)}document.addEventListener("DOMContentLoaded",function(){o();const t=document.getElementById("calcBody")||document.body;new MutationObserver(o).observe(t,{childList:!0,subtree:!0});const e=document.querySelector(".calc-card");e&&new MutationObserver(o).observe(e,{childList:!0,subtree:!0})})}();

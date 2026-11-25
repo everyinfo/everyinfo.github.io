@@ -1,11 +1,11 @@
+# CalcLex (calclex.com)
+# Search engines and AI answer/citation crawlers are allowed.
+# AI model training and dataset crawlers are blocked.
+
 User-agent: *
 Allow: /
 
-# AI 검색·인용 봇 허용 (GEO)
 User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -14,10 +14,22 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: GPTBot
+Disallow: /
+
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 Sitemap: https://calclex.com/sitemap.xml

@@ -1,6 +1,8 @@
 /*!
- * 계산기서랍 (CalcLex) — 레거시 서비스워커 진입점
- * 과거 fab.js가 이 경로로 등록했던 설치 사용자를 위해 /sw.js 구현을 그대로 위임한다.
- * (새 등록은 전부 /sw.js 사용)
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+ *
+ * Legacy service worker entry point. Delegates to the /sw.js implementation for
+ * installs that fab.js registered on this path in the past. All new registrations use /sw.js.
  */
 importScripts("/sw.js");

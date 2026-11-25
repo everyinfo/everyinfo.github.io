@@ -1,5 +1,5 @@
 /*!
- * CalcLex (calclex.com)
- * Copyright (c) 2026 CalcLex. All rights reserved.
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
  */
 !function(){var L=/^ko/i.test(document.documentElement.lang||"ko")?"입력값 새로고침":"Reset inputs";function t(){const t=document.querySelector(".calc-card .card");if(!t||t.querySelector(".top-reset"))return;const e=document.createElement("button");e.type="button",e.className="top-reset",e.title=L,e.setAttribute("aria-label",L),e.textContent="↻",e.addEventListener("click",function(){history.replaceState(null,"",location.pathname),location.reload()}),t.style.position=t.style.position||"relative",t.querySelector(".uc-cat-wrap")&&t.classList.add("has-top-select"),t.appendChild(e)}document.addEventListener("DOMContentLoaded",t);const e=document.getElementById("calcBody");e&&new MutationObserver(t).observe(e,{childList:!0})}();

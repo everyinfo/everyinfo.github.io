@@ -1,7 +1,8 @@
 /*!
- * CalcLex (calclex.com) — PWA bootstrap
- * manifest 연결 확인 · 서비스워커 등록 · 사전 캐싱 요청 · 네트워크 상태 아이콘
- * Copyright (c) 2026 CalcLex. All rights reserved.
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+ *
+ * PWA bootstrap: manifest link check, service worker registration, precache request, network status icon
  */
 (function () {
   "use strict";
@@ -31,7 +32,7 @@
     '<line x1="3" y1="3" x2="21" y2="21"/>' +
     "</svg>";
 
-  /* ---------- 1. 네트워크 상태 아이콘 ---------- */
+  /* ---------- 1. Network status icon ---------- */
 
   function buildIcon() {
     var el = document.createElement("button");
@@ -99,7 +100,7 @@
     if (changed && online) hideTip(el);
   }
 
-  /* ---------- 2. 서비스워커 등록 + 사전 캐싱 요청 ---------- */
+  /* ---------- 2. Service worker registration + precache request ---------- */
 
   var asked = false;
   function askPrecache() {
@@ -126,13 +127,13 @@
       .catch(function () {});
   }
 
-  /* ---------- 3. 부팅 ---------- */
+  /* ---------- 3. Bootstrap ---------- */
 
   function boot() {
     placeIcon();
     setState();
 
-    // lang-switch.js가 KO/EN 스위치를 나중에 주입하므로 그때 아이콘을 바로 앞으로 옮긴다.
+    // lang-switch.js injects the KO/EN switch later, so move the icon just before it at that point.
     var nav = document.querySelector(".nav-inner") || document.querySelector(".nav");
     if (nav && "MutationObserver" in window) {
       var obs = new MutationObserver(function () {

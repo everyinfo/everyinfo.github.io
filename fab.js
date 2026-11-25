@@ -1,7 +1,6 @@
 /*!
- * 계산기서랍 (calclex.com)
- * Copyright (c) 2026 계산기서랍. All rights reserved.
- * 본 저작물의 무단 복제·배포·전송을 금합니다.
+ * CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+ * Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
  */
 document.addEventListener("DOMContentLoaded", function () {
   const wrap = document.createElement("div");
@@ -13,14 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     '<button type="button" class="fab more" id="fabMore" title="더보기" aria-label="더보기">⋮</button>';
   document.body.appendChild(wrap);
 
-  /* ---- 맨 위로 (기존 동작 그대로: 300px 이상 스크롤해야 보임) ---- */
+  /* ---- Back to top (unchanged: appears after 300px of scroll) ---- */
   const topBtn = document.getElementById("fabTop");
   function toggleTop() { topBtn.classList.toggle("hide", window.scrollY < 300); }
   topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   window.addEventListener("scroll", toggleTop, { passive: true });
   toggleTop();
 
-  /* ---- 검색 (기존 동작 그대로) ---- */
+  /* ---- Search (unchanged) ---- */
   let searchOverlay = null;
   document.getElementById("fabSearch").addEventListener("click", function () {
     if (searchOverlay) return;
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keydown", function esc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc); } });
   });
 
-  /* ---- 더보기 (신규): 앱 설치 / 최근 본 계산기 / 전체 계산기 ---- */
+  /* ---- More menu: install app / recently viewed / all calculators ---- */
   let moreOverlay = null;
   function closeMore() { if (moreOverlay) { moreOverlay.remove(); moreOverlay = null; document.body.style.overflow = ""; } }
 
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ensurePWAMeta();
 });
 
-/* ---- PWA 설치 가능하게 만들기 (manifest/아이콘/테마색을 매 페이지에 JS로 자동 삽입) ---- */
+/* ---- PWA installability (inject manifest, icons and theme color on every page) ---- */
 function ensurePWAMeta() {
   if (document.querySelector('link[rel="manifest"]')) return;
   const head = document.head;
@@ -131,10 +130,10 @@ function ensurePWAMeta() {
   head.appendChild(theme);
 }
 
-/* ---- 앱 설치 트리거 ----
-   - Chrome/Edge: 자동 설치 팝업
-   - 이미 설치된 경우: 정확한 안내(예전엔 "지원 안 됨"으로 잘못 떴음)
-   - iOS / 삼성인터넷: 수동 "홈 화면에 추가" 안내 시트 (자동 설치가 불안정해서 아예 우회) */
+/* ---- Install trigger ----
+   - Chrome/Edge: native install prompt
+   - Already installed: accurate guidance (previously misreported as unsupported)
+   - iOS / Samsung Internet: manual "Add to Home Screen" sheet (auto install is unreliable, so bypass it) */
 (function () {
   let deferredPrompt = null;
   window.addEventListener("beforeinstallprompt", function (e) {
@@ -157,7 +156,7 @@ function ensurePWAMeta() {
         const apps = await navigator.getInstalledRelatedApps();
         return !!(apps && apps.length);
       }
-    } catch (e) { /* 지원 안 하는 브라우저는 무시하고 계속 진행 */ }
+    } catch (e) { /* Unsupported browsers: ignore and continue */ }
     return false;
   }
   window.triggerPWAInstall = async function () {
