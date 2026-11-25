@@ -61,6 +61,7 @@
       <a href="#" data-cat="일상">일상</a>
       <a href="#" data-cat="금융">금융</a>
       <a href="#" data-cat="물류">물류</a>
+      <a href="/guides/">실무 가이드</a>
     </div>
   </div>
 </nav>
@@ -593,7 +594,8 @@ document.getElementById('toggleAll').addEventListener('click', function(){
   });
   const nav = document.getElementById('navLinks');
   nav.innerHTML = '<a href="#" class="active" data-cat="all">전체</a>'
-    + present.map(cat=>`<a href="#" data-cat="${cat}">${cat}</a>`).join('');
+    + present.map(cat=>`<a href="#" data-cat="${cat}">${cat}</a>`).join('')
+    + '<a href="/guides/">실무 가이드</a>';
 })();
 
 // 다른 페이지에서 #카테고리 로 들어온 경우 해당 탭을 자동 선택

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>금형 수축률(‰) 계산 공식과 수지별 참고표 | CALCLEX</title>
+<meta name="description" content="수축률 ‰(1000분의 1)의 의미와 금형 치수 계산 공식, ABS·PP·PC·POM 등 13종 수지별 참고 수축률, 수축률을 바꾸는 성형 조건과 실무 팁을 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="금형 수축률(‰) 계산 공식과 수지별 참고표 | CALCLEX">
+<meta property="og:description" content="수축률 ‰(1000분의 1)의 의미와 금형 치수 계산 공식, ABS·PP·PC·POM 등 13종 수지별 참고 수축률, 수축률을 바꾸는 성형 조건과 실무 팁을 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/mold-shrinkage.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/mold-shrinkage.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/mold-shrinkage.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/mold-shrinkage.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/mold-shrinkage.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "금형 수축률(‰) 계산 공식과 주요 수지별 수축률 참고표",
+    "description": "수축률 ‰(1000분의 1)의 의미와 금형 치수 계산 공식, ABS·PP·PC·POM 등 13종 수지별 참고 수축률, 수축률을 바꾸는 성형 조건과 실무 팁을 정리합니다.",
+    "url": "https://calclex.com/guides/mold-shrinkage.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/mold-shrinkage.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "사출 성형, 수축률, 금형 치수",
+    "keywords": "금형 수축률, 수축률 계산, 사출 수축, ABS 수축률, PP 수축률, POM 수축률"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "금형 수축률(‰) 계산 공식과 주요 수지별 수축률 참고표",
+        "item": "https://calclex.com/guides/mold-shrinkage.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>금형 수축률(‰) 계산 공식과 주요 수지별 수축률 참고표</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">설계·건축</span>
+  <h1 class="page-title">금형 수축률(‰) 계산 공식과 주요 수지별 수축률 참고표</h1>
+  <p class="page-desc">수축률 ‰(1000분의 1)의 의미와 금형 치수 계산 공식, ABS·PP·PC·POM 등 13종 수지별 참고 수축률, 수축률을 바꾸는 성형 조건과 실무 팁을 정리합니다.</p>
+  <p class="gmeta-top">2026-11-25 · 설계·건축 · 읽기 약 7분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">사출 금형을 만들 때 가장 많이 나오는 실수가 수축률 단위예요. 자료에는 0.5%라고 적혀 있는데 계산기 칸은 ‰(1000분의 1) 기준이라, 0.5를 그대로 넣으면 수축률이 10배 작아집니다. 이 글은 ‰의 의미와 금형 치수 공식, 수지별 참고값을 정리해요.</p>
+
+<h2>수축률 ‰는 '1000분의 1'이에요</h2>
+<p>수축률은 성형된 제품이 금형 캐비티보다 얼마나 작아지는지를 비율로 나타낸 값이에요. %는 100분의 1, ‰는 1000분의 1이라 <b>1% = 10‰</b>이에요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th class="num">% 표기</th><th class="num">‰ 표기</th><th class="num">계산기에 넣는 값</th><th>해당 수지 예</th></tr></thead>
+<tbody>
+<tr><td class="num">0.4%</td><td class="num">4‰</td><td class="num">4</td><td>PVC, PA66-GF30</td></tr>
+<tr class="hl"><td class="num">0.5%</td><td class="num">5‰</td><td class="num">5</td><td>ABS, PS, PP-GF30</td></tr>
+<tr><td class="num">1.5%</td><td class="num">15‰</td><td class="num">15</td><td>PP, PA66</td></tr>
+<tr><td class="num">2.0%</td><td class="num">20‰</td><td class="num">20</td><td>HDPE, POM</td></tr>
+</tbody></table></div>
+<p class="gnote"><b>주의</b> — 계산기의 수축률 칸은 ‰예요. 0.5%짜리 수지를 0.5로 넣으면 계산기는 0.05%로 읽어 금형 치수가 거의 늘지 않아요. 계산기도 0보다 크고 1보다 작은 값이 들어오면 경고 문구를 띄웁니다.</p>
+
+<h2>금형 치수 계산 공식</h2>
+<div class="gex">
+<p>관행 근사식 (계산기가 쓰는 식)</p>
+<span class="gformula">금형 치수 = 제품 치수 × (1 + 수축률)</span>
+<p>수축률을 금형 기준으로 정의한 정확식</p>
+<span class="gformula">금형 치수 = 제품 치수 ÷ (1 − 수축률)</span>
+<ul>
+<li>제품 100mm, PC 6‰(0.6%) → 100 × 1.006 = <b>100.6mm</b></li>
+<li>정확식으로는 100 ÷ 0.994 = 100.604mm — 차이 0.004mm</li>
+<li>제품 1,000mm, 수축률 2%(20‰) → 관행식 1,020mm, 정확식 1,020.408mm — 차이 <b>0.408mm</b></li>
+</ul>
+</div>
+<p>수축률이 1% 안쪽이고 제품이 작으면 두 식의 차이는 무시할 수 있어요. 하지만 1m가 넘는 대형 부품에 2% 수축률이 걸리면 0.4mm 차이가 조립 공차를 넘길 수 있어요. 계산기 결과 아래에도 같은 안내가 표시됩니다.</p>
+
+<h2>주요 수지별 참고 수축률</h2>
+<p>계산기의 재질 목록에 들어 있는 대표값이에요. 재질을 고르면 수축률 칸이 자동으로 채워지고, 필요하면 직접 수정할 수 있어요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>수지</th><th class="num">수축률(‰)</th><th class="num">%</th><th>특징</th></tr></thead>
+<tbody>
+<tr><td><b>HDPE</b></td><td class="num">20</td><td class="num">2.0%</td><td>결정성, 수축 큼</td></tr>
+<tr><td><b>PP</b></td><td class="num">15</td><td class="num">1.5%</td><td>결정성, 범용</td></tr>
+<tr><td><b>재생 PP</b></td><td class="num">18</td><td class="num">1.8%</td><td>원료 편차로 수축 변동 큼</td></tr>
+<tr><td><b>TPU</b></td><td class="num">15</td><td class="num">1.5%</td><td>탄성체</td></tr>
+<tr class="hl"><td><b>ABS</b></td><td class="num">5</td><td class="num">0.5%</td><td>비결정성, 치수 안정</td></tr>
+<tr><td><b>PC</b></td><td class="num">6</td><td class="num">0.6%</td><td>비결정성, 투명</td></tr>
+<tr><td><b>POM</b></td><td class="num">20</td><td class="num">2.0%</td><td>결정성, 슬라이딩 부품</td></tr>
+<tr><td><b>PA66 (Nylon)</b></td><td class="num">15</td><td class="num">1.5%</td><td>흡습에 따른 치수 변화 별도</td></tr>
+<tr><td><b>PS</b></td><td class="num">5</td><td class="num">0.5%</td><td>비결정성</td></tr>
+<tr><td><b>PVC</b></td><td class="num">4</td><td class="num">0.4%</td><td>비결정성</td></tr>
+<tr><td><b>PA6</b></td><td class="num">15</td><td class="num">1.5%</td><td>결정성</td></tr>
+<tr><td><b>PP-GF30</b></td><td class="num">5</td><td class="num">0.5%</td><td>유리섬유 30%, 섬유 방향 수축 차이</td></tr>
+<tr><td><b>PA66-GF30</b></td><td class="num">4</td><td class="num">0.4%</td><td>유리섬유 30%</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">수지 등급·충전재·색상·성형 조건에 따라 실제 수축률은 달라져요. 이 표는 금형 설계의 출발값으로만 쓰고, 정밀 부품은 시험 사출로 보정하세요.</p>
+
+<h2>수축률을 움직이는 조건</h2>
+<ul>
+<li><b>벽 두께</b>: 두꺼운 부분은 늦게 식어 더 많이 수축해요. 두께 차이가 크면 그 차이만큼 국부 수축(싱크)이 생깁니다.</li>
+<li><b>금형 온도</b>: 금형이 뜨거우면 냉각이 느려 결정화가 진행되며 수축이 커져요. 반대로 차가우면 수축이 줄어요.</li>
+<li><b>보압·사출압력</b>: 보압이 충분하면 캐비티에 수지가 더 채워져 수축이 줄어요. 게이트가 빨리 굳으면 보압이 전달되지 않아 수축이 커집니다.</li>
+<li><b>유리섬유 배향</b>: GF 수지는 섬유 방향으로는 거의 수축하지 않고 직각 방향으로 크게 수축해요. PP-GF30이 5‰인데도 방향별 차이가 생기는 이유예요.</li>
+<li><b>흡습</b>: PA 계열은 성형 후 수분을 빨아들여 치수가 커져요. 수축률만으로는 설명되지 않는 변화라, 흡습 보정을 따로 잡아야 합니다.</li>
+</ul>
+
+<h2>실무 팁</h2>
+<ol>
+<li><b>금형은 깎을 수만 있어요.</b> 금형 치수를 크게 잡으면 깎아서 맞출 수 있지만, 작게 잡으면 키울 수 없어요. 수축률이 불확실하면 조금 크게 잡고 시험 사출 후 수정하는 편이 안전합니다.</li>
+<li><b>치수 기준점을 하나 정해요.</b> 모든 치수에 수축률을 곱하면 중심에서 멀어질수록 오차가 누적돼요. 중심·조립 기준면을 정하고 그 기준으로 보정하세요.</li>
+<li><b>시험 사출은 필수예요.</b> 계산기는 추정값을 주는 도구지, 금형을 확정하는 도구가 아니에요. 최소 1회는 실제 수지·조건으로 사출해 치수를 재세요.</li>
+<li><b>재생 수지는 수축률을 다시 잡아요.</b> 재생 PP는 18‰로 신재(15‰)보다 크게 잡혀 있어요. 원료 편차가 크면 로트별로 확인하는 게 좋아요.</li>
+</ol>
+
+<h2>자주 묻는 질문</h2>
+<h3>0.5%를 계산기에 어떻게 넣나요?</h3>
+<p>10을 곱해 5를 넣어요. 0.5% = 5‰이고, 계산기 칸은 ‰ 기준이에요. 계산기에 0.5를 넣으면 0.05%로 계산돼요.</p>
+<h3>ABS가 PP보다 수축이 작은 이유는요?</h3>
+<p>ABS는 비결정성 수지, PP는 결정성 수지예요. 결정성 수지는 냉각할 때 분자가 규칙적으로 배열(결정화)하면서 부피가 크게 줄어요. 그래서 PP·HDPE·POM은 1.5~2%, ABS·PC·PS는 0.4~0.6%로 차이가 납니다.</p>
+<h3>수축률을 크게 잡으면 무조건 안전한가요?</h3>
+<p>아니에요. 크게 잡으면 금형이 커져 제품이 목표보다 커질 수 있고, 깎는 수정은 가능하지만 형상·게이트를 다시 손봐야 하는 경우가 많아요. 수지별 대표값에서 시작해 시험 사출로 좁히는 게 정석이에요.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/mold.html">
+    <span class="gcta-ico">🧊</span>
+    <span class="gcta-txt"><span class="gcta-k">금형 수축률 계산기</span><span class="gcta-n">수축률(‰)로 금형 치수를 바로 계산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

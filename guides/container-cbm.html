@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>20ft·40ft·40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁 | CALCLEX</title>
+<meta name="description" content="컨테이너 6종의 실제 내경과 이론 CBM, 박스를 직접 적입했을 때 수량, 40HQ와 40DV의 차이, LCL 운임톤(R/T) 계산과 CBM 오차를 줄이는 방법을 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20ft·40ft·40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁 | CALCLEX">
+<meta property="og:description" content="컨테이너 6종의 실제 내경과 이론 CBM, 박스를 직접 적입했을 때 수량, 40HQ와 40DV의 차이, LCL 운임톤(R/T) 계산과 CBM 오차를 줄이는 방법을 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/container-cbm.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/container-cbm.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/container-cbm.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/container-cbm.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/container-cbm.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "20ft · 40ft · 40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁",
+    "description": "컨테이너 6종의 실제 내경과 이론 CBM, 박스를 직접 적입했을 때 수량, 40HQ와 40DV의 차이, LCL 운임톤(R/T) 계산과 CBM 오차를 줄이는 방법을 정리합니다.",
+    "url": "https://calclex.com/guides/container-cbm.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/container-cbm.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "컨테이너 내경, CBM, LCL 운임톤",
+    "keywords": "컨테이너 CBM, 20ft 컨테이너, 40ft 컨테이너, 40HQ, 컨테이너 내경, LCL R/T"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "20ft · 40ft · 40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁",
+        "item": "https://calclex.com/guides/container-cbm.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>20ft · 40ft · 40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">물류·무역</span>
+  <h1 class="page-title">20ft · 40ft · 40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁</h1>
+  <p class="page-desc">컨테이너 6종의 실제 내경과 이론 CBM, 박스를 직접 적입했을 때 수량, 40HQ와 40DV의 차이, LCL 운임톤(R/T) 계산과 CBM 오차를 줄이는 방법을 정리합니다.</p>
+  <p class="gmeta-top">2026-11-25 · 물류·무역 · 읽기 약 7분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">CBM은 박스의 부피를 세제곱미터로 나타낸 값이고, 해상 LCL 운임과 컨테이너 적재 계획의 출발점이에요. 그런데 계산기로 나온 숫자와 포워더가 정산한 CBM이 5~10%씩 다른 이유는 대부분 <b>어떤 치수를 기준으로 잡았는지</b>에 있어요. 이 글은 컨테이너 실제 내경과 이론 CBM, 그리고 오차를 줄이는 방법을 정리합니다.</p>
+
+<h2>컨테이너 6종의 실제 내경과 이론 CBM</h2>
+<p>계산기에 들어 있는 프리셋이에요. 길이·폭·높이는 모두 <b>내부 치수(mm)</b>이고, CBM은 그 세 치수를 곱한 이론값이에요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>규격</th><th class="num">내경 L×W×H (mm)</th><th class="num">이론 CBM</th><th class="num">최대 적재중량</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>20ft Dry (DV)</b></td><td class="num">5,898 × 2,352 × 2,393</td><td class="num">33.2</td><td class="num">28,200 kg</td></tr>
+<tr><td><b>40ft Dry (DV)</b></td><td class="num">12,032 × 2,352 × 2,393</td><td class="num">67.7</td><td class="num">26,600 kg</td></tr>
+<tr class="hl"><td><b>40ft High Cube (HQ)</b></td><td class="num">12,032 × 2,352 × 2,698</td><td class="num">76.3</td><td class="num">26,460 kg</td></tr>
+<tr><td><b>45ft High Cube (HQ)</b></td><td class="num">13,556 × 2,352 × 2,698</td><td class="num">86.0</td><td class="num">27,600 kg</td></tr>
+<tr><td><b>20ft Reefer</b></td><td class="num">5,444 × 2,260 × 2,260</td><td class="num">27.8</td><td class="num">27,400 kg</td></tr>
+<tr><td><b>40ft Reefer HQ</b></td><td class="num">11,570 × 2,286 × 2,496</td><td class="num">66.0</td><td class="num">29,000 kg</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">CBM = L × W × H ÷ 1,000,000,000 (mm 기준). 20ft는 5,898 × 2,352 × 2,393 = 33.19㎥로 표기값 33.2와 같아요.</p>
+<p>같은 40ft라도 리퍼는 벽 두께와 냉동 유닛 때문에 내경이 줄어 76.3 → 66.0 CBM으로 10㎥ 넘게 차이가 나요. 냉동 화물이 아니라면 리퍼를 잡을 이유가 없는 대표적인 이유입니다.</p>
+
+<h2>CBM 계산 공식과 단위</h2>
+<div class="gex">
+<p>박스 1개 CBM</p>
+<span class="gformula">CBM = 가로(m) × 세로(m) × 높이(m) = 가로 × 세로 × 높이 ÷ 1,000,000,000 (mm 기준)</span>
+<ul>
+<li>600 × 400 × 300mm → 0.6 × 0.4 × 0.3 = <b>0.072 CBM</b></li>
+<li>100박스면 0.072 × 100 = <b>7.2 CBM</b></li>
+<li>같은 부피를 리터로 보면 0.072 CBM = 72 L, ft³로는 0.072 × 35.315 = 2.54 ft³</li>
+</ul>
+</div>
+<p>계산기는 mm·cm·m·inch 어느 단위로 넣어도 내부에서 mm로 환산해 계산하고, 결과를 ㎥·L·ft³ 중 골라 볼 수 있어요. 수량을 비우면 1박스 기준으로 계산합니다.</p>
+
+<h2>박스를 직접 적입하면 몇 개까지?</h2>
+<p>파렛트 없이 400×300×250mm 박스를 컨테이너에 그대로 쌓는 경우예요. 계산기는 바닥에 깔리는 수량 × 높이로 쌓는 단수로 최대치를 구해요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>컨테이너</th><th class="num">바닥 1단</th><th class="num">단수</th><th class="num">총 박스</th><th class="num">적재 CBM</th><th class="num">용적 활용률</th></tr></thead>
+<tbody>
+<tr><td><b>20ft DV</b></td><td class="num">98</td><td class="num">9</td><td class="num">882</td><td class="num">26.46</td><td class="num">79.7%</td></tr>
+<tr><td><b>40ft DV</b></td><td class="num">210</td><td class="num">9</td><td class="num">1,890</td><td class="num">56.70</td><td class="num">83.8%</td></tr>
+<tr class="hl"><td><b>40ft HQ</b></td><td class="num">210</td><td class="num">10</td><td class="num">2,100</td><td class="num">63.00</td><td class="num">82.6%</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">이론 최대 적입량이에요. 실제로는 작업 여유·완충재·하중 분산 때문에 85~90% 수준으로 계획하는 게 안전해요.</p>
+<p>여기서 눈여겨볼 점은 40ft와 40HQ의 바닥 매수가 210개로 같다는 거예요. 높이가 305mm 높아지면서 9단 → 10단이 되어 210개가 더 들어가고, 그 차이가 6.3 CBM이에요. 컨테이너 한 대 차이를 만들 정도는 아니지만, 마지막 210개가 문제되는 상황이라면 HQ로 올리는 게 답이에요.</p>
+
+<h2>40HQ와 40DV, 305mm의 차이</h2>
+<ul>
+<li><b>부피</b>: 내고 2,698mm − 2,393mm = 305mm → 12.032 × 2.352 × 0.305 = <b>약 8.6 CBM</b> 차이</li>
+<li><b>2단 파렛트 적재</b>: 적재 총높이 1,300mm 파렛트는 2단이면 2,600mm. 40HQ(2,698mm)에는 들어가지만 40DV(2,393mm)에는 들어가지 않아요. 파렛트 2단 적재를 계획한다면 HQ가 사실상 필수예요.</li>
+<li><b>운임</b>: 해상 운임은 보통 HQ가 DV보다 조금 비싸지만, CBM당으로 계산하면 HQ가 유리한 경우가 많아요.</li>
+</ul>
+<p>계산기에서 컨테이너를 40HQ로 바꾸고 '2단 적재' 버튼을 눌러 보면 단수가 1단으로 떨어지는지 바로 확인할 수 있어요.</p>
+
+<figure class="gfig">
+<svg viewBox="0 0 470 180" role="img" aria-label="20피트, 40피트, 40피트 하이큐브 컨테이너의 길이와 높이 비교 도해">
+  <text x="10" y="14" font-size="10.5" font-weight="700" fill="#1E3A5F">내경 기준 (길이 · 높이)</text>
+  <rect x="20" y="30" width="150" height="52" fill="#EEF3F8" stroke="#1E3A5F" stroke-width="1.6"/>
+  <text x="95" y="58" font-size="10" text-anchor="middle" fill="#1E3A5F" font-weight="700">20ft DV</text>
+  <text x="95" y="72" font-size="8.5" text-anchor="middle" fill="#6B7280">5,898 × 2,393 · 33.2 CBM</text>
+  <rect x="20" y="100" width="300" height="52" fill="#EEF3F8" stroke="#1E3A5F" stroke-width="1.6"/>
+  <text x="170" y="128" font-size="10" text-anchor="middle" fill="#1E3A5F" font-weight="700">40ft DV</text>
+  <text x="170" y="142" font-size="8.5" text-anchor="middle" fill="#6B7280">12,032 × 2,393 · 67.7 CBM</text>
+  <rect x="330" y="100" width="52" height="52" fill="#F1F1EF" stroke="#9CA3AF" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <text x="356" y="128" font-size="8" text-anchor="middle" fill="#6B7280">+305</text>
+  <text x="356" y="140" font-size="7.5" text-anchor="middle" fill="#6B7280">높이</text>
+  <rect x="20" y="160" width="300" height="4" fill="#1E3A5F"/>
+  <text x="330" y="172" font-size="8.5" fill="#6B7280">40HQ = 12,032 × 2,698 · 76.3 CBM (+8.6)</text>
+</svg>
+<figcaption>40HQ는 길이가 같고 높이만 305mm 높아요. 그 305mm가 8.6 CBM과 파렛트 2단 적재 가능 여부를 가릅니다.</figcaption>
+</figure>
+
+<h2>LCL 운임은 CBM과 중량 중 큰 값</h2>
+<p>해상 LCL은 부피(CBM)와 중량톤(1,000kg = 1 W/T) 중 <b>큰 값</b>을 운임톤(R/T, Revenue Ton)으로 청구해요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>화물</th><th class="num">CBM</th><th class="num">중량</th><th class="num">W/T</th><th class="num">적용 R/T</th></tr></thead>
+<tbody>
+<tr><td>가벼운 의류·완구</td><td class="num">12.0</td><td class="num">8,500 kg</td><td class="num">8.5</td><td class="num"><b>12.0</b> (용적 기준)</td></tr>
+<tr class="hl"><td>무거운 기계 부품</td><td class="num">9.0</td><td class="num">12,000 kg</td><td class="num">12.0</td><td class="num"><b>12.0</b> (중량 기준)</td></tr>
+</tbody></table></div>
+<p>같은 12 R/T라도 기준이 다르다는 점이 중요해요. 부피는 작은데 무거운 화물은 CBM을 줄여도 운임이 줄지 않으니, 포장을 슬림하게 만드는 노력이 무의미할 수 있어요. 반대로 부피가 큰 화물은 중량을 줄여도 소용없고요.</p>
+
+<h2>CBM 오차를 줄이는 5가지</h2>
+<ol>
+<li><b>공칭 치수가 아니라 내경을 써요.</b> 컨테이너 규격표의 외곽 치수(20ft = 6,058mm)로 계산하면 CBM이 2% 이상 부풀어요. 계산기 프리셋은 내경 기준이에요.</li>
+<li><b>박스 외곽 치수를 재요.</b> 골판지 두께, 테이프, 랩까지 포함한 바깥치수로 계산해야 해요. 실측보다 3~5mm 작게 넣으면 박스 1,000개에서 0.1~0.2 CBM이 어긋납니다.</li>
+<li><b>수량 단위를 확인해요.</b> 계산기는 '박스 수량' 기준이에요. 파렛트 단위로 계약했다면 파렛트당 박스 수를 먼저 곱해야 해요.</li>
+<li><b>적재율 85%를 기본으로 잡아요.</b> 계산기가 CBM 계산기에서 컨테이너 적재량을 추정할 때 쓰는 값이에요. 33.2 CBM 컨테이너에 33.2 CBM을 넣을 수는 없어요.</li>
+<li><b>도어와 골을 확인해요.</b> 도어 유효 폭은 내경 폭(2,352mm)보다 조금 좁고(보통 2,340mm 안팎, 제조사·연식별 차이), 측벽 골 때문에 모서리 20~30mm는 비어요. 큰 파렛트나 긴 자재는 도어 통과부터 확인하세요.</li>
+</ol>
+
+<h2>자주 묻는 질문</h2>
+<h3>40HQ에 20ft 두 대를 넣는 것보다 유리한가요?</h3>
+<p>부피 기준으로는 20ft 두 대가 66.4 CBM, 40HQ 한 대가 76.3 CBM이에요. 40HQ 한 대가 10 CBM 가까이 더 들어가고, 컨테이너 한 대분 운임·작업이 줄어 대체로 유리해요. 다만 중량이 무거우면 20ft 두 대가 유리할 수 있어요(최대 적재중량 28,200kg × 2).</p>
+<h3>CBM에 파렛트 부피도 포함되나요?</h3>
+<p>포함해서 계산하는 게 안전해요. 파렛트 자체가 차지하는 부피와 파렛트 사이 틈까지 넣어야 실제 적재량과 맞아요. 파렛트 단위 화물은 컨테이너 적입 계산기로 매수를 먼저 구하고, 남는 공간을 CBM으로 확인하는 순서가 편해요.</p>
+<h3>컨테이너를 꽉 채우면 몇 %까지 가능한가요?</h3>
+<p>박스를 정교하게 쌓아도 85~90%가 현실적인 상한이에요. 그 이상은 작업 여유가 없어 하역 중 파손 위험이 커져요. 계산기 결과의 용적 활용률이 85%를 넘으면 완충재와 작업 공간을 다시 확인하세요.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/cbm.html">
+    <span class="gcta-ico">📦</span>
+    <span class="gcta-txt"><span class="gcta-k">CBM 계산기</span><span class="gcta-n">박스 부피와 컨테이너별 적재 추정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/container.html">
+    <span class="gcta-ico">🚢</span>
+    <span class="gcta-txt"><span class="gcta-k">컨테이너 적입 계산기</span><span class="gcta-n">파렛트·박스 단위로 최대 적입 계산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/pallet.html">
+    <span class="gcta-ico">🏗️</span>
+    <span class="gcta-txt"><span class="gcta-k">파렛트 적재 계산기</span><span class="gcta-n">파렛트당 박스 수와 단수 계산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

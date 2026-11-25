@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>열관류율(U-value) 계산법과 결로 방지 단열 두께 기준 | CALCLEX</title>
+<meta name="description" content="U-value 공식과 표면 열저항, 재료별 열전도율, 단열기준별 필요 두께 계산 예시, 노점으로 결로를 판정하는 방법을 계산기 기준 수치로 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="열관류율(U-value) 계산법과 결로 방지 단열 두께 기준 | CALCLEX">
+<meta property="og:description" content="U-value 공식과 표면 열저항, 재료별 열전도율, 단열기준별 필요 두께 계산 예시, 노점으로 결로를 판정하는 방법을 계산기 기준 수치로 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/uvalue-condensation.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/uvalue-condensation.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "열관류율(U-value) 계산법과 실내 결로 방지 단열 두께 기준",
+    "description": "U-value 공식과 표면 열저항, 재료별 열전도율, 단열기준별 필요 두께 계산 예시, 노점으로 결로를 판정하는 방법을 계산기 기준 수치로 정리합니다.",
+    "url": "https://calclex.com/guides/uvalue-condensation.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/uvalue-condensation.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "열관류율, 단열, 결로",
+    "keywords": "열관류율, U-value, 결로, 단열 두께, 노점, 열저항"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "열관류율(U-value) 계산법과 실내 결로 방지 단열 두께 기준",
+        "item": "https://calclex.com/guides/uvalue-condensation.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>열관류율(U-value) 계산법과 실내 결로 방지 단열 두께 기준</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">설계·건축</span>
+  <h1 class="page-title">열관류율(U-value) 계산법과 실내 결로 방지 단열 두께 기준</h1>
+  <p class="page-desc">U-value 공식과 표면 열저항, 재료별 열전도율, 단열기준별 필요 두께 계산 예시, 노점으로 결로를 판정하는 방법을 계산기 기준 수치로 정리합니다.</p>
+  <p class="gmeta-top">2026-11-25 · 설계·건축 · 읽기 약 9분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">열관류율(U-value)은 벽·지붕·바닥을 통과해 빠져나가는 열의 양을 나타내는 값이에요. 단위는 W/㎡·K이고 <b>낮을수록 단열이 잘 되는</b> 구조예요. 이 글은 계산기가 쓰는 공식 그대로 U값을 손으로 계산해 보고, 단열기준을 맞추려면 두께가 얼마나 필요한지, 결로는 어떻게 판정하는지 정리합니다.</p>
+
+<h2>공식은 하나예요 — 열저항을 모두 더한 뒤 뒤집기</h2>
+<div class="gex">
+<span class="gformula">U = 1 ÷ (R<sub>si</sub> + ΣR + R<sub>se</sub>) &nbsp;&nbsp;|&nbsp;&nbsp; R = 두께(m) ÷ λ</span>
+<ul>
+<li><b>R<sub>si</sub>, R<sub>se</sub></b>: 실내·실외 표면의 열전달저항(㎡·K/W). 벽의 양면 공기층이 갖는 저항이에요.</li>
+<li><b>R</b>: 재료 한 층의 열저항. 두께가 두꺼울수록, λ(열전도율)가 작을수록 커져요.</li>
+<li><b>ΣR</b>: 모든 층의 R을 더한 값. 단열재를 한 겹 더하면 그 R만큼 총저항이 늘어 U가 낮아져요.</li>
+</ul>
+</div>
+<p>표면 열저항은 열이 흐르는 방향에 따라 달라요. 계산기의 부위 선택이 이 값을 바꿉니다.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>부위</th><th class="num">R<sub>si</sub></th><th class="num">R<sub>se</sub></th><th class="num">합계</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>외벽</b> (수평 열류)</td><td class="num">0.11</td><td class="num">0.043</td><td class="num">0.153</td></tr>
+<tr><td><b>지붕</b> (상향 열류)</td><td class="num">0.086</td><td class="num">0.043</td><td class="num">0.129</td></tr>
+<tr><td><b>바닥</b> (하향 열류)</td><td class="num">0.086</td><td class="num">0.043</td><td class="num">0.129</td></tr>
+<tr><td><b>내벽</b> (양면 실내)</td><td class="num">0.11</td><td class="num">0.11</td><td class="num">0.220</td></tr>
+</tbody></table></div>
+
+<h2>재료별 열전도율(λ)</h2>
+<p>λ는 재료가 열을 얼마나 잘 통하는지를 나타내는 값이에요(W/m·K). 작을수록 단열재로 좋아요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>재료</th><th class="num">λ (W/m·K)</th><th>재료</th><th class="num">λ (W/m·K)</th></tr></thead>
+<tbody>
+<tr><td>콘크리트</td><td class="num">1.60</td><td>압출법보온판 XPS 특호</td><td class="num">0.027</td></tr>
+<tr><td>경량콘크리트</td><td class="num">0.70</td><td>비드법보온판 EPS 1종1호</td><td class="num">0.036</td></tr>
+<tr><td>시멘트 모르타르</td><td class="num">1.40</td><td>경질우레탄폼 1종</td><td class="num">0.023</td></tr>
+<tr><td>벽돌(점토)</td><td class="num">0.78</td><td>글라스울 24K</td><td class="num">0.037</td></tr>
+<tr><td>화강암</td><td class="num">3.30</td><td>미네랄울</td><td class="num">0.040</td></tr>
+<tr><td>목재(연질)</td><td class="num">0.14</td><td>유리(판유리)</td><td class="num">1.00</td></tr>
+<tr><td>합판</td><td class="num">0.15</td><td>공기층(비밀폐)</td><td class="num">0.16</td></tr>
+<tr><td>석고보드</td><td class="num">0.18</td><td>강재</td><td class="num">53</td></tr>
+<tr><td>ALC블록</td><td class="num">0.15</td><td>알루미늄</td><td class="num">200</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">같은 두께라면 XPS(0.027)가 콘크리트(1.6)보다 약 59배 단열 성능이 좋아요. 단열재를 쓰는 이유가 여기에 있습니다.</p>
+
+<h2>직접 계산해 보기 — 석고보드 9.5 + 콘크리트 200 + XPS 100</h2>
+<div class="gex">
+<p>계산기의 기본 구성으로 외벽을 계산하면</p>
+<ul>
+<li>표면저항: 0.11 + 0.043 = 0.153</li>
+<li>석고보드 9.5mm: 0.0095 ÷ 0.18 = 0.0528</li>
+<li>콘크리트 200mm: 0.200 ÷ 1.60 = 0.1250</li>
+<li>XPS 100mm: 0.100 ÷ 0.027 = 3.7037</li>
+<li>총 열저항 R<sub>T</sub> = <b>4.034 ㎡·K/W</b></li>
+</ul>
+<p class="gres">U = 1 ÷ 4.034 = 0.248 W/㎡·K · 열손실 = 0.248 × 30㎡ × 20K = 약 149W</p>
+</div>
+<p>여기서 단열재를 EPS(λ 0.036)로 바꾸면 R이 2.778로 줄어 U는 0.322까지 올라가요(단열 성능 30% 하락). 겉보기에 비슷한 판재라도 λ 값 하나로 결과가 이렇게 달라집니다.</p>
+
+<h2>단열기준을 맞추려면 몇 mm가 필요할까</h2>
+<p>계산기에는 지역별 단열기준이 들어 있어요. 기준 U값보다 계산값이 크면 '기준 초과'로 표시됩니다.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>지역</th><th class="num">외벽</th><th class="num">지붕</th><th class="num">바닥</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>중부1</b></td><td class="num">0.15</td><td class="num">0.15</td><td class="num">0.15</td></tr>
+<tr><td><b>중부2</b></td><td class="num">0.17</td><td class="num">0.15</td><td class="num">0.17</td></tr>
+<tr><td><b>남부</b></td><td class="num">0.22</td><td class="num">0.18</td><td class="num">0.22</td></tr>
+<tr><td><b>제주</b></td><td class="num">0.29</td><td class="num">0.25</td><td class="num">0.29</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">기준값 단위는 W/㎡·K. 계산기의 지역 선택 목록과 같은 값이에요.</p>
+<p>석고보드 9.5mm + 콘크리트 200mm 구성에서 외벽 기준을 맞추려면 XPS가 몇 mm 필요한지 계산해 보면 이렇게 나와요.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>지역 (외벽 기준)</th><th class="num">필요 R</th><th class="num">XPS 최소 두께</th><th class="num">시판 두께 제안</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>중부1</b> 0.15</td><td class="num">6.667</td><td class="num">171.1 mm</td><td class="num">180 mm</td></tr>
+<tr><td><b>중부2</b> 0.17</td><td class="num">5.882</td><td class="num">149.9 mm</td><td class="num">150 mm</td></tr>
+<tr><td><b>남부</b> 0.22</td><td class="num">4.545</td><td class="num">113.8 mm</td><td class="num">120 mm</td></tr>
+<tr><td><b>제주</b> 0.29</td><td class="num">3.448</td><td class="num">84.2 mm</td><td class="num">90 mm</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">필요 R = 1 ÷ 기준 U − (표면저항 0.153 + 석고보드 0.0528 + 콘크리트 0.125). 같은 기준을 EPS로 맞추면 중부1 외벽 228mm가 필요해요.</p>
+
+<h2>결로는 노점과 내표면온도로 판정해요</h2>
+<p>실내 공기가 차가운 표면에 닿으면, 그 표면 온도가 <b>노점(이슬점)</b>보다 낮아질 때 물방울이 맺혀요. 계산기는 두 값을 비교해 결로 여부를 표시합니다.</p>
+<div class="gex">
+<span class="gformula">노점 T<sub>d</sub> = 243.12 × n ÷ (17.62 − n), &nbsp; n = ln(습도/100) + 17.62 × T<sub>i</sub> ÷ (243.12 + T<sub>i</sub>)</span>
+<span class="gformula">내표면온도 T<sub>s</sub> = T<sub>i</sub> − U × (T<sub>i</sub> − T<sub>o</sub>) × R<sub>si</sub></span>
+</div>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>구성 (외벽)</th><th class="num">실내/실외</th><th class="num">습도</th><th class="num">U</th><th class="num">표면온도</th><th class="num">노점</th><th>판정</th></tr></thead>
+<tbody>
+<tr><td>석고보드 9.5 + 콘크리트 200</td><td class="num">20 / −10℃</td><td class="num">60%</td><td class="num">3.023</td><td class="num">10.02℃</td><td class="num">12.00℃</td><td><b>결로</b></td></tr>
+<tr class="hl"><td>+ XPS 50mm</td><td class="num">20 / −10℃</td><td class="num">60%</td><td class="num">0.458</td><td class="num">18.49℃</td><td class="num">12.00℃</td><td>안전</td></tr>
+<tr><td>+ XPS 100mm</td><td class="num">20 / 0℃</td><td class="num">50%</td><td class="num">0.248</td><td class="num">19.45℃</td><td class="num">9.26℃</td><td>안전</td></tr>
+</tbody></table></div>
+<p>단열이 없는 콘크리트 벽은 실내 20℃·습도 60%에서도 표면이 10.02℃까지 떨어져 노점 12.00℃보다 낮아요. 이때 벽 모서리와 창틀에 물방울이 맺힙니다. XPS 50mm만 보강해도 표면온도가 18.49℃로 올라가 결로가 사라져요.</p>
+
+<figure class="gfig">
+<svg viewBox="0 0 470 190" role="img" aria-label="벽 단면에서 실내 20도에서 실외 영하 10도로 열이 흐르며 표면 온도가 떨어지는 모습">
+  <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">벽 단면과 온도 구배 (실내 20℃ → 실외 −10℃)</text>
+  <rect x="40" y="35" width="24" height="110" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <rect x="64" y="35" width="110" height="110" fill="#F1F1EF" stroke="#9CA3AF"/>
+  <rect x="174" y="35" width="70" height="110" fill="#DCE4EE" stroke="#1E3A5F"/>
+  <text x="52" y="160" font-size="8" text-anchor="middle" fill="#6B7280">석고</text>
+  <text x="119" y="160" font-size="8" text-anchor="middle" fill="#6B7280">콘크리트 200</text>
+  <text x="209" y="160" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">XPS 100</text>
+  <text x="30" y="30" font-size="9" fill="#1E3A5F" font-weight="700">실내</text>
+  <text x="250" y="30" font-size="9" fill="#6B7280" font-weight="700">실외</text>
+  <line x1="20" y1="52" x2="260" y2="120" stroke="#C0503F" stroke-width="1.6"/>
+  <circle cx="34" cy="53" r="3" fill="#C0503F"/>
+  <circle cx="250" cy="118" r="3" fill="#1E3A5F"/>
+  <text x="20" y="46" font-size="8.5" fill="#C0503F">19.45℃</text>
+  <text x="252" y="132" font-size="8.5" fill="#1E3A5F">−10℃</text>
+  <line x1="300" y1="60" x2="440" y2="60" stroke="#E2E2E0" stroke-width="8"/>
+  <line x1="300" y1="60" x2="300" y2="60" stroke="#C0503F" stroke-width="0"/>
+  <rect x="300" y="52" width="140" height="16" fill="#EEF3F8"/>
+  <text x="370" y="86" font-size="8.5" text-anchor="middle" fill="#6B7280">노점 9.26℃ vs 표면 19.45℃ → 결로 없음</text>
+  <text x="370" y="104" font-size="8" text-anchor="middle" fill="#6B7280">단열재가 없으면 표면온도가 노점 아래로 내려가요</text>
+</svg>
+<figcaption>열이 흐르면서 온도가 떨어지고, 마지막 실내 표면 온도가 노점보다 낮으면 그 자리에 결로가 생깁니다.</figcaption>
+</figure>
+
+<h2>현장에서 자주 놓치는 것</h2>
+<ul>
+<li><b>열교</b>: 철골·콘크리트 슬래브가 단열재를 뚫고 지나가면 그 부분만 U값이 몇 배로 올라가요. 계산은 층이 균일하다고 가정하니, 실제 시공에서는 열교차단재를 따로 넣어야 합니다.</li>
+<li><b>내단열과 외단열</b>: 내단열은 구조체가 차가운 상태로 남아 결로에 취약하고, 외단열은 구조체를 감싸 결로와 열교를 함께 줄여요. 같은 두께라면 외단열이 유리합니다.</li>
+<li><b>모서리·창틀</b>: 평면부는 기준을 맞춰도 모서리는 표면적 대비 열손실이 커서 먼저 결로가 생겨요. 계산기의 부위 선택을 '내벽'으로 바꾸면 표면저항이 달라지는 것도 같은 이유예요.</li>
+<li><b>기밀</b>: 단열이 좋아도 틈으로 습한 공기가 들어오면 그 자리에서 결로가 생겨요. 기밀 테이프와 실링을 함께 봐야 합니다.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<h3>U값과 열전도율(λ)은 무엇이 다른가요?</h3>
+<p>λ는 재료 하나의 성질이고, U는 벽체 전체(여러 층 + 표면저항)의 성능이에요. λ가 작은 단열재를 쓰더라도 두께가 얇거나 열교가 많으면 U는 나빠질 수 있어요.</p>
+<h3>단열재 두께를 두 배로 하면 U가 절반이 되나요?</h3>
+<p>거의 그렇지만 정확히는 아니에요. 표면저항과 다른 층의 저항이 고정돼 있어서, 단열재만 두 배로 늘리면 총저항이 2배가 되지 않아요. 예를 들어 콘크리트 200 + XPS 100(U 0.248)에서 XPS를 200으로 늘리면 U는 0.129로, 절반보다 조금 더 줄어요.</p>
+<h3>결로 판정은 어느 온도로 봐야 하나요?</h3>
+<p>가장 불리한 조건, 즉 외기가 가장 춥고 실내 습도가 높은 때를 기준으로 봐야 해요. 계산기에 실내 20℃·실외 −10℃·습도 60%를 넣고 표면온도가 노점 아래로 내려가지 않는지 확인하세요.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/uvalue.html">
+    <span class="gcta-ico">🏠</span>
+    <span class="gcta-txt"><span class="gcta-k">열관류율·결로 계산기</span><span class="gcta-n">층별 두께로 U값과 결로 판정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

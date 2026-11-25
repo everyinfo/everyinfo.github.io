@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>실무 가이드 | CALCLEX</title>
+<meta name="description" content="파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="실무 가이드 | CALCLEX">
+<meta property="og:description" content="파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.">
+<meta property="og:url" content="https://calclex.com/guides/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "실무 가이드 | CALCLEX",
+  "description": "파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.",
+  "url": "https://calclex.com/guides/",
+  "inLanguage": "ko",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CalcLex",
+    "url": "https://calclex.com/"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "T11 vs T12 vs 미국 GMA 파렛트 규격 총정리",
+        "url": "/guides/pallet-standards.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "20ft·40ft·40HQ 실제 내경과 CBM 오차 줄이는 법",
+        "url": "/guides/container-cbm.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "금형 수축률(‰) 공식과 수지별 참고표",
+        "url": "/guides/mold-shrinkage.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "열관류율(U-value) 계산법과 결로 방지 단열 두께",
+        "url": "/guides/uvalue-condensation.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "소금물 농도(희석)와 비례식, 그림으로 이해하기",
+        "url": "/guides/kids-salt-ratio.html"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a>
+</div>
+
+<div class="guides-hero">
+  <span class="cat-tag">실무 가이드</span>
+  <h1>📘 실무 가이드</h1>
+  <p>파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.</p>
+</div>
+
+<div class="gsearch">
+  <div class="gsearch-box">
+    <span class="gsearch-ico">🔍</span>
+    <input type="text" id="gSearch" placeholder="가이드 검색 (예: 파렛트, CBM, ABS, 결로, 소금물)" autocomplete="off" aria-label="가이드 검색 (예: 파렛트, CBM, ABS, 결로, 소금물)">
+    <button type="button" class="gsearch-clear" id="gClear" aria-label="검색어 지우기">✕</button>
+  </div>
+</div>
+
+<div class="gfilter" id="gFilter">
+    <button type="button" data-cat="all" class="on">전체</button>
+    <button type="button" data-cat="물류·무역">물류·무역</button>
+    <button type="button" data-cat="설계·건축">설계·건축</button>
+    <button type="button" data-cat="초등 수학">초등 수학</button>
+</div>
+<p class="gcount" id="gCount" data-all="전체 5편" data-unit="편">전체 5편</p>
+
+<p class="gempty" id="gEmpty" data-tpl="‘{q}’에 맞는 가이드가 없어요. 다른 낱말로 찾아보거나 위의 카테고리를 눌러 보세요." hidden><span id="gEmptyText"></span></p>
+
+<div class="ggrid" id="gGrid">
+  <a class="gcard" href="/guides/pallet-standards.html" data-cat="물류·무역" data-keywords="T11 파렛트, T12 파렛트, GMA 파렛트, 파렛트 규격, 파렛트 적재, 컨테이너 적입">
+    <span class="gcat">물류·무역</span>
+    <h2>T11 vs T12 vs 미국 GMA 파렛트 규격 총정리</h2>
+    <p>6종 규격표, 400×300과 600×400 박스의 적재 개수 차이, 컨테이너 바닥 적입 매수, 적재 효율을 높이는 6가지 팁.</p>
+    <span class="gmeta">약 8분 · <b>파렛트 적재 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/container-cbm.html" data-cat="물류·무역" data-keywords="컨테이너 CBM, 20ft 컨테이너, 40ft 컨테이너, 40HQ, 컨테이너 내경, LCL R/T">
+    <span class="gcat">물류·무역</span>
+    <h2>20ft·40ft·40HQ 실제 내경과 CBM 오차 줄이는 법</h2>
+    <p>컨테이너 6종 내경·CBM 표, 박스 직접 적입 수량, 40HQ vs 40DV 차이, LCL 운임톤과 오차 줄이는 5가지 팁.</p>
+    <span class="gmeta">약 7분 · <b>CBM 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/mold-shrinkage.html" data-cat="설계·건축" data-keywords="금형 수축률, 수축률 계산, 사출 수축, ABS 수축률, PP 수축률, POM 수축률">
+    <span class="gcat">설계·건축</span>
+    <h2>금형 수축률(‰) 공식과 수지별 참고표</h2>
+    <p>수축률 ‰ 계산 공식, ‰↔% 환산, ABS·PP·PC·POM 등 13종 참고 수축률, 정확식과 관행식의 차이.</p>
+    <span class="gmeta">약 7분 · <b>금형 수축률 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/uvalue-condensation.html" data-cat="설계·건축" data-keywords="열관류율, U-value, 결로, 단열 두께, 노점, 열저항">
+    <span class="gcat">설계·건축</span>
+    <h2>열관류율(U-value) 계산법과 결로 방지 단열 두께</h2>
+    <p>U = 1/(Rsi+ΣR+Rse) 계산 예시, 재료 λ 표, 지역별 단열기준 필요 두께, 노점으로 결로 판정하기.</p>
+    <span class="gmeta">약 9분 · <b>열관류율·결로 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/kids-salt-ratio.html" data-cat="초등 수학" data-keywords="소금물 농도, 농도 구하기, 소금물 희석, 비례식, 초등 수학">
+    <span class="gcat">초등 수학</span>
+    <h2>소금물 농도(희석)와 비례식, 그림으로 이해하기</h2>
+    <p>농도의 분모가 소금물 전체인 이유, 물을 더 넣어도 소금은 그대로인 원리, 비례식 외항·내항 곱으로 답 찾기.</p>
+    <span class="gmeta">약 6분 · <b>소금물 농도 계산기</b></span>
+  </a>
+</div>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">가이드에서 계산기로 바로 이동</p>
+  <a class="gcta" href="/calculators/pallet.html">
+    <span class="gcta-ico">🏗️</span>
+    <span class="gcta-txt"><span class="gcta-k">파렛트 적재 계산기</span><span class="gcta-n">박스 규격으로 1단·총 개수와 평면도 확인</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/container.html">
+    <span class="gcta-ico">🚢</span>
+    <span class="gcta-txt"><span class="gcta-k">컨테이너 적입 계산기</span><span class="gcta-n">20ft·40ft·40HQ에 파렛트 몇 매인지 계산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/cbm.html">
+    <span class="gcta-ico">📦</span>
+    <span class="gcta-txt"><span class="gcta-k">CBM 계산기</span><span class="gcta-n">박스 부피와 컨테이너 적재 추정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/mold.html">
+    <span class="gcta-ico">🧊</span>
+    <span class="gcta-txt"><span class="gcta-k">금형 수축률 계산기</span><span class="gcta-n">수축률(‰)로 금형 치수 역산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/uvalue.html">
+    <span class="gcta-ico">🏠</span>
+    <span class="gcta-txt"><span class="gcta-k">열관류율·결로 계산기</span><span class="gcta-n">층별 두께로 U값과 결로 판정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/salt.html">
+    <span class="gcta-ico">🧪</span>
+    <span class="gcta-txt"><span class="gcta-k">소금물 농도 계산기</span><span class="gcta-n">농도·소금의 양·물을 더 넣으면</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/ratiokid.html">
+    <span class="gcta-ico">⚖️</span>
+    <span class="gcta-txt"><span class="gcta-k">비와 비례식 계산기</span><span class="gcta-n">가 : 나 = 다 : 라 한 칸 비우고 풀기</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('#gFilter button');
+  var cards = document.querySelectorAll('#gGrid .gcard');
+  var count = document.getElementById('gCount');
+  var input = document.getElementById('gSearch');
+  var clear = document.getElementById('gClear');
+  var empty = document.getElementById('gEmpty');
+  var emptyText = document.getElementById('gEmptyText');
+  var cat = 'all';
+  function norm(s){ return (s || '').toLowerCase().replace(/[\s\-_·/.,()]/g, ''); }
+  function terms(){
+    var raw = input.value.trim().split(/\s+/);
+    var out = [];
+    for (var i = 0; i < raw.length; i++) { var t = norm(raw[i]); if (t) out.push(t); }
+    return out;
+  }
+  function apply(){
+    var q = terms();
+    var n = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var c = cards[i];
+      var inCat = (cat === 'all' || c.getAttribute('data-cat') === cat);
+      var hay = norm(c.textContent + ' ' + (c.getAttribute('data-keywords') || ''));
+      var hit = true;
+      for (var j = 0; j < q.length; j++) { if (hay.indexOf(q[j]) === -1) { hit = false; break; } }
+      var show = inCat && hit;
+      c.hidden = !show;
+      if (show) n++;
+    }
+    empty.hidden = (n > 0);
+    emptyText.textContent = empty.getAttribute('data-tpl').replace('{q}', input.value.trim());
+    clear.classList.toggle('on', input.value.length > 0);
+    count.textContent = (cat === 'all' && q.length === 0) ? count.getAttribute('data-all') : n + count.getAttribute('data-unit');
+  }
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function(){
+      for (var j = 0; j < btns.length; j++) btns[j].classList.remove('on');
+      this.classList.add('on');
+      cat = this.getAttribute('data-cat');
+      apply();
+    });
+  }
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', function(){ input.value = ''; apply(); input.focus(); });
+  apply();
+})();
+</script>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

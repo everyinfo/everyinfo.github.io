@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>U-Value Formula and Insulation Thickness Against Condensation | CALCLEX</title>
+<meta name="description" content="The U-value formula with surface resistances, thermal conductivity by material, the insulation thickness each regional limit requires, and how dew point decides condensation.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="U-Value Formula and Insulation Thickness Against Condensation | CALCLEX">
+<meta property="og:description" content="The U-value formula with surface resistances, thermal conductivity by material, the insulation thickness each regional limit requires, and how dew point decides condensation.">
+<meta property="og:url" content="https://calclex.com/en/guides/uvalue-condensation.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/en/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/uvalue-condensation.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/uvalue-condensation.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/en/calculators-data-en.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "U-value calculation and the insulation thickness that stops indoor condensation",
+    "description": "The U-value formula with surface resistances, thermal conductivity by material, the insulation thickness each regional limit requires, and how dew point decides condensation.",
+    "url": "https://calclex.com/en/guides/uvalue-condensation.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/en/guides/uvalue-condensation.html"
+    },
+    "inLanguage": "en",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "U-value, thermal insulation, condensation",
+    "keywords": "U-value, thermal transmittance, condensation, insulation thickness, dew point, thermal resistance"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calclex.com/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://calclex.com/en/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "U-value calculation and the insulation thickness that stops indoor condensation",
+        "item": "https://calclex.com/en/guides/uvalue-condensation.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="brand brand-caps">CalcLex</a>
+    <div class="nav-links">
+      <a href="/en/index.html#Unit Converter">Unit Converter</a>
+      <a href="/en/index.html#Engineering">Engineering</a>
+      <a href="/en/index.html#General">General</a>
+      <a href="/en/index.html#Everyday">Everyday</a>
+      <a href="/en/index.html#Finance">Finance</a>
+      <a href="/en/index.html#Logistics">Logistics</a>
+      <a href="/en/guides/" class="active">Guides</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/en/index.html">Home</a> › <a href="/en/guides/">Guides</a> › <span>U-value calculation and the insulation thickness that stops indoor condensation</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">Design & Build</span>
+  <h1 class="page-title">U-value calculation and the insulation thickness that stops indoor condensation</h1>
+  <p class="page-desc">The U-value formula with surface resistances, thermal conductivity by material, the insulation thickness each regional limit requires, and how dew point decides condensation.</p>
+  <p class="gmeta-top">Nov 25, 2026 · Design & Build · 9 min read</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">U-value measures how much heat escapes through a wall, roof or floor. The unit is W/㎡·K and <b>lower is better</b>. This guide works through the exact formula the CalcLex calculator uses, shows how much insulation each regional limit demands, and explains how dew point decides whether a surface condenses.</p>
+
+<h2>One formula: add every resistance, then invert</h2>
+<div class="gex">
+<span class="gformula">U = 1 ÷ (R<sub>si</sub> + ΣR + R<sub>se</sub>) &nbsp;&nbsp;|&nbsp;&nbsp; R = thickness(m) ÷ λ</span>
+<ul>
+<li><b>R<sub>si</sub>, R<sub>se</sub></b>: surface resistances inside and outside (㎡·K/W) — the still air film on each face.</li>
+<li><b>R</b>: one layer's resistance. Thicker layers and lower λ both raise it.</li>
+<li><b>ΣR</b>: the sum of all layers. Adding insulation adds exactly that R and lowers U.</li>
+</ul>
+</div>
+<p>Surface resistance depends on the direction of heat flow, which is why the calculator asks for the building element.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>Element</th><th class="num">R<sub>si</sub></th><th class="num">R<sub>se</sub></th><th class="num">Total</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>Exterior wall</b> (horizontal)</td><td class="num">0.11</td><td class="num">0.043</td><td class="num">0.153</td></tr>
+<tr><td><b>Roof</b> (upward)</td><td class="num">0.086</td><td class="num">0.043</td><td class="num">0.129</td></tr>
+<tr><td><b>Floor</b> (downward)</td><td class="num">0.086</td><td class="num">0.043</td><td class="num">0.129</td></tr>
+<tr><td><b>Interior wall</b> (both sides inside)</td><td class="num">0.11</td><td class="num">0.11</td><td class="num">0.220</td></tr>
+</tbody></table></div>
+
+<h2>Thermal conductivity (λ) by material</h2>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>Material</th><th class="num">λ (W/m·K)</th><th>Material</th><th class="num">λ (W/m·K)</th></tr></thead>
+<tbody>
+<tr><td>Concrete</td><td class="num">1.60</td><td>XPS board (special)</td><td class="num">0.027</td></tr>
+<tr><td>Lightweight concrete</td><td class="num">0.70</td><td>EPS board (type 1)</td><td class="num">0.036</td></tr>
+<tr><td>Cement mortar</td><td class="num">1.40</td><td>Rigid PUF (type 1)</td><td class="num">0.023</td></tr>
+<tr><td>Clay brick</td><td class="num">0.78</td><td>Glass wool 24K</td><td class="num">0.037</td></tr>
+<tr><td>Granite</td><td class="num">3.30</td><td>Mineral wool</td><td class="num">0.040</td></tr>
+<tr><td>Softwood</td><td class="num">0.14</td><td>Glass (sheet)</td><td class="num">1.00</td></tr>
+<tr><td>Plywood</td><td class="num">0.15</td><td>Air layer (ventilated)</td><td class="num">0.16</td></tr>
+<tr><td>Gypsum board</td><td class="num">0.18</td><td>Steel</td><td class="num">53</td></tr>
+<tr><td>ALC block</td><td class="num">0.15</td><td>Aluminium</td><td class="num">200</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">At the same thickness XPS (0.027) insulates about 59 times better than concrete (1.6). That is the whole reason insulation exists.</p>
+
+<h2>Worked example: gypsum 9.5 + concrete 200 + XPS 100</h2>
+<div class="gex">
+<p>The calculator's default build-up as an exterior wall</p>
+<ul>
+<li>Surface: 0.11 + 0.043 = 0.153</li>
+<li>Gypsum 9.5mm: 0.0095 ÷ 0.18 = 0.0528</li>
+<li>Concrete 200mm: 0.200 ÷ 1.60 = 0.1250</li>
+<li>XPS 100mm: 0.100 ÷ 0.027 = 3.7037</li>
+<li>Total R = <b>4.034 ㎡·K/W</b></li>
+</ul>
+<p class="gres">U = 1 ÷ 4.034 = 0.248 W/㎡·K · heat loss = 0.248 × 30㎡ × 20K = about 149W</p>
+</div>
+<p>Swap the XPS for EPS (λ 0.036) and R falls to 2.778, lifting U to 0.322 — about 30% more heat loss from boards that look identical.</p>
+
+<h2>How much insulation does a limit require?</h2>
+<p>The calculator carries regional limits and flags a build-up that exceeds them.</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>Region</th><th class="num">Wall</th><th class="num">Roof</th><th class="num">Floor</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>Central 1</b></td><td class="num">0.15</td><td class="num">0.15</td><td class="num">0.15</td></tr>
+<tr><td><b>Central 2</b></td><td class="num">0.17</td><td class="num">0.15</td><td class="num">0.17</td></tr>
+<tr><td><b>Southern</b></td><td class="num">0.22</td><td class="num">0.18</td><td class="num">0.22</td></tr>
+<tr><td><b>Jeju</b></td><td class="num">0.29</td><td class="num">0.25</td><td class="num">0.29</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">Limits in W/㎡·K, matching the calculator's region list.</p>
+<p>Starting from gypsum 9.5mm + concrete 200mm, the XPS needed to meet each wall limit is:</p>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>Region (wall)</th><th class="num">Required R</th><th class="num">XPS minimum</th><th class="num">Suggested board</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>Central 1</b> 0.15</td><td class="num">6.667</td><td class="num">171.1 mm</td><td class="num">180 mm</td></tr>
+<tr><td><b>Central 2</b> 0.17</td><td class="num">5.882</td><td class="num">149.9 mm</td><td class="num">150 mm</td></tr>
+<tr><td><b>Southern</b> 0.22</td><td class="num">4.545</td><td class="num">113.8 mm</td><td class="num">120 mm</td></tr>
+<tr><td><b>Jeju</b> 0.29</td><td class="num">3.448</td><td class="num">84.2 mm</td><td class="num">90 mm</td></tr>
+</tbody></table></div>
+<p class="gtable-cap">Required R = 1 ÷ limit − (0.153 surface + 0.0528 gypsum + 0.125 concrete). Meeting the same wall limit with EPS takes 228mm in Central 1.</p>
+
+<h2>Condensation is decided by dew point versus surface temperature</h2>
+<p>Warm indoor air meeting a cold surface condenses when that surface drops below the <b>dew point</b>. The calculator compares the two numbers.</p>
+<div class="gex">
+<span class="gformula">T<sub>d</sub> = 243.12 × n ÷ (17.62 − n), &nbsp; n = ln(RH/100) + 17.62 × T<sub>i</sub> ÷ (243.12 + T<sub>i</sub>)</span>
+<span class="gformula">T<sub>s</sub> = T<sub>i</sub> − U × (T<sub>i</sub> − T<sub>o</sub>) × R<sub>si</sub></span>
+</div>
+<div class="gtable-wrap"><table class="gtable">
+<thead><tr><th>Build-up (wall)</th><th class="num">In / out</th><th class="num">RH</th><th class="num">U</th><th class="num">Surface</th><th class="num">Dew pt</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Gypsum 9.5 + concrete 200</td><td class="num">20 / −10℃</td><td class="num">60%</td><td class="num">3.023</td><td class="num">10.02℃</td><td class="num">12.00℃</td><td><b>Condenses</b></td></tr>
+<tr class="hl"><td>+ XPS 50mm</td><td class="num">20 / −10℃</td><td class="num">60%</td><td class="num">0.458</td><td class="num">18.49℃</td><td class="num">12.00℃</td><td>Safe</td></tr>
+<tr><td>+ XPS 100mm</td><td class="num">20 / 0℃</td><td class="num">50%</td><td class="num">0.248</td><td class="num">19.45℃</td><td class="num">9.26℃</td><td>Safe</td></tr>
+</tbody></table></div>
+<p>An uninsulated concrete wall at 20℃ indoors and 60% humidity drops to 10.02℃ at the surface — below the 12.00℃ dew point, so water beads on corners and window reveals. Adding just 50mm of XPS lifts the surface to 18.49℃ and the condensation disappears.</p>
+
+<figure class="gfig">
+<svg viewBox="0 0 470 190" role="img" aria-label="Wall section with the temperature gradient from 20 degrees inside to minus 10 outside">
+  <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">Wall section and temperature gradient (20℃ in → −10℃ out)</text>
+  <rect x="40" y="35" width="24" height="110" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <rect x="64" y="35" width="110" height="110" fill="#F1F1EF" stroke="#9CA3AF"/>
+  <rect x="174" y="35" width="70" height="110" fill="#DCE4EE" stroke="#1E3A5F"/>
+  <text x="52" y="160" font-size="8" text-anchor="middle" fill="#6B7280">gypsum</text>
+  <text x="119" y="160" font-size="8" text-anchor="middle" fill="#6B7280">concrete 200</text>
+  <text x="209" y="160" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">XPS 100</text>
+  <text x="30" y="30" font-size="9" fill="#1E3A5F" font-weight="700">inside</text>
+  <text x="250" y="30" font-size="9" fill="#6B7280" font-weight="700">outside</text>
+  <line x1="20" y1="52" x2="260" y2="120" stroke="#C0503F" stroke-width="1.6"/>
+  <circle cx="34" cy="53" r="3" fill="#C0503F"/>
+  <circle cx="250" cy="118" r="3" fill="#1E3A5F"/>
+  <text x="20" y="46" font-size="8.5" fill="#C0503F">19.45℃</text>
+  <text x="252" y="132" font-size="8.5" fill="#1E3A5F">−10℃</text>
+  <rect x="300" y="52" width="140" height="16" fill="#EEF3F8"/>
+  <line x1="300" y1="60" x2="440" y2="60" stroke="#E2E2E0" stroke-width="8"/>
+  <text x="370" y="86" font-size="8.5" text-anchor="middle" fill="#6B7280">Dew point 9.26℃ vs surface 19.45℃ → no condensation</text>
+  <text x="370" y="104" font-size="8" text-anchor="middle" fill="#6B7280">Without insulation the surface drops below the dew point</text>
+</svg>
+<figcaption>Heat flows through the layers and the temperature falls; if the inside surface ends below the dew point, that is where water forms.</figcaption>
+</figure>
+
+<h2>What site work usually misses</h2>
+<ul>
+<li><b>Thermal bridges</b>: a steel frame or slab penetrating the insulation can multiply the local U-value. The layer calculation assumes uniform layers, so bridge-break details are separate.</li>
+<li><b>Inside versus outside insulation</b>: internal insulation leaves the structure cold and prone to condensation; external insulation wraps it and reduces both bridging and condensation.</li>
+<li><b>Corners and frames</b>: flat areas can meet the limit while corners still condense first because their heat loss per surface area is higher.</li>
+<li><b>Air tightness</b>: good insulation with leaks still condenses wherever moist air reaches a cold surface. Tape and seal with the insulation.</li>
+</ul>
+
+<h2>Frequently asked</h2>
+<h3>How is U different from λ?</h3>
+<p>λ describes one material; U describes the whole assembly, including every layer and both surface films. A low-λ board in a thin or bridged wall can still give a poor U.</p>
+<h3>Does doubling insulation halve U?</h3>
+<p>Almost, but not exactly. Surface and other layer resistances are fixed, so doubling only the insulation does not double total R. Going from XPS 100 (U 0.248) to 200 gives 0.129 — slightly better than half.</p>
+<h3>Which conditions should I check condensation at?</h3>
+<p>The worst case: coldest outdoor air with the highest indoor humidity you expect. Try 20℃ inside, −10℃ outside and 60% RH, and check the surface stays above the dew point.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">Related calculators</p>
+  <a class="gcta" href="/en/calculators/uvalue.html">
+    <span class="gcta-ico">🏠</span>
+    <span class="gcta-txt"><span class="gcta-k">U-Value & Condensation Calculator</span><span class="gcta-n">U-value and dew point from layer build-up</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/en/guides/">← Back to all guides</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand">CalcLex</div>
+  <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
+  <div class="f-links">
+    <a href="/en/index.html">Home</a><a href="/en/guides/">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="f-copy">&copy; 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/en/fab-en.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

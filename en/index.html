@@ -53,6 +53,7 @@
       <a href="#" class="active" data-cat="all">All</a>
       <a href="#" data-cat="Engineering">Engineering</a>
       <a href="#" data-cat="Logistics">Logistics</a>
+      <a href="/en/guides/">Guides</a>
     </div>
   </div>
 </nav>
@@ -337,6 +338,7 @@
     const catOrder = window.CATEGORY_ORDER || [];
     navLinks.innerHTML = '<a href="#" class="active" data-cat="all">All</a>' +
       catOrder.map(c=>`<a href="#" data-cat="${c}">${c}</a>`).join('');
+    navLinks.insertAdjacentHTML('beforeend', '<a href="/en/guides/">Guides</a>');
     navLinks.querySelectorAll('a').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
