@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>Beam Bending Stress, Second Moment of Area and Torque | CALCLEX</title>
+<meta name="description" content="Separating force (N), stress (MPa) and moment (N·m), why I = bh³/12 grows eightfold when depth doubles, allowable stress and safety factor, and the torque / speed / power relationship.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beam Bending Stress, Second Moment of Area and Torque | CALCLEX">
+<meta property="og:description" content="Separating force (N), stress (MPa) and moment (N·m), why I = bh³/12 grows eightfold when depth doubles, allowable stress and safety factor, and the torque / speed / power relationship.">
+<meta property="og:url" content="https://calclex.com/en/guides/beam-stress-torque.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/en/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/beam-stress-torque.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/en/calculators-data-en.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Beam bending stress, second moment of area and torque",
+    "description": "Separating force (N), stress (MPa) and moment (N·m), why I = bh³/12 grows eightfold when depth doubles, allowable stress and safety factor, and the torque / speed / power relationship.",
+    "url": "https://calclex.com/en/guides/beam-stress-torque.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/en/guides/beam-stress-torque.html"
+    },
+    "inLanguage": "en",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "Bending stress, second moment of area, torque, safety factor",
+    "keywords": "bending stress, stress, second moment of area, section modulus, torque, safety factor, allowable stress, beam design, MPa, 9550"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calclex.com/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://calclex.com/en/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Beam bending stress, second moment of area and torque",
+        "item": "https://calclex.com/en/guides/beam-stress-torque.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="brand brand-caps">CalcLex</a>
+    <div class="nav-links">
+      <a href="/en/index.html#Unit Converter">Unit Converter</a>
+      <a href="/en/index.html#Engineering">Engineering</a>
+      <a href="/en/index.html#General">General</a>
+      <a href="/en/index.html#Everyday">Everyday</a>
+      <a href="/en/index.html#Finance">Finance</a>
+      <a href="/en/index.html#Logistics">Logistics</a>
+      <a href="/en/guides/" class="active">Guides</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/en/index.html">Home</a> › <a href="/en/guides/">Guides</a> › <span>Beam bending stress, second moment of area and torque</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">Design & Build</span>
+  <h1 class="page-title">Beam bending stress, second moment of area and torque</h1>
+  <p class="page-desc">Separating force (N), stress (MPa) and moment (N·m), why I = bh³/12 grows eightfold when depth doubles, allowable stress and safety factor, and the torque / speed / power relationship.</p>
+  <p class="gmeta-top">Nov 26, 2026 · Design & Build · 10 min read</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">Most design-check errors are not arithmetic. They are <b>unit mix-ups</b>. Force (N), stress (MPa) and moment (N·m) look alike and behave completely differently, and the second moment of area reacts to depth cubed. This guide reproduces the calculator's own formulas by hand and shows where a factor of 1,000 appears.</p>
+
+<h2>Force, stress and moment are three different quantities</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>Quantity</th><th>Symbol</th><th>Unit</th><th>Meaning</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td><b>Force</b></td><td>F</td><td class="num">N</td><td>Push or pull</td><td class="num">5,000 N</td></tr>
+    <tr><td><b>Stress</b></td><td>σ, τ</td><td class="num">MPa = N/mm²</td><td>Force carried by each mm² of section</td><td class="num">10 MPa</td></tr>
+    <tr><td><b>Moment</b></td><td>M</td><td class="num">N·mm or N·m</td><td>Rotational effect of a force</td><td class="num">500,000 N·mm</td></tr>
+    <tr><td><b>Torque</b></td><td>T</td><td class="num">N·m</td><td>Moment turning a shaft</td><td class="num">30.01 N·m</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">1 MPa is exactly 1 N/mm². 1 kgf/cm² = 98,066.5 Pa = 0.098 MPa and 1 psi = 6,894.76 Pa.</p>
+
+<div class="gex">
+  <p>Axial load (tension or compression)</p>
+  <span class="gformula">σ = F ÷ A</span>
+  <ul>
+    <li>F = 5,000 N, A = 500 mm² → <b>10 MPa</b></li>
+    <li>to kgf/cm²: 10 × 10⁶ ÷ 98,066.5 = <b>101.97 kgf/cm²</b></li>
+    <li>to psi: 10 × 10⁶ ÷ 6,894.76 = <b>1,450 psi</b></li>
+  </ul>
+  <p>Bending</p>
+  <span class="gformula">σ<sub>b</sub> = M ÷ Z</span>
+  <ul>
+    <li>M = 500,000 N·mm, Z = 5,000 mm³ → <b>100 MPa</b></li>
+    <li>Entering M = 500 N·m instead gives 0.1 MPa — <b>1,000 times smaller</b>.</li>
+  </ul>
+</div>
+<p>The second case is the dangerous one. Z is in mm³, so M must be in <b>N·mm</b>. A moment typed in N·m produces a stress 1,000 times too small and a design that looks comfortably safe.</p>
+
+<h2>The second moment of area follows depth cubed</h2>
+<p>For a rectangle, I = bh³/12 and Z = bh²/6. Doubling the width doubles I, but <b>doubling the depth multiplies I by 8 and Z by 4</b>. That is why the same material performs so differently upright and flat.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>Rectangular section</th><th class="num">Area A</th><th class="num">I = bh³/12</th><th class="num">Z = bh²/6</th><th class="num">Radius k</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td><b>50 × 100</b> upright</td><td class="num">5,000 mm²</td><td class="num">4,166,667 mm⁴</td><td class="num">83,333 mm³</td><td class="num">28.87 mm</td></tr>
+    <tr><td><b>100 × 50</b> flat</td><td class="num">5,000 mm²</td><td class="num">1,041,667 mm⁴</td><td class="num">41,667 mm³</td><td class="num">14.43 mm</td></tr>
+    <tr><td><b>50 × 200</b> depth doubled</td><td class="num">10,000 mm²</td><td class="num">33,333,333 mm⁴</td><td class="num">333,333 mm³</td><td class="num">57.74 mm</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">Laying the same 50×100 on its side cuts I to a quarter and multiplies deflection by 4 (δ ∝ 1/I). Doubling the depth multiplies I by 8 and Z by 4.</p>
+<p>The practical reading is simple: equal area does not mean equal strength. I measures how far the material sits from the neutral axis, which is exactly why an I-beam concentrates steel in the top and bottom flanges and keeps the web thin.</p>
+
+<h2>Formulas and worked values by shape</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>Shape</th><th>Formula</th><th class="num">Example</th><th class="num">I</th><th class="num">Z</th></tr></thead>
+  <tbody>
+    <tr><td><b>Circle</b> d = 50</td><td>I = πd⁴/64, Z = πd³/32</td><td class="num">A 1,963.5 mm²</td><td class="num">306,796 mm⁴</td><td class="num">12,272 mm³</td></tr>
+    <tr><td><b>Pipe</b> D 60, d 50</td><td>I = π(D⁴−d⁴)/64, Z = I/(D/2)</td><td class="num">A 863.9 mm²</td><td class="num">329,376 mm⁴</td><td class="num">10,979 mm³</td></tr>
+    <tr class="hl"><td><b>I-beam</b> B100·H200·tw8·tf12</td><td>I ≈ (BH³−(B−tw)hw³)/12</td><td class="num">hw = 176 mm, A 3,808 mm²</td><td class="num">24,869,717 mm⁴</td><td class="num">248,697 mm³</td></tr>
+    <tr><td><b>Triangle</b> b 60, h 80</td><td>I = bh³/36 about the centroid</td><td class="num">A 2,400 mm²</td><td class="num">853,333 mm⁴</td><td class="num">16,000 mm³</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">The I-beam expression is an approximation that ignores fillets; use rolled-section tables for real members. The triangle is taken about its centroid axis, h/3 above the base.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 200" role="img" aria-label="The same 50 by 100 section upright gives four times the second moment of area of the flat orientation, and the relation between torque, power and speed">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">1. Upright versus flat (same area)</text>
+    <rect x="30" y="34" width="46" height="92" fill="#1E3A5F" stroke="#12263D"/>
+    <text x="53" y="140" font-size="8" text-anchor="middle" fill="#6B7280">b50 × h100</text>
+    <text x="53" y="152" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">I 4.17×10⁶</text>
+    <text x="88" y="84" font-size="9" fill="#9CA3AF">vs</text>
+    <rect x="104" y="64" width="92" height="46" fill="#6B7280" stroke="#4B5563"/>
+    <text x="150" y="140" font-size="8" text-anchor="middle" fill="#6B7280">b100 × h50</text>
+    <text x="150" y="152" font-size="8" text-anchor="middle" fill="#6B7280" font-weight="700">I 1.04×10⁶</text>
+    <line x1="20" y1="112" x2="106" y2="112" stroke="#C0503F" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="212" y="88" font-size="9" fill="#6B7280">lower depth → 4× deflection</text>
+    <line x1="240" y1="30" x2="240" y2="168" stroke="#E2E2E0"/>
+    <text x="256" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">2. Torque links power and speed</text>
+    <circle cx="322" cy="82" r="26" fill="none" stroke="#1E3A5F" stroke-width="2.4"/>
+    <circle cx="322" cy="82" r="5" fill="#1E3A5F"/>
+    <path d="M344 66 a26 26 0 0 1 6 20" fill="none" stroke="#C0503F" stroke-width="2"/>
+    <path d="M350 84 l3 -7 -7 2" fill="#C0503F"/>
+    <text x="322" y="124" font-size="8" text-anchor="middle" fill="#6B7280">shaft</text>
+    <rect x="360" y="52" width="100" height="58" rx="8" fill="#EEF3F8" stroke="#B9CCDE"/>
+    <text x="410" y="70" font-size="8.5" text-anchor="middle" fill="#1E3A5F" font-weight="700">T = 9550 P / N</text>
+    <text x="410" y="84" font-size="8" text-anchor="middle" fill="#6B7280">P 5.5kW · N 1750rpm</text>
+    <text x="410" y="99" font-size="9" text-anchor="middle" fill="#1E3A5F" font-weight="700">T 30.01 N·m</text>
+    <text x="256" y="136" font-size="8" fill="#6B7280">halve the speed and torque</text>
+    <text x="256" y="150" font-size="8" fill="#6B7280">doubles at constant power</text>
+    <text x="256" y="164" font-size="8" fill="#6B7280">gear 20:60 → 3× output torque</text>
+  </svg>
+  <figcaption>Left: section orientation changes I fourfold at equal area. Right: power, speed and torque move inversely when one is held fixed.</figcaption>
+</figure>
+
+<h2>Allowable stress and safety factor set the usable limit</h2>
+<p>A calculated stress needs a limit to compare against. That limit is the yield (or tensile) strength divided by a safety factor.</p>
+<div class="gex">
+  <span class="gformula">σ<sub>allow</sub> = σ<sub>y</sub> ÷ SF</span>
+  <ul>
+    <li>Structural steel SS400: yield strength <b>245 MPa</b> (KS D 3503)</li>
+    <li>SF 1.5 → 163 MPa · SF 2.0 → 122.5 MPa · SF 3.0 → 81.7 MPa</li>
+    <li>A working stress of 100 MPa means SF = 245 ÷ 100 = <b>2.45</b></li>
+    <li>If the specification demands SF 3, a 100 MPa stress needs a material above 300 MPa.</li>
+  </ul>
+  <p class="gres">Static structures commonly use 1.5–2; cyclic, shock or vibrating loads commonly use 3 or more.</p>
+</div>
+<p>The safety factor is not padding. It bundles load-estimate error, material scatter, fatigue, corrosion and fabrication tolerance into one number, which is why repeated loading calls for a larger value than a static case.</p>
+
+<h2>Torque, speed and power: know one, get the other two</h2>
+<p>For a rotating shaft, power P (kW), speed N (rpm) and torque T (N·m) are locked together. The constant 9550 comes from 60,000 ÷ 2π (60 seconds per minute, 2π radians per revolution).</p>
+<div class="gex">
+  <span class="gformula">T[N·m] = 9550 × P[kW] ÷ N[rpm] &nbsp;|&nbsp; P = T × N ÷ 9550 &nbsp;|&nbsp; ω = 2πN ÷ 60</span>
+  <ul>
+    <li>P 5.5 kW at 1,750 rpm → 9550 × 5.5 ÷ 1750 = <b>30.01 N·m</b> = 3.06 kgf·m</li>
+    <li>Angular velocity ω = 2π × 1750 ÷ 60 = <b>183.26 rad/s</b></li>
+    <li>Gear Z₁ 20 → Z₂ 60: ratio 3 → output 583.3 rpm, torque <b>90.04 N·m</b> at 100% efficiency, 85.54 N·m at 95%</li>
+    <li>Power labels: 5.5 kW = 7.38 HP = 7.48 PS</li>
+  </ul>
+</div>
+<p>A 3:1 reduction triples the torque but leaves power unchanged apart from losses. Mixing HP (0.7457 kW) with PS (0.7355 kW) introduces a 1–2% error, so read the motor nameplate unit before converting.</p>
+
+<h2>Top 6 things people get wrong</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>Misconception</th><th>Correct basis</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>Treating force (N) and stress (MPa) as the same</td><td>Stress = force ÷ area. 5,000 N is a force; 10 MPa is what it produces over 500 mm².</td></tr>
+    <tr><td class="num">2</td><td>Dividing a moment in N·m by Z in mm³</td><td>The stress comes out <b>1,000 times low</b>. Convert M to N·mm.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>"Same area, same strength"</td><td>I follows <b>depth cubed</b>. Flat orientation cuts I to a quarter and quadruples deflection.</td></tr>
+    <tr><td class="num">4</td><td>Using I and Z interchangeably</td><td>I governs deflection (stiffness), Z governs stress (strength). For one section, Z = I ÷ (h/2).</td></tr>
+    <tr><td class="num">5</td><td>"High torque means high power"</td><td>Power = torque × speed. A low-speed, high-torque drive can draw less power than a fast one.</td></tr>
+    <tr><td class="num">6</td><td>Comparing stress with yield strength directly</td><td>240 MPa on a 245 MPa steel is SF 1.02 — effectively a fail, not a pass.</td></tr>
+  </tbody></table></div>
+
+<h2>Practical notes</h2>
+<ul>
+  <li><b>Work in mm, N and MPa.</b> Starting in that unit set gives stress in MPa with no conversion. The calculator has unit selectors — check them before typing.</li>
+  <li><b>Check deflection separately.</b> A member can pass on stress and still vibrate. Raising I is the most direct way to cut deflection.</li>
+  <li><b>Check buckling for compression members.</b> Long struts fail by buckling before stress. Use the radius of gyration k to get the slenderness ratio λ = L/k.</li>
+  <li><b>Use section tables for real profiles.</b> The I-beam expression here is an approximation; rolled H-sections have tabulated I and Z.</li>
+</ul>
+
+<h2>Frequently asked</h2>
+<h3>Is MPa different from N/mm²?</h3>
+<p>They are the same unit. 1 Pa = 1 N/m², so 1 MPa = 10⁶ Pa = 1 N/mm². That is why F (N) ÷ A (mm²) already reads in MPa.</p>
+<h3>Where is the section modulus used?</h3>
+<p>In bending stress, σ = M/Z. A larger Z lowers stress for the same moment. Use I for deflection and Z for stress.</p>
+<h3>How big is 30 N·m?</h3>
+<p>It is the torque of a 5.5 kW motor at 1,750 rpm — roughly 300 N (30 kgf) applied at a 0.1 m radius.</p>
+<h3>Why does a gearbox increase torque?</h3>
+<p>Power is conserved while speed drops. A 3:1 reduction triples the torque, minus gearbox efficiency, which the calculator assumes at 95% for 85.54 N·m.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">Related calculators</p>
+  <a class="gcta" href="/en/calculators/stress.html">
+    <span class="gcta-ico">📐</span>
+    <span class="gcta-txt"><span class="gcta-k">Stress Calculator</span><span class="gcta-n">Tension, compression, shear and bending with unit conversion</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/en/calculators/moment.html">
+    <span class="gcta-ico">📏</span>
+    <span class="gcta-txt"><span class="gcta-k">Second Moment of Area Calculator</span><span class="gcta-n">I, Z and radius of gyration by shape</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/en/calculators/torque.html">
+    <span class="gcta-ico">⚙️</span>
+    <span class="gcta-txt"><span class="gcta-k">Torque Calculator</span><span class="gcta-n">Torque from power and speed, gearbox output</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/en/guides/">← Back to all guides</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand">CalcLex</div>
+  <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
+  <div class="f-links">
+    <a href="/en/index.html">Home</a><a href="/en/guides/">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="f-copy">&copy; 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/en/fab-en.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

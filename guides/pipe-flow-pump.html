@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>배관 구경·유속과 펌프 동력 선정 기초 | CALCLEX</title>
+<meta name="description" content="호칭경과 실제 내경의 차이, Q=Av에서 관경 2배가 유속 1/4·손실 1/31이 되는 원리, 레이놀즈수와 마찰계수, 수동력과 축동력·전동기 용량 선정을 계산기 수치로 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="배관 구경·유속과 펌프 동력 선정 기초 | CALCLEX">
+<meta property="og:description" content="호칭경과 실제 내경의 차이, Q=Av에서 관경 2배가 유속 1/4·손실 1/31이 되는 원리, 레이놀즈수와 마찰계수, 수동력과 축동력·전동기 용량 선정을 계산기 수치로 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/pipe-flow-pump.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/pipe-flow-pump.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "배관 구경·유속과 펌프 동력 선정 기초",
+    "description": "호칭경과 실제 내경의 차이, Q=Av에서 관경 2배가 유속 1/4·손실 1/31이 되는 원리, 레이놀즈수와 마찰계수, 수동력과 축동력·전동기 용량 선정을 계산기 수치로 정리합니다.",
+    "url": "https://calclex.com/guides/pipe-flow-pump.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/pipe-flow-pump.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "배관 유속, 마찰손실, 펌프 동력",
+    "keywords": "배관 구경, 호칭경, DN, 유속, 유량, 레이놀즈수, 마찰손실, 펌프 동력, 축동력, 전양정, 비속도"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "배관 구경·유속과 펌프 동력 선정 기초",
+        "item": "https://calclex.com/guides/pipe-flow-pump.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>배관 구경·유속과 펌프 동력 선정 기초</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">설계·건축</span>
+  <h1 class="page-title">배관 구경·유속과 펌프 동력 선정 기초</h1>
+  <p class="page-desc">호칭경과 실제 내경의 차이, Q=Av에서 관경 2배가 유속 1/4·손실 1/31이 되는 원리, 레이놀즈수와 마찰계수, 수동력과 축동력·전동기 용량 선정을 계산기 수치로 정리합니다.</p>
+  <p class="gmeta-top">2026-11-26 · 설계·건축 · 읽기 약 9분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">"50A 배관이니까 내경 50mm"라고 계산하면 손실이 20% 이상 어긋날 수 있어요. 호칭경은 이름일 뿐이고 실제 내경은 스케줄(두께)에 따라 달라지거든요. 이 글은 유속·손실·펌프 동력이 어떤 순서로 계산되는지, 관경을 2배로 키우면 무엇이 얼마나 좋아지는지 계산기 수치로 정리합니다.</p>
+
+<h2>유량이 정해지면 유속은 단면적으로 결정돼요</h2>
+<div class="gex">
+  <span class="gformula">Q = A × V &nbsp;|&nbsp; A = πD² ÷ 4</span>
+  <ul>
+    <li>D = 100mm(0.1m) → A = π × 0.01 ÷ 4 = <b>0.007854 ㎡</b></li>
+    <li>Q = 50 ㎥/h = 0.013889 ㎥/s → V = 0.013889 ÷ 0.007854 = <b>1.768 m/s</b></li>
+    <li>같은 유량에서 D = 200mm → V = <b>0.442 m/s</b> (정확히 1/4)</li>
+    <li>같은 유량에서 D = 50mm → V = <b>7.074 m/s</b> (4배)</li>
+  </ul>
+</div>
+<p>관경이 2배가 되면 단면적은 4배, 유속은 1/4이 돼요. 유속이 낮아지면 마찰손실이 급격히 줄어서, 같은 50㎥/h를 보낼 때 100m당 손실수두가 <b>2.997m → 0.097m</b>로 약 1/31이 됩니다. 손실은 유속의 제곱에 반비례하기 때문이에요.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>관 내경</th><th class="num">단면적</th><th class="num">유속 (Q=50㎥/h)</th><th class="num">레이놀즈수</th><th class="num">100m당 손실수두</th><th class="num">압력강하</th></tr></thead>
+  <tbody>
+    <tr><td><b>50mm</b></td><td class="num">0.00196 ㎡</td><td class="num">7.074 m/s</td><td class="num">352,336</td><td class="num">102.23 m</td><td class="num">1,000.7 kPa</td></tr>
+    <tr class="hl"><td><b>100mm</b></td><td class="num">0.00785 ㎡</td><td class="num">1.768 m/s</td><td class="num">176,168</td><td class="num">2.997 m</td><td class="num">29.34 kPa</td></tr>
+    <tr><td><b>200mm</b></td><td class="num">0.03142 ㎡</td><td class="num">0.442 m/s</td><td class="num">88,084</td><td class="num">0.097 m</td><td class="num">0.95 kPa</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">물 20℃(ρ 998.2, μ 0.001002), 강관 조도 0.045mm, 길이 100m 기준이에요. 계산기의 기본값과 같은 조건입니다.</p>
+<p>50mm로 50㎥/h를 보내면 100m당 102m의 손실이 생겨요. 사실상 불가능한 배관이라, 실무에서는 <b>유속을 먼저 정하고 관경을 역산</b>하는 순서로 설계합니다.</p>
+
+<h2>권장 유속은 "소음과 침식"이 정해요</h2>
+<p>계산기 안내에도 있듯이 급수 1~2 m/s, 배수 0.6~1.5 m/s, 증기 20~40 m/s가 일반적인 범위예요. 2.5 m/s를 넘으면 소음과 배관 침식(erosion) 우려가 커집니다.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>용도</th><th class="num">권장 유속</th><th>초과했을 때</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>급수(급탕 포함)</td><td class="num">1 ~ 2 m/s</td><td>수격(워터해머)·소음·밸브 마모</td></tr>
+    <tr><td>배수</td><td class="num">0.6 ~ 1.5 m/s</td><td>고형물 퇴적(너무 느릴 때) / 소음(빠를 때)</td></tr>
+    <tr><td>증기</td><td class="num">20 ~ 40 m/s</td><td>압력손실·배관 진동·침식</td></tr>
+    <tr><td>냉각수·순환수</td><td class="num">1.5 ~ 2.5 m/s</td><td>열교환기 관 부식 가속</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">계산기 안내 문구와 같은 기준이에요. 2.5 m/s 초과는 배관 수명에 직접 영향을 줍니다.</p>
+
+<h2>레이놀즈수로 흐름의 성격을 먼저 봐요</h2>
+<p>레이놀즈수 Re는 관성력과 점성력의 비율이에요. 계산기는 Re &lt; 2,300을 층류, 2,300~4,000을 천이영역, 그 이상을 난류로 표시하고, 마찰계수는 층류에서 64/Re, 난류에서 Colebrook 식을 반복 계산해 구해요.</p>
+<div class="gex">
+  <span class="gformula">Re = ρ × V × D ÷ μ</span>
+  <ul>
+    <li>물 20℃, D 0.1m, V 1.768 m/s → 998.2 × 1.768 × 0.1 ÷ 0.001002 = <b>176,168</b> (난류)</li>
+    <li>마찰계수 f = <b>0.0188</b> (Colebrook 반복해)</li>
+    <li>손실수두 h<sub>f</sub> = f × (L/D) × V² ÷ (2g) = 0.0188 × 1,000 × 3.126 ÷ 19.613 = <b>2.997 m</b></li>
+    <li>압력강하 ΔP = ρ × g × h<sub>f</sub> = 998.2 × 9.80665 × 2.997 = <b>29.34 kPa</b> (≈ 0.299 kgf/㎠)</li>
+  </ul>
+</div>
+<p>같은 100mm 관에 유량을 10㎥/h로 줄이면 V 0.354 m/s, Re 35,234로 여전히 난류지만 손실은 100m당 <b>0.152m</b>로 줄어요. 유량이 1/5이면 손실은 약 1/20이 됩니다.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 200" role="img" aria-label="같은 유량에서 관경이 2배가 되면 단면적은 4배, 유속은 4분의 1, 손실수두는 약 31분의 1로 줄어드는 모습">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">같은 유량 50㎥/h, 관경만 2배로</text>
+    <rect x="26" y="46" width="26" height="26" fill="#1E3A5F"/>
+    <path d="M52 59 h34" stroke="#9CA3AF" stroke-width="1.4"/>
+    <path d="M80 55 l8 4 -8 4" fill="none" stroke="#9CA3AF" stroke-width="1.4"/>
+    <rect x="92" y="36" width="52" height="52" fill="#1E3A5F" opacity="0.55"/>
+    <text x="39" y="90" font-size="8" text-anchor="middle" fill="#6B7280">D 50</text>
+    <text x="118" y="90" font-size="8" text-anchor="middle" fill="#6B7280">D 100</text>
+    <text x="39" y="34" font-size="8" text-anchor="middle" fill="#C0503F">V 7.07</text>
+    <text x="118" y="28" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">V 1.77</text>
+    <text x="180" y="52" font-size="8.5" fill="#6B7280">A 4배</text>
+    <text x="180" y="66" font-size="8.5" fill="#6B7280">V 1/4</text>
+    <text x="180" y="80" font-size="8.5" fill="#C0503F">손실 1/31</text>
+    <line x1="10" y1="112" x2="460" y2="112" stroke="#E2E2E0"/>
+    <text x="10" y="132" font-size="10.5" font-weight="700" fill="#1E3A5F">전양정은 세 가지를 더해요 (Q 1㎥/min · 30m)</text>
+    <rect x="10" y="144" width="96" height="20" rx="4" fill="#1E3A5F"/>
+    <text x="58" y="157" font-size="8" text-anchor="middle" fill="#FFFFFF">실양정 20m</text>
+    <rect x="10" y="168" width="30" height="20" rx="4" fill="#3F6690"/>
+    <text x="58" y="182" font-size="8" fill="#6B7280">+ 손실 6m</text>
+    <rect x="112" y="144" width="48" height="20" rx="4" fill="#6B7280"/>
+    <text x="136" y="157" font-size="8" text-anchor="middle" fill="#FFFFFF">압력 4m</text>
+    <text x="168" y="157" font-size="9" fill="#9CA3AF">=</text>
+    <text x="182" y="157" font-size="9" fill="#1E3A5F" font-weight="700">H 30m</text>
+    <text x="230" y="146" font-size="8.5" fill="#6B7280">수동력 1000×1×30÷6120 = 4.902 kW</text>
+    <text x="230" y="160" font-size="8.5" fill="#6B7280">÷ 효율 75% → 축동력 6.536 kW</text>
+    <text x="230" y="174" font-size="8.5" fill="#1E3A5F" font-weight="700">× 여유율 1.15 → 7.516 → 전동기 7.5 kW</text>
+  </svg>
+  <figcaption>왼쪽: 관경이 커지면 유속이 떨어져 손실이 급감해요. 오른쪽: 펌프 동력은 전양정 → 수동력 → 축동력 → 전동기 순서로 키워 갑니다.</figcaption>
+</figure>
+
+<h2>펌프 동력은 네 단계로 커져요</h2>
+<div class="gex">
+  <span class="gformula">수동력 L<sub>w</sub> = γ × Q × H ÷ 6120 &nbsp;[kW] &nbsp;|&nbsp; 축동력 L<sub>s</sub> = L<sub>w</sub> ÷ η &nbsp;|&nbsp; 전동기 = L<sub>s</sub> × K</span>
+  <ul>
+    <li>Q 1 ㎥/min, H 30m, γ 1,000 kgf/㎥ → L<sub>w</sub> = 1000 × 1 × 30 ÷ 6120 = <b>4.902 kW</b> (6.665 PS)</li>
+    <li>효율 75% → L<sub>s</sub> = 4.902 ÷ 0.75 = <b>6.536 kW</b> (8.886 PS)</li>
+    <li>여유율 K 1.15 → 6.536 × 1.15 = <b>7.516 kW</b> → 표준 전동기 <b>7.5 kW</b> 선정</li>
+    <li>비속도 N<sub>s</sub> = 1750 × √1 ÷ 30<sup>0.75</sup> = <b>136.5</b> → 원심(볼류트)형</li>
+  </ul>
+  <p class="gres">수동력 4.9kW짜리 일을 시키는데 전동기 7.5kW를 다는 이유가 여기 있어요. 효율 75%와 여유 15%가 붙기 때문이에요.</p>
+</div>
+<p>상수 6120은 단위에서 나와요. 1 kW = 102 kgf·m/s이고 1분은 60초라서 102 × 60 = 6,120이에요. Q를 ㎥/min으로 넣는 이유도 여기 있습니다. 유량을 ㎥/h로 알고 있다면 60으로 나눠 넣으세요.</p>
+<p>비속도는 펌프 형식을 가르는 지표예요. 계산기는 250 미만을 원심(볼류트), 450 미만을 원심(터빈), 1,000 미만을 사류, 그 이상을 축류로 표시합니다. 양흡입(2)을 선택하면 유량이 절반으로 들어가 비속도가 낮아져요.</p>
+<p>회전수를 10% 올리면 상사법칙으로 <b>유량 10%, 양정 21%, 동력 33.1%</b>가 늘어나요. 인버터로 속도를 조절할 때 동력이 세제곱으로 반응한다는 점이 중요합니다.</p>
+
+<h2>많이 헷갈리는 개념 TOP 6</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>헷갈리는 지점</th><th>정확한 기준</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>50A 배관의 내경이 50mm</td><td>호칭경은 이름이에요. 외경은 약 60.5mm로 고정이고, 두께(Sch)에 따라 내경이 달라져요. 계산은 <b>실제 내경</b>으로.</td></tr>
+    <tr><td class="num">2</td><td>관경 2배면 유속도 절반</td><td>단면적이 4배라 유속은 <b>1/4</b>이에요.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>유량과 유속을 같은 것으로 봄</td><td>유량은 ㎥/h(양), 유속은 m/s(빠르기)예요. 관경이 다르면 같은 유량도 유속이 달라요.</td></tr>
+    <tr><td class="num">4</td><td>전양정에 마찰손실을 빼먹음</td><td>전양정 = 실양정 + 마찰손실 + 압력수두(+속도수두). 손실을 빼면 동력이 과소 산정돼요.</td></tr>
+    <tr><td class="num">5</td><td>수동력 = 전동기 용량</td><td>효율(÷η)과 여유율(×K)이 붙어 1.5배 안팎으로 커져요.</td></tr>
+    <tr><td class="num">6</td><td>회전수 10% 올리면 동력도 10%</td><td>동력은 <b>세제곱</b>에 비례해 33.1% 늘어요.</td></tr>
+  </tbody></table></div>
+
+<h2>실무 팁</h2>
+<ul>
+  <li><b>유속 1.5 m/s를 기준으로 관경을 잡으세요.</b> 급수 배관에서 무난한 출발점이에요. 계산기에 유량과 관경을 넣어 유속이 2 m/s를 넘지 않는지 확인하면 됩니다.</li>
+  <li><b>조도(ε)를 확인하세요.</b> 계산기 기본값은 강관 0.045mm예요. 스테인리스 0.015, PVC 0.0015, 주철 0.26mm처럼 재질에 따라 크게 달라져요.</li>
+  <li><b>엘보·밸브 손실은 따로 더하세요.</b> 계산기는 직관 손실만 계산해요. 실제 배관은 엘보·밸브의 부차적 손실이 전체의 20~40%를 차지하는 경우도 있어요.</li>
+  <li><b>NPSH는 별도 검토예요.</b> 펌프가 물을 빨아올리는 높이(흡입양정)와 수온에 따른 포화증기압을 함께 봐야 캐비테이션을 피할 수 있어요.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<h3>관경을 2배로 키우면 전기료가 1/8이 되나요?</h3>
+<p>손실이 약 1/31로 줄어드는 것은 맞지만, 전기료 전체가 그 비율로 줄지는 않아요. 펌프 효율·운전점·실제 필요한 양정이 함께 바뀌기 때문에, 계산기로 축동력을 다시 구해 비교하는 게 정확해요.</p>
+<h3>유속 2.5 m/s가 왜 위험한가요?</h3>
+<p>소음이 커지고, 배관 벽면의 부식(침식)이 빨라지며, 밸브·엘보에 충격이 집중돼요. 수격(워터해머)이 발생하면 배관 파손으로 이어질 수 있습니다.</p>
+<h3>양흡입 펌프는 왜 비속도가 낮아지나요?</h3>
+<p>임펠러 양쪽에서 물을 받아 유량이 절반씩 나뉘기 때문이에요. 계산기는 양흡입 선택 시 Q를 2로 나눠 비속도를 계산합니다.</p>
+<h3>전양정에 속도수두도 넣어야 하나요?</h3>
+<p>토출 측 속도수두(V²/2g)는 손실과 함께 더하는 것이 정확해요. 저유속 배관에서는 작아서 무시하는 경우도 있지만, 고유속이면 무시할 수 없습니다.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/pipe.html">
+    <span class="gcta-ico">🚰</span>
+    <span class="gcta-txt"><span class="gcta-k">배관 유속·손실 계산기</span><span class="gcta-n">유속·레이놀즈수·마찰손실·압력강하</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/pump.html">
+    <span class="gcta-ico">🌀</span>
+    <span class="gcta-txt"><span class="gcta-k">펌프 동력 계산기</span><span class="gcta-n">수동력·축동력·전동기 용량과 비속도</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

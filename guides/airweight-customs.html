@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>항공 부피무게(CW)와 관부가세 기준 총정리 | CALCLEX</title>
+<meta name="description" content="실중량과 부피무게 중 큰 값이 청구중량이 되는 원리, 항공 ÷6000과 특송 ÷5000의 차이, CIF 과세가격과 $150·$200 면세 판정, CBM과 kg 환산 혼동까지 계산기와 같은 수치로 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="항공 부피무게(CW)와 관부가세 기준 총정리 | CALCLEX">
+<meta property="og:description" content="실중량과 부피무게 중 큰 값이 청구중량이 되는 원리, 항공 ÷6000과 특송 ÷5000의 차이, CIF 과세가격과 $150·$200 면세 판정, CBM과 kg 환산 혼동까지 계산기와 같은 수치로 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/airweight-customs.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/airweight-customs.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/airweight-customs.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/airweight-customs.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/airweight-customs.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "항공 부피무게(CW)와 관부가세 기준 총정리",
+    "description": "실중량과 부피무게 중 큰 값이 청구중량이 되는 원리, 항공 ÷6000과 특송 ÷5000의 차이, CIF 과세가격과 $150·$200 면세 판정, CBM과 kg 환산 혼동까지 계산기와 같은 수치로 정리합니다.",
+    "url": "https://calclex.com/guides/airweight-customs.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/airweight-customs.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "항공 부피무게, 청구중량, 관부가세, 면세 한도",
+    "keywords": "부피무게, 부피중량, 청구중량, C/W, 항공운임, 특송 운임, 관부가세, 면세한도, 목록통관, CIF, CBM"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "항공 부피무게(CW)와 관부가세 기준 총정리",
+        "item": "https://calclex.com/guides/airweight-customs.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>항공 부피무게(CW)와 관부가세 기준 총정리</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">물류·무역</span>
+  <h1 class="page-title">항공 부피무게(CW)와 관부가세 기준 총정리</h1>
+  <p class="page-desc">실중량과 부피무게 중 큰 값이 청구중량이 되는 원리, 항공 ÷6000과 특송 ÷5000의 차이, CIF 과세가격과 $150·$200 면세 판정, CBM과 kg 환산 혼동까지 계산기와 같은 수치로 정리합니다.</p>
+  <p class="gmeta-top">2026-11-26 · 물류·무역 · 읽기 약 9분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">항공으로 물건을 보내면 <b>무게로 운임을 매기는데, 저울에 올린 무게가 아니라 부피를 무게로 바꾼 값</b>이 기준이 될 때가 많아요. 가벼운데 부피가 큰 물건(의류·완구·쿠션재)이 대표적이에요. 이 글은 청구중량이 정해지는 순서, 항공과 특송의 환산 계수 차이, 그리고 통관에서 많이 틀리는 과세가격 구조를 계산기와 같은 수치로 정리합니다.</p>
+
+<h2>청구중량은 "둘 중 큰 값"이에요</h2>
+<p>항공 운임은 세 가지 무게를 구분해요. 계산기도 이 순서 그대로 계산합니다.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>구분</th><th>뜻</th><th>계산</th><th class="num">예 (60×50×40cm, 15kg 1박스)</th></tr></thead>
+  <tbody>
+    <tr><td><b>실중량</b> G/W</td><td>저울에 올린 실제 무게</td><td>박스당 중량 × 수량</td><td class="num">15.0 kg</td></tr>
+    <tr><td><b>부피무게</b> V/W</td><td>부피를 무게로 환산한 값</td><td>가로×세로×높이(cm³) ÷ 6,000</td><td class="num">20.0 kg</td></tr>
+    <tr class="hl"><td><b>청구중량</b> C/W</td><td>운임이 매겨지는 무게</td><td>max(G/W, V/W) → 0.5kg 단위 올림</td><td class="num"><b>20.0 kg</b></td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">부피무게가 실중량보다 크면 부피무게가, 작으면 실중량이 청구중량이 돼요. 둘을 더하는 것이 아니에요.</p>
+
+<div class="gex">
+  <span class="gformula">부피무게(V/W) = 가로 × 세로 × 높이 × 수량 ÷ 6,000 &nbsp;(항공)</span>
+  <span class="gformula">청구중량(C/W) = max(실중량, 부피무게) → 0.5kg 올림</span>
+  <ul>
+    <li>60×50×40cm → 120,000cm³</li>
+    <li>120,000 ÷ 6,000 = <b>20.0 kg</b> (부피무게)</li>
+    <li>실중량 15.0kg &lt; 20.0kg → 청구중량 <b>20.0 kg</b></li>
+  </ul>
+  <p class="gres">같은 박스를 특송(÷5,000)으로 보내면 24.0 kg — 4kg, 20% 더 무겁게 청구돼요.</p>
+</div>
+
+<h2>÷6,000과 ÷5,000은 20% 차이예요</h2>
+<p>항공 일반 화물은 6,000㎤를 1kg으로 보고, DHL·FedEx 같은 국제특송은 주로 5,000㎤를 1kg으로 봐요. 분모가 작을수록 부피무게가 커지니까, 같은 박스라도 특송이 더 무겁게 나옵니다.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>항목</th><th class="num">항공 (÷6,000)</th><th class="num">국제특송 (÷5,000)</th></tr></thead>
+  <tbody>
+    <tr><td>1kg에 해당하는 부피</td><td class="num">6,000 ㎤</td><td class="num">5,000 ㎤</td></tr>
+    <tr class="hl"><td>1 CBM(=1,000,000㎤) 환산</td><td class="num">166.7 kg</td><td class="num">200.0 kg</td></tr>
+    <tr><td>60×50×40cm 부피무게</td><td class="num">20.0 kg</td><td class="num">24.0 kg</td></tr>
+    <tr><td>같은 박스·15kg일 때 청구중량</td><td class="num">20.0 kg</td><td class="num">24.0 kg</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">1 CBM을 항공으로 보내면 166.7kg, 특송으로 보내면 200kg부터 운임이 시작된다고 기억하면 편해요.</p>
+
+<p>반대로 부피가 작고 무거운 물건은 환산 계수가 아무 영향을 주지 않아요. 50×40×30cm(60,000㎤)에 12.5kg이면 부피무게는 항공 10.0kg·특송 12.0kg이라, <b>둘 다 실중량 12.5kg이 청구중량</b>이 돼요. "특송이 항상 비싸다"가 아니라, <b>부피가 큰 화물에서 차이가 벌어진다</b>고 이해하면 정확합니다.</p>
+
+<h2>0.5kg 올림도 운임에 들어요</h2>
+<p>계산기는 청구중량을 0.5kg 단위로 올림해요(2를 곱해 올림한 뒤 2로 나눔). 100×100×100cm 박스는 부피무게가 166.67kg이라 <b>167.0kg</b>으로 청구됩니다. 0.33kg 차이지만 수백 박스를 보내면 무시할 수 없는 금액이에요. 항공사·포워더에 따라 1kg 올림이나 0.1kg 단위를 쓰는 곳도 있으니, 계약 조건을 함께 확인하세요.</p>
+
+<h2>해상 LCL은 CBM과 중량톤 중 큰 값(R/T)</h2>
+<p>바다로 소량 화물을 보내는 LCL은 부피(CBM)와 중량톤(W/T, 1,000kg) 중 큰 값을 운임톤(R/T, Revenue Ton)으로 써요. 60×50×40cm 1박스는 0.06 CBM, 12.5kg은 0.0125톤이라 <b>0.06 R/T</b>로 부피 기준이 적용됩니다. 항공의 "부피무게"와 이름만 다를 뿐, <b>운임 기준을 부피와 무게 중 큰 쪽으로 맞춘다</b>는 원리는 같아요.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 210" role="img" aria-label="박스의 실중량과 부피무게를 저울로 비교해 청구중량을 정하고, 관부가세는 물품가·운임·보험을 합친 CIF에 관세와 부가세를 더하는 구조">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">① 운임: 실중량과 부피무게 중 큰 값</text>
+    <polygon points="40,52 118,52 138,38 60,38" fill="#DCE4EE" stroke="#9CA3AF"/>
+    <polygon points="40,52 118,52 118,96 40,96" fill="#1E3A5F" stroke="#1E3A5F"/>
+    <polygon points="118,52 138,38 138,82 118,96" fill="#6B7280" stroke="#6B7280"/>
+    <text x="79" y="112" font-size="8" text-anchor="middle" fill="#6B7280">60×50×40cm</text>
+    <rect x="160" y="36" width="76" height="26" rx="5" fill="#F1F1EF" stroke="#E2E2E0"/>
+    <text x="168" y="53" font-size="8.5" fill="#6B7280">실중량 15.0</text>
+    <rect x="160" y="68" width="76" height="26" rx="5" fill="#EEF3F8" stroke="#B9CCDE"/>
+    <text x="168" y="85" font-size="8.5" fill="#1E3A5F" font-weight="700">부피 20.0</text>
+    <path d="M244 65 h26" stroke="#9CA3AF" stroke-width="1.4"/>
+    <path d="M264 60 l8 5 -8 5" fill="none" stroke="#9CA3AF" stroke-width="1.4"/>
+    <rect x="276" y="48" width="80" height="34" rx="8" fill="#1E3A5F"/>
+    <text x="316" y="63" font-size="8" text-anchor="middle" fill="#DCE4EE">청구중량</text>
+    <text x="316" y="76" font-size="11" text-anchor="middle" fill="#FFFFFF" font-weight="700">20.0 kg</text>
+    <line x1="10" y1="128" x2="460" y2="128" stroke="#E2E2E0"/>
+    <text x="10" y="146" font-size="10.5" font-weight="700" fill="#1E3A5F">② 통관: CIF에 관세를 더하고, 다시 부가세 10%</text>
+    <rect x="10" y="156" width="82" height="22" rx="4" fill="#F1F1EF" stroke="#E2E2E0"/>
+    <text x="51" y="170" font-size="8" text-anchor="middle" fill="#6B7280">물품가 300</text>
+    <text x="97" y="170" font-size="9" fill="#9CA3AF">+</text>
+    <rect x="103" y="156" width="72" height="22" rx="4" fill="#F1F1EF" stroke="#E2E2E0"/>
+    <text x="139" y="170" font-size="8" text-anchor="middle" fill="#6B7280">운임 30</text>
+    <text x="180" y="170" font-size="9" fill="#9CA3AF">+</text>
+    <rect x="186" y="156" width="64" height="22" rx="4" fill="#F1F1EF" stroke="#E2E2E0"/>
+    <text x="218" y="170" font-size="8" text-anchor="middle" fill="#6B7280">보험 0</text>
+    <text x="256" y="170" font-size="9" fill="#9CA3AF">=</text>
+    <rect x="266" y="156" width="86" height="22" rx="4" fill="#DCE4EE" stroke="#1E3A5F"/>
+    <text x="309" y="170" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">CIF 455,400</text>
+    <path d="M356 167 h14" stroke="#9CA3AF" stroke-width="1.4"/>
+    <path d="M364 163 l7 4 -7 4" fill="none" stroke="#9CA3AF" stroke-width="1.4"/>
+    <rect x="374" y="156" width="86" height="22" rx="4" fill="#1E3A5F"/>
+    <text x="417" y="170" font-size="8" text-anchor="middle" fill="#FFFFFF" font-weight="700">세금 110,662</text>
+    <text x="10" y="196" font-size="8" fill="#6B7280">관세 59,202원(13%) → 부가세 (455,400+59,202)×10% = 51,460원</text>
+  </svg>
+  <figcaption>왼쪽은 운임 기준(무게), 오른쪽은 통관 기준(가격)이에요. 기준이 다르기 때문에 같은 물건도 운임과 세금이 각각 따로 움직입니다.</figcaption>
+</figure>
+
+<h2>관부가세는 CIF에 관세를 더하고, 다시 부가세를 붙여요</h2>
+<p>통관에서 세금을 매기는 기준은 <b>과세가격 = 물품가 + 운임 + 보험료(CIF)</b>예요. 여기에 품목별 관세율을 곱해 관세를 구하고, <b>부가세는 (과세가격 + 관세)의 10%</b>로 한 번 더 붙습니다. 관세에 부가세가 또 붙는 구조라, 관세율 13%짜리 물건의 실질 부담은 약 24.3%가 돼요.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>항목</th><th>계산</th><th class="num">금액</th></tr></thead>
+  <tbody>
+    <tr><td>물품가 + 운임 + 보험</td><td>$300 + $30 + $0 = $330</td><td class="num">330 USD</td></tr>
+    <tr><td>환율 적용 (1,380원)</td><td>330 × 1,380</td><td class="num">455,400원</td></tr>
+    <tr><td>관세 (의류·섬유 13%)</td><td>455,400 × 13%</td><td class="num">59,202원</td></tr>
+    <tr class="hl"><td>부가세 (10%)</td><td>(455,400 + 59,202) × 10%</td><td class="num">51,460원</td></tr>
+    <tr><td><b>세액 합계</b></td><td>관세 + 부가세</td><td class="num"><b>110,662원</b></td></tr>
+    <tr><td>물품가 + 세금</td><td>455,400 + 110,662</td><td class="num">566,062원</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">계산기의 품목 목록에는 의류·섬유 13%, 신발 13%, 가방 8%, 화장품 6.5%, 건강기능식품 8%, 완구 8%, 전자제품 8%, 컴퓨터·휴대폰·도서 0%, 커피(생두) 2%가 들어 있어요. 실제 관세율은 HS코드 10자리마다 달라요.</p>
+
+<h2>면세 판정은 "물품가격"만 보고, 과세가격은 운임까지 넣어요</h2>
+<p>여기가 가장 많이 헷갈리는 지점이에요. 목록통관 면세 한도는 <b>물품가격</b> 기준이라 운임·보험료를 더하지 않아요. 그런데 한도를 넘어 과세가 되면, 그때는 <b>운임·보험을 포함한 CIF</b>가 과세가격이 됩니다. 같은 $20 운임이 <b>면세 판정에서는 빠지고, 과세가격에서는 들어가는</b> 구조예요.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>발송 국가</th><th class="num">면세 한도</th><th>물품가 $180 · 운임 $20 · 관세 8%일 때</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>일반 국가</td><td class="num">$150</td><td>과세 — 세액 <b>51,888원</b> (CIF 276,000원 기준)</td></tr>
+    <tr><td>미국</td><td class="num">$200</td><td>면세 — 목록통관으로 통관 가능</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">계산기의 '발송 국가' 선택(일반 $150 / 미국 $200)이 이 한도를 바꿔요. 물품가 $180은 일반 기준으로는 넘고 미국 기준으로는 넘지 않아요.</p>
+<p>운임이 과세가격에 미치는 영향도 계산해 보면, 물품가 $160에 운임 $20을 더하면 CIF는 $180이 돼요. 과세가격이 27,600원 커지고(1380원 환율), 관세 8% 기준 세금이 <b>3,588원</b> 늘어납니다. "물품값만 보고 세금 계산했는데 왜 더 나왔지" 싶을 때 대부분 이 운임이에요.</p>
+
+<h2>많이 헷갈리는 개념 TOP 7</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>헷갈리는 지점</th><th>정확한 기준</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>실중량과 부피무게를 <b>더한다</b></td><td>더하지 않아요. <b>둘 중 큰 값</b>이 청구중량이에요.</td></tr>
+    <tr><td class="num">2</td><td>항공과 특송의 계수가 같다</td><td>항공 ÷6,000, 특송 ÷5,000 — 같은 박스에서 <b>20% 차이</b>가 나요.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>CBM과 kg을 그대로 비교</td><td>1 CBM = 166.7kg(항공)·200kg(특송)으로 환산한 뒤 비교해요.</td></tr>
+    <tr><td class="num">4</td><td>면세 한도에 운임을 포함</td><td>면세 판정은 <b>물품가격</b> 기준. 운임은 과세될 때만 CIF에 들어가요.</td></tr>
+    <tr><td class="num">5</td><td>관세만 계산하고 부가세를 빼먹음</td><td>부가세는 <b>(과세가격 + 관세) × 10%</b>로 관세 위에 또 붙어요.</td></tr>
+    <tr><td class="num">6</td><td>한도 이하면 무조건 면세</td><td>건강기능식품·의약품·화장품·주류 등 <b>목록통관 제외 품목</b>은 금액과 무관하게 세금이 붙어요.</td></tr>
+    <tr><td class="num">7</td><td>0.5kg 올림을 무시</td><td>166.67kg → <b>167.0kg</b>. 박스 수가 많으면 차이가 커져요.</td></tr>
+  </tbody></table></div>
+
+<h2>실무 팁</h2>
+<ul>
+  <li><b>부피를 먼저 줄이세요.</b> 부피무게가 청구중량을 결정하는 화물이라면, 박스 재설계나 진공 압축으로 6,000㎤를 깎는 것이 운임을 깎는 가장 확실한 방법이에요.</li>
+  <li><b>포워더에 계수를 확인하세요.</b> 같은 항공이라도 6,000과 5,000을 섞어 쓰는 구간이 있어요. 계약서에 적힌 환산 기준을 확인하면 견적 차이를 설명할 수 있어요.</li>
+  <li><b>관세율은 HS코드로 확정하세요.</b> 계산기의 품목 목록은 대표값이에요. 정확한 세액은 관세청 UNI-PASS나 관세사로 확인하고, FTA 협정세율을 적용하면 0%가 되는 경우도 있어요.</li>
+  <li><b>환율은 과세환율을 쓰세요.</b> 계산기 입력칸의 환율은 관세청 과세환율 기준이에요. 신용카드 결제 환율과 다르기 때문에 세액이 어긋날 수 있어요.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<h3>부피무게와 실중량이 같으면 어느 쪽이 적용되나요?</h3>
+<p>계산기는 부피무게가 같거나 클 때 부피무게 적용으로 표시해요. 결과 금액은 같기 때문에 실무 차이는 없습니다.</p>
+<h3>청구중량이 20kg인데 실제는 15kg이면 손해인가요?</h3>
+<p>운임은 청구중량으로 매겨지니 5kg만큼 더 내는 구조예요. 대신 부피가 큰 화물을 항공으로 보내는 것 자체가 선택이므로, 해상 LCL(0.06 R/T)과 총비용을 비교해 보세요.</p>
+<h3>미국에서 오는 물건은 왜 한도가 다르나요?</h3>
+<p>미국발 물품은 목록통관 면세 한도가 $200으로 운용돼요. 계산기의 '발송 국가'에서 미국($200)을 고르면 이 기준으로 판정합니다.</p>
+<h3>세금이 0원이면 아무 서류도 필요 없나요?</h3>
+<p>목록통관으로 처리되면 별도 서류 없이 통관되는 경우가 많아요. 다만 목록통관 제외 품목이거나 한도를 넘으면 일반통관으로 바뀌어 수입신고가 필요할 수 있어요.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/airweight.html">
+    <span class="gcta-ico">✈️</span>
+    <span class="gcta-txt"><span class="gcta-k">항공 부피무게 계산기</span><span class="gcta-n">실중량·부피무게로 청구중량(C/W) 계산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/customs.html">
+    <span class="gcta-ico">🧾</span>
+    <span class="gcta-txt"><span class="gcta-k">관부가세 계산기</span><span class="gcta-n">CIF 과세가격과 관세·부가세 추정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/cbm.html">
+    <span class="gcta-ico">📦</span>
+    <span class="gcta-txt"><span class="gcta-k">CBM 계산기</span><span class="gcta-n">박스 부피와 컨테이너 적재 추정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

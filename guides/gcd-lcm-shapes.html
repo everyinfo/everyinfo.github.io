@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>약수·최대공약수·최소공배수와 도형 넓이·부피 총정리 | CALCLEX</title>
+<meta name="description" content="최대공약수와 최소공배수를 문장제에서 구분하는 법, 원의 넓이와 원주 혼동, 삼각형·사다리꼴의 ÷2, 뿔의 ÷3 누락, cm²와 cm³ 단위 혼동을 계산기 수치로 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="약수·최대공약수·최소공배수와 도형 넓이·부피 총정리 | CALCLEX">
+<meta property="og:description" content="최대공약수와 최소공배수를 문장제에서 구분하는 법, 원의 넓이와 원주 혼동, 삼각형·사다리꼴의 ÷2, 뿔의 ÷3 누락, cm²와 cm³ 단위 혼동을 계산기 수치로 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/gcd-lcm-shapes.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/gcd-lcm-shapes.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/gcd-lcm-shapes.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/gcd-lcm-shapes.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/gcd-lcm-shapes.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "약수·최대공약수·최소공배수와 도형 넓이·부피 총정리",
+    "description": "최대공약수와 최소공배수를 문장제에서 구분하는 법, 원의 넓이와 원주 혼동, 삼각형·사다리꼴의 ÷2, 뿔의 ÷3 누락, cm²와 cm³ 단위 혼동을 계산기 수치로 정리합니다.",
+    "url": "https://calclex.com/guides/gcd-lcm-shapes.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/gcd-lcm-shapes.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "약수, 최대공약수, 최소공배수, 도형 넓이, 입체 부피",
+    "keywords": "약수, 배수, 최대공약수, 최소공배수, GCD, LCM, 소인수분해, 넓이, 원의 넓이, 원주, 부피, 겉넓이"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "약수·최대공약수·최소공배수와 도형 넓이·부피 총정리",
+        "item": "https://calclex.com/guides/gcd-lcm-shapes.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>약수·최대공약수·최소공배수와 도형 넓이·부피 총정리</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">초등 수학</span>
+  <h1 class="page-title">약수·최대공약수·최소공배수와 도형 넓이·부피 총정리</h1>
+  <p class="page-desc">최대공약수와 최소공배수를 문장제에서 구분하는 법, 원의 넓이와 원주 혼동, 삼각형·사다리꼴의 ÷2, 뿔의 ÷3 누락, cm²와 cm³ 단위 혼동을 계산기 수치로 정리합니다.</p>
+  <p class="gmeta-top">2026-11-26 · 초등 수학 · 읽기 약 9분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">최대공약수와 최소공배수는 계산 자체보다 <b>문장제에서 어느 쪽을 써야 하는지</b>가 어려워요. 도형은 공식은 아는데 <b>÷2·÷3을 빼먹거나 cm²와 cm³를 섞는</b> 실수가 반복됩니다. 이 글은 두 문제를 구분하는 기준과, 도형 공식에서 빠지기 쉬운 부분을 계산기 수치로 정리합니다.</p>
+
+<h2>약수 · 배수 · 소수는 한 줄로 이어져요</h2>
+<div class="gex">
+  <p>36의 약수와 배수, 소인수분해</p>
+  <ul>
+    <li>약수: 1, 2, 3, 4, 6, 9, 12, 18, 36 → <b>9개</b></li>
+    <li>소인수분해: 36 = <b>2² × 3²</b></li>
+    <li>배수(10개): 36, 72, 108, 144, 180, 216, 252, 288, 324, 360</li>
+    <li>약수가 1과 자기 자신뿐이면 <b>소수</b>예요. 36은 약수가 9개라 소수가 아니에요.</li>
+  </ul>
+</div>
+<p>약수는 항상 <b>짝</b>으로 나타나요. 36이라면 (1, 36), (2, 18), (3, 12), (4, 9), (6, 6)처럼 짝을 지어 찾으면 빠뜨리지 않아요. 계산기도 이 짝을 표로 보여 줍니다. 수는 100,000 이하까지 넣을 수 있어요.</p>
+
+<h2>최대공약수 = 똑같이 나누기, 최소공배수 = 다시 만나는 지점</h2>
+<div class="gex">
+  <p>12와 18</p>
+  <ul>
+    <li>12 = 2² × 3, 18 = 2 × 3²</li>
+    <li>공약수: 1, 2, 3, 6 → 최대공약수 <b>6</b></li>
+    <li>최소공배수 = 12 × 18 ÷ 6 = <b>36</b></li>
+  </ul>
+  <p class="gres">사탕 12개와 초콜릿 18개를 남김없이 똑같이 나누면 최대 6명 · 12일마다 오는 버스와 18일마다 오는 버스는 36일째 함께 와요.</p>
+</div>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>문장제 표현</th><th>구하는 값</th><th>예</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>"남김없이 똑같이 나누면", "가장 큰 수", "최대 몇 명"</td><td><b>최대공약수</b></td><td>사탕 12·초콜릿 18 → 6명</td></tr>
+    <tr><td>"가장 작은 수", "동시에", "다시 만나는", "빈틈없이 붙이면"</td><td><b>최소공배수</b></td><td>버스 12일·18일 → 36일</td></tr>
+    <tr><td>"몇 개씩 담으면", "똑같은 크기로 자르면"</td><td><b>최대공약수</b></td><td>길이 12m·18m → 6m씩</td></tr>
+    <tr><td>"가로·세로를 빈틈없이 채우는 가장 작은 정사각형"</td><td><b>최소공배수</b></td><td>12×18 → 36×36</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">'똑같이 나눈다'는 항상 최대공약수, '다시 만난다·빈틈없이 채운다'는 항상 최소공배수예요. 단어 두 개만 구분하면 문장제가 정리됩니다.</p>
+
+<h2>도형 넓이: ÷2가 빠지는 세 곳</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>도형</th><th>공식</th><th>계산 예</th><th class="num">넓이</th></tr></thead>
+  <tbody>
+    <tr><td>직사각형</td><td>가로 × 세로</td><td>8 × 5</td><td class="num">40 ㎠</td></tr>
+    <tr class="hl"><td>삼각형</td><td>밑변 × 높이 <b>÷ 2</b></td><td>8 × 5 ÷ 2</td><td class="num">20 ㎠</td></tr>
+    <tr><td>평행사변형</td><td>밑변 × 높이</td><td>8 × 5</td><td class="num">40 ㎠</td></tr>
+    <tr class="hl"><td>사다리꼴</td><td>(윗변 + 아랫변) × 높이 <b>÷ 2</b></td><td>(4 + 8) × 5 ÷ 2</td><td class="num">30 ㎠</td></tr>
+    <tr><td>원</td><td>π × 반지름²</td><td>π × 5²</td><td class="num">78.54 ㎠</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">삼각형은 같은 삼각형 2개를 붙이면 평행사변형이 되고, 사다리꼴도 2개를 뒤집어 붙이면 평행사변형이 돼요. 그래서 둘 다 ÷2가 붙습니다.</p>
+
+<h2>원의 넓이와 원주는 다른 값이에요</h2>
+<div class="gex">
+  <span class="gformula">원의 넓이 = π r² &nbsp;(단위 ㎠) &nbsp;|&nbsp; 원주 = 2πr &nbsp;(단위 cm)</span>
+  <ul>
+    <li>반지름 5cm → 넓이 = π × 25 = <b>78.54 ㎠</b></li>
+    <li>같은 원의 원주 = 2 × π × 5 = <b>31.42 cm</b></li>
+    <li>지름이 주어지면 반지름은 절반이에요. 지름 10cm → 반지름 5cm</li>
+  </ul>
+  <p class="gres">넓이는 ㎠(제곱), 원주는 cm(길이)예요. 단위가 다르면 두 값을 더하거나 비교할 수 없어요.</p>
+</div>
+<p>원의 넓이를 "지름 × 3.14"로 계산하면 4배 차이가 나요. 지름 10cm라면 정답 78.54㎠인데 31.4㎠가 나옵니다. 반지름을 먼저 구하는 습관이 필요해요.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 195" role="img" aria-label="직사각형 8 곱하기 5는 40, 삼각형은 절반인 20, 사다리꼴은 윗변과 아랫변을 더해 절반, 원은 반지름 제곱 곱하기 파이">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">넓이: 곱한 뒤 무엇을 더 나누는가</text>
+    <rect x="18" y="34" width="80" height="50" fill="#1E3A5F" stroke="#12263D"/>
+    <text x="58" y="98" font-size="8" text-anchor="middle" fill="#6B7280">8 × 5 = 40</text>
+    <polygon points="126,84 186,84 156,34" fill="#3F6690" stroke="#12263D"/>
+    <text x="156" y="98" font-size="8" text-anchor="middle" fill="#6B7280">8 × 5 ÷ 2 = 20</text>
+    <polygon points="196,84 256,84 246,34 206,34" fill="#6B7280" stroke="#4B5563"/>
+    <text x="226" y="98" font-size="8" text-anchor="middle" fill="#6B7280">(4+8)×5÷2 = 30</text>
+    <circle cx="310" cy="59" r="25" fill="none" stroke="#1E3A5F" stroke-width="2.2"/>
+    <line x1="310" y1="59" x2="335" y2="59" stroke="#1E3A5F" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <text x="322" y="55" font-size="7.5" text-anchor="middle" fill="#1E3A5F">r5</text>
+    <text x="310" y="98" font-size="8" text-anchor="middle" fill="#6B7280">π×5² = 78.54</text>
+    <line x1="10" y1="118" x2="460" y2="118" stroke="#E2E2E0"/>
+    <text x="10" y="138" font-size="10.5" font-weight="700" fill="#1E3A5F">부피: 뿔은 ÷3, 기둥은 그대로</text>
+    <rect x="18" y="150" width="46" height="34" fill="#1E3A5F"/>
+    <text x="41" y="176" font-size="8" text-anchor="middle" fill="#FFFFFF">3×4×5</text>
+    <text x="41" y="194" font-size="8" text-anchor="middle" fill="#6B7280">V 60</text>
+    <path d="M110 150 l23 34 h-46 z" fill="#3F6690"/>
+    <text x="110" y="194" font-size="8" text-anchor="middle" fill="#6B7280">πr²h ÷ 3</text>
+    <text x="150" y="166" font-size="8" fill="#6B7280">원기둥 V = π×3²×10 = 282.74</text>
+    <text x="150" y="180" font-size="8" fill="#C0503F">원뿔 V = 같은 기둥의 1/3 = 37.70</text>
+    <text x="150" y="194" font-size="8" fill="#6B7280">구 V = 4/3πr³ = 113.10</text>
+  </svg>
+  <figcaption>넓이는 ÷2가 붙는 도형(삼각형·사다리꼴)을, 부피는 ÷3이 붙는 도형(원뿔·각뿔)을 따로 기억해 두세요.</figcaption>
+</figure>
+
+<h2>입체도형: 부피와 겉넓이를 한 번에</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>도형</th><th>부피</th><th class="num">계산 예</th><th>겉넓이</th><th class="num">계산 예</th></tr></thead>
+  <tbody>
+    <tr><td>직육면체</td><td>가로×세로×높이</td><td class="num">3×4×5 = 60 ㎤</td><td>2(ab+bc+ca)</td><td class="num">94 ㎠</td></tr>
+    <tr class="hl"><td>원기둥</td><td>πr²h</td><td class="num">282.74 ㎤</td><td>2πr² + 2πrh</td><td class="num">245.04 ㎠</td></tr>
+    <tr><td>원뿔</td><td>πr²h <b>÷ 3</b></td><td class="num">r3·h4 → 37.70 ㎤</td><td>πr² + πrl</td><td class="num">75.40 ㎠</td></tr>
+    <tr><td>구</td><td>4/3πr³</td><td class="num">r3 → 113.10 ㎤</td><td>4πr²</td><td class="num">113.10 ㎠</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">원뿔의 겉넓이에서 l은 모선이에요. r 3, h 4라면 l = √(3²+4²) = 5가 돼요. 반지름 3인 구는 부피와 겉넓이가 113.10으로 우연히 같아 보이지만 단위가 ㎤와 ㎠로 달라요.</p>
+<p>계산기는 치수 단위를 mm·cm·m·inch 중에서 고를 수 있고, 부피는 ㎤·㎥·L, 겉넓이는 ㎠·㎡로 바꿔 볼 수 있어요. 1L = 1,000㎤, 1㎥ = 1,000L라는 관계도 함께 기억해 두세요.</p>
+
+<h2>많이 헷갈리는 개념 TOP 6</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>헷갈리는 지점</th><th>정확한 기준</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>최대공약수와 최소공배수를 문장제에서 바꿔 씀</td><td>"똑같이 나누기·최대"는 GCD, "다시 만나기·빈틈없이·최소"는 LCM이에요.</td></tr>
+    <tr><td class="num">2</td><td>원의 넓이를 지름 × 3.14로 계산</td><td>넓이는 <b>πr²</b>이에요. 지름을 반지름으로 바꾸는 걸 잊으면 4배 차이가 나요.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>삼각형·사다리꼴에서 ÷2를 빼먹음</td><td>두 도형은 같은 모양 2개를 붙이면 평행사변형이 돼서 <b>항상 절반</b>이에요.</td></tr>
+    <tr><td class="num">4</td><td>원뿔·각뿔에서 ÷3을 빼먹음</td><td>같은 밑면·높이의 기둥 부피의 <b>1/3</b>이에요.</td></tr>
+    <tr><td class="num">5</td><td>㎠와 ㎤를 섞음</td><td>넓이는 2제곱, 부피는 3제곱이에요. 단위가 다르면 더할 수 없어요.</td></tr>
+    <tr><td class="num">6</td><td>최소공배수를 두 수의 곱으로 계산</td><td>서로소가 아닐 때는 달라요. 12×18 = 216이지만 최소공배수는 <b>36</b>이에요.</td></tr>
+  </tbody></table></div>
+
+<h2>실무 팁</h2>
+<ul>
+  <li><b>풀이 과정을 함께 보세요.</b> 최대공약수·최소공배수 계산기는 소인수분해 → 공약수 → 최소공배수 순서로 과정을 보여 줘요. 답만 확인하면 실수를 못 잡아요.</li>
+  <li><b>단위부터 적으세요.</b> 넓이를 구하면 ㎠, 부피를 구하면 ㎤를 먼저 쓰고 숫자를 채우면 단위 혼동이 줄어요.</li>
+  <li><b>계산 전에 어림해 보세요.</b> 8×5 직사각형 안에 들어가는 삼각형이 40보다 클 수는 없어요. 어림값과 비교하면 ÷2 누락을 바로 찾아요.</li>
+  <li><b>1L = 1,000㎤를 기준으로 잡으세요.</b> 부피 단위 변환이 헷갈릴 때 이 한 줄이 가장 실용적이에요.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<h3>최대공약수가 1이면 어떻게 되나요?</h3>
+<p>두 수가 서로소라는 뜻이에요. 이때 최소공배수는 두 수의 곱과 같아요. 예를 들어 8과 9는 최대공약수 1, 최소공배수 72예요.</p>
+<h3>약수의 개수는 어떻게 빨리 구하나요?</h3>
+<p>소인수분해 지수에 1을 더해 곱하면 돼요. 36 = 2²×3²이므로 (2+1)×(2+1) = <b>9개</b>예요.</p>
+<h3>원기둥 겉넓이에서 밑면은 왜 2개인가요?</h3>
+<p>위아래 뚜껑이 모두 있어서 2πr²이에요. 한쪽이 열린 통이라면 πr²만 더하면 됩니다.</p>
+<h3>구의 부피와 겉넓이가 같은 숫자로 나오는 게 맞나요?</h3>
+<p>반지름 3일 때 4/3π×27 = 36π, 4π×9 = 36π로 숫자가 같아 보여요. 하지만 단위는 ㎤와 ㎠로 다르니 같은 값이라고 말하면 안 됩니다.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/divisor.html">
+    <span class="gcta-ico">🔢</span>
+    <span class="gcta-txt"><span class="gcta-k">약수·배수 계산기</span><span class="gcta-n">약수 개수·소인수분해·배수 목록</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/gcdlcm.html">
+    <span class="gcta-ico">🔗</span>
+    <span class="gcta-txt"><span class="gcta-k">최대공약수·최소공배수 계산기</span><span class="gcta-n">풀이 과정까지 한 줄씩</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/shape.html">
+    <span class="gcta-ico">📐</span>
+    <span class="gcta-txt"><span class="gcta-k">도형 넓이 계산기</span><span class="gcta-n">직사각형·삼각형·사다리꼴·원</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/solidshape.html">
+    <span class="gcta-ico">🧊</span>
+    <span class="gcta-txt"><span class="gcta-k">입체도형 부피·겉넓이 계산기</span><span class="gcta-n">직육면체·원기둥·원뿔·구</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

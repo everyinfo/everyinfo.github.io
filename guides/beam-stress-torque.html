@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>보 굽힘응력·단면2차모멘트·토크 기초 | CALCLEX</title>
+<meta name="description" content="힘(N)·응력(MPa)·모멘트(N·m)의 구분, 단면2차모멘트 I=bh³/12가 높이에 3제곱으로 커지는 원리, 허용응력과 안전율, 토크·회전수·동력 관계를 계산기 수치로 정리합니다.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="보 굽힘응력·단면2차모멘트·토크 기초 | CALCLEX">
+<meta property="og:description" content="힘(N)·응력(MPa)·모멘트(N·m)의 구분, 단면2차모멘트 I=bh³/12가 높이에 3제곱으로 커지는 원리, 허용응력과 안전율, 토크·회전수·동력 관계를 계산기 수치로 정리합니다.">
+<meta property="og:url" content="https://calclex.com/guides/beam-stress-torque.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/beam-stress-torque.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/beam-stress-torque.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/calculators-data.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "보 굽힘응력·단면2차모멘트·토크 기초",
+    "description": "힘(N)·응력(MPa)·모멘트(N·m)의 구분, 단면2차모멘트 I=bh³/12가 높이에 3제곱으로 커지는 원리, 허용응력과 안전율, 토크·회전수·동력 관계를 계산기 수치로 정리합니다.",
+    "url": "https://calclex.com/guides/beam-stress-torque.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/guides/beam-stress-torque.html"
+    },
+    "inLanguage": "ko",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "굽힘응력, 단면2차모멘트, 토크, 안전율",
+    "keywords": "굽힘응력, 응력, 단면2차모멘트, 단면계수, 토크, 안전율, 허용응력, 보 설계, MPa, 9550"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://calclex.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "실무 가이드",
+        "item": "https://calclex.com/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "보 굽힘응력·단면2차모멘트·토크 기초",
+        "item": "https://calclex.com/guides/beam-stress-torque.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
+    <div class="nav-links">
+      <a href="/index.html#단위변환">단위변환</a>
+      <a href="/index.html#공학">공학</a>
+      <a href="/index.html#일반">일반</a>
+      <a href="/index.html#일상">일상</a>
+      <a href="/index.html#금융">금융</a>
+      <a href="/index.html#물류">물류</a>
+      <a href="/guides/" class="active">실무 가이드</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">홈</a> › <a href="/guides/">실무 가이드</a> › <span>보 굽힘응력·단면2차모멘트·토크 기초</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">설계·건축</span>
+  <h1 class="page-title">보 굽힘응력·단면2차모멘트·토크 기초</h1>
+  <p class="page-desc">힘(N)·응력(MPa)·모멘트(N·m)의 구분, 단면2차모멘트 I=bh³/12가 높이에 3제곱으로 커지는 원리, 허용응력과 안전율, 토크·회전수·동력 관계를 계산기 수치로 정리합니다.</p>
+  <p class="gmeta-top">2026-11-26 · 설계·건축 · 읽기 약 10분</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">설계 검토에서 가장 자주 나오는 실수는 계산이 틀리는 게 아니라 <b>단위를 섞는 것</b>이에요. 힘(N)과 응력(MPa)과 모멘트(N·m)는 서로 다른 값인데 이름이 비슷하고, 단면2차모멘트는 높이에 3제곱으로 반응해요. 이 글은 계산기가 쓰는 식 그대로 손으로 계산해 보고, 어디서 1,000배가 어긋나는지 짚습니다.</p>
+
+<h2>힘 · 응력 · 모멘트는 서로 다른 값이에요</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>값</th><th>기호</th><th>단위</th><th>의미</th><th>예</th></tr></thead>
+  <tbody>
+    <tr><td><b>힘</b></td><td>F</td><td class="num">N</td><td>밀거나 당기는 크기</td><td class="num">5,000 N</td></tr>
+    <tr><td><b>응력</b></td><td>σ, τ</td><td class="num">MPa = N/mm²</td><td>단면 1㎟가 받는 힘</td><td class="num">10 MPa</td></tr>
+    <tr><td><b>모멘트</b></td><td>M</td><td class="num">N·mm 또는 N·m</td><td>회전시키는 힘의 효과</td><td class="num">500,000 N·mm</td></tr>
+    <tr><td><b>토크</b></td><td>T</td><td class="num">N·m</td><td>축을 돌리는 모멘트</td><td class="num">30.01 N·m</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">1 MPa은 1 N/mm²과 정확히 같아요. 1 kgf/cm² = 98,066.5 Pa = 0.098 MPa, 1 psi = 6,894.76 Pa이에요.</p>
+
+<div class="gex">
+  <p>축하중(인장·압축)</p>
+  <span class="gformula">σ = F ÷ A</span>
+  <ul>
+    <li>F = 5,000 N, A = 500 mm² → 5,000 ÷ 500 = <b>10 MPa</b></li>
+    <li>MPa → kgf/㎠: 10 × 10⁶ ÷ 98,066.5 = <b>101.97 kgf/㎠</b></li>
+    <li>MPa → psi: 10 × 10⁶ ÷ 6,894.76 = <b>1,450 psi</b></li>
+  </ul>
+  <p>굽힘</p>
+  <span class="gformula">σ<sub>b</sub> = M ÷ Z</span>
+  <ul>
+    <li>M = 500,000 N·mm, Z = 5,000 mm³ → <b>100 MPa</b></li>
+    <li>같은 값을 M = 500 N·m로 넣으면 500 ÷ 5,000 = 0.1 MPa — <b>1,000배 작은 값</b>이 나와요.</li>
+  </ul>
+</div>
+<p>두 번째 예가 실무에서 가장 위험한 실수예요. 단면계수 Z의 단위가 mm³이므로 M은 반드시 <b>N·mm</b>로 넣어야 합니다. N·m를 그대로 넣으면 응력이 1/1,000로 나와 "아주 안전한 설계"처럼 보여요.</p>
+
+<h2>단면2차모멘트는 높이의 3제곱을 따라요</h2>
+<p>직사각형 단면은 I = bh³/12, 단면계수는 Z = bh²/6이에요. 폭 b가 2배면 I도 2배지만, <b>높이 h가 2배면 I는 8배, Z는 4배</b>가 됩니다. 그래서 같은 재료를 세워 쓰느냐 눕혀 쓰느냐로 성능이 크게 갈려요.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>직사각형 단면</th><th class="num">단면적 A</th><th class="num">I = bh³/12</th><th class="num">Z = bh²/6</th><th class="num">회전반경 k</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td><b>50 × 100</b> (세움)</td><td class="num">5,000 ㎟</td><td class="num">4,166,667 mm⁴</td><td class="num">83,333 mm³</td><td class="num">28.87 mm</td></tr>
+    <tr><td><b>100 × 50</b> (눕힘)</td><td class="num">5,000 ㎟</td><td class="num">1,041,667 mm⁴</td><td class="num">41,667 mm³</td><td class="num">14.43 mm</td></tr>
+    <tr><td><b>50 × 200</b> (높이 2배)</td><td class="num">10,000 ㎟</td><td class="num">33,333,333 mm⁴</td><td class="num">333,333 mm³</td><td class="num">57.74 mm</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">같은 50×100 재료를 눕히면 I가 1/4로 줄어 처짐은 4배가 돼요(δ ∝ 1/I). 높이만 2배로 키우면 I는 8배, Z는 4배가 됩니다.</p>
+<p>이 감각은 현장에서 그대로 쓰여요. "단면적이 같으면 강도도 같다"가 아니고, <b>재료를 중립축에서 멀리 배치할수록 유리하다</b>는 것이 I의 의미예요. I형강이 세로 벽(웨브)을 얇게, 위아래 플랜지에 재료를 몰아 넣은 이유도 같습니다.</p>
+
+<h2>형상별 I·Z 공식과 계산 예</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>형상</th><th>공식</th><th class="num">계산 예</th><th class="num">I</th><th class="num">Z</th></tr></thead>
+  <tbody>
+    <tr><td><b>원형</b> d=50</td><td>I = πd⁴/64, Z = πd³/32</td><td class="num">d = 50 mm</td><td class="num">306,796 mm⁴</td><td class="num">12,272 mm³</td></tr>
+    <tr><td><b>파이프</b> D=60, d=50</td><td>I = π(D⁴−d⁴)/64, Z = I/(D/2)</td><td class="num">A 863.9 ㎟</td><td class="num">329,376 mm⁴</td><td class="num">10,979 mm³</td></tr>
+    <tr class="hl"><td><b>I형강</b> B100·H200·tw8·tf12</td><td>I ≈ (BH³−(B−tw)hw³)/12</td><td class="num">hw = 176 mm, A 3,808 ㎟</td><td class="num">24,869,717 mm⁴</td><td class="num">248,697 mm³</td></tr>
+    <tr><td><b>삼각형</b> b=60, h=80</td><td>I = bh³/36 (도심축)</td><td class="num">A 2,400 ㎟</td><td class="num">853,333 mm⁴</td><td class="num">16,000 mm³</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">I형강은 필렛·라운드를 무시한 근사식이에요. 실제 형강은 규격표 값을 쓰는 게 정확하고, 압연 방향·판두께에 따라 미세하게 달라요. 삼각형은 도심(밑변에서 h/3)을 지나는 축 기준입니다.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 200" role="img" aria-label="같은 50x100 단면을 세우면 단면2차모멘트가 크고 눕히면 1/4로 줄어드는 모습과, 토크·동력·회전수의 관계">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">① 세워 놓기 vs 눕혀 놓기 (단면적은 같아요)</text>
+    <rect x="30" y="34" width="46" height="92" fill="#1E3A5F" stroke="#12263D"/>
+    <text x="53" y="140" font-size="8" text-anchor="middle" fill="#6B7280">b50 × h100</text>
+    <text x="53" y="152" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">I 4.17×10⁶</text>
+    <text x="88" y="84" font-size="9" fill="#9CA3AF">vs</text>
+    <rect x="104" y="64" width="92" height="46" fill="#6B7280" stroke="#4B5563"/>
+    <text x="150" y="140" font-size="8" text-anchor="middle" fill="#6B7280">b100 × h50</text>
+    <text x="150" y="152" font-size="8" text-anchor="middle" fill="#6B7280" font-weight="700">I 1.04×10⁶</text>
+    <line x1="20" y1="112" x2="106" y2="112" stroke="#C0503F" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="212" y="88" font-size="9" fill="#6B7280">높이 ↓ → 처짐 4배</text>
+    <line x1="240" y1="30" x2="240" y2="168" stroke="#E2E2E0"/>
+    <text x="256" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">② 토크는 동력과 회전수 사이</text>
+    <circle cx="322" cy="82" r="26" fill="none" stroke="#1E3A5F" stroke-width="2.4"/>
+    <circle cx="322" cy="82" r="5" fill="#1E3A5F"/>
+    <path d="M344 66 a26 26 0 0 1 6 20" fill="none" stroke="#C0503F" stroke-width="2"/>
+    <path d="M350 84 l3 -7 -7 2" fill="#C0503F"/>
+    <text x="322" y="124" font-size="8" text-anchor="middle" fill="#6B7280">축</text>
+    <rect x="360" y="52" width="100" height="58" rx="8" fill="#EEF3F8" stroke="#B9CCDE"/>
+    <text x="410" y="70" font-size="8.5" text-anchor="middle" fill="#1E3A5F" font-weight="700">T = 9550 P / N</text>
+    <text x="410" y="84" font-size="8" text-anchor="middle" fill="#6B7280">P 5.5kW · N 1750rpm</text>
+    <text x="410" y="99" font-size="9" text-anchor="middle" fill="#1E3A5F" font-weight="700">T 30.01 N·m</text>
+    <text x="256" y="136" font-size="8" fill="#6B7280">N이 절반이면 토크는 2배</text>
+    <text x="256" y="150" font-size="8" fill="#6B7280">(같은 동력에서)</text>
+    <text x="256" y="164" font-size="8" fill="#6B7280">기어 20:60 → 3배 증폭</text>
+  </svg>
+  <figcaption>왼쪽: 단면적이 같아도 높이 방향 배치가 I를 4배 바꿉니다. 오른쪽: 토크·동력·회전수는 하나를 고정하면 나머지 둘이 반비례로 움직여요.</figcaption>
+</figure>
+
+<h2>허용응력과 안전율은 "쓸 수 있는 응력"을 정해요</h2>
+<p>계산한 응력은 재료가 버틸 수 있는 한도와 비교해야 해요. 기준이 되는 값은 항복강도(또는 인장강도)이고, 여기에 안전율(SF)을 나눈 값이 허용응력이에요.</p>
+<div class="gex">
+  <span class="gformula">허용응력 σ<sub>allow</sub> = 항복강도 σ<sub>y</sub> ÷ 안전율 SF</span>
+  <ul>
+    <li>일반 구조용강 SS400: 항복강도 <b>245 MPa</b> (KS D 3503)</li>
+    <li>SF 1.5 → 허용 163 MPa · SF 2.0 → 허용 122.5 MPa · SF 3.0 → 허용 81.7 MPa</li>
+    <li>계산 응력이 100 MPa이면 SF = 245 ÷ 100 = <b>2.45</b></li>
+    <li>같은 100 MPa라도 SF 3을 요구하는 설비라면 300 MPa 이상의 재료가 필요해요.</li>
+  </ul>
+  <p class="gres">정하중·정적 구조물은 1.5~2, 반복하중·충격·진동이 걸리면 3 이상을 잡는 것이 일반적이에요.</p>
+</div>
+<p>안전율은 "여유"가 아니라 <b>하중 추정 오차·재료 편차·피로·부식·시공 오차를 한 숫자로 묶은 값</b>이에요. 그래서 같은 재료라도 하중이 반복되면 더 큰 안전율을 씁니다.</p>
+
+<h2>토크 · 회전수 · 동력은 하나를 알면 둘을 구해요</h2>
+<p>회전하는 축에서는 동력 P(kW), 회전수 N(rpm), 토크 T(N·m)가 한 줄로 묶여요. 계수 9550은 60,000 ÷ 2π에서 나온 값이에요(1분=60초, 1회전=2π rad).</p>
+<div class="gex">
+  <span class="gformula">T[N·m] = 9550 × P[kW] ÷ N[rpm] &nbsp;|&nbsp; P = T × N ÷ 9550 &nbsp;|&nbsp; ω = 2πN ÷ 60</span>
+  <ul>
+    <li>P 5.5 kW, N 1,750 rpm → 9550 × 5.5 ÷ 1750 = <b>30.01 N·m</b> = 3.06 kgf·m</li>
+    <li>각속도 ω = 2π × 1750 ÷ 60 = <b>183.26 rad/s</b></li>
+    <li>기어 Z₁ 20 → Z₂ 60: 감속비 3 → 출력 583.3 rpm, 토크 <b>90.04 N·m</b>(η 100%), 85.54 N·m(η 95%)</li>
+    <li>동력 표기: 5.5 kW = 7.38 HP = 7.48 PS</li>
+  </ul>
+</div>
+<p>기어로 회전수를 1/3로 줄이면 토크는 3배가 되지만 동력은 그대로예요(효율 손실만큼 줄어요). 여기서 <b>HP(영마력) 0.7457 kW와 PS(불마력) 0.7355 kW</b>를 섞으면 1~2% 오차가 생기니, 모터 명판의 단위를 확인하세요.</p>
+
+<h2>많이 헷갈리는 개념 TOP 6</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>헷갈리는 지점</th><th>정확한 기준</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>힘(N)과 응력(MPa)을 같은 것으로 봄</td><td>응력 = 힘 ÷ 면적. 5,000 N은 힘, 10 MPa은 그 힘이 500㎟에 걸린 결과예요.</td></tr>
+    <tr><td class="num">2</td><td>M를 N·m로 넣고 Z(mm³)로 나눔</td><td>응력이 <b>1,000배 작게</b> 나와요. M는 N·mm로 환산해서 넣으세요.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>"단면적이 같으면 강도도 같다"</td><td>I는 <b>높이의 3제곱</b>. 50×100을 눕히면 I가 1/4, 처짐은 4배가 돼요.</td></tr>
+    <tr><td class="num">4</td><td>I와 Z를 혼용</td><td>I는 처짐(강성), Z는 응력(강도)에 쓰여요. 같은 단면에서 Z = I ÷ (h/2)예요.</td></tr>
+    <tr><td class="num">5</td><td>토크가 크면 동력도 크다</td><td>동력 = 토크 × 회전수예요. 저속 고토크 모터가 고속 모터보다 동력이 작을 수 있어요.</td></tr>
+    <tr><td class="num">6</td><td>안전율을 빼고 항복강도와 바로 비교</td><td>245 MPa 재료에 240 MPa이 걸리면 이론상 버티지만, SF는 1.02로 사실상 불합격이에요.</td></tr>
+  </tbody></table></div>
+
+<h2>실무 팁</h2>
+<ul>
+  <li><b>단위를 먼저 통일하세요.</b> mm·N·MPa로 시작하면 별도 환산 없이 결과가 MPa로 바로 나와요. 계산기에도 단위 선택 칸이 있으니 입력 전에 확인하는 습관이 좋아요.</li>
+  <li><b>처짐은 별도로 검토하세요.</b> 응력이 허용 안에 있어도 처짐이 크면 설비가 흔들려요. I를 키우는 것이 처짐을 줄이는 가장 직접적인 방법이에요.</li>
+  <li><b>좌굴도 함께 보세요.</b> 압축을 받는 긴 부재는 응력보다 좌굴이 먼저 문제가 돼요. 회전반경 k로 세장비(λ = L/k)를 구해 판정합니다.</li>
+  <li><b>형강은 규격표 값을 쓰세요.</b> 계산기의 I형강 식은 근사식이에요. 실제 H형강은 KS 규격표의 I·Z 값을 쓰는 것이 정확해요.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<h3>MPa과 N/mm²은 다른 건가요?</h3>
+<p>같은 단위예요. 1 Pa = 1 N/m²이고 1 MPa = 10⁶ Pa = 1 N/mm²이에요. 그래서 F(N) ÷ A(mm²)의 결과가 그대로 MPa이 됩니다.</p>
+<h3>단면계수 Z는 어디에 쓰나요?</h3>
+<p>굽힘응력 σ = M/Z에 써요. 같은 모멘트라면 Z가 클수록 응력이 작아져요. 처짐을 볼 때는 I를, 응력을 볼 때는 Z를 쓰는 것이 차이예요.</p>
+<h3>토크 30 N·m가 어느 정도인가요?</h3>
+<p>5.5kW 모터를 1,750rpm으로 돌릴 때 나오는 토크예요. 반지름 0.1m 원판 가장자리에 약 300N(30kgf)을 거는 힘과 같아요.</p>
+<h3>기어를 넣으면 토크가 왜 커지나요?</h3>
+<p>동력은 보존되고 회전수가 줄기 때문이에요. 출력 회전수가 1/3이 되면 토크는 3배가 되지만, 실제로는 기어 효율만큼(계산기 기준 95% 가정) 줄어든 85.54 N·m가 됩니다.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">관련 계산기</p>
+  <a class="gcta" href="/calculators/stress.html">
+    <span class="gcta-ico">📐</span>
+    <span class="gcta-txt"><span class="gcta-k">응력 계산기</span><span class="gcta-n">인장·압축·전단·굽힘응력과 단위 환산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/moment.html">
+    <span class="gcta-ico">📏</span>
+    <span class="gcta-txt"><span class="gcta-k">단면 2차 모멘트 계산기</span><span class="gcta-n">I·Z·회전반경을 형상별로</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/torque.html">
+    <span class="gcta-ico">⚙️</span>
+    <span class="gcta-txt"><span class="gcta-k">토크 계산기</span><span class="gcta-n">동력·회전수로 토크, 기어비 출력축까지</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/guides/">← 실무 가이드 목록으로</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand brand-caps">CalcLex</div>
+  <div class="f-sub">계산기 사전 | 수식 고민 끝, 숫자만 입력하세요</div>
+  <div class="f-links">
+    <a href="/index.html">홈</a><a href="/guides/">실무 가이드</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="f-copy">© 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/fab.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>

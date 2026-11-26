@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noai, noimageai">
 <title>실무 가이드 | CALCLEX</title>
-<meta name="description" content="파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.">
+<meta name="description" content="파렛트·컨테이너 CBM·금형 수축률·단열·소금물부터 항공 부피무게와 관부가세, 보 응력·토크, 목재 재(才), 배관·펌프, 약수·도형까지 — CalcLex 계산기와 같은 수치로 정리한 실무·학습 가이드 10편.">
 <meta property="og:site_name" content="CalcLex">
 <meta property="og:type" content="website">
 <meta property="og:title" content="실무 가이드 | CALCLEX">
-<meta property="og:description" content="파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.">
+<meta property="og:description" content="파렛트·컨테이너 CBM·금형 수축률·단열·소금물부터 항공 부피무게와 관부가세, 보 응력·토크, 목재 재(才), 배관·펌프, 약수·도형까지 — CalcLex 계산기와 같은 수치로 정리한 실무·학습 가이드 10편.">
 <meta property="og:url" content="https://calclex.com/guides/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
@@ -43,7 +43,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "실무 가이드 | CALCLEX",
-  "description": "파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.",
+  "description": "파렛트·컨테이너 CBM·금형 수축률·단열·소금물부터 항공 부피무게와 관부가세, 보 응력·토크, 목재 재(才), 배관·펌프, 약수·도형까지 — CalcLex 계산기와 같은 수치로 정리한 실무·학습 가이드 10편.",
   "url": "https://calclex.com/guides/",
   "inLanguage": "ko",
   "isPartOf": {
@@ -83,6 +83,36 @@
         "position": 5,
         "name": "소금물 농도(희석)와 비례식, 그림으로 이해하기",
         "url": "/guides/kids-salt-ratio.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "항공 부피무게(CW)와 관부가세 기준 총정리",
+        "url": "/guides/airweight-customs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "목재 사이(재) 계산법과 판재 환산",
+        "url": "/guides/wood-sai-boardfeet.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "보 굽힘응력·단면2차모멘트·토크 기초",
+        "url": "/guides/beam-stress-torque.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "배관 구경·유속과 펌프 동력 선정 기초",
+        "url": "/guides/pipe-flow-pump.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "약수·최대공약수·최소공배수와 도형 넓이·부피",
+        "url": "/guides/gcd-lcm-shapes.html"
       }
     ]
   }
@@ -113,13 +143,13 @@
 <div class="guides-hero">
   <span class="cat-tag">실무 가이드</span>
   <h1>📘 실무 가이드</h1>
-  <p>파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.</p>
+  <p>파렛트 규격, 컨테이너 CBM, 금형 수축률, 단열 기준, 소금물 농도부터 항공 부피무게·관부가세, 보 응력·토크, 목재 재(才), 배관·펌프, 약수·도형까지 — 계산기를 쓰기 전에 알아두면 결과가 달라지는 기준과 공식을 정리했어요. 모든 수치는 CalcLex 계산기 로직과 같은 기준으로 계산했습니다.</p>
 </div>
 
 <div class="gsearch">
   <div class="gsearch-box">
     <span class="gsearch-ico">🔍</span>
-    <input type="text" id="gSearch" placeholder="가이드 검색 (예: 파렛트, CBM, ABS, 결로, 소금물)" autocomplete="off" aria-label="가이드 검색 (예: 파렛트, CBM, ABS, 결로, 소금물)">
+    <input type="text" id="gSearch" placeholder="가이드 검색 (예: 파렛트, CBM, 부피무게, 토크, 재, 펌프, 약수)" autocomplete="off" aria-label="가이드 검색 (예: 파렛트, CBM, 부피무게, 토크, 재, 펌프, 약수)">
     <button type="button" class="gsearch-clear" id="gClear" aria-label="검색어 지우기">✕</button>
   </div>
 </div>
@@ -130,7 +160,7 @@
     <button type="button" data-cat="설계·건축">설계·건축</button>
     <button type="button" data-cat="초등 수학">초등 수학</button>
 </div>
-<p class="gcount" id="gCount" data-all="전체 5편" data-unit="편">전체 5편</p>
+<p class="gcount" id="gCount" data-all="전체 10편" data-unit="편">전체 10편</p>
 
 <p class="gempty" id="gEmpty" data-tpl="‘{q}’에 맞는 가이드가 없어요. 다른 낱말로 찾아보거나 위의 카테고리를 눌러 보세요." hidden><span id="gEmptyText"></span></p>
 
@@ -164,6 +194,36 @@
     <h2>소금물 농도(희석)와 비례식, 그림으로 이해하기</h2>
     <p>농도의 분모가 소금물 전체인 이유, 물을 더 넣어도 소금은 그대로인 원리, 비례식 외항·내항 곱으로 답 찾기.</p>
     <span class="gmeta">약 6분 · <b>소금물 농도 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/airweight-customs.html" data-cat="물류·무역" data-keywords="부피무게, 부피중량, 청구중량, C/W, 항공운임, 특송 운임, 관부가세, 면세한도, 목록통관, CIF, CBM">
+    <span class="gcat">물류·무역</span>
+    <h2>항공 부피무게(CW)와 관부가세 기준 총정리</h2>
+    <p>÷6000 vs ÷5000 청구중량 차이, 1CBM=166.7kg 환산, CIF 과세가격과 부가세 구조, $150·$200 면세 판정.</p>
+    <span class="gmeta">약 9분 · <b>항공 부피무게 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/wood-sai-boardfeet.html" data-cat="설계·건축" data-keywords="목재 재, 사이, 才, 목재 계산, 판재 부피, 1치, 1자, 300재, 평수, 회배, board foot">
+    <span class="gcat">설계·건축</span>
+    <h2>목재 사이(재) 계산법과 판재 환산</h2>
+    <p>1재=1치×1치×12자(0.003339㎥)와 실무 300재, 재↔㎥↔평 환산표, 치·자 단위 입력과 단가 계산.</p>
+    <span class="gmeta">약 8분 · <b>목재 재(才) 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/beam-stress-torque.html" data-cat="설계·건축" data-keywords="굽힘응력, 응력, 단면2차모멘트, 단면계수, 토크, 안전율, 허용응력, 보 설계, MPa, 9550">
+    <span class="gcat">설계·건축</span>
+    <h2>보 굽힘응력·단면2차모멘트·토크 기초</h2>
+    <p>N·MPa·N·m 구분, h가 2배면 I는 8배, 세워 놓기와 눕혀 놓기의 처짐 차, 허용응력과 안전율, 9550 토크 공식.</p>
+    <span class="gmeta">약 10분 · <b>응력 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/pipe-flow-pump.html" data-cat="설계·건축" data-keywords="배관 구경, 호칭경, DN, 유속, 유량, 레이놀즈수, 마찰손실, 펌프 동력, 축동력, 전양정, 비속도">
+    <span class="gcat">설계·건축</span>
+    <h2>배관 구경·유속과 펌프 동력 선정 기초</h2>
+    <p>DN·A 호칭경과 내경, 관경 2배 시 유속 1/4, 레이놀즈수·마찰손실, 수동력→축동력→전동기 7.5kW 선정.</p>
+    <span class="gmeta">약 9분 · <b>배관 유속 계산기</b></span>
+  </a>
+  <a class="gcard" href="/guides/gcd-lcm-shapes.html" data-cat="초등 수학" data-keywords="약수, 배수, 최대공약수, 최소공배수, GCD, LCM, 소인수분해, 넓이, 원의 넓이, 원주, 부피, 겉넓이">
+    <span class="gcat">초등 수학</span>
+    <h2>약수·최대공약수·최소공배수와 도형 넓이·부피</h2>
+    <p>똑같이 나누기(GCD)와 다시 만나는 주기(LCM) 구분, 원의 넓이·원주, ÷2·÷3 누락, cm²와 cm³.</p>
+    <span class="gmeta">약 9분 · <b>약수 계산기</b></span>
   </a>
 </div>
 
@@ -202,6 +262,36 @@
   <a class="gcta" href="/calculators/ratiokid.html">
     <span class="gcta-ico">⚖️</span>
     <span class="gcta-txt"><span class="gcta-k">비와 비례식 계산기</span><span class="gcta-n">가 : 나 = 다 : 라 한 칸 비우고 풀기</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/airweight.html">
+    <span class="gcta-ico">✈️</span>
+    <span class="gcta-txt"><span class="gcta-k">항공 부피무게 계산기</span><span class="gcta-n">실중량·부피무게 중 큰 값이 청구중량</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/customs.html">
+    <span class="gcta-ico">🧾</span>
+    <span class="gcta-txt"><span class="gcta-k">관부가세 계산기</span><span class="gcta-n">CIF 과세가격과 관세·부가세 추정</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/stress.html">
+    <span class="gcta-ico">📐</span>
+    <span class="gcta-txt"><span class="gcta-k">응력 계산기</span><span class="gcta-n">인장·전단·굽힘응력과 단위 환산</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/pipe.html">
+    <span class="gcta-ico">🚰</span>
+    <span class="gcta-txt"><span class="gcta-k">배관 유속·손실 계산기</span><span class="gcta-n">유속·레이놀즈수·마찰손실</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/pump.html">
+    <span class="gcta-ico">🌀</span>
+    <span class="gcta-txt"><span class="gcta-k">펌프 동력 계산기</span><span class="gcta-n">수동력·축동력·전동기 용량</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/calculators/gcdlcm.html">
+    <span class="gcta-ico">🔗</span>
+    <span class="gcta-txt"><span class="gcta-k">최대공약수·최소공배수 계산기</span><span class="gcta-n">풀이 과정까지 한 줄씩</span></span>
     <span class="gcta-a">→</span>
   </a>
 </div>
@@ -250,7 +340,8 @@
     empty.hidden = (n > 0);
     emptyText.textContent = empty.getAttribute('data-tpl').replace('{q}', input.value.trim());
     clear.classList.toggle('on', input.value.length > 0);
-    count.textContent = (cat === 'all' && q.length === 0) ? count.getAttribute('data-all') : n + count.getAttribute('data-unit');
+    var unit = (n === 1 ? count.getAttribute('data-unit1') : null) || count.getAttribute('data-unit');
+    count.textContent = (cat === 'all' && q.length === 0) ? count.getAttribute('data-all') : n + unit;
   }
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function(){

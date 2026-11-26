@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+  CalcLex (calclex.com) | Copyright (c) 2026 CalcLex. All rights reserved.
+  Proprietary source code. Unauthorized copying, scraping, redistribution, or AI-assisted reproduction is strictly prohibited.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noai, noimageai">
+<title>Pipe Size, Velocity and Pump Power Selection | CALCLEX</title>
+<meta name="description" content="Why nominal bore is not the inside diameter, how doubling the diameter cuts velocity to a quarter and friction loss to about a thirty-first, Reynolds number, and sizing a motor from hydraulic power.">
+<meta property="og:site_name" content="CalcLex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pipe Size, Velocity and Pump Power Selection | CALCLEX">
+<meta property="og:description" content="Why nominal bore is not the inside diameter, how doubling the diameter cuts velocity to a quarter and friction loss to about a thirty-first, Reynolds number, and sizing a motor from hydraulic power.">
+<meta property="og:url" content="https://calclex.com/en/guides/pipe-flow-pump.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://calclex.com/en/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="ko" href="https://calclex.com/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="en" href="https://calclex.com/en/guides/pipe-flow-pump.html">
+<link rel="alternate" hreflang="x-default" href="https://calclex.com/guides/pipe-flow-pump.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DV1N9XSV70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DV1N9XSV70');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7656359093051548" crossorigin="anonymous"></script>
+<script src="/en/calculators-data-en.js"></script>
+<script src="/metrics.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1e3a5f">
+<script src="/pwa.js" defer></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Pipe size, velocity and pump power selection",
+    "description": "Why nominal bore is not the inside diameter, how doubling the diameter cuts velocity to a quarter and friction loss to about a thirty-first, Reynolds number, and sizing a motor from hydraulic power.",
+    "url": "https://calclex.com/en/guides/pipe-flow-pump.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://calclex.com/en/guides/pipe-flow-pump.html"
+    },
+    "inLanguage": "en",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcLex",
+      "url": "https://calclex.com/"
+    },
+    "about": "Pipe velocity, friction loss, pump power",
+    "keywords": "pipe size, nominal bore, DN, NPS, velocity, flow rate, Reynolds number, friction loss, pump power, shaft power, total head, specific speed"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calclex.com/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://calclex.com/en/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pipe size, velocity and pump power selection",
+        "item": "https://calclex.com/en/guides/pipe-flow-pump.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/en/index.html" class="brand brand-caps">CalcLex</a>
+    <div class="nav-links">
+      <a href="/en/index.html#Unit Converter">Unit Converter</a>
+      <a href="/en/index.html#Engineering">Engineering</a>
+      <a href="/en/index.html#General">General</a>
+      <a href="/en/index.html#Everyday">Everyday</a>
+      <a href="/en/index.html#Finance">Finance</a>
+      <a href="/en/index.html#Logistics">Logistics</a>
+      <a href="/en/guides/" class="active">Guides</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/en/index.html">Home</a> › <a href="/en/guides/">Guides</a> › <span>Pipe size, velocity and pump power selection</span>
+</div>
+
+<div class="hero-text">
+  <span class="cat-tag">Design & Build</span>
+  <h1 class="page-title">Pipe size, velocity and pump power selection</h1>
+  <p class="page-desc">Why nominal bore is not the inside diameter, how doubling the diameter cuts velocity to a quarter and friction loss to about a thirty-first, Reynolds number, and sizing a motor from hydraulic power.</p>
+  <p class="gmeta-top">Nov 26, 2026 · Design & Build · 9 min read</p>
+</div>
+
+<article class="article guide-article">
+
+<p class="lead">"It is a 50A pipe, so the bore is 50 mm" is where losses start drifting by 20% or more. Nominal bore is a name; the inside diameter depends on the wall thickness. This guide follows the order in which velocity, loss and pump power are actually computed, and shows what doubling the diameter really buys.</p>
+
+<h2>Once flow is fixed, velocity is decided by area</h2>
+<div class="gex">
+  <span class="gformula">Q = A × V &nbsp;|&nbsp; A = πD² ÷ 4</span>
+  <ul>
+    <li>D = 100 mm (0.1 m) → A = π × 0.01 ÷ 4 = <b>0.007854 m²</b></li>
+    <li>Q = 50 m³/h = 0.013889 m³/s → V = <b>1.768 m/s</b></li>
+    <li>Same flow at D = 200 mm → V = <b>0.442 m/s</b> (exactly a quarter)</li>
+    <li>Same flow at D = 50 mm → V = <b>7.074 m/s</b> (four times)</li>
+  </ul>
+</div>
+<p>Double diameter, quadruple area, quarter velocity. Friction loss then collapses: for the same 50 m³/h, the head loss over 100 m falls from <b>2.997 m to 0.097 m</b>, roughly one thirty-first. Loss scales with velocity squared, which is why pipe sizing is the cheapest pump upgrade there is.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>Inside diameter</th><th class="num">Area</th><th class="num">Velocity (50 m³/h)</th><th class="num">Reynolds</th><th class="num">Loss per 100 m</th><th class="num">Pressure drop</th></tr></thead>
+  <tbody>
+    <tr><td><b>50 mm</b></td><td class="num">0.00196 m²</td><td class="num">7.074 m/s</td><td class="num">352,336</td><td class="num">102.23 m</td><td class="num">1,000.7 kPa</td></tr>
+    <tr class="hl"><td><b>100 mm</b></td><td class="num">0.00785 m²</td><td class="num">1.768 m/s</td><td class="num">176,168</td><td class="num">2.997 m</td><td class="num">29.34 kPa</td></tr>
+    <tr><td><b>200 mm</b></td><td class="num">0.03142 m²</td><td class="num">0.442 m/s</td><td class="num">88,084</td><td class="num">0.097 m</td><td class="num">0.95 kPa</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">Water at 20°C (ρ 998.2, μ 0.001002), steel roughness 0.045 mm, 100 m length — the calculator's default conditions.</p>
+<p>Pushing 50 m³/h through 50 mm costs 102 m of head per 100 m. Nobody designs that. Real projects set a target velocity and size the pipe backwards from it.</p>
+
+<h2>Recommended velocity is set by noise and erosion</h2>
+<p>The calculator notes supply 1–2 m/s, drainage 0.6–1.5 m/s and steam 20–40 m/s. Above 2.5 m/s, noise and pipe erosion become the design constraint rather than pressure drop.</p>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th>Service</th><th class="num">Typical velocity</th><th>What happens above it</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>Supply water (incl. hot)</td><td class="num">1 – 2 m/s</td><td>Water hammer, noise, valve wear</td></tr>
+    <tr><td>Drainage</td><td class="num">0.6 – 1.5 m/s</td><td>Solids settle when too slow; noise when too fast</td></tr>
+    <tr><td>Steam</td><td class="num">20 – 40 m/s</td><td>Pressure loss, vibration, erosion</td></tr>
+    <tr><td>Cooling water</td><td class="num">1.5 – 2.5 m/s</td><td>Accelerated tube corrosion</td></tr>
+  </tbody></table></div>
+<p class="gtable-cap">Same guidance the calculator shows under its results. Sustained operation above 2.5 m/s shortens pipe life.</p>
+
+<h2>Reynolds number tells you which friction law applies</h2>
+<p>Reynolds number is the ratio of inertial to viscous force. The calculator labels Re &lt; 2,300 laminar, 2,300–4,000 transitional and above that turbulent, taking f = 64/Re for laminar flow and iterating Colebrook for turbulent flow.</p>
+<div class="gex">
+  <span class="gformula">Re = ρ × V × D ÷ μ</span>
+  <ul>
+    <li>Water 20°C, D 0.1 m, V 1.768 m/s → <b>176,168</b> (turbulent)</li>
+    <li>Friction factor f = <b>0.0188</b> (Colebrook iteration)</li>
+    <li>h<sub>f</sub> = f × (L/D) × V² ÷ (2g) = 0.0188 × 1,000 × 3.126 ÷ 19.613 = <b>2.997 m</b></li>
+    <li>ΔP = ρ × g × h<sub>f</sub> = 998.2 × 9.80665 × 2.997 = <b>29.34 kPa</b> (≈ 0.299 kgf/cm²)</li>
+  </ul>
+</div>
+<p>Drop the same 100 mm pipe to 10 m³/h and velocity falls to 0.354 m/s with Re 35,234 — still turbulent, but the loss drops to <b>0.152 m per 100 m</b>. One fifth of the flow costs about one twentieth of the loss.</p>
+
+<figure class="gfig">
+  <svg viewBox="0 0 470 200" role="img" aria-label="At the same flow, doubling the pipe diameter quadruples area, quarters velocity and cuts head loss to about one thirty-first; the pump power chain">
+    <text x="10" y="16" font-size="10.5" font-weight="700" fill="#1E3A5F">Same 50 m³/h, diameter doubled</text>
+    <rect x="26" y="46" width="26" height="26" fill="#1E3A5F"/>
+    <path d="M52 59 h34" stroke="#9CA3AF" stroke-width="1.4"/>
+    <path d="M80 55 l8 4 -8 4" fill="none" stroke="#9CA3AF" stroke-width="1.4"/>
+    <rect x="92" y="36" width="52" height="52" fill="#1E3A5F" opacity="0.55"/>
+    <text x="39" y="90" font-size="8" text-anchor="middle" fill="#6B7280">D 50</text>
+    <text x="118" y="90" font-size="8" text-anchor="middle" fill="#6B7280">D 100</text>
+    <text x="39" y="34" font-size="8" text-anchor="middle" fill="#C0503F">V 7.07</text>
+    <text x="118" y="28" font-size="8" text-anchor="middle" fill="#1E3A5F" font-weight="700">V 1.77</text>
+    <text x="180" y="52" font-size="8.5" fill="#6B7280">area ×4</text>
+    <text x="180" y="66" font-size="8.5" fill="#6B7280">velocity ÷4</text>
+    <text x="180" y="80" font-size="8.5" fill="#C0503F">loss ÷31</text>
+    <line x1="10" y1="112" x2="460" y2="112" stroke="#E2E2E0"/>
+    <text x="10" y="132" font-size="10.5" font-weight="700" fill="#1E3A5F">Total head adds up, then power steps up (1 m³/min · 30 m)</text>
+    <rect x="10" y="144" width="96" height="20" rx="4" fill="#1E3A5F"/>
+    <text x="58" y="157" font-size="8" text-anchor="middle" fill="#FFFFFF">static 20 m</text>
+    <rect x="10" y="168" width="30" height="20" rx="4" fill="#3F6690"/>
+    <text x="58" y="182" font-size="8" fill="#6B7280">+ loss 6 m</text>
+    <rect x="112" y="144" width="48" height="20" rx="4" fill="#6B7280"/>
+    <text x="136" y="157" font-size="8" text-anchor="middle" fill="#FFFFFF">pressure 4 m</text>
+    <text x="168" y="157" font-size="9" fill="#9CA3AF">=</text>
+    <text x="182" y="157" font-size="9" fill="#1E3A5F" font-weight="700">H 30 m</text>
+    <text x="230" y="146" font-size="8.5" fill="#6B7280">hydraulic 1000×1×30÷6120 = 4.902 kW</text>
+    <text x="230" y="160" font-size="8.5" fill="#6B7280">÷ 75% efficiency → shaft 6.536 kW</text>
+    <text x="230" y="174" font-size="8.5" fill="#1E3A5F" font-weight="700">× 1.15 margin → 7.516 → 7.5 kW motor</text>
+  </svg>
+  <figcaption>Left: bigger bore, lower velocity, far lower loss. Right: head builds into hydraulic power, then shaft power, then motor rating.</figcaption>
+</figure>
+
+<h2>Pump power steps up four times</h2>
+<div class="gex">
+  <span class="gformula">L<sub>w</sub> = γ × Q × H ÷ 6120 &nbsp;[kW] &nbsp;|&nbsp; L<sub>s</sub> = L<sub>w</sub> ÷ η &nbsp;|&nbsp; motor = L<sub>s</sub> × K</span>
+  <ul>
+    <li>Q 1 m³/min, H 30 m, γ 1,000 kgf/m³ → L<sub>w</sub> = <b>4.902 kW</b> (6.665 PS)</li>
+    <li>Efficiency 75% → L<sub>s</sub> = <b>6.536 kW</b> (8.886 PS)</li>
+    <li>Margin K 1.15 → <b>7.516 kW</b> → select the standard <b>7.5 kW</b> motor</li>
+    <li>Specific speed N<sub>s</sub> = 1750 × √1 ÷ 30<sup>0.75</sup> = <b>136.5</b> → centrifugal (volute)</li>
+  </ul>
+  <p class="gres">4.9 kW of useful work needs a 7.5 kW motor because efficiency and margin sit in between.</p>
+</div>
+<p>The constant 6120 comes from the units: 1 kW = 102 kgf·m/s, and 60 seconds make 102 × 60 = 6,120. That is also why flow goes in m³/min. If you know m³/h, divide by 60 first.</p>
+<p>Specific speed identifies the impeller family: the calculator labels below 250 as centrifugal volute, below 450 as centrifugal turbine, below 1,000 as mixed flow, and above that as axial. Selecting double suction halves the flow entering each eye and lowers N<sub>s</sub>.</p>
+<p>Speed changes follow the affinity laws: <b>10% more rpm gives 10% more flow, 21% more head and 33.1% more power</b>. That cubic response is why VFD control saves so much energy.</p>
+
+<h2>Top 6 things people get wrong</h2>
+<div class="gtable-wrap"><table class="gtable">
+  <thead><tr><th class="num">#</th><th>Misconception</th><th>Correct basis</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td>"50A means a 50 mm bore"</td><td>Nominal bore is a label. Outside diameter is fixed at about 60.5 mm and the bore varies with schedule. Calculate with the <b>actual inside diameter</b>.</td></tr>
+    <tr><td class="num">2</td><td>"Double diameter, half the velocity"</td><td>Area goes up fourfold, so velocity is a <b>quarter</b>.</td></tr>
+    <tr class="hl"><td class="num">3</td><td>Confusing flow rate with velocity</td><td>Flow is m³/h (how much), velocity is m/s (how fast). The same flow runs faster in a smaller pipe.</td></tr>
+    <tr><td class="num">4</td><td>Leaving friction out of total head</td><td>Total head = static lift + friction loss + pressure head (+ velocity head). Omitting loss undersizes the motor.</td></tr>
+    <tr><td class="num">5</td><td>Treating hydraulic power as the motor rating</td><td>Efficiency (÷η) and margin (×K) multiply it by roughly 1.5.</td></tr>
+    <tr><td class="num">6</td><td>"10% more rpm, 10% more power"</td><td>Power follows the <b>cube</b>: 33.1% more.</td></tr>
+  </tbody></table></div>
+
+<h2>Practical notes</h2>
+<ul>
+  <li><b>Start from 1.5 m/s.</b> A sensible target for supply lines. Enter flow and diameter and check the velocity stays under 2 m/s.</li>
+  <li><b>Set the roughness.</b> The default is steel at 0.045 mm. Stainless 0.015, PVC 0.0015 and cast iron 0.26 mm all shift the answer.</li>
+  <li><b>Add fittings separately.</b> The calculator covers straight pipe only. Elbows and valves often add 20–40% to real system loss.</li>
+  <li><b>Check NPSH separately.</b> Suction lift, water temperature and vapour pressure decide whether the pump cavitates — outside this calculator's scope.</li>
+</ul>
+
+<h2>Frequently asked</h2>
+<h3>If I double the pipe, does the electricity bill fall to one eighth?</h3>
+<p>Loss falls to about one thirty-first, but the bill does not follow that ratio directly. Pump efficiency, the operating point and the head actually required all change. Recalculate shaft power for the new pipe and compare.</p>
+<h3>Why is 2.5 m/s the practical limit?</h3>
+<p>Noise rises, wall erosion accelerates and elbows and valves take concentrated impact. Water hammer at that velocity can crack pipework.</p>
+<h3>Why does double suction lower specific speed?</h3>
+<p>The impeller draws from both sides, so each eye handles half the flow. The calculator divides Q by two for the double-suction option.</p>
+<h3>Should velocity head be in the total head?</h3>
+<p>For accuracy, yes — add V²/2g at the discharge along with the losses. At low velocity it is small, at high velocity it is not.</p>
+
+</article>
+
+<div class="gcta-wrap">
+  <p class="gcta-title">Related calculators</p>
+  <a class="gcta" href="/en/calculators/pipe.html">
+    <span class="gcta-ico">🚰</span>
+    <span class="gcta-txt"><span class="gcta-k">Pipe Velocity & Loss Calculator</span><span class="gcta-n">Velocity, Reynolds number, friction loss and pressure drop</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+  <a class="gcta" href="/en/calculators/pump.html">
+    <span class="gcta-ico">🌀</span>
+    <span class="gcta-txt"><span class="gcta-k">Pump Power Calculator</span><span class="gcta-n">Hydraulic and shaft power, motor size, specific speed</span></span>
+    <span class="gcta-a">→</span>
+  </a>
+</div>
+
+<div class="gback"><a href="/en/guides/">← Back to all guides</a></div>
+
+<div class="ad-slot"><!-- Ad Slot --></div>
+
+<footer>
+  <div class="f-brand">CalcLex</div>
+  <div class="f-sub">Calculator Dictionary | No formulas needed, just enter your numbers</div>
+  <div class="f-links">
+    <a href="/en/index.html">Home</a><a href="/en/guides/">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="f-copy">&copy; 2026 CalcLex. All rights reserved.</div>
+</footer>
+
+<script src="/en/fab-en.js"></script>
+<script src="/lang-switch.js"></script>
+</body>
+</html>
