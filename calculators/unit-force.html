@@ -123,10 +123,37 @@
 <li>파운드도 두 가지입니다. <b>lb(질량)와 lbf(힘)</b>이며, 미국 공학 자료에서 가장 혼란스러운 지점입니다.</li>
 <li><b>중력가속도 9.80665m/s²</b>는 표준값입니다. 실제로는 위도와 고도에 따라 다릅니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>500kg 리프트가 받는 힘</h2>
+<div class="example-box">
+<p><b>예: 정격 500kg 리프트의 하중</b></p>
+<ul>
+<li><b>1단계</b> 500을 kgf 칸에 넣습니다.</li>
+<li><b>2단계</b> 500 × 9.80665 = <b>4,903.3N</b></li>
+<li><b>3단계</b> lbf로 보면 약 1,102lbf</li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 도면에 SI 단위로 적을 때는 4,903N(약 4.9kN)으로 쓰면 됩니다.</p>
+</div>
+<p>kgf는 '1kg 질량이 지구 중력에서 받는 힘'이라 9.80665N으로 정의됩니다. 국제 표준 단위는 아니지만 국내 산업 도면과 설비 명판에는 아직 널리 남아 있어, SI로 바꿀 때 이 환산이 필요합니다.</p>
+<ul class="trivia-list">
+<li>9.8로 계산하면 4,900N으로 3N 차이가 납니다. 안전율을 보는 계산에서는 9.80665를 쓰세요.</li>
+<li>토크(kgf·m, N·m)와 혼동하지 마세요. 힘과 회전력은 다른 물리량입니다.</li>
+<li>kg은 질량이라 장소가 바뀌어도 같지만, 무게(N·kgf)는 중력에 따라 달라집니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 1kgf는 몇 N인가요?</p><p class="a">9.80665N입니다. 실무에서는 9.81 또는 9.8로 계산합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 체중계에 나오는 kg은 질량인가요 무게인가요?</p><p class="a">질량으로 표시하지만 실제로는 힘을 재서 지구 중력으로 나눈 값입니다.</p></div>
 <div class="faq-item"><p class="q">Q. N과 kgf 중 뭘 써야 하나요?</p><p class="a">국제 표준은 N입니다. 다만 국내 산업 도면에는 kgf가 남아 있어 환산이 필요합니다.</p></div>
+<div class="faq-item"><p class="q">Q. 1kN은 몇 kgf인가요?</p><p class="a">1,000 ÷ 9.80665 = 약 102kgf입니다. 10kN이면 약 1,020kgf로, 리프트·크레인 정격 표기에서 자주 만나는 값입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/stress.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">응력 계산기</a> — 힘을 단면적으로 나눈 응력</li>
+<li><a href="/calculators/torque.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">토크·동력 계산기</a> — 회전력과 동력</li>
+<li><a href="/calculators/unit-pressure.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">압력 단위 변환</a> — 힘 ÷ 면적 단위</li>
+<li><a href="/guides/beam-stress-torque.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">보 응력·토크 가이드</a> — 하중에서 응력까지 계산 순서</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -156,6 +183,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "국제 표준은 N입니다. 다만 국내 산업 도면에는 kgf가 남아 있어 환산이 필요합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "1kN은 몇 kgf인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1,000 ÷ 9.80665 = 약 102kgf입니다. 10kN이면 약 1,020kgf로, 리프트·크레인 정격 표기에서 자주 만나는 값입니다."
       }
     }
   ]

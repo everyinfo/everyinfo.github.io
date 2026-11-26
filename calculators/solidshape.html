@@ -110,10 +110,37 @@
 <li><b>구가 같은 부피에서 겉넓이가 가장 작습니다.</b> 물방울, 행성이 구형인 이유입니다.</li>
 <li>물류에서 <b>부피 대비 표면적</b>이 포장비를 좌우합니다. 정육면체에 가까울수록 재료가 적게 듭니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>40×30×25cm 박스의 부피와 겉넓이</h2>
+<div class="example-box">
+<p><b>예: 가로 40, 세로 30, 높이 25cm 직육면체</b></p>
+<ul>
+<li><b>1단계</b> 직육면체를 고르고 40·30·25를 넣습니다. 단위는 cm입니다.</li>
+<li><b>2단계</b> 부피 = 40×30×25 = <b>30,000cm³</b> = 30L = 0.03m³</li>
+<li><b>3단계</b> 겉넓이 = 2×(1,200+750+1,000) = <b>5,900cm²</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 30L는 물 30kg에 해당하는 용량입니다. 골판지 면적은 5,900cm²로, 재단 여유분을 더해 발주합니다.</p>
+</div>
+<p>단위를 바꾸면 부피는 <b>세제곱 배</b>, 겉넓이는 제곱 배로 변합니다. cm를 m로 바꾸면 부피는 100만분의 1이 됩니다. 원뿔의 겉넓이는 모선(밑면 가장자리에서 꼭대기까지)이 필요하고, 도구가 반지름과 높이로 자동 계산합니다.</p>
+<ul class="trivia-list">
+<li>cm³를 m³로 바꿀 때 1,000이 아니라 1,000,000으로 나눕니다. 30,000cm³ = 0.03m³입니다.</li>
+<li>도구의 원주율은 3.14159 전체 정밀도를 씁니다. 손계산 3.14와 소수 둘째 자리에서 조금 다를 수 있습니다.</li>
+<li>부피와 겉넓이는 다른 값입니다. 30L 용량과 포장 재단 면적을 헷갈리지 마세요.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 원뿔 부피가 왜 1/3인가요?</p><p class="a">높이에 따라 단면적이 제곱으로 줄어들기 때문입니다. 적분하면 정확히 1/3이 나옵니다.</p></div>
 <div class="faq-item"><p class="q">Q. 구의 겉넓이는 어떻게 외우나요?</p><p class="a">S=4πr²입니다. 같은 반지름 원 넓이(πr²)의 정확히 4배로 기억하면 쉽습니다.</p></div>
 <div class="faq-item"><p class="q">Q. 겉넓이와 부피 중 뭐가 크기에 민감한가요?</p><p class="a">부피입니다. 부피는 세제곱, 겉넓이는 제곱에 비례합니다.</p></div>
+<div class="faq-item"><p class="q">Q. 30L 박스에 5kg 물건이 들어가나요?</p><p class="a">부피와 무게는 별개입니다. 30L는 용량이고 실제 적재는 내부 치수와 물건 형상에 따릅니다. 액체 30L면 30kg이지만, 부피가 큰 가벼운 물건은 30L를 다 채우지 못합니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/circlearea.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">원의 넓이·둘레</a> — 밑면 원의 넓이 구하기</li>
+<li><a href="/calculators/sector.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">부채꼴 계산기</a> — 원뿔 전개도의 부채꼴</li>
+<li><a href="/calculators/cbm.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">CBM 계산기</a> — 부피로 운임 계산</li>
+<li><a href="/calculators/integral.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">적분 계산기</a> — 곡면 부피의 원리</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "부피입니다. 부피는 세제곱, 겉넓이는 제곱에 비례합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "30L 박스에 5kg 물건이 들어가나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "부피와 무게는 별개입니다. 30L는 용량이고 실제 적재는 내부 치수와 물건 형상에 따릅니다. 액체 30L면 30kg이지만, 부피가 큰 가벼운 물건은 30L를 다 채우지 못합니다."
       }
     }
   ]

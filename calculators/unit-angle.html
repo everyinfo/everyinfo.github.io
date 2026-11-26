@@ -122,10 +122,37 @@
 <li><b>각도의 분·초</b>는 시간과 같은 60진법이며, 위도 1분이 곧 1해리(1,852m)입니다.</li>
 <li>시계 <b>시침은 1시간에 30도, 1분에 0.5도</b> 움직이고 분침은 1분에 6도 움직입니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>측량 장비의 63곤을 도로 바꾸기</h2>
+<div class="example-box">
+<p><b>예: 측량기 화면에 63gon이 표시됐을 때</b></p>
+<ul>
+<li><b>1단계</b> 63을 넣고 그라디안 → 도로 바꿉니다.</li>
+<li><b>2단계</b> 63 × 0.9 = <b>56.7°</b></li>
+<li><b>3단계</b> 라디안으로는 0.9896rad</li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 그라디안은 400gon이 한 바퀴라 0.9를 곱하면 바로 도가 됩니다. 직각이 100gon으로 딱 떨어집니다.</p>
+</div>
+<p>라디안은 원에서 나온 단위입니다. 반지름과 같은 길이의 호에 대응하는 각이 1rad이고, 그 값은 57.2958°입니다. 계산할 때 1.57을 라디안으로 착각하기 쉬운데, 1.57rad은 89.95°로 정확히 90°가 아닙니다.</p>
+<ul class="trivia-list">
+<li>π/2를 1.57로 반올림해 넣으면 90°와 0.05° 차이가 납니다. 정밀 작업은 1.5708 이상 넣으세요.</li>
+<li>경사 퍼센트는 도와 다릅니다. 10%는 수평 100에 수직 10이라는 뜻으로 약 5.71°입니다.</li>
+<li>도·분·초로 적힌 각도는 도로 환산한 뒤 넣어야 합니다. 35°30′은 35.5°입니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 1라디안은 몇 도인가요?</p><p class="a">약 57.2958도입니다. 180 ÷ π로 계산합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 경사 10%는 몇 도인가요?</p><p class="a">약 5.71도입니다. arctan(0.1)로 계산하며, 퍼센트와 도는 비례하지 않습니다.</p></div>
 <div class="faq-item"><p class="q">Q. 왜 미적분에서는 라디안을 쓰나요?</p><p class="a">sin·cos의 미분 공식이 라디안일 때만 간단해지기 때문입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 그라디안은 지금도 어디에 쓰나요?</p><p class="a">유럽 측량·토목 분야에서 쓰입니다. 직각이 100gon으로 떨어져 각도 계산이 편하고, 국내 측량 장비에도 gon 모드가 들어 있습니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/trigratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">삼각함수 계산기</a> — 각도로 변의 비율 구하기</li>
+<li><a href="/calculators/sector.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">부채꼴 계산기</a> — 중심각으로 넓이와 호 길이</li>
+<li><a href="/calculators/torque.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">토크·동력 계산기</a> — 회전 각도와 일률</li>
+<li><a href="/calculators/vector.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">벡터 계산기</a> — 방향 성분과 각도</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -155,6 +182,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "sin·cos의 미분 공식이 라디안일 때만 간단해지기 때문입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "그라디안은 지금도 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "유럽 측량·토목 분야에서 쓰입니다. 직각이 100gon으로 떨어져 각도 계산이 편하고, 국내 측량 장비에도 gon 모드가 들어 있습니다."
       }
     }
   ]

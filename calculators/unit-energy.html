@@ -122,10 +122,37 @@
 <li>사람이 하루에 쓰는 에너지(약 2,000kcal)는 <b>2.3kWh</b> 정도로, 전기요금으로 치면 500원도 안 됩니다.</li>
 <li><b>줄(Joule)</b>은 맥주 양조업자였던 제임스 줄의 이름입니다. 취미 실험에서 열과 일이 같은 것임을 밝혀냈습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>냉장고 0.9kWh를 kcal로 바꾸기</h2>
+<div class="example-box">
+<p><b>예: 하루 0.9kWh를 쓰는 냉장고</b></p>
+<ul>
+<li><b>1단계</b> 0.9를 kWh 칸에 넣고 kcal로 바꿉니다.</li>
+<li><b>2단계</b> 1kWh = 860.42kcal이므로 <b>774.4kcal</b></li>
+<li><b>3단계</b> 같은 값을 줄(J)로 보면 3,240,000J</li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 전기 1kWh가 열 860kcal와 같은 에너지입니다. 단위만 다르고 물리량은 같습니다.</p>
+</div>
+<p>1kWh가 3,600kJ인 이유는 간단합니다. 1kW를 3,600초 동안 쓰면 3,600kJ이기 때문입니다. 여기에 4.184를 나누면 860kcal가 됩니다. 흔히 860으로 외우지만 실제 값은 860.42라서, 큰 값을 환산할 때는 차이가 눈에 보입니다.</p>
+<ul class="trivia-list">
+<li>식품 표시의 '칼로리'는 사실상 전부 kcal입니다. 1kcal = 1,000cal입니다.</li>
+<li>BTU는 미국식 냉난방 단위입니다. 1kWh는 약 3,412BTU입니다.</li>
+<li>W와 Wh는 다릅니다. W는 순간 출력, Wh는 그 출력을 시간만큼 쓴 양입니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 1kWh는 몇 kcal인가요?</p><p class="a">약 860kcal입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 칼로리와 킬로칼로리는 다른가요?</p><p class="a">1kcal = 1,000cal입니다. 식품 표시의 칼로리는 사실상 전부 킬로칼로리입니다.</p></div>
 <div class="faq-item"><p class="q">Q. BTU는 어디에 쓰나요?</p><p class="a">미국식 냉난방 장비 사양에 쓰입니다. 1BTU는 물 1파운드를 화씨 1도 올리는 열량입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 전기요금으로 환산하려면 어떻게 하나요?</p><p class="a">kWh 값에 본인 계약 종별 단가를 곱합니다. 주택용은 누진제라 사용량 구간마다 단가가 달라서, 개별 기기 값이 아니라 한 달 총사용량으로 계산해야 맞습니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/unit-power.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">일률·마력 변환</a> — W·kW·마력 환산</li>
+<li><a href="/calculators/electric.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">전기 계산기</a> — 소비전력과 전기요금</li>
+<li><a href="/calculators/heat.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">열량·열교환 계산기</a> — kcal와 열전달</li>
+<li><a href="/calculators/unit-fuel.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">연비 단위 변환</a> — 연료 에너지와 이동 거리</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -155,6 +182,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "미국식 냉난방 장비 사양에 쓰입니다. 1BTU는 물 1파운드를 화씨 1도 올리는 열량입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전기요금으로 환산하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kWh 값에 본인 계약 종별 단가를 곱합니다. 주택용은 누진제라 사용량 구간마다 단가가 달라서, 개별 기기 값이 아니라 한 달 총사용량으로 계산해야 맞습니다."
       }
     }
   ]

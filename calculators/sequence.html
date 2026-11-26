@@ -110,10 +110,37 @@
 <li><b>피보나치 수열</b>(1,1,2,3,5,8,13…)은 인접 항의 비가 황금비(1.618…)에 수렴합니다.</li>
 <li>등비수열의 무한합은 <b>공비가 1보다 작을 때만 수렴</b>합니다. 0.9999…=1인 것도 이 원리로 증명됩니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>강당 좌석 15줄의 총 좌석 수</h2>
+<div class="example-box">
+<p><b>예: 첫 줄 20석, 줄마다 2석씩 늘어나는 15줄</b></p>
+<ul>
+<li><b>1단계</b> 등차수열, 첫째항 20, 공차 2, n=15를 넣습니다.</li>
+<li><b>2단계</b> 15번째 줄 = 20 + 14×2 = <b>48석</b></li>
+<li><b>3단계</b> 합 = 15×(20+48)÷2 = <b>510석</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 마지막 줄 48석까지 늘어나고 전체는 510석입니다. 가우스가 쓴 양 끝 짝짓기 그대로입니다.</p>
+</div>
+<p>등차수열은 <b>차이</b>가, 등비수열은 <b>비율</b>이 일정합니다. 좌석 배치·적금 납입처럼 매번 같은 금액이 늘면 등차, 이자·세포 분열처럼 매번 같은 비율로 늘면 등비입니다. 등비는 뒤로 갈수록 폭발해서 20번째 항만 되어도 차이가 크게 벌어집니다.</p>
+<ul class="trivia-list">
+<li>n은 정수만 됩니다. 10.5를 넣으면 10으로 내림해 계산합니다.</li>
+<li>등비수열의 공비에 0을 넣으면 계산되지 않습니다. 0을 곱하면 모두 0이 되기 때문입니다.</li>
+<li>공차가 0이면 모든 항이 같아져 등차·등비가 동시에 성립합니다. 결과가 이상하면 공차를 확인하세요.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 등차와 등비는 어떻게 구분하나요?</p><p class="a">연속한 항의 차이가 일정하면 등차, 비율이 일정하면 등비입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 공비가 1보다 크면 합이 무한대인가요?</p><p class="a">항의 수가 무한하면 발산합니다. 유한 개수의 합은 공식으로 계산됩니다.</p></div>
 <div class="faq-item"><p class="q">Q. 복리 계산에 어떤 수열을 쓰나요?</p><p class="a">등비수열입니다. 매 기간 (1+이율)이 곱해집니다.</p></div>
+<div class="faq-item"><p class="q">Q. 공비가 1보다 작으면 합은 어떻게 되나요?</p><p class="a">유한 개를 더하면 공식대로 줄어든 값이 나오고, 무한히 더하면 첫째항÷(1−공비)로 수렴합니다. 첫째항 1, 공비 0.5면 무한합이 2입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/linearfn.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">일차함수 그래프</a> — 등차수열을 직선으로 보기</li>
+<li><a href="/calculators/explog.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">지수·로그 계산기</a> — 등비수열의 거듭제곱</li>
+<li><a href="/calculators/loan.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">대출이자 계산기</a> — 원리금과 복리 구조</li>
+<li><a href="/calculators/integral.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">적분 계산기</a> — 합에서 넓이로</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "등비수열입니다. 매 기간 (1+이율)이 곱해집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "공비가 1보다 작으면 합은 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "유한 개를 더하면 공식대로 줄어든 값이 나오고, 무한히 더하면 첫째항÷(1−공비)로 수렴합니다. 첫째항 1, 공비 0.5면 무한합이 2입니다."
       }
     }
   ]

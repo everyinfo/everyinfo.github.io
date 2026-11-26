@@ -110,10 +110,37 @@
 <li><b>완전수</b>는 자기 자신을 뺀 약수의 합이 자기 자신인 수로, 6과 28이 그렇습니다. 홀수 완전수가 존재하는지는 아직 미해결입니다.</li>
 <li>알려진 가장 큰 소수는 수천만 자리이며, 전 세계 컴퓨터가 분산 컴퓨팅(GIMPS)으로 찾고 있습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>약수 개수로 포장 방법 세기</h2>
+<div class="example-box">
+<p><b>예: 60개를 남김없이 똑같이 담는 방법은 몇 가지?</b></p>
+<ul>
+<li><b>1단계</b> 60을 넣고 배수는 10개까지 봅니다.</li>
+<li><b>2단계</b> 소인수분해 60 = 2²×3×5 → (2+1)×(1+1)×(1+1) = <b>약수 12개</b></li>
+<li><b>3단계</b> 1·2·3·4·5·6·10·12·15·20·30·60개씩 담는 12가지</li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 봉지 수를 7개로 정하면 60÷7=8.57이라 남는 게 생깁니다. 약수만 남김없이 나눠집니다.</p>
+</div>
+<p>약수는 항상 <b>짝</b>으로 나옵니다(1×60, 2×30, 3×20…). 제곱수만 가운데 약수가 짝 없이 남아 개수가 홀수가 됩니다. 49의 약수는 1·7·49 세 개입니다.</p>
+<ul class="trivia-list">
+<li>배수는 최대 30개까지 보여줍니다. 더 필요하면 60, 120, 180처럼 직접 더하세요.</li>
+<li>0과 음수는 약수·배수 계산 대상이 아닙니다. 1 이상 자연수만 넣습니다.</li>
+<li>100,000을 넘는 수는 계산하지 않습니다. 그럴 땐 소인수분해를 손으로 하고 지수에 1을 더해 곱하세요.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 1은 소수인가요?</p><p class="a">아닙니다. 소인수분해의 유일성을 지키기 위해 소수에서 제외합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 약수의 개수를 빨리 세려면요?</p><p class="a">소인수분해 후 각 지수에 1을 더해 곱합니다. 12 = 2²×3¹이므로 (2+1)(1+1) = 6개입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 2는 왜 유일한 짝수 소수인가요?</p><p class="a">2보다 큰 짝수는 모두 2로 나눠지기 때문입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 약수가 홀수 개인 수는 어떤 수인가요?</p><p class="a">완전제곱수입니다. 약수는 짝을 이루는데 제곱수만 가운데 약수가 짝 없이 남습니다. 36의 약수는 1·2·3·4·6·9·12·18·36으로 9개입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/gcdlcm.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">최대공약수·최소공배수</a> — 두 수의 공약수와 공배수</li>
+<li><a href="/calculators/factor.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">인수분해 계산기</a> — 약수 찾기를 식으로 확장</li>
+<li><a href="/calculators/sequence.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">수열 계산기</a> — 배수는 공차가 같은 등차수열</li>
+<li><a href="/calculators/quadeq.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">이차방정식 계산기</a> — 곱해서 c가 되는 두 수 찾기</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "2보다 큰 짝수는 모두 2로 나눠지기 때문입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "약수가 홀수 개인 수는 어떤 수인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "완전제곱수입니다. 약수는 짝을 이루는데 제곱수만 가운데 약수가 짝 없이 남습니다. 36의 약수는 1·2·3·4·6·9·12·18·36으로 9개입니다."
       }
     }
   ]

@@ -110,10 +110,37 @@
 <li><b>합차공식</b> a² − b² = (a+b)(a−b)은 암산에 좋습니다 — 98×102 = (100−2)(100+2) = 9,996.</li>
 <li>유리수 범위에서 안 되는 식도 <b>복소수 범위에서는 항상 일차식들의 곱으로</b> 쪼개집니다(대수학의 기본정리).</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>판별식부터 확인하는 인수분해 순서</h2>
+<div class="example-box">
+<p><b>예: 2x² − 7x + 3</b></p>
+<ul>
+<li><b>1단계</b> a=2, b=−7, c=3을 넣습니다.</li>
+<li><b>2단계</b> D = 49 − 24 = 25 = 5² → 완전제곱수라 유리수 범위에서 분해됩니다.</li>
+<li><b>3단계</b> 두 근은 3과 0.5, 식은 <b>(x − 3)(2x − 1)</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 근이 3과 0.5라는 것은 x=3 또는 x=0.5일 때 식이 0이 된다는 뜻입니다.</p>
+</div>
+<p>계수가 1이 아닌 식은 <b>ac를 먼저 보고</b> 두 수를 찾는 편이 빠릅니다. 여기서는 6이 되는 두 수 중 합이 7인 −6과 −1을 찾아 2x²−6x−x+3으로 쪼갠 뒤 묶으면 같은 결과가 나옵니다.</p>
+<ul class="trivia-list">
+<li>D가 음수면 실수 범위에서 인수분해되지 않습니다. 도구는 그 사실을 알려주고 멈춥니다.</li>
+<li>D가 양수라도 완전제곱수가 아니면(예: x²+x−1, D=5) 무리수 근이라 깔끔한 정수 계수 인수분해가 없습니다.</li>
+<li>a가 0이면 이차식이 아닙니다. 도구가 결과를 보여주지 않으면 a 칸부터 확인하세요.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 인수분해가 안 되는 식도 있나요?</p><p class="a">유리수 범위에서 안 되는 경우가 있습니다. 그럴 땐 근의 공식을 사용합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 어떻게 두 수를 빨리 찾나요?</p><p class="a">곱이 상수항이 되는 수의 쌍을 나열한 뒤, 합이 일차항 계수가 되는 조합을 고릅니다.</p></div>
 <div class="faq-item"><p class="q">Q. 계수가 1이 아닐 때는요?</p><p class="a">ax²+bx+c는 ac를 곱해 두 수를 찾은 뒤 묶는 방법(십자셈)을 씁니다.</p></div>
+<div class="faq-item"><p class="q">Q. 판별식이 0이면 인수분해가 어떻게 되나요?</p><p class="a">완전제곱식 하나로 묶입니다. x²−6x+9는 (x−3)²이고 근은 3 하나(중근)이며, 그래프는 x축에 접합니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/quadeq.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">이차방정식 계산기</a> — 근의 공식으로 바로 풀기</li>
+<li><a href="/calculators/sqrtcalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">제곱근 계산기</a> — 판별식의 제곱근 값 확인</li>
+<li><a href="/calculators/gcdlcm.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">최대공약수·최소공배수</a> — 계수를 정리할 때 쓰는 공약수</li>
+<li><a href="/calculators/explog.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">지수·로그 계산기</a> — 인수분해와 곱셈 구조</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "ax²+bx+c는 ac를 곱해 두 수를 찾은 뒤 묶는 방법(십자셈)을 씁니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "판별식이 0이면 인수분해가 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "완전제곱식 하나로 묶입니다. x²−6x+9는 (x−3)²이고 근은 3 하나(중근)이며, 그래프는 x축에 접합니다."
       }
     }
   ]

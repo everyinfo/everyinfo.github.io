@@ -123,10 +123,37 @@
 <li>공기 밀도는 약 1.2kg/m³로 얼핏 무시할 것 같지만, <b>방 하나(50m³) 안의 공기 무게가 60kg</b>입니다.</li>
 <li><b>API 비중</b>은 원유 거래에서 쓰며, 숫자가 클수록 가벼운(고급) 원유입니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>에탄올 500mL의 무게 구하기</h2>
+<div class="example-box">
+<p><b>예: 에탄올 밀도 0.789g/mL, 500mL</b></p>
+<ul>
+<li><b>1단계</b> 질량 g, 부피 mL를 골라 0.789를 넣습니다.</li>
+<li><b>2단계</b> 500mL면 0.789 × 500 = <b>394.5g</b></li>
+<li><b>3단계</b> kg/m³로 바꾸면 <b>789kg/m³</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 같은 500mL라도 물은 500g이라 에탄올과 105g 차이가 납니다. 용기 무게를 잴 때 이 차이가 중요합니다.</p>
+</div>
+<p>밀도는 <b>질량 ÷ 부피</b>이고, 질량 단위와 부피 단위를 각각 고를 수 있습니다. g/cm³와 g/mL는 같은 값입니다. kg/m³로 바꾸면 숫자가 1,000배 커지는데, 단위가 작은 쪽을 기준으로 세기 때문입니다.</p>
+<ul class="trivia-list">
+<li>밀도는 온도에 따라 달라집니다. 0.789는 20℃ 기준이고, 따뜻해지면 조금 낮아집니다.</li>
+<li>1lb/ft³는 16.02kg/m³입니다. 미국 설비 도면을 볼 때 자주 필요한 값입니다.</li>
+<li>비중은 물 대비 비율이라 단위가 없습니다. 물 밀도가 1이라 g/cm³ 값과 숫자가 같습니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 비중과 밀도는 뭐가 다른가요?</p><p class="a">밀도는 단위가 있는 물리량(g/cm³), 비중은 물 대비 비율이라 단위가 없습니다.</p></div>
 <div class="faq-item"><p class="q">Q. g/cm³를 kg/m³로 바꾸려면요?</p><p class="a">1,000을 곱합니다. 7.85g/cm³(강철)는 7,850kg/m³입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 얼음이 물에 뜨는 이유는요?</p><p class="a">물이 얼면서 분자가 육각 구조로 배열돼 부피가 늘고 밀도가 낮아지기 때문입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 비중 0.789는 밀도 몇 g/cm³인가요?</p><p class="a">물 밀도가 1g/cm³이라 비중과 g/cm³ 값이 같습니다. 0.789입니다. 다만 물 밀도는 4℃ 기준이라 다른 온도에서는 조금 달라집니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/cbm.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">CBM 계산기</a> — 부피와 무게로 운임 계산</li>
+<li><a href="/calculators/airweight.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">부피중량 계산기</a> — 항공 운임의 부피무게</li>
+<li><a href="/calculators/container.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">컨테이너 적입 계산기</a> — 중량 한도와 적재량</li>
+<li><a href="/calculators/unit-force.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">힘 단위 변환</a> — 무게를 힘으로 환산</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -156,6 +183,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "물이 얼면서 분자가 육각 구조로 배열돼 부피가 늘고 밀도가 낮아지기 때문입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "비중 0.789는 밀도 몇 g/cm³인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "물 밀도가 1g/cm³이라 비중과 g/cm³ 값이 같습니다. 0.789입니다. 다만 물 밀도는 4℃ 기준이라 다른 온도에서는 조금 달라집니다."
       }
     }
   ]

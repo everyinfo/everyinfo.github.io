@@ -110,10 +110,37 @@
 <li><b>최댓값·최솟값을 찾는 게 미분의 주 용도</b>입니다. 기울기가 0이 되는 지점이 정상이나 골짜기입니다.</li>
 <li><b>AI 학습의 핵심도 미분</b>입니다. 경사하강법이 바로 미분값을 따라 내려가는 방법입니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>생산량을 늘릴 때 추가로 드는 원가</h2>
+<div class="example-box">
+<p><b>예: 총원가 C(x) = x³ − 6x² + 15x (단위: 천 원), x=3에서의 한계원가</b></p>
+<ul>
+<li><b>1단계</b> 3차를 고르고 계수 1, −6, 15, 0을 넣습니다. 상수항 0도 자리를 채워야 합니다.</li>
+<li><b>2단계</b> 도함수는 3x² − 12x + 15이고, x=3을 대입하면 <b>6</b></li>
+<li><b>3단계</b> 세 번째 묶음을 더 만들 때 추가 원가는 약 <b>6,000원</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 함숫값 C(3)=18,000원은 지금까지의 총원가, 미분값 6은 그 지점에서 하나 더 만들 때 드는 원가입니다.</p>
+</div>
+<p>미분값은 '평균'이 아니라 <b>그 지점의 순간 변화율</b>입니다. 구간 평균 원가(18,000÷3=6,000원)와 값이 같아 보이는 건 우연이고, x=5에서는 한계원가 30, 총원가 50으로 격차가 벌어집니다.</p>
+<ul class="trivia-list">
+<li>계수 0을 비우면 차수가 한 칸 밀려 전혀 다른 함수가 됩니다. 없는 항은 반드시 0으로 채우세요.</li>
+<li>도구는 <b>4차까지</b> 다룹니다. 5차 이상은 항별로 지수를 내리고 계수를 곱해 직접 계산해야 합니다.</li>
+<li>미분값이 0인 지점은 극값 후보일 뿐입니다. 실제 최솟값은 구간 양 끝도 함께 비교해야 나옵니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 미분값이 0이면 무슨 뜻인가요?</p><p class="a">접선이 수평이라는 뜻으로, 극대·극소 또는 변곡점일 수 있습니다.</p></div>
 <div class="faq-item"><p class="q">Q. 미분이 안 되는 함수도 있나요?</p><p class="a">뾰족한 점이나 끊긴 지점에서는 미분이 불가능합니다. |x|의 x=0이 대표적입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 2계도함수는 뭘 뜻하나요?</p><p class="a">기울기의 변화율입니다. 위치를 두 번 미분하면 가속도가 나옵니다.</p></div>
+<div class="faq-item"><p class="q">Q. 한계원가가 음수로 나오면 어떻게 해석하나요?</p><p class="a">그 구간에서는 생산량을 늘릴수록 총원가가 줄어든다는 뜻입니다. 설비를 더 채워 쓰는 규모의 경제 구간이고, 최소점을 지나면 다시 양수로 바뀝니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/integral.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">적분 계산기</a> — 미분의 반대로 누적량 구하기</li>
+<li><a href="/calculators/linearfn.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">일차함수 그래프</a> — 기울기가 일정한 변화</li>
+<li><a href="/calculators/explog.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">지수·로그 계산기</a> — 성장·감쇠 곡선의 값</li>
+<li><a href="/calculators/quadeq.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">이차방정식 계산기</a> — 도함수가 0이 되는 지점 찾기</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "기울기의 변화율입니다. 위치를 두 번 미분하면 가속도가 나옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "한계원가가 음수로 나오면 어떻게 해석하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "그 구간에서는 생산량을 늘릴수록 총원가가 줄어든다는 뜻입니다. 설비를 더 채워 쓰는 규모의 경제 구간이고, 최소점을 지나면 다시 양수로 바뀝니다."
       }
     }
   ]

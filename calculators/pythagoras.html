@@ -110,10 +110,37 @@
 <li>여기서 <b>무리수가 발견</b>됐습니다. 한 변이 1인 정사각형의 대각선(√2)이 분수로 표현되지 않는다는 걸 알아낸 것이 피타고라스 학파에게는 충격이었습니다.</li>
 <li>지수를 3 이상으로 바꾸면 정수해가 없다는 <b>페르마의 마지막 정리</b>는 358년간 미해결이다가 1995년에야 증명됐습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>사다리 길이를 벽 높이로 구하기</h2>
+<div class="example-box">
+<p><b>예: 벽 높이 2.4m, 사다리 발이 벽에서 1m 떨어졌을 때 사다리 길이</b></p>
+<ul>
+<li><b>1단계</b> 구할 변을 '빗변 c'로 두고 밑변 a=2.4, 높이 b=1을 넣습니다.</li>
+<li><b>2단계</b> c² = 5.76 + 1 = 6.76</li>
+<li><b>3단계</b> c = √6.76 = <b>2.6m</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 2.6m 사다리를 세우면 벽에서 1m 떨어진 지점에서 높이 2.4m에 닿습니다.</p>
+</div>
+<p>현장에서는 반대로 쓰는 일이 더 많습니다. 사다리 길이(2.6m)와 벽까지 거리(1m)를 알고 <b>닿는 높이</b>를 구하려면 '직각변 a' 모드에 빗변 2.6과 다른 변 1을 넣으면 2.4가 나옵니다.</p>
+<ul class="trivia-list">
+<li>직각변 모드에서 <b>빗변보다 긴 값</b>을 다른 변에 넣으면 결과가 나오지 않습니다. 빗변은 항상 가장 긴 변입니다.</li>
+<li>3-4-5의 배수(6-8-10, 2.4-3.2-4)는 암산 검산에 좋습니다. 소수 셋째 자리까지 나오면 배수 관계를 의심해 보세요.</li>
+<li>시공에서는 계산값에 여유 5~10cm를 더합니다. 벽과 바닥이 직각이 아니면 실제 길이가 달라집니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 직각인지 확인만 하고 싶다면요?</p><p class="a">세 변을 재서 a² + b² = c²가 성립하면 직각삼각형입니다. 현장에서는 3:4:5 비율을 활용합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 빗변이 아닌 변을 구할 때는요?</p><p class="a">a = √(c² − b²)로 계산합니다. 빗변은 항상 가장 긴 변입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 3차원에서도 쓸 수 있나요?</p><p class="a">가능합니다. 대각선 = √(a² + b² + c²)로 확장됩니다.</p></div>
+<div class="faq-item"><p class="q">Q. 벽과 바닥이 정확한 직각이 아니면 계산이 틀어지나요?</p><p class="a">네. 이 계산은 직각삼각형을 전제로 합니다. 각도가 90°에서 벗어나면 실제 길이가 달라지므로 코너에서 3-4-5 법칙으로 직각을 먼저 확인한 뒤 재세요.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/trigratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">삼각함수 계산기</a> — 각도를 알 때 변의 비율</li>
+<li><a href="/calculators/vector.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">벡터 계산기</a> — 두 방향 성분으로 크기 구하기</li>
+<li><a href="/calculators/solidshape.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">입체도형 부피·겉넓이</a> — 3차원 대각선으로 확장</li>
+<li><a href="/calculators/unit-length.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">길이 단위 변환</a> — m·cm·inch 섞인 치수 정리</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "가능합니다. 대각선 = √(a² + b² + c²)로 확장됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "벽과 바닥이 정확한 직각이 아니면 계산이 틀어지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 이 계산은 직각삼각형을 전제로 합니다. 각도가 90°에서 벗어나면 실제 길이가 달라지므로 코너에서 3-4-5 법칙으로 직각을 먼저 확인한 뒤 재세요."
       }
     }
   ]

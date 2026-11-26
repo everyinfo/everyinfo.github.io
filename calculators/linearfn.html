@@ -110,10 +110,37 @@
 <li>세상의 많은 관계가 <b>국소적으로는 직선에 가깝습니다.</b> 이게 미분의 발상이기도 합니다.</li>
 <li><b>좌표평면은 데카르트가 만들었습니다.</b> 천장의 파리를 보며 위치를 두 숫자로 나타낼 수 있겠다고 생각했다는 일화가 전해집니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>손익분기점을 x절편으로 찾기</h2>
+<div class="example-box">
+<p><b>예: 개당 마진 2,500원, 고정비 40,000원일 때 이익</b></p>
+<ul>
+<li><b>1단계</b> 기울기 a에 2,500, y절편 b에 −40,000을 넣습니다.</li>
+<li><b>2단계</b> x절편 = −b ÷ a = 40,000 ÷ 2,500 = <b>16</b></li>
+<li><b>3단계</b> 16개를 팔면 이익 0, <b>17개부터 흑자</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: y절편 −40,000은 하나도 팔지 않았을 때의 손실, 즉 고정비입니다.</p>
+</div>
+<p>일차함수는 <b>시작값(b) + 단가(a) × 개수(x)</b> 구조라 요금제·주행비용·손익 계산이 모두 같은 틀입니다. x절편이 소수로 나오면 실제 개수는 올림해야 손실 구간을 벗어납니다.</p>
+<ul class="trivia-list">
+<li>y절편이 음수면 <b>−40000</b>처럼 부호를 그대로 넣어야 합니다. 빼고 넣으면 손익분기점이 사라집니다.</li>
+<li>x절편이 음수로 나오면 '0개 이전'이라는 뜻이라 현실에서는 의미가 없습니다. 단가와 고정비 부호를 확인하세요.</li>
+<li>도구는 x 범위를 정하지 않습니다. 실제 판매 한도나 할인 구간은 별도로 따져야 합니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 기울기가 0이면 어떤 그래프인가요?</p><p class="a">수평선입니다. x가 변해도 y가 일정합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 두 직선의 교점은 어떻게 구하나요?</p><p class="a">두 식을 연립해 풀면 됩니다. 기울기가 같으면 교점이 없습니다(평행).</p></div>
 <div class="faq-item"><p class="q">Q. x = 3은 일차함수인가요?</p><p class="a">아닙니다. 수직선은 함수의 정의를 만족하지 않습니다.</p></div>
+<div class="faq-item"><p class="q">Q. 기울기는 같은데 기본료만 다른 두 요금제는 어떻게 비교하나요?</p><p class="a">두 직선이 평행해서 교점이 없습니다. 이때는 항상 한쪽이 더 비싸므로 y절편이 작은 쪽을 고르면 되고, 교점 계산이 필요 없습니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/derivative.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">미분 계산기</a> — 직선이 휘어질 때의 순간 기울기</li>
+<li><a href="/calculators/quadeq.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">이차방정식 계산기</a> — 두 곡선이 만나는 지점</li>
+<li><a href="/calculators/sequence.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">수열 계산기</a> — 매달 같은 금액이 늘어날 때의 합</li>
+<li><a href="/calculators/tripcost.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">주행비용 계산기</a> — 거리 × 유가로 실제 비용</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "아닙니다. 수직선은 함수의 정의를 만족하지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "기울기는 같은데 기본료만 다른 두 요금제는 어떻게 비교하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "두 직선이 평행해서 교점이 없습니다. 이때는 항상 한쪽이 더 비싸므로 y절편이 작은 쪽을 고르면 되고, 교점 계산이 필요 없습니다."
       }
     }
   ]

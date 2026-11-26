@@ -110,10 +110,37 @@
 <li><b>n−1로 나누는 이유</b>는 표본으로 모집단을 추정할 때 n으로 나누면 분산을 실제보다 작게 추정하는 편향이 생기기 때문입니다.</li>
 <li>주식의 <b>변동성(volatility)</b>이 곧 수익률의 표준편차입니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>닷새 배송량으로 변동성 보기</h2>
+<div class="example-box">
+<p><b>예: 배송 건수 120, 135, 98, 150, 127</b></p>
+<ul>
+<li><b>1단계</b> 값을 쉼표나 공백으로 붙여넣습니다. 평균은 <b>126</b></li>
+<li><b>2단계</b> 편차 제곱 합 1,478 ÷ 5 = 분산 <b>295.6</b></li>
+<li><b>3단계</b> 표준편차 = √295.6 = <b>17.19</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 하루 배송량이 평균 126건에서 ±17건 정도 흔들린다는 뜻입니다. 인력 계획의 여유분이 됩니다.</p>
+</div>
+<p>도구는 <b>n으로 나누는 모분산</b>으로 계산합니다. 이 닷새를 전체의 표본으로 보고 모집단을 추정하려면 n−1로 나눠야 하고, 같은 자료의 표준편차는 19.22로 커집니다. 값이 적을수록 차이가 크게 벌어집니다.</p>
+<ul class="trivia-list">
+<li>표준편차는 원자료와 단위가 같습니다. 분산은 제곱 단위라 크기를 비교할 때 감이 잘 안 옵니다.</li>
+<li>값이 하나뿐이면 표준편차는 0입니다. 흩어짐이 없기 때문입니다.</li>
+<li>이상치 하나가 표준편차를 크게 흔듭니다. 가장 큰 값 150을 빼면 표준편차가 17.19에서 13.77로 줄어듭니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 분산과 표준편차 중 뭘 봐야 하나요?</p><p class="a">표준편차입니다. 원래 데이터와 단위가 같아 해석하기 쉽습니다.</p></div>
 <div class="faq-item"><p class="q">Q. n으로 나눌지 n−1로 나눌지 어떻게 정하나요?</p><p class="a">전체 집단이면 n(모분산), 일부를 뽑은 표본이면 n−1(표본분산)입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 표준편차가 0이면 무슨 뜻인가요?</p><p class="a">모든 값이 평균과 같다는 뜻으로, 데이터에 흩어짐이 전혀 없는 상태입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 평균이 다른 두 집단의 흩어짐은 어떻게 비교하나요?</p><p class="a">표준편차를 평균으로 나눈 변동계수를 씁니다. 표준편차 17.19, 평균 126이면 약 13.6%이고, 이 비율이 작을수록 고르게 분포한 자료입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/normaldist.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">정규분포 계산기</a> — 표준편차로 백분위 구하기</li>
+<li><a href="/calculators/probability.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">확률·경우의 수 계산기</a> — 경우의 수와 확률</li>
+<li><a href="/calculators/suneung.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">수능 표준점수 계산기</a> — 평균·표준편차로 표준점수</li>
+<li><a href="/calculators/avgkid.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">평균 구하기(초등)</a> — 평균부터 차근차근</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "모든 값이 평균과 같다는 뜻으로, 데이터에 흩어짐이 전혀 없는 상태입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "평균이 다른 두 집단의 흩어짐은 어떻게 비교하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "표준편차를 평균으로 나눈 변동계수를 씁니다. 표준편차 17.19, 평균 126이면 약 13.6%이고, 이 비율이 작을수록 고르게 분포한 자료입니다."
       }
     }
   ]

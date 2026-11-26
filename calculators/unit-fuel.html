@@ -122,10 +122,37 @@
 <li>전기차는 <b>km/kWh 또는 MPGe</b>로 표기하며, MPGe는 33.7kWh를 1갤런 상당으로 봅니다.</li>
 <li>하이브리드가 도심에서 연비가 더 좋은 건 <b>회생제동</b> 때문입니다. 정체 많은 도심이 오히려 유리합니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>유럽 렌터카 표기 5.5L/100km를 km/L로 바꾸기</h2>
+<div class="example-box">
+<p><b>예: 렌터카 연비 5.5L/100km</b></p>
+<ul>
+<li><b>1단계</b> 5.5를 넣고 단위를 L/100km → km/L로 바꿉니다.</li>
+<li><b>2단계</b> 100 ÷ 5.5 = <b>18.18km/L</b></li>
+<li><b>3단계</b> 500km 주행에 필요한 연료는 27.5L</li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 5.5L/100km는 100km마다 5.5L를 쓴다는 뜻이라, 500km면 다섯 배인 27.5L입니다.</p>
+</div>
+<p>두 단위는 <b>반비례</b>입니다. km/L는 값이 클수록 좋고 L/100km는 작을수록 좋아서, 숫자만 보면 개선 폭이 반대로 읽힙니다. 유럽이 L/100km를 쓰는 이유는 연료 절감량과 숫자가 정비례하기 때문입니다.</p>
+<ul class="trivia-list">
+<li>L/100km에 0을 넣으면 계산되지 않습니다. 0으로 나누는 값이기 때문입니다.</li>
+<li>mpg는 미국 갤런과 영국 갤런이 달라 같은 차가 30과 36으로 다르게 표기됩니다. 어느 쪽인지 먼저 확인하세요.</li>
+<li>전기차는 km/kWh나 MPGe로 표기해 이 도구의 단위와 직접 비교되지 않습니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 12km/L는 L/100km로 얼마인가요?</p><p class="a">약 8.3L/100km입니다. 100 ÷ 12로 계산합니다.</p></div>
 <div class="faq-item"><p class="q">Q. mpg는 어느 나라 기준인가요?</p><p class="a">자료 출처를 확인해야 합니다. 미국 갤런(3.785L)과 영국 갤런(4.546L)이 다릅니다.</p></div>
 <div class="faq-item"><p class="q">Q. 복합연비는 뭔가요?</p><p class="a">도심 55%, 고속 45% 비중으로 가중평균한 공인 표기값입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 연비 차이를 한 달 주유비로 바꾸려면 어떻게 하나요?</p><p class="a">주행거리 ÷ 연비 × 유가로 계산합니다. 연 15,000km, 18.18km/L, 1,700원/L이면 약 825L, 약 140만 원이 듭니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/unit-energy.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">에너지 단위 변환</a> — 연료의 열량을 kWh로</li>
+<li><a href="/calculators/unit-power.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">일률·마력 변환</a> — 엔진 출력 kW·마력</li>
+<li><a href="/calculators/electric.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">전기 계산기</a> — 전기차 충전 요금 비교</li>
+<li><a href="/calculators/unit-currency.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">환율 계산기</a> — 해외 주유비 원화 환산</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -155,6 +182,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "도심 55%, 고속 45% 비중으로 가중평균한 공인 표기값입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "연비 차이를 한 달 주유비로 바꾸려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "주행거리 ÷ 연비 × 유가로 계산합니다. 연 15,000km, 18.18km/L, 1,700원/L이면 약 825L, 약 140만 원이 듭니다."
       }
     }
   ]

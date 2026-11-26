@@ -110,10 +110,37 @@
 <li><b>0! = 1</b>입니다. "아무것도 배열하지 않는 방법이 한 가지"라고 보면 자연스럽습니다.</li>
 <li>확률론은 <b>도박에서 시작</b>됐습니다. 17세기 파스칼과 페르마가 도박꾼의 질문에 답하려고 주고받은 편지가 출발점입니다.</li>
 </ul>
+<!-- thin-boost-2026-11-27 -->
+<h2>위원회 3명 뽑기, 조합으로 세기</h2>
+<div class="example-box">
+<p><b>예: 8명 중 3명으로 위원회를 만들 때</b></p>
+<ul>
+<li><b>1단계</b> 조합(nCr)을 고르고 n=8, r=3을 넣습니다.</li>
+<li><b>2단계</b> 8C3 = (8×7×6)÷(3×2×1) = <b>56가지</b></li>
+<li><b>3단계</b> 특정 3명이 모두 뽑힐 확률 = 1÷56 ≈ <b>1.79%</b></li>
+</ul>
+<p style="margin-top:8px;font-size:12px;color:var(--ink-faint);">결과 해석: 순서를 따져 뽑으면 8P3 = 336가지로 6배가 됩니다. 3! 만큼 부풀려 세는 셈입니다.</p>
+</div>
+<p>확률 모드는 원하는 경우의 수와 전체 경우의 수만 넣으면 분수와 %를 함께 보여줍니다. 경우의 수를 조합으로 구했으면, 확률의 분모에도 같은 조합 값을 넣어야 단위가 맞습니다.</p>
+<ul class="trivia-list">
+<li><b>반장·부반장</b>처럼 역할이 다르면 순열, <b>위원회·대표팀</b>처럼 역할이 같으면 조합입니다.</li>
+<li>r이 n보다 크면 계산되지 않습니다. 8명 중 9명을 뽑을 수는 없습니다.</li>
+<li>확률은 0~1 사이 값이고, % 표시는 소수 둘째 자리에서 반올림됩니다. 1/56은 1.79%로 보입니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 순열과 조합 중 뭘 써야 하나요?</p><p class="a">순서가 결과에 영향을 주면 순열, 아니면 조합입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 중복을 허용하면요?</p><p class="a">중복순열은 nʳ, 중복조합은 (n+r−1)C(r)로 계산합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 확률이 0.5면 두 번 하면 반드시 성공하나요?</p><p class="a">아닙니다. 두 번 모두 실패할 확률이 25%입니다. 각 시행은 독립입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 8명 중 3명을 뽑을 때 내가 뽑힐 확률은 얼마인가요?</p><p class="a">내가 들어가는 조합은 나머지 7명 중 2명을 고르는 7C2 = 21가지입니다. 21÷56 = 37.5%입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/statskid.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">분산·표준편차 계산기</a> — 확률로 나온 값을 흩어짐으로 보기</li>
+<li><a href="/calculators/normaldist.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">정규분포 계산기</a> — 연속적인 값의 확률과 백분위</li>
+<li><a href="/calculators/sequence.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">수열 계산기</a> — 팩토리얼이 커지는 속도</li>
+<li><a href="/calculators/suneung.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">수능 표준점수 계산기</a> — 확률 분포로 등급 나누기</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +170,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "아닙니다. 두 번 모두 실패할 확률이 25%입니다. 각 시행은 독립입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "8명 중 3명을 뽑을 때 내가 뽑힐 확률은 얼마인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "내가 들어가는 조합은 나머지 7명 중 2명을 고르는 7C2 = 21가지입니다. 21÷56 = 37.5%입니다."
       }
     }
   ]
