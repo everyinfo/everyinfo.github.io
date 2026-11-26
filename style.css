@@ -241,3 +241,6 @@ table.gtable tr.hl td{background:rgba(46,92,138,.06)}
 .gempty{max-width:var(--maxw-wide);margin:22px auto 0;padding:0 20px;font-size:13px;color:var(--ink-faint);text-align:center;line-height:1.7}
 .gempty[hidden]{display:none}
 .gempty b{color:var(--ink-soft)}
+
+/* Container loading: one-line summary above the Top View drawing (pallet & box modes) */
+.ct-sum{font-size:11.5px;font-weight:700;color:#1E3A5F;line-height:1.45;margin:2px 0 8px;letter-spacing:0}
