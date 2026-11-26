@@ -74,7 +74,7 @@ CalcLex는 엔지니어와 직장인이 실제 업무에서 쓰는 계산(단위
 - [도형 넓이(면적) 계산기](https://calclex.com/calculators/shape.html): 직사각형·삼각형·사다리꼴·원의 넓이(면적)와 둘레를 그림과 함께 구해요.
 - [백분율·할인 계산기](https://calclex.com/calculators/percentkid.html): 퍼센트가 무엇인지 100칸 그림으로 보여주며 할인가까지 구해요.
 - [분수 계산기](https://calclex.com/calculators/fraction.html): 분수의 덧셈·뺄셈·곱셈·나눗셈을 통분 과정까지 보여주며 계산해요.
-- [비와 비례식 계산기 (초등학생용)](https://calclex.com/calculators/ratiokid.html): 비례식에서 모르는 값을 찾고 외항·내항의 곱을 그림으로 설명해요.
+- [비와 비례식 계산기](https://calclex.com/calculators/ratiokid.html): 비례식을 풀고, 두 비가 같은지 확인하고, 비율을 최대공약수로 간단히 만들어요.
 - [소금물 농도 계산기](https://calclex.com/calculators/salt.html): 소금물의 진하기를 구하고, 왜 그렇게 되는지 그림으로 알려줘요.
 - [속력·거리·시간 계산기](https://calclex.com/calculators/speed.html): 속력, 거리, 시간 중 두 가지를 알면 나머지 하나를 구해요.
 - [약수와 배수 계산기](https://calclex.com/calculators/divisor.html): 어떤 수의 약수와 배수를 모두 찾고 소수인지 알려줘요.

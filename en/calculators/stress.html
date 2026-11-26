@@ -69,7 +69,7 @@
 <div class="hero-text">
   <span class="cat-tag">Engineering</span>
   <h1 class="page-title">🏗️ Stress Calculator (Mechanics of Materials)</h1>
-  <p class="page-desc">Calculate tensile, compressive, shear, or bending stress from load and section data, in your chosen unit.</p>
+  <p class="page-desc">Calculate tensile, compressive, shear, or bending stress in SI or US units, then check the design against a material strength and safety factor.</p>
 </div>
 
 <div class="calc-card">
@@ -81,9 +81,9 @@
 
 <div class="article calc-explain">
 <h2>What is a Stress Calculator?</h2>
-<p>The stress calculator computes stress (σ) from an applied load and cross-sectional area, and checks safety against allowable stress and safety factor.</p>
+<p>The stress calculator computes stress (σ) from an applied load and cross-sectional area — or bending stress from a moment and section modulus — in SI or US customary units, then checks the design against a material strength and your target safety factor.</p>
 <h2>How it's calculated</h2>
-<p><b>Stress σ = load P ÷ area A</b> (units: N/mm² = MPa)<br><b>Safety factor = material strength ÷ actual stress</b></p>
+<p><b>Tension/compression σ = load P ÷ area A</b> &nbsp;|&nbsp; <b>Shear τ = shear force ÷ area</b> &nbsp;|&nbsp; <b>Bending σb = moment M ÷ section modulus Z</b> (units: N/mm² = MPa)<br><b>Safety factor = material strength ÷ actual stress</b> — the calculator shows it with a safe / over-target verdict as soon as you choose a material (or type a strength) and a target safety factor.</p>
 <h2>Variable definitions</h2>
 <table class="unit-confuse-table">
 <tr><th>Variable</th><th>Meaning</th><th>Unit</th></tr>
@@ -91,8 +91,16 @@
 <tr><td>P</td><td>Applied load (force)</td><td>N</td></tr>
 <tr><td>A</td><td>Cross-sectional area</td><td>mm²</td></tr>
 </table>
-<h2>Assumptions</h2>
-<p>This assumes the load is <b>evenly distributed across the cross-section</b>. In reality, load position and part geometry can cause localized stress concentration, which requires a separate stress concentration factor for precise design.</p>
+<h2>Assumptions and limits</h2>
+<ul class="trivia-list">
+<li><b>Tension / compression:</b> σ = F/A is the <b>nominal stress</b> with a uniform distribution assumed. Stress concentrations (Kt) at holes, fillets and threads are not included — multiply by Kt for those sections.</li>
+<li><b>Compression members:</b> a slender column fails by <b>buckling</b>, not by reaching the yield stress. Check slenderness and the Euler buckling load separately.</li>
+<li><b>Shear:</b> τ = F/A is the <b>average</b> shear stress. The peak is 1.5× the average on a rectangular section (at the neutral axis) and 4/3× on a solid circular section — the calculator shows both.</li>
+<li><b>Bending:</b> σb = M/Z applies within the <b>elastic range</b> (Euler–Bernoulli beam theory): plane sections stay plane, stress varies linearly from the neutral axis, and shear deformation is ignored. Beyond yield, use plastic analysis.</li>
+<li><b>Combined loading:</b> a shaft under bending plus torsion cannot be judged by a single stress — use Von Mises (ductile) or maximum principal stress (brittle).</li>
+</ul>
+<h2>SI and US customary units</h2>
+<p>Bending moment can be entered in <b>N·mm, N·m, kN·m, lbf·in or lbf·ft</b> and section modulus in <b>mm³, cm³ or in³</b>. Stress can be shown in <b>Pa, kPa, MPa, GPa, kgf/cm², psi or ksi</b> — 1 ksi = 1,000 psi = 6.895 MPa, which is how A36 steel's 36 ksi yield strength is normally written.</p>
 <h2>Worked example</h2>
 <div class="example-box">
 <p><b>A 20mm-diameter steel rod under a 10,000N tensile load</b></p>
@@ -114,7 +122,7 @@
 </ul>
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><p class="q">Q. How do I convert between MPa and N/mm²?</p><p class="a">They are the same unit. 1 MPa = 1 N/mm², so no conversion is needed.</p></div>
-<div class="faq-item"><p class="q">Q. What safety factor should I use?</p><p class="a">It depends on the application. General structures often use 3–4; anything involving human safety should use a much higher margin per relevant design codes.</p></div>
+<div class="faq-item"><p class="q">Q. What safety factor should I use?</p><p class="a">It depends on the application. General structures often use 3–4; anything involving human safety should use a much higher margin per relevant design codes. The calculator computes the actual safety factor (material strength ÷ stress) and compares it with the target you enter.</p></div>
 <div class="faq-item"><p class="q">Q. Should design be based on yield strength or tensile strength?</p><p class="a">Generally yield strength, since permanent deformation starting there is treated as the practical limit.</p></div>
 </div>
 
@@ -136,7 +144,7 @@
       "name": "What safety factor should I use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the application. General structures often use 3–4; anything involving human safety should use a much higher margin per relevant design codes."
+        "text": "It depends on the application. General structures often use 3–4; anything involving human safety should use a much higher margin per relevant design codes. The calculator computes the actual safety factor (material strength ÷ stress) and compares it with the target you enter."
       }
     },
     {
