@@ -244,3 +244,63 @@ table.gtable tr.hl td{background:rgba(46,92,138,.06)}
 
 /* Container loading: one-line summary above the Top View drawing (pallet & box modes) */
 .ct-sum{font-size:11.5px;font-weight:700;color:#1E3A5F;line-height:1.45;margin:2px 0 8px;letter-spacing:0}
+
+/* Container loading: result/print display unit toggle (mm · cm · in) */
+.ct-du{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#EDF1F7;border:1px solid #DCE2EC;border-radius:10px;padding:7px 9px;margin:0 0 14px}
+.ct-du-l{font-size:11.5px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+.ct-du-seg{flex:0 0 auto;gap:3px}
+.ct-du-seg button{padding:6px 10px;font-size:11.5px;border-radius:7px;border-color:transparent;background:transparent}
+.ct-du-seg button.on{background:var(--indigo);border-color:var(--indigo);color:#F5F7FA}
+
+/* Container loading: mixed cargo (multi-SKU) tab */
+.ct-mode3 button{font-size:11.5px;padding:10px 2px;letter-spacing:-.02em}
+.ct-mx{border:1px solid var(--line);border-radius:12px;background:#FBFCFD;padding:10px 11px}
+.ct-mx-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px}
+.ct-mx-t{font-size:12px;font-weight:800;color:var(--ink);line-height:1.3}
+.ct-mx-t span{font-weight:500;color:var(--ink-faint);font-size:10.5px;white-space:nowrap}
+.ct-mx-u{gap:3px;flex:0 0 auto}
+.ct-mx-u button{padding:5px 8px;font-size:11px;border-radius:6px}
+.ct-mx-row{border-top:1px solid var(--line-soft);padding:9px 0 5px}
+.ct-mx-row:first-child{border-top:0}
+.ct-mx-nm{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ink)}
+.ct-mx-chip{width:10px;height:10px;border-radius:3px;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(15,23,42,.14)}
+.ct-mx-del{margin-left:auto;border:0;background:transparent;color:var(--ink-faint);font-size:11px;font-weight:700;cursor:pointer;padding:2px 3px;line-height:1}
+.ct-mx-del:hover{color:var(--brick)}
+.ct-mx-dims{display:flex;gap:6px;margin-top:5px}
+.ct-mx-dims label{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.ct-mx-dims span{font-size:9px;font-weight:700;color:var(--ink-faint);letter-spacing:.02em}
+.ct-mx-dims input{width:100%;padding:7px 3px;border:1px solid var(--line);border-radius:7px;background:#fff;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink);text-align:center;outline:0}
+.ct-mx-dims input:focus{border-color:var(--indigo-soft);box-shadow:0 0 0 2px rgba(31,60,99,.1)}
+.ct-mx-togs{display:flex;gap:14px;margin-top:7px}
+.ct-mx-chkl{display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;color:var(--ink-soft);cursor:pointer;white-space:nowrap}
+.ct-mx-chkl input{width:14px;height:14px;margin:0;accent-color:#1E3A5F}
+.ct-mx-add{width:100%;margin-top:8px;padding:9px;border:1px dashed #B9C4D4;border-radius:9px;background:#fff;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--ink-soft);cursor:pointer}
+.ct-mx-add:hover{border-color:var(--indigo);color:var(--indigo)}
+.ct-mx-add[disabled]{opacity:.45;cursor:default;border-style:solid}
+@media(min-width:560px){
+  .ct-mx-row{display:grid;grid-template-columns:92px 1fr 112px;gap:9px;align-items:end;padding:8px 0 6px}
+  .ct-mx-nm{margin-bottom:6px}
+  .ct-mx-dims{margin-top:0}
+  .ct-mx-togs{margin-top:0;padding-bottom:6px;flex-direction:column;gap:4px}
+}
+
+/* Container loading: container comparison cards (mixed cargo) */
+.ct-cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:0 0 6px}
+.ct-cmp-card{display:flex;flex-direction:column;gap:3px;padding:9px 7px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-family:inherit;text-align:left;cursor:pointer;transition:.13s}
+.ct-cmp-card:hover{border-color:var(--indigo-soft)}
+.ct-cmp-card.on{border-color:var(--indigo);background:#EEF3F8}
+.ct-cmp-top{display:flex;align-items:center;justify-content:space-between;gap:3px}
+.ct-cmp-top b{font-size:12px;color:var(--ink);white-space:nowrap}
+.ct-cmp-top em{font-style:normal;font-size:9px;font-weight:800;color:var(--gold);white-space:nowrap}
+.ct-cmp-st{font-size:10.5px;font-weight:700;color:var(--indigo);line-height:1.35}
+.ct-cmp-st.bad{color:var(--brick)}
+.ct-cmp-m{display:flex;flex-direction:column;font-size:9.5px;color:var(--ink-faint);font-weight:600;line-height:1.4}
+
+/* Container loading: mixed cargo legend under the drawing */
+.ct-mx-leg{display:flex;flex-direction:column;gap:0;margin-top:10px;text-align:left}
+.ct-mx-lg{display:grid;grid-template-columns:10px 54px 1fr auto;gap:6px;align-items:center;padding:4px 2px;border-top:1px solid var(--line-soft);font-size:10.5px}
+.ct-mx-lg:first-child{border-top:0}
+.ct-mx-lg .nm{font-weight:700;color:var(--ink);white-space:nowrap}
+.ct-mx-lg .sp{color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.ct-mx-lg .q{font-weight:800;color:var(--indigo);white-space:nowrap}
+.ct-mx-lg .q.short{color:var(--brick)}
