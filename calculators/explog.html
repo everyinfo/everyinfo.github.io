@@ -110,10 +110,40 @@
 <li><b>오일러 항등식 e^(iπ)+1=0</b>은 수학에서 가장 아름다운 식으로 꼽힙니다.</li>
 <li>20세기 중반까지 공학자들이 목에 걸고 다니던 <b>계산자(slide rule)</b>도 로그 눈금 원리로 작동했습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>dB와 반감기로 확인하기</h2>
+<div class="example-box">
+<p><b>예 1: 출력이 2배가 되면</b></p>
+<ul>
+<li>전력: 10 × log₁₀2 ≈ <b>+3dB</b></li>
+<li>음압(진폭): 20 × log₁₀2 ≈ <b>+6dB</b></li>
+</ul>
+<p><b>예 2: 반감기 5.7일인 물질이 30% 남는 시간</b></p>
+<ul>
+<li>log₂(1 ÷ 0.3) ≈ 1.737</li>
+<li>5.7 × 1.737 ≈ <b>9.9일</b></li>
+</ul>
+</div>
+<p>지수 방정식은 <b>양변에 로그를 취해</b> 풉니다. 2^x = 8이면 x = log₂8 = 3처럼 지수를 내려 계산합니다.</p>
+<ul class="trivia-list">
+<li>로그의 진수는 <b>항상 0보다 커야</b> 합니다. 0이나 음수는 정의되지 않습니다.</li>
+<li>밑이 다른 로그로 바꿀 때는 <b>밑변환 공식</b>을 씁니다.</li>
+<li>ln은 밑이 e, log는 보통 밑이 10입니다. 계산기에서 log₂를 쓰려면 밑변환 공식이 필요합니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. log와 ln은 뭐가 다른가요?</p><p class="a">log는 보통 밑이 10, ln은 밑이 e인 자연로그입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 로그의 진수가 음수면요?</p><p class="a">정의되지 않습니다. 어떤 수를 거듭제곱해도 음수가 나오지 않기 때문입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 밑을 바꾸려면요?</p><p class="a">밑변환 공식 log_a b = log_c b ÷ log_c a를 씁니다.</p></div>
+<div class="faq-item"><p class="q">Q. 소리 크기가 2배가 되면 몇 dB 오르나요?</p><p class="a">음압이 2배면 약 +6dB, 전력이 2배면 약 +3dB입니다. 사람이 "두 배 크게" 느끼는 것은 대략 +10dB입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/scicalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">공학용 계산기</a> — 거듭제곱 키와 로그 키</li>
+<li><a href="/calculators/sqrtcalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">제곱근 계산기</a> — 1/2제곱으로 제곱근 구하기</li>
+<li><a href="/calculators/normaldist.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">정규분포 계산기</a> — 로그와 지수가 쓰이는 분포</li>
+<li><a href="/calculators/average.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">평균 계산기</a> — 기하평균으로 성장률 계산</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +173,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "밑변환 공식 log_a b = log_c b ÷ log_c a를 씁니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "소리 크기가 2배가 되면 몇 dB 오르나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "음압이 2배면 약 +6dB, 전력이 2배면 약 +3dB입니다. 사람이 \"두 배 크게\" 느끼는 것은 대략 +10dB입니다."
       }
     }
   ]

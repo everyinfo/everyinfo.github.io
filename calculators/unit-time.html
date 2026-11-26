@@ -118,10 +118,36 @@
 <li>지구 자전이 미세하게 불규칙해서 가끔 <b>윤초</b>를 넣는데, 시스템 오류를 자주 일으켜 2035년 폐지가 결정됐습니다.</li>
 <li><b>1년 = 3,153만 6천 초</b>입니다. π×10⁷초와 오차가 0.4%밖에 안 나서, 물리학자들은 어림 계산할 때 이 근사를 씁니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>근무·경과 시간 계산</h2>
+<div class="example-box">
+<p><b>예: 09:20 출근, 18:05 퇴근, 점심 1시간</b></p>
+<ul>
+<li>전체 경과: 8시간 45분</li>
+<li>점심 1시간 차감: <b>7시간 45분</b></li>
+<li>분 단위로 보면 465분 = 7.75시간</li>
+</ul>
+</div>
+<p>시각의 차이는 <b>분이나 초로 바꾼 뒤 빼야</b> 실수가 없습니다. 18:05 − 09:20을 시·분끼리 그대로 빼면 8시간 85분처럼 계산돼 버립니다.</p>
+<ul class="trivia-list">
+<li>근로시간 계산에서 <b>1일 = 8시간</b>이 기준인 경우가 많지만, 회사 규정을 확인하세요.</li>
+<li>서버 로그·해외 업무는 <b>UTC와 한국시간(UTC+9)</b>을 구분해야 합니다.</li>
+<li>1년은 365일 = 31,536,000초, 윤년은 31,622,400초입니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 1년은 몇 초인가요?</p><p class="a">365일 기준 31,536,000초입니다. 윤년은 31,622,400초입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 한 달을 며칠로 계산하나요?</p><p class="a">용도에 따라 30일 또는 평균 30.44일(365÷12)을 씁니다.</p></div>
 <div class="faq-item"><p class="q">Q. 밀리초·마이크로초는 얼마인가요?</p><p class="a">1밀리초 = 1/1,000초, 1마이크로초 = 1/1,000,000초입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 09:20부터 18:05까지는 몇 시간인가요?</p><p class="a">8시간 45분입니다. 분으로 바꾸면 (18×60+5) − (9×60+20) = 525분이고, 525 ÷ 60 = 8.75시간입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/datediff.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">날짜 차이 계산기</a> — 며칠·몇 개월 차이</li>
+<li><a href="/calculators/dday.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">D-day 계산기</a> — 기념일까지 남은 날</li>
+<li><a href="/calculators/wage.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">시급·월급 계산기</a> — 근로시간으로 급여 계산</li>
+<li><a href="/calculators/tripcost.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">여행 경비 계산기</a> — 이동 시간과 비용</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -151,6 +177,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "1밀리초 = 1/1,000초, 1마이크로초 = 1/1,000,000초입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "09:20부터 18:05까지는 몇 시간인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "8시간 45분입니다. 분으로 바꾸면 (18×60+5) − (9×60+20) = 525분이고, 525 ÷ 60 = 8.75시간입니다."
       }
     }
   ]

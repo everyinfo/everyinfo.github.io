@@ -98,10 +98,36 @@
 <li><b>평균 속력은 속력의 평균이 아닙니다.</b> 갈 때 60km/h, 올 때 30km/h로 같은 거리를 왕복하면 평균은 45가 아니라 <b>40km/h</b>입니다.</li>
 <li>과속 단속에는 <b>구간단속</b>이 있습니다. 카메라 앞에서만 감속하는 게 통하지 않습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>도착 시간까지 계산하기</h2>
+<div class="example-box">
+<p><b>예: 서울→부산 400km, 시속 100km, 휴게소 30분</b></p>
+<ul>
+<li><b>1단계</b> 주행 시간: 400 ÷ 100 = 4시간</li>
+<li><b>2단계</b> 휴게 30분을 더해 <b>4시간 30분</b></li>
+<li><b>3단계</b> 실제 평균 속력: 400 ÷ 4.5 ≈ <b>88.9km/h</b></li>
+</ul>
+</div>
+<p>내비게이션 예상 시간이 계산보다 긴 이유는 신호 대기·정체·구간 제한속도까지 반영하기 때문입니다. 이 계산값은 <b>정체가 없는 최소 시간</b>으로 보고, 출발 시각에 더해 도착 시간을 잡으세요.</p>
+<ul class="trivia-list">
+<li><b>평균 속력은 총 거리 ÷ 총 시간</b>입니다. 정차 시간을 빼고 계산하면 실제보다 빠르게 나옵니다.</li>
+<li><b>시속 100km는 초속 27.8m</b>입니다. 반응 시간 1초만 해도 28m를 더 달리므로 제동 거리와 따로 생각해야 합니다.</li>
+<li>연비는 평균 속력보다 <b>급가속·급제동 여부</b>의 영향을 더 크게 받습니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 시속 100km는 초속 몇 m인가요?</p><p class="a">약 27.8m/s입니다. 100 ÷ 3.6으로 계산합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 왕복 평균 속력은 왜 단순 평균이 아닌가요?</p><p class="a">느린 구간에서 시간을 더 오래 쓰기 때문입니다. 총 거리를 총 시간으로 나눠야 정확합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 1해리는 몇 km인가요?</p><p class="a">1.852km입니다. 지구 위도 1분에 해당하는 거리로 정의됐습니다.</p></div>
+<div class="faq-item"><p class="q">Q. 정차 시간을 빼고 평균 속력을 내면 어떻게 되나요?</p><p class="a">실제보다 빠르게 나옵니다. 평균 속력은 총 거리를 출발부터 도착까지 걸린 전체 시간으로 나눠야 하고, 신호 대기와 휴게 시간도 시간에 포함됩니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/tripcost.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">여행 경비 계산기</a> — 거리·연비로 유류비 계산</li>
+<li><a href="/calculators/unit-speed.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">속도 단위 변환</a> — km/h ↔ m/s ↔ knot</li>
+<li><a href="/calculators/average.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">평균 계산기</a> — 여러 구간의 평균값 계산</li>
+<li><a href="/calculators/unit-time.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">시간 단위 변환</a> — 분·시간·일 환산</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -131,6 +157,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "1.852km입니다. 지구 위도 1분에 해당하는 거리로 정의됐습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "정차 시간을 빼고 평균 속력을 내면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "실제보다 빠르게 나옵니다. 평균 속력은 총 거리를 출발부터 도착까지 걸린 전체 시간으로 나눠야 하고, 신호 대기와 휴게 시간도 시간에 포함됩니다."
       }
     }
   ]

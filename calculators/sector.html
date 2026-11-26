@@ -110,10 +110,36 @@
 <li>시계에서 <b>시침과 분침이 이루는 각</b>도 부채꼴 문제입니다. 3시 30분엔 사이각이 75°입니다.</li>
 <li>레이더·소나의 탐지 범위, 감시 카메라 화각이 전부 부채꼴로 표현됩니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>현의 길이와 라디안 변환</h2>
+<div class="example-box">
+<p><b>예: 반지름 6cm, 중심각 60°</b></p>
+<ul>
+<li>라디안: 60 × π ÷ 180 ≈ <b>1.047rad</b></li>
+<li>호의 길이: 6 × 1.047 ≈ <b>6.28cm</b></li>
+<li>현의 길이: 2 × 6 × sin(30°) = <b>6cm</b> — 중심각 60°면 반지름과 같은 정삼각형이 됩니다.</li>
+</ul>
+</div>
+<p>각도를 <b>라디안으로 바꾸면 공식이 짧아집니다</b>. 호 = rθ, 넓이 = ½r²θ. 도(°)로 주어진 문제는 180으로 나눈 뒤 π를 곱해 변환하세요.</p>
+<ul class="trivia-list">
+<li>중심각 90°면 호는 원주의 1/4, 넓이는 원의 1/4입니다.</li>
+<li><b>현의 길이는 2r·sin(θ/2)</b>입니다. 호의 길이와 헷갈리지 마세요. 같은 각도에서 현이 항상 더 짧습니다.</li>
+<li>원뿔 옆면은 부채꼴이므로, 전개도에서 <b>모선이 반지름</b>이 됩니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 중심각이 180°면요?</p><p class="a">반원이 됩니다. 넓이는 원의 절반입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 호의 길이만 알 때 넓이는요?</p><p class="a">넓이 = ½ × 호 × 반지름으로 구할 수 있습니다.</p></div>
 <div class="faq-item"><p class="q">Q. 활꼴은 뭐가 다른가요?</p><p class="a">활꼴은 부채꼴에서 삼각형을 뺀 부분입니다. 현과 호로 둘러싸인 영역입니다.</p></div>
+<div class="faq-item"><p class="q">Q. 호의 길이와 현의 길이는 뭐가 다른가요?</p><p class="a">호는 원둘레를 따라 휘어진 길이, 현은 두 끝점을 곧게 이은 선분입니다. 같은 각도에서는 현이 항상 호보다 짧습니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/circlearea.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">원 넓이 계산기</a> — 반지름·지름으로 원의 넓이</li>
+<li><a href="/calculators/shape.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">도형 넓이 계산기</a> — 삼각형·사다리꼴·마름모</li>
+<li><a href="/calculators/trigratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">삼각비 계산기</a> — 현의 길이에 쓰는 sin 값</li>
+<li><a href="/calculators/unit-angle.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">각도 단위 변환</a> — 도 ↔ 라디안 변환</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +169,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "활꼴은 부채꼴에서 삼각형을 뺀 부분입니다. 현과 호로 둘러싸인 영역입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "호의 길이와 현의 길이는 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "호는 원둘레를 따라 휘어진 길이, 현은 두 끝점을 곧게 이은 선분입니다. 같은 각도에서는 현이 항상 호보다 짧습니다."
       }
     }
   ]

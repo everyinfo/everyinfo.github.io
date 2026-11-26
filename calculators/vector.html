@@ -110,10 +110,36 @@
 <li><b>비행기가 옆바람을 맞으면 기수를 바람 쪽으로 틀어야</b> 직선으로 갑니다. 비행 속도와 바람 벡터의 합이 실제 진행 방향입니다.</li>
 <li>벡터 개념은 19세기 <b>해밀턴의 사원수</b> 연구에서 갈라져 나왔습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>두 벡터의 사잇각 구하기</h2>
+<div class="example-box">
+<p><b>예: a=(3,4), b=(1,2)</b></p>
+<ul>
+<li>|a| = √(9+16) = 5, |b| = √5 ≈ 2.236</li>
+<li>내적 a·b = 3×1 + 4×2 = 11</li>
+<li>cosθ = 11 ÷ (5 × 2.236) ≈ 0.984 → <b>θ ≈ 10.3°</b></li>
+</ul>
+</div>
+<p>사잇각은 <b>cosθ = (a·b) ÷ (|a||b|)</b>로 구합니다. 내적이 음수면 각도가 90°를 넘고, 0이면 정확히 수직입니다.</p>
+<ul class="trivia-list">
+<li>3차원에서는 <b>외적</b>도 쓸 수 있고, 두 벡터에 모두 수직인 벡터가 나옵니다.</li>
+<li>단위벡터는 크기로 나눈 벡터로 <b>방향만</b> 남깁니다.</li>
+<li>각도가 이상하면 계산기의 <b>DEG/RAD 모드</b>를 확인하세요.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 내적과 외적은 결과가 어떻게 다른가요?</p><p class="a">내적은 숫자(스칼라), 외적은 벡터가 나옵니다. 외적은 3차원에서만 정의됩니다.</p></div>
 <div class="faq-item"><p class="q">Q. 내적이 0이면 무슨 뜻인가요?</p><p class="a">두 벡터가 서로 수직이라는 뜻입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 단위벡터는 뭔가요?</p><p class="a">크기가 1인 벡터로, 방향만 나타냅니다.</p></div>
+<div class="faq-item"><p class="q">Q. 내적이 음수면 두 벡터는 어떤 관계인가요?</p><p class="a">사잇각이 90°보다 크다는 뜻입니다. 서로 반대 방향에 가까울수록 내적이 더 작아집니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/matrix.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">행렬 계산기</a> — 행렬식과 역행렬</li>
+<li><a href="/calculators/trigratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">삼각비 계산기</a> — cos 값으로 각도 구하기</li>
+<li><a href="/calculators/pythagoras.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">피타고라스 계산기</a> — 벡터 크기 계산의 기본</li>
+<li><a href="/calculators/scicalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">공학용 계산기</a> — 역삼각함수로 각도 계산</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +169,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "크기가 1인 벡터로, 방향만 나타냅니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "내적이 음수면 두 벡터는 어떤 관계인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "사잇각이 90°보다 크다는 뜻입니다. 서로 반대 방향에 가까울수록 내적이 더 작아집니다."
       }
     }
   ]

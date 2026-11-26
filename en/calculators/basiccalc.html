@@ -82,9 +82,9 @@
 <h2>What is a Basic Calculator?</h2>
 <p>The basic calculator handles arithmetic, percentages, and sign changes for everyday calculations.</p>
 <h2>How it's calculated</h2>
-<p>Multiplication and division are calculated before addition and subtraction, following standard order of operations. Parentheses are evaluated first.</p>
+<p>This calculator works like an office calculator: it processes <b>entries in the order you type them</b>. Enter 2 + 3 × 4 and it adds first, giving <b>20</b> rather than 14. To follow standard order of operations, settle the multiplication first (3 × 4 = gives 12) and then add (2 + 12 =). There is no parenthesis key, so with mixed operators it is safer to confirm one step at a time.</p>
 <h2>Why different calculators give different answers</h2>
-<div class="why-box"><p>Enter 2 + 3 × 4 and a <b>scientific or software calculator gives 14</b> (following order of operations), while a <b>basic office calculator often gives 20</b> (processing left to right as entered). Basic calculators were originally built for bookkeeping, where entries are added sequentially, so processing in entry order made practical sense. <b>When in doubt, use parentheses explicitly</b> to avoid ambiguity.</p></div>
+<div class="why-box"><p>Enter 2 + 3 × 4 and a <b>scientific or software calculator gives 14</b> (following order of operations), while a <b>basic office calculator often gives 20</b> (processing left to right as entered). Basic calculators were originally built for bookkeeping, where entries are added sequentially, so processing in entry order made practical sense. <b>When in doubt, settle the multiplication or division first (=)</b> and then add or subtract.</p></div>
 <h2>Good to know</h2>
 <ul class="trivia-list">
 <li><b>The first mechanical calculator</b> was built by Blaise Pascal in 1642, at age 19, to help his father with tax accounting.</li>
@@ -93,10 +93,74 @@
 <li>The <b>M+/MR/MC memory keys</b> let you accumulate intermediate results across multiple calculations — a feature many people have forgotten now that most calculating happens on phones.</li>
 <li>Before electronic calculators became common, the <b>abacus and slide rule</b> filled the same role.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>Adding up subtotals with the memory keys</h2>
+<div class="example-box">
+<p><b>Example: grocery subtotals of 3,200 + 4,500 + 1,800</b></p>
+<ul>
+<li><b>Step 1</b> Type 3200 and press <b>MS</b>. The first subtotal goes into memory and the M flag lights up.</li>
+<li><b>Step 2</b> Press C, type 4500 and press <b>M+</b>, then C again, type 1800 and press M+.</li>
+<li><b>Step 3</b> Press <b>MR</b> to recall the total: <b>9,500</b>.</li>
+</ul>
+</div>
+<p>M+ and M− add or subtract <b>the value currently on screen</b>. So if you are in the middle of an expression like 2 + 3, press = first to settle the result, then M+. Memory stays until you clear it with MC, so if MR brings back an unexpected number, check the M flag.</p>
+<ul class="trivia-list">
+<li><b>MS</b> stores (overwrites), <b>M+</b> adds, <b>M−</b> subtracts, <b>MR</b> recalls, <b>MC</b> clears.</li>
+<li>Pressing M+ twice <b>adds the same value twice</b>. Glance at the screen after each press.</li>
+<li>For a list of items, work in the order <b>calculate the subtotal → = → M+</b>.</li>
+</ul>
+
+<h2>Using the keyboard</h2>
+<p>Click once inside the calculator and you can type instead of tapping. These keys work in addition to the digits.</p>
+<ul class="trivia-list">
+<li><b>Enter or =</b> evaluates. Press it again and the last operation repeats (2+3= gives 5, then = gives 8).</li>
+<li><b>Backspace</b> deletes the last digit (⌫).</li>
+<li><b>Esc</b> clears everything (C). To clear only the number you just typed, use <b>CE</b> on screen.</li>
+<li><b>+ - * /</b> are accepted as typed and mapped to × and ÷, and the <b>%</b> key works too.</li>
+</ul>
+
+<h2>Watching out with % and √</h2>
+<p>When an operator is pending, % applies <b>to the value before it</b>: 200 + 10% adds 10% of 200, giving <b>220</b>. Pressed with no pending operator, % simply divides by 100, so 200% becomes 2.</p>
+<ul class="trivia-list">
+<li><b>% differs by model.</b> Some office calculators treat 200 + 10% as 200.1. A one-won gap against a receipt can come from exactly this.</li>
+<li><b>√ of a negative number is an error</b> because no real square root exists.</li>
+<li><b>x² applies to the current value immediately</b>. After typing 3 + 4, x² squares only the 4 and returns 19. Press = first to square a total.</li>
+<li><b>1/x with 0 is an error</b>: division by zero is undefined.</li>
+<li>Decimals are shown <b>to the displayed precision only</b>, so 10 ÷ 3 × 3 can read as 10 while the underlying value differs slightly.</li>
+</ul>
+
+<h2>Everyday examples</h2>
+<div class="example-box">
+<p><b>Example 1: splitting 47,500 three ways</b></p>
+<ul>
+<li>47,500 ÷ 3 = 15,833.33… — three people at 15,830 leaves 10 to add on one share.</li>
+</ul>
+<p><b>Example 2: the supply price inside 33,000 including VAT</b></p>
+<ul>
+<li>33,000 ÷ 1.1 = <b>30,000</b> (VAT 3,000)</li>
+<li>Subtracting 10% instead gives 29,700, which is wrong.</li>
+</ul>
+</div>
+<p>Removing a percentage that is <b>already included</b> always means dividing, not subtracting. The VAT calculator does this step for you.</p>
+
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><p class="q">Q. Is 2 + 3 × 4 equal to 14 or 20?</p><p class="a">Mathematically, 14. Some basic office calculators process entries left to right instead, giving 20.</p></div>
 <div class="faq-item"><p class="q">Q. Why does dividing by zero cause an error?</p><p class="a">No value multiplied by zero produces the original number, so the result is mathematically undefined.</p></div>
 <div class="faq-item"><p class="q">Q. How does the % key work?</p><p class="a">It varies by model. Some calculators compute 200 + 10% as 220, others as 200.1.</p></div>
+<div class="faq-item"><p class="q">Q. When do I press M+?</p><p class="a">It adds the value on screen to memory. In the middle of 2+3, press = first so 5 is settled, then M+.</p></div>
+<div class="faq-item"><p class="q">Q. There is an M on screen — how do I clear it?</p><p class="a">It means memory holds a value. Press MC to clear it and the M disappears; MS overwriting the memory also works.</p></div>
+<div class="faq-item"><p class="q">Q. Can I use the keyboard?</p><p class="a">Yes. Click inside the calculator, then type: Enter is =, Backspace deletes a digit and Esc clears everything.</p></div>
+<div class="faq-item"><p class="q">Q. Why does 2 + 3 × 4 give 20?</p><p class="a">This calculator evaluates entries in the order you type them, like an office calculator. To multiply first, do 3 × 4 = (12) and then 2 + 12 =.</p></div>
+<div class="faq-item"><p class="q">Q. Why does pressing = again change the answer?</p><p class="a">It repeats the previous operation: after 2+3= gives 5, = adds 3 again for 8. Press C to stop the repetition.</p></div>
+<h2>Related calculators and guides</h2>
+<ul class="trivia-list">
+<li><a href="/en/calculators/percent.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">Percent calculator</a> — discounts, change rates and percentage points</li>
+<li><a href="/en/calculators/scicalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">Scientific calculator</a> — trigonometry, logs and powers</li>
+<li><a href="/en/calculators/fraction.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">Fraction calculator</a> — fractions with the common-denominator steps</li>
+<li><a href="/en/calculators/average.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">Average calculator</a> — mean, median and standard deviation</li>
+<li><a href="/en/guides/" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">Practical guides</a> — logistics, engineering and concentration walk-throughs</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -126,6 +190,46 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "It varies by model. Some calculators compute 200 + 10% as 220, others as 200.1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do I press M+?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It adds the value on screen to memory. In the middle of 2+3, press = first so 5 is settled, then M+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "There is an M on screen — how do I clear it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It means memory holds a value. Press MC to clear it and the M disappears; MS overwriting the memory also works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the keyboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click inside the calculator, then type: Enter is =, Backspace deletes a digit and Esc clears everything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does 2 + 3 × 4 give 20?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator evaluates entries in the order you type them, like an office calculator. To multiply first, do 3 × 4 = (12) and then 2 + 12 =."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does pressing = again change the answer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It repeats the previous operation: after 2+3= gives 5, = adds 3 again for 8. Press C to stop the repetition."
       }
     }
   ]

@@ -110,10 +110,36 @@
 <li>음수의 제곱근에서 <b>허수 i</b>가 나오는데, 지금은 전기공학·양자역학·신호처리의 필수 도구입니다.</li>
 <li>손으로 제곱근 구하는 <b>개평법</b>은 계산기 없던 시절 학교에서 가르쳤습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>계산기 없이 어림하기</h2>
+<div class="example-box">
+<p><b>예: √50의 근사값</b></p>
+<ul>
+<li><b>1단계</b> 7² = 49, 8² = 64이므로 7과 8 사이입니다.</li>
+<li><b>2단계</b> 7.1² = 50.41, 7.05² = 49.70 — 7.05보다 조금 큽니다.</li>
+<li><b>3단계</b> 실제 값은 <b>7.0711</b>로, 49에 훨씬 가깝습니다.</li>
+</ul>
+</div>
+<p>제곱근은 <b>√(a+b) = √a + √b가 아닙니다</b>. √(9+16) = 5인데 √9 + √16 = 7입니다. 근호 안의 덧셈을 먼저 계산하고 나서 뿌리를 씌워야 합니다.</p>
+<ul class="trivia-list">
+<li>√2 ≈ 1.414, √3 ≈ 1.732, √5 ≈ 2.236은 <b>외워 두면 어림 계산이 빨라집니다</b>.</li>
+<li>계산기에서 음수의 √는 <b>오류</b>가 납니다. 실수 범위에 답이 없기 때문입니다.</li>
+<li>√a × √b = √(ab)는 성립합니다. 곱셈·나눗셈은 근호 안으로 묶어도 됩니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. √8은 어떻게 간단히 하나요?</p><p class="a">8 = 4 × 2이므로 √8 = 2√2입니다. 제곱수를 밖으로 빼냅니다.</p></div>
 <div class="faq-item"><p class="q">Q. 음수의 제곱근은 없나요?</p><p class="a">실수 범위에는 없고, 복소수 범위에서 허수 단위 i로 표현합니다.</p></div>
 <div class="faq-item"><p class="q">Q. 세제곱근도 계산되나요?</p><p class="a">n제곱근은 a^(1/n)로 계산합니다.</p></div>
+<div class="faq-item"><p class="q">Q. √9 + √16은 √25와 같은가요?</p><p class="a">아닙니다. √9 + √16 = 3 + 4 = 7이고 √25 = 5입니다. 근호 안의 덧셈을 먼저 하지 않았기 때문에 값이 달라집니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/pythagoras.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">피타고라스 계산기</a> — 빗변·직각변 길이</li>
+<li><a href="/calculators/explog.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">지수·로그 계산기</a> — 거듭제곱과 로그</li>
+<li><a href="/calculators/circlearea.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">원 넓이 계산기</a> — 반지름 대신 지름으로 계산</li>
+<li><a href="/calculators/scicalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">공학용 계산기</a> — √·x²·거듭제곱 키 활용</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -143,6 +169,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "n제곱근은 a^(1/n)로 계산합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "√9 + √16은 √25와 같은가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. √9 + √16 = 3 + 4 = 7이고 √25 = 5입니다. 근호 안의 덧셈을 먼저 하지 않았기 때문에 값이 달라집니다."
       }
     }
   ]

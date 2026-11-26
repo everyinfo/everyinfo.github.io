@@ -100,10 +100,36 @@
 <li>공학용 계산기는 <b>시험 반입 규정</b>이 까다롭습니다. 프로그래밍·문자 저장 기능이 있으면 제한되는 경우가 많습니다.</li>
 <li>계산기 화면 숫자를 뒤집어 글자를 읽는 놀이(07734→hELLO)는 <b>7세그먼트 디스플레이</b> 덕분에 가능했습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>현장에서 쓰는 순서</h2>
+<div class="example-box">
+<p><b>예: 지붕 경사 25°, 높이 3m일 때 필요한 수평 거리</b></p>
+<ul>
+<li><b>1단계</b> 각도 모드를 DEG로 맞춥니다.</li>
+<li><b>2단계</b> tan(25) = 0.4663을 구합니다.</li>
+<li><b>3단계</b> 3 ÷ 0.4663 = <b>6.43m</b> — 높이 3m를 얻으려면 수평으로 6.43m가 필요합니다.</li>
+</ul>
+</div>
+<p>√·x²·1/x·% 는 <b>지금 화면에 있는 값</b>에 바로 적용됩니다. 식을 다 넣은 뒤에 누르면 마지막 숫자에만 적용되므로, 합계를 제곱하려면 = 로 결과를 확정한 뒤 누르세요.</p>
+<ul class="trivia-list">
+<li><b>EXP는 10의 거듭제곱 전용</b>입니다. 1 EXP 3 = 1,000이고, 2 EXP 3은 2,000입니다(2³이 아닙니다).</li>
+<li><b>sin⁻¹·cos⁻¹의 결과는 각도</b>입니다. DEG 모드에서 sin⁻¹(0.5) = 30, RAD 모드에서는 0.5236입니다.</li>
+<li>결과가 이상하면 <b>DEG/RAD → 괄호 위치 → 괄호 닫힘</b> 순서로 확인하면 대부분 잡힙니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 답이 이상하게 나옵니다.</p><p class="a">DEG/RAD 모드를 먼저 확인하세요. 각도 단위가 다르면 삼각함수 값이 완전히 달라집니다.</p></div>
 <div class="faq-item"><p class="q">Q. EXP나 E는 뭔가요?</p><p class="a">10의 거듭제곱 표기입니다. 1.5E6은 1.5×10⁶=1,500,000입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 시험에 어떤 계산기를 가져가야 하나요?</p><p class="a">시험마다 허용 모델 목록이 다릅니다. 주관 기관 공지를 반드시 확인하세요.</p></div>
+<div class="faq-item"><p class="q">Q. EXP 키로 2의 3제곱을 넣을 수 있나요?</p><p class="a">없습니다. EXP는 10의 거듭제곱 표기라 2 EXP 3은 2×10³=2,000입니다. 2³은 2 x^y 3으로 계산합니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/explog.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">지수·로그 계산기</a> — 거듭제곱과 로그 값을 밑까지 지정해 계산</li>
+<li><a href="/calculators/sqrtcalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">제곱근 계산기</a> — 근호 정리와 근사값</li>
+<li><a href="/calculators/trigratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">삼각비 계산기</a> — sin·cos·tan 값과 각도</li>
+<li><a href="/calculators/basiccalc.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">일반 계산기</a> — 메모리 키와 키보드 입력</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -133,6 +159,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "시험마다 허용 모델 목록이 다릅니다. 주관 기관 공지를 반드시 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "EXP 키로 2의 3제곱을 넣을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "없습니다. EXP는 10의 거듭제곱 표기라 2 EXP 3은 2×10³=2,000입니다. 2³은 2 x^y 3으로 계산합니다."
       }
     }
   ]

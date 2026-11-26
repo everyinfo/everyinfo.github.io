@@ -103,10 +103,36 @@
 <li>할인이 겹칠 때 <b>30% + 20% = 50%가 아닙니다.</b> 30% 할인 후 다시 20%를 빼면 실제로는 44% 할인입니다.</li>
 <li>부가세를 뺄 때 10%를 그냥 빼면 틀리는 것도 같은 원리입니다. 붙일 때와 뗄 때의 기준값이 다릅니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>인상·인하 계산</h2>
+<div class="example-box">
+<p><b>예: 연봉 3,600만 원에서 4.5% 인상</b></p>
+<ul>
+<li>인상액: 36,000,000 × 0.045 = <b>1,620,000원</b></li>
+<li>인상 후: 36,000,000 × 1.045 = <b>3,762만 원</b></li>
+<li>거꾸로 3,762만 원에서 4.5%를 빼면 3,592.7만 원이라 원래대로 돌아오지 않습니다.</li>
+</ul>
+</div>
+<p>증감률의 분모는 <b>항상 처음 값</b>입니다. 인상 후 금액을 기준으로 빼면 실제 인상률보다 작게 나옵니다.</p>
+<ul class="trivia-list">
+<li>100만 원의 3%와 3만 원의 3%는 <b>금액이 33배 차이</b>입니다. 비율만 보면 같은 크기로 느껴집니다.</li>
+<li>여러 해의 <b>평균 증가율</b>은 산술평균이 아니라 기하평균으로 구합니다.</li>
+<li>부가세를 뺄 때는 10%를 빼지 말고 <b>1.1로 나눕니다</b>.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 30% 할인 후 추가 20% 할인이면 총 몇 % 할인인가요?</p><p class="a">44%입니다. 100 × 0.7 × 0.8 = 56이므로 정가의 56%만 내는 셈입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 100% 증가는 몇 배가 된 건가요?</p><p class="a">2배입니다. 200% 증가는 3배, 300% 증가는 4배입니다.</p></div>
 <div class="faq-item"><p class="q">Q. %와 %p 중 뭘 써야 하나요?</p><p class="a">두 퍼센트 값의 차이를 말할 땐 %p, 원래 값 대비 변화율을 말할 땐 %를 씁니다.</p></div>
+<div class="faq-item"><p class="q">Q. 인상 후 금액에서 같은 %를 빼면 원래대로 돌아오나요?</p><p class="a">아닙니다. 3,600만 원을 4.5% 올리면 3,762만 원이고, 여기서 4.5%를 빼면 3,592.7만 원이 됩니다. 기준이 되는 금액이 커졌기 때문입니다.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/percentkid.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">백분율·할인 계산기</a> — 중복 할인과 부가세</li>
+<li><a href="/calculators/vat.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">부가세 계산기</a> — 부가세 포함·별도 계산</li>
+<li><a href="/calculators/salary.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">연봉 계산기</a> — 연봉 인상과 실수령액</li>
+<li><a href="/calculators/average.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">평균 계산기</a> — 증가율 평균 구하기</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -136,6 +162,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "두 퍼센트 값의 차이를 말할 땐 %p, 원래 값 대비 변화율을 말할 땐 %를 씁니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "인상 후 금액에서 같은 %를 빼면 원래대로 돌아오나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 3,600만 원을 4.5% 올리면 3,762만 원이고, 여기서 4.5%를 빼면 3,592.7만 원이 됩니다. 기준이 되는 금액이 커졌기 때문입니다."
       }
     }
   ]

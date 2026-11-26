@@ -100,10 +100,36 @@
 <li><b>'최대 70% 할인'</b>에서 중요한 건 '최대'입니다. 실제 70%인 품목은 극소수인 경우가 많습니다.</li>
 <li>부가세 계산도 같은 함정입니다. 총액에서 10%를 그냥 빼면 틀리고 1.1로 나눠야 맞습니다.</li>
 </ul>
+<!-- thin-boost-2026-11-26 -->
+<h2>할인은 어떤 순서로 계산하나요</h2>
+<div class="example-box">
+<p><b>예: 정가 39,900원, 30% 할인 + 5,000원 쿠폰</b></p>
+<ul>
+<li><b>1단계</b> 할인가: 39,900 × 0.7 = <b>27,930원</b></li>
+<li><b>2단계</b> 쿠폰 차감: 27,930 − 5,000 = <b>22,930원</b></li>
+<li><b>3단계</b> 정가 대비 실제 할인율: (39,900 − 22,930) ÷ 39,900 ≈ <b>42.5%</b></li>
+</ul>
+</div>
+<p>쿠폰·포인트는 <b>할인율을 모두 적용한 금액</b>에서 빼야 실제 결제액과 맞습니다. 반면 카드 청구할인은 결제 금액을 기준으로 계산되는 경우가 많아, 순서를 바꾸면 몇백 원씩 달라집니다.</p>
+<ul class="trivia-list">
+<li><b>적립 5%와 할인 5%는 다릅니다.</b> 할인은 지금 내는 돈이 줄지만, 적립은 다음 구매에 쓰는 포인트라 실질 혜택이 더 작습니다.</li>
+<li><b>1+1은 50% 할인이 아닙니다.</b> 두 개를 사야 성립하므로 한 개만 필요하면 오히려 지출이 늘어납니다.</li>
+<li>할인가에 원 단위 미만이 나오면 대부분 <b>절사</b>합니다. 계산값과 영수증이 1원 다를 수 있습니다.</li>
+</ul>
+
 <h2>자주 묻는 질문</h2>
 <div class="faq-item"><p class="q">Q. 30% 할인 후 20% 추가 할인은 총 몇 %인가요?</p><p class="a">44%입니다. 정가의 56%만 지불하게 됩니다.</p></div>
 <div class="faq-item"><p class="q">Q. 할인가에서 원래 가격을 구하려면요?</p><p class="a">할인가÷(1−할인율)로 계산합니다. 20% 할인가 8,000원이면 정가는 10,000원입니다.</p></div>
 <div class="faq-item"><p class="q">Q. 부가세 포함 가격에서 부가세만 빼려면요?</p><p class="a">총액÷1.1이 공급가액입니다. 10%를 빼면 안 됩니다.</p></div>
+<div class="faq-item"><p class="q">Q. 카드 청구할인은 어떻게 계산하나요?</p><p class="a">보통 실제 결제 금액의 몇 %를 다음 달 청구서에서 빼 줍니다. 쿠폰을 먼저 적용한 금액이 기준이 되므로, 쿠폰과 청구할인을 함께 쓸 때는 쿠폰 적용 후 금액으로 계산하세요.</p></div>
+<h2>함께 보면 좋은 계산기·가이드</h2>
+<ul class="trivia-list">
+<li><a href="/calculators/percent.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">퍼센트 계산기</a> — 증감률·%p·할인가 계산</li>
+<li><a href="/calculators/vat.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">부가세 계산기</a> — 공급가액과 부가세 분리</li>
+<li><a href="/calculators/ratiokid.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">비와 비례식 계산기</a> — 단위 가격·비율 비교</li>
+<li><a href="/guides/kids-salt-ratio.html" style="color:var(--indigo);font-weight:600;text-decoration:underline;text-underline-offset:2px;">초등 소금물 농도와 비례식 원리</a> — 비율 개념을 그림으로 정리</li>
+</ul>
+
 </div>
 
 <script type="application/ld+json">
@@ -133,6 +159,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "총액÷1.1이 공급가액입니다. 10%를 빼면 안 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "카드 청구할인은 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "보통 실제 결제 금액의 몇 %를 다음 달 청구서에서 빼 줍니다. 쿠폰을 먼저 적용한 금액이 기준이 되므로, 쿠폰과 청구할인을 함께 쓸 때는 쿠폰 적용 후 금액으로 계산하세요."
       }
     }
   ]
