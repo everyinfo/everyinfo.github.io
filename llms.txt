@@ -8,6 +8,7 @@ CalcLex는 엔지니어와 직장인이 실제 업무에서 쓰는 계산(단위
 - English: https://calclex.com/en/
 - 한국어 계산기: 85개 · English calculators: 11개
 - 사이트맵: https://calclex.com/sitemap.xml
+- 실무 가이드: https://calclex.com/guides/ · English: https://calclex.com/en/guides/
 
 ## 주요 계산 기준
 
@@ -146,6 +147,39 @@ CalcLex는 엔지니어와 직장인이 실제 업무에서 쓰는 계산(단위
 - [Ideal Gas Law Calculator](https://calclex.com/en/calculators/gas.html): Solve PV=nRT for pressure, volume, moles, or temperature, plus the Combined Gas Law.
 - [Moment of Inertia Calculator](https://calclex.com/en/calculators/moment.html): Calculate a cross-section's moment of inertia, section modulus, and radius of gyration by shape.
 - [Mold Shrinkage Calculator](https://calclex.com/en/calculators/mold.html): Estimate the required mold dimension based on expected material shrinkage. Supports 13 common materials.
+
+## 실무 가이드
+
+CalcLex 계산기와 같은 수치로 정리한 실무·학습 가이드입니다. 계산식과 기준, 예시를 본문에 담아 AI 검색·인용의 근거로 쓸 수 있습니다.
+
+- [실무 가이드 전체 목록](https://calclex.com/guides/): 파렛트·컨테이너 CBM·금형 수축률·단열·소금물·항공 부피무게·목재·보·배관·약수까지 10편 목록
+- [All practical guides](https://calclex.com/en/guides/): Ten guides on pallets, CBM, mold shrinkage, insulation, saltwater, chargeable weight, lumber, beams, pipes and GCD
+
+### 한국어 실무 가이드 (10)
+
+- [T11 vs T12 vs 미국 GMA 파렛트 규격 총정리](https://calclex.com/guides/pallet-standards.html): T11·T12·GMA·EUR1 파렛트 치수와 같은 박스의 적재 개수, 컨테이너 바닥 적입 매수를 비교합니다.
+- [20ft·40ft·40HQ 컨테이너 실제 내경과 CBM 오차 줄이는 실무 팁](https://calclex.com/guides/container-cbm.html): 20ft·40ft·40HQ 실제 내경과 이론 CBM, 40HQ와 40DV의 차이, LCL 운임톤 계산을 정리합니다.
+- [금형 수축률(‰) 계산 공식과 수지별 참고표](https://calclex.com/guides/mold-shrinkage.html): 수축률 ‰의 의미와 금형 치수 공식, ABS·PP·PC·POM 등 13종 수지별 참고 수축률을 정리합니다.
+- [열관류율(U-value) 계산법과 결로 방지 단열 두께 기준](https://calclex.com/guides/uvalue-condensation.html): U-value 공식과 재료별 열전도율, 단열기준별 필요 두께, 노점으로 결로를 판정하는 방법을 정리합니다.
+- [초등 소금물 농도(희석)와 비례식 원리](https://calclex.com/guides/kids-salt-ratio.html): 소금물 농도의 분모가 전체인 이유와 희석 원리, 비례식 가×라 = 나×다로 답을 찾는 법을 설명합니다.
+- [항공 부피무게(CW)와 관부가세 기준 총정리](https://calclex.com/guides/airweight-customs.html): 실중량과 부피무게 중 큰 값이 청구중량이 되는 원리, 항공 ÷6000과 특송 ÷5000, CIF 과세가격과 $150·$200 면세 판정을 정리합니다.
+- [목재 사이(재) 계산법과 판재 환산](https://calclex.com/guides/wood-sai-boardfeet.html): 1재(才)=1치×1치×12자와 실무 관행값 1㎥=300재의 차이, 재당 단가로 금액을 계산하는 법을 정리합니다.
+- [보 굽힘응력·단면2차모멘트·토크 기초](https://calclex.com/guides/beam-stress-torque.html): 힘·응력·모멘트의 구분, 단면2차모멘트 I=bh³/12, 허용응력과 안전율, 토크·회전수·동력 관계를 정리합니다.
+- [배관 구경·유속과 펌프 동력 선정 기초](https://calclex.com/guides/pipe-flow-pump.html): 호칭경과 실제 내경의 차이, Q=Av에서 관경 2배가 유속 1/4이 되는 원리, 레이놀즈수와 펌프 동력 선정을 정리합니다.
+- [약수·최대공약수·최소공배수와 도형 넓이·부피 총정리](https://calclex.com/guides/gcd-lcm-shapes.html): 최대공약수·최소공배수를 문장제에서 구분하는 법과 원의 넓이·원주, 뿔의 ÷3, cm²·cm³ 혼동을 정리합니다.
+
+### English guides (10)
+
+- [T11 vs T12 vs US GMA Pallets: Sizes and Load Efficiency](https://calclex.com/en/guides/pallet-standards.html): Compare T11, T12, EUR1 and GMA pallet dimensions, box counts per pallet, and pallets per 20ft or 40ft container.
+- [Container Internal Dimensions and CBM Accuracy (20ft, 40ft, 40HQ)](https://calclex.com/en/guides/container-cbm.html): Internal dimensions and nominal CBM for six container types, the 40HQ vs 40DV difference, and LCL revenue tons.
+- [Mold Shrinkage (‰): Formula and Resin Reference Table](https://calclex.com/en/guides/mold-shrinkage.html): What a per-mille shrink rate means, the mold size formula, and reference shrinkage for 13 resins including ABS, PP, PC and POM.
+- [U-Value Formula and Insulation Thickness Against Condensation](https://calclex.com/en/guides/uvalue-condensation.html): The U-value formula with surface resistances, thermal conductivity by material, required insulation thickness, and dew-point condensation checks.
+- [Saltwater Concentration and Ratios for Kids, Explained](https://calclex.com/en/guides/kids-salt-ratio.html): Why the denominator is the whole saltwater, why adding water weakens it, and how the ratio rule a×d = b×c finds the missing number.
+- [Air Chargeable Weight (C/W) and Customs Duty Basics](https://calclex.com/en/guides/airweight-customs.html): Why chargeable weight is the greater of actual and volume weight, air ÷6,000 vs courier ÷5,000, CIF duty base, and the $150 / $200 duty-free line.
+- [Board Feet and Lumber Volume: Nominal vs Actual](https://calclex.com/en/guides/wood-sai-boardfeet.html): The board foot formula, why a 2×4 is not 2 in by 4 in, and how BF compares with cubic metres and the Korean jae.
+- [Beam Bending Stress, Second Moment of Area and Torque](https://calclex.com/en/guides/beam-stress-torque.html): Force vs stress vs moment, why I = bh³/12 grows eightfold when depth doubles, allowable stress, safety factor, and torque-power relations.
+- [Pipe Size, Velocity and Pump Power Selection](https://calclex.com/en/guides/pipe-flow-pump.html): Nominal bore vs inside diameter, how doubling diameter quarters velocity, Reynolds number, and pump motor sizing from hydraulic power.
+- [GCD, LCM and Area & Volume of Shapes](https://calclex.com/en/guides/gcd-lcm-shapes.html): Telling GCD from LCM in word problems, area vs circumference of a circle, the missing ÷2 and ÷3, and cm² vs cm³.
 
 ## 참고
 
