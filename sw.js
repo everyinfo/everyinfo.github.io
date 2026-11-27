@@ -30,6 +30,7 @@ const SHELL = [
   "/icon-192.png",
   "/icon-512.png",
   "/icon-maskable-512.png",
+  "/og-image.png",
   "/favicon-32.png",
   "/favicon.svg"
 ];
