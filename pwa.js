@@ -165,3 +165,111 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
+/* ---------- 4. Home-screen install banner (2nd visit and later) ---------- */
+(function () {
+  "use strict";
+  if (window.__lxPwaBanner) return;
+  window.__lxPwaBanner = 1;
+
+  var KEY_VISITS = "calclexVisits";
+  var KEY_DISMISSED = "calclexPwaDismissed";
+  var isEN = /^\/en(\/|$)/.test(location.pathname) ||
+    (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var TXT = isEN
+    ? { msg: "Add CalcLex to your home screen and open it like an app.",
+        ios: "In Safari: Share → Add to Home Screen.",
+        add: "Add", close: "Dismiss" }
+    : { msg: "홈 화면에 추가하면 앱처럼 바로 쓸 수 있어요",
+        ios: "Safari에서 공유 → 홈 화면에 추가를 눌러 주세요.",
+        add: "추가", close: "닫기" };
+
+  var deferred = null;
+  var shown = false;
+
+  function readNum(k) {
+    try { return parseInt(localStorage.getItem(k) || "0", 10) || 0; } catch (e) { return 0; }
+  }
+  function dismissed() {
+    try { return localStorage.getItem(KEY_DISMISSED) === "1"; } catch (e) { return true; }
+  }
+  function setDismissed() {
+    try { localStorage.setItem(KEY_DISMISSED, "1"); } catch (e) {}
+  }
+  function standalone() {
+    try {
+      if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return true;
+    } catch (e) {}
+    return navigator.standalone === true;
+  }
+  function isIOS() {
+    return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+  }
+
+  /* Count one visit per page load (a counter only, nothing else is stored). */
+  var visits = readNum(KEY_VISITS) + 1;
+  try { localStorage.setItem(KEY_VISITS, String(visits)); } catch (e) {}
+
+  function build() {
+    var el = document.createElement("div");
+    el.id = "pwaBanner";
+    el.className = "pwa-banner";
+    el.setAttribute("role", "region");
+    el.setAttribute("aria-label", isEN ? "Install CalcLex" : "CalcLex 홈 화면 추가");
+    var msg = TXT.msg + (deferred ? "" : " " + TXT.ios);
+    el.innerHTML = '<span class="pwa-banner-msg"></span>' +
+      (deferred ? '<button type="button" class="pwa-banner-add"></button>' : "") +
+      '<button type="button" class="pwa-banner-close">✕</button>';
+    el.querySelector(".pwa-banner-msg").textContent = msg;
+    var add = el.querySelector(".pwa-banner-add");
+    if (add) {
+      add.textContent = TXT.add;
+      add.addEventListener("click", function () {
+        if (!deferred) return;
+        var p = deferred;
+        deferred = null;
+        try { p.prompt(); } catch (e) {}
+        if (p.userChoice && p.userChoice.then) {
+          p.userChoice.then(function (r) {
+            if (r && r.outcome === "accepted") setDismissed();
+            hide();
+          }).catch(function () { hide(); });
+        } else {
+          hide();
+        }
+      });
+    }
+    var close = el.querySelector(".pwa-banner-close");
+    close.setAttribute("aria-label", TXT.close);
+    close.title = TXT.close;
+    close.addEventListener("click", function () { setDismissed(); hide(); });
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function hide() {
+    var el = document.getElementById("pwaBanner");
+    if (el) el.classList.remove("show");
+    if (document.body) document.body.classList.remove("pwa-banner-open");
+  }
+
+  function maybeShow() {
+    if (shown || !document.body) return;
+    if (visits < 2 || dismissed() || standalone()) return;
+    if (!deferred && !isIOS()) return;
+    var el = document.getElementById("pwaBanner") || build();
+    shown = true;
+    el.classList.add("show");
+    document.body.classList.add("pwa-banner-open");
+  }
+
+  window.addEventListener("beforeinstallprompt", function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    deferred = e;
+    if (document.body) maybeShow();
+    else document.addEventListener("DOMContentLoaded", maybeShow);
+  });
+  window.addEventListener("appinstalled", function () { setDismissed(); hide(); });
+
+  if (document.body) maybeShow();
+  else document.addEventListener("DOMContentLoaded", maybeShow);
+})();
