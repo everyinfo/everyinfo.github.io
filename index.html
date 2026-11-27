@@ -35,8 +35,10 @@
 <meta property="og:title" content="복잡한 수식부터 일상의 편의까지, 계산의 모든 것 | CALCLEX">
 <meta property="og:description" content="공학, 물류, 일상 편의 계산을 아우르는 무료 온라인 계산 사전. 회원가입 없이 즉시 정확한 값을 계산하세요.">
 <meta property="og:url" content="https://calclex.com/">
+<meta property="og:image" content="https://calclex.com/icon-512.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://calclex.com/icon-512.png">
 <link rel="canonical" href="https://calclex.com/">
 <link rel="alternate" hreflang="ko" href="https://calclex.com/">
 <link rel="alternate" hreflang="en" href="https://calclex.com/en/">
@@ -44,6 +46,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"CalcLex","alternateName":["CalcLex","Calc Lex"],"url":"https://calclex.com/","publisher":{"@type":"Organization","name":"CalcLex","url":"https://calclex.com/"}}
 </script>
+<link rel="icon" type="image/png" href="/icon-192.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#1e3a5f">
 <script src="/pwa.js" defer></script>
@@ -54,13 +57,13 @@
   <div class="nav-inner">
     <a href="/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
     <div class="nav-links" id="navLinks">
-      <a href="#" class="active" data-cat="all">전체</a>
-      <a href="#" data-cat="단위변환">단위변환</a>
-      <a href="#" data-cat="공학">공학</a>
-      <a href="#" data-cat="일반">일반</a>
-      <a href="#" data-cat="일상">일상</a>
-      <a href="#" data-cat="금융">금융</a>
-      <a href="#" data-cat="물류">물류</a>
+      <a href="/index.html#all" class="active" data-cat="all">전체</a>
+      <a href="/index.html#단위변환" data-cat="단위변환">단위변환</a>
+      <a href="/index.html#공학" data-cat="공학">공학</a>
+      <a href="/index.html#일반" data-cat="일반">일반</a>
+      <a href="/index.html#일상" data-cat="일상">일상</a>
+      <a href="/index.html#금융" data-cat="금융">금융</a>
+      <a href="/index.html#물류" data-cat="물류">물류</a>
       <a href="/guides/">실무 가이드</a>
     </div>
   </div>
@@ -419,7 +422,7 @@ function render(){
   }
 
   grid.innerHTML = '';
-  resultLabel.textContent = intentUsed ? '질문에 맞는 계산기' : (isAll ? '전체 계산기' : currentCat + ' 계산기');
+  resultLabel.textContent = intentUsed ? '검색 결과 (' + filtered.length + '개)' : (isAll ? '전체 계산기' : currentCat + ' 계산기');
 
   if(filtered.length === 0){
     grid.className = '';
@@ -428,9 +431,11 @@ function render(){
   }
 
   function cardHtml(c){
+    // Inline SVG icons carry no text, so keep the card heading's accessible name explicit.
+    const svgIcon = /<svg/i.test(c.emoji);
     return `
       <a class="calc-item${c.active ? '' : ' disabled'}" href="${c.url}">
-        <h3><span class="ci-emoji" aria-hidden="true">${c.emoji}</span>${c.title}</h3>
+        <h3${svgIcon ? ` aria-label="${c.title}"` : ''}><span class="ci-emoji" aria-hidden="true">${c.emoji}</span>${c.title}</h3>
         <p>${c.desc}</p>
       </a>
     `;
@@ -518,6 +523,7 @@ document.getElementById('navLinks').addEventListener('click', function(e){
   document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));
   a.classList.add('active');
   currentCat = a.dataset.cat;
+  try{ history.replaceState(null, '', location.pathname + '#' + encodeURIComponent(currentCat)); }catch(err){}
   render();
 });
 
@@ -593,8 +599,8 @@ document.getElementById('toggleAll').addEventListener('click', function(){
     return (ia<0?99:ia)-(ib<0?99:ib);
   });
   const nav = document.getElementById('navLinks');
-  nav.innerHTML = '<a href="#" class="active" data-cat="all">전체</a>'
-    + present.map(cat=>`<a href="#" data-cat="${cat}">${cat}</a>`).join('')
+  nav.innerHTML = '<a href="/index.html#all" class="active" data-cat="all">전체</a>'
+    + present.map(cat=>`<a href="/index.html#${encodeURIComponent(cat)}" data-cat="${cat}">${cat}</a>`).join('')
     + '<a href="/guides/">실무 가이드</a>';
 })();
 

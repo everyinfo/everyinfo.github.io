@@ -31,8 +31,10 @@
 <meta property="og:title" content="From Complex Formulas to Everyday Convenience | CALCLEX">
 <meta property="og:description" content="A free online calculator reference covering engineering, logistics, and everyday calculations. No sign-up required — get accurate results instantly.">
 <meta property="og:url" content="https://calclex.com/en/">
+<meta property="og:image" content="https://calclex.com/icon-512.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://calclex.com/icon-512.png">
 <link rel="canonical" href="https://calclex.com/en/">
 <link rel="alternate" hreflang="ko" href="https://calclex.com/">
 <link rel="alternate" hreflang="en" href="https://calclex.com/en/">
@@ -40,6 +42,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"CalcLex","url":"https://calclex.com/en/","publisher":{"@type":"Organization","name":"CalcLex","url":"https://calclex.com/"}}
 </script>
+<link rel="icon" type="image/png" href="/icon-192.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#1e3a5f">
 <script src="/pwa.js" defer></script>
@@ -50,9 +53,13 @@
   <div class="nav-inner">
     <a href="/en/index.html" class="brand brand-caps"><span class="mark"></span>CalcLex</a>
     <div class="nav-links" id="navLinks">
-      <a href="#" class="active" data-cat="all">All</a>
-      <a href="#" data-cat="Engineering">Engineering</a>
-      <a href="#" data-cat="Logistics">Logistics</a>
+      <a href="/en/index.html#all" class="active" data-cat="all">All</a>
+      <a href="/en/index.html#Unit%20Converter" data-cat="Unit Converter">Unit Converter</a>
+      <a href="/en/index.html#Engineering" data-cat="Engineering">Engineering</a>
+      <a href="/en/index.html#General" data-cat="General">General</a>
+      <a href="/en/index.html#Everyday" data-cat="Everyday">Everyday</a>
+      <a href="/en/index.html#Finance" data-cat="Finance">Finance</a>
+      <a href="/en/index.html#Logistics" data-cat="Logistics">Logistics</a>
       <a href="/en/guides/">Guides</a>
     </div>
   </div>
@@ -256,8 +263,10 @@
   function saveCollapsed(){ try{ localStorage.setItem('collapsedCats_en', JSON.stringify(COLLAPSED)); }catch(e){} }
 
   function cardHtml(c){
+    // Inline SVG icons carry no text, so keep the card heading's accessible name explicit.
+    const svgIcon = /<svg/i.test(c.emoji);
     return `<a class="calc-item${c.active ? '' : ' disabled'}" href="${c.url}">
-        <h3><span class="ci-emoji" aria-hidden="true">${c.emoji}</span>${c.title}</h3>
+        <h3${svgIcon ? ` aria-label="${c.title}"` : ''}><span class="ci-emoji" aria-hidden="true">${c.emoji}</span>${c.title}</h3>
         <p>${c.desc}</p>
       </a>`;
   }
@@ -296,8 +305,9 @@
     let intentUsed = false;
     if(searching && filtered.length === 0 && typeof window.calcIntentSearch === 'function'){
       const hits = window.calcIntentSearch(currentQuery, CALCULATORS);
-      if(hits.length){ filtered = hits.map(h => h.calc); intentUsed = true; resultLabel.textContent = 'Best matches'; }
+      if(hits.length){ filtered = hits.map(h => h.calc); intentUsed = true; }
     }
+    if(intentUsed) resultLabel.textContent = `Search Results (${filtered.length})`;
 
     if(isAll && !searching){
       const order = [];
@@ -336,18 +346,31 @@
   });
   (function(){
     const catOrder = window.CATEGORY_ORDER || [];
-    navLinks.innerHTML = '<a href="#" class="active" data-cat="all">All</a>' +
-      catOrder.map(c=>`<a href="#" data-cat="${c}">${c}</a>`).join('');
+    navLinks.innerHTML = '<a href="/en/index.html#all" class="active" data-cat="all">All</a>' +
+      catOrder.map(c=>`<a href="/en/index.html#${encodeURIComponent(c)}" data-cat="${c}">${c}</a>`).join('');
     navLinks.insertAdjacentHTML('beforeend', '<a href="/en/guides/">Guides</a>');
-    navLinks.querySelectorAll('a').forEach(a=>{
+    navLinks.querySelectorAll('a[data-cat]').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
         navLinks.querySelectorAll('a').forEach(x=>x.classList.remove('active'));
         a.classList.add('active');
         currentCat = a.dataset.cat;
+        try{ history.replaceState(null, '', location.pathname + '#' + encodeURIComponent(currentCat)); }catch(err){}
         render();
       });
     });
+  })();
+
+  // Deep link: /en/index.html#<category> selects that tab on load.
+  (function(){
+    const h = decodeURIComponent(location.hash.replace('#', ''));
+    if(!h) return;
+    const tab = navLinks.querySelector(`a[data-cat="${h}"]`);
+    if(tab){
+      navLinks.querySelectorAll('a').forEach(x=>x.classList.remove('active'));
+      tab.classList.add('active');
+      currentCat = h;
+    }
   })();
 
   const searchInput = document.getElementById('searchInput');

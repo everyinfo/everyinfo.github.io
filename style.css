@@ -316,3 +316,11 @@ table.gtable tr.hl td{background:rgba(46,92,138,.06)}
 .rk-simp{font-size:19px;font-weight:700;color:var(--indigo);margin:4px 0 10px;line-height:1.45}
 .rk-simp b{font-weight:800}
 .rk-tag{display:inline-block;font-size:10.5px;font-weight:700;color:var(--ink-faint);background:var(--line-soft);border-radius:999px;padding:2px 8px;vertical-align:middle;margin-left:4px}
+
+
+/* 2026-11-27 Desktop: popular calculators as a 4x2 grid (no clipped card) + title wrapping */
+@media (min-width:769px){
+  .popular-scroll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;overflow:visible;padding:4px 2px 10px}
+  .popular-card{width:auto;flex:1 1 auto;min-width:0}
+  .popular-card h4{word-break:keep-all;overflow-wrap:break-word;line-height:1.35}
+}
